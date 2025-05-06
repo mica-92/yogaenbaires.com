@@ -18,9 +18,11 @@
             <div class="container hero {{ if .Site.Params.fadeIn | default true }} fade-in one {{ end }}">
                 {{ block "title" . }}
                     {{ if eq .Section "blog" }}
+
                         <div class="responsive-title-image">
                             <a href="{{ .Permalink }}">
-                                <img src="/images/camino-titulo.png" alt="Ruta Yogui">
+                                {{ partial "images/caminodelyogui" . }}
+                                {{ partial "slogan.html" . }}
                             </a>
                         </div>
                     {{ else }}

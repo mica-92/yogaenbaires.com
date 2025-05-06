@@ -21,8 +21,10 @@
             <!-- Super sweet Hero body title -->
             <div class="hero-body">
                 <div class="container has-text-centered">
+                    
                     <!-- Logo with custom styling -->
-                    <img src="/images/logo-circulo.png" alt="Logo" class="hero-logo fade-in one">
+                    {{ partial "images/logo" }}
+                    
                     <div class="subtitle is-3 fade-in two">
                         {{ .Content }}
                     </div>
@@ -54,21 +56,30 @@
         {{ if ne .Name "contact.md" }}
         {{ if .File }}
         {{ if eq (os.Stat .File.Dir).Name "blog" }}
+
+
             <!-- Let`s show some blog posts -->
             {{ partial "home/blog.html" . }}
             <!-- Include yoga partial after blog -->
             {{ partial "home/yoga.html" . }}
+
+
         {{ else }}
 
         <!-- Range through all sections in /home execept contact.md -->
         <div class="section" id="{{ .File.TranslationBaseName }}">
             <div class="container">
                 <div class="responsive-title-image">
+
+
                     <a href="{{ .Permalink }}">
-                        <img src="/images/sobremi.png" alt="Sobre Mi">
+                        {{ partial "images/sobremi" . }}
                     </a>
+
+
                 </div>
-                                {{ if .Params.Image }}
+                
+                {{ if .Params.Image }}
                 <div class="columns">
                     <div class="column is-one-third has-text-centered">
                         {{ with $home.Resources.GetMatch .Params.Image }}
@@ -102,6 +113,7 @@
         {{ end }}
         {{ end }}
         {{ end }}
+        
         <!-- Let`s chat, shall we? -->
         {{ with .Resources.GetMatch "contact.md" }}
         <div class="section" id="{{ .File.TranslationBaseName }}">

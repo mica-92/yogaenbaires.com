@@ -1,9 +1,10 @@
 {{ with .Site.GetPage "/yoga" }}
-<div class="section" id="yoga-section">
+<div class="section" id="yoga101">
     <div class="container">
+        
         <!-- Image Title -->
         <div class="responsive-title-image">
-            <img src="/images/yoga101.png" alt="Yoga101">
+            {{partial "images/yoga101" .}}
         </div>
 
         <!-- Toggle Container -->

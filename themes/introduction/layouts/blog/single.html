@@ -1,8 +1,8 @@
 {{ define "title" }}
 {{ with .Site.GetPage "/blog" }}
 <div class="responsive-title-image">
-    <a href="{{ "/blog" | relURL }}">
-        <img src="/images/paradas-titulo.png" alt="Blog">
+    <a href="{{ "/yogaenbaires/blog" | relURL }}">
+        {{ partial "images/paradas" }}
     </a>
 </div>
 {{ end }}

@@ -113,7 +113,7 @@
   /* EL CAMINO DEL YOGUI Y OTROS TITULOS DENTRO DE HOME */
   .responsive-title-image {
     text-align: center;
-    margin: 0 auto 1.5rem;
+    margin: 0 ;
     max-width: 100%;
 }
 
@@ -740,16 +740,15 @@
     color: #333;
     font-size: 1rem;
 
-    margin-bottom: 1rem;
     text-align: center;
 }
 
 .map-legend h3 {
     font-size: 1.4rem;
     font-style: italic;
-    color: #CD5C5C; /* Your brand color */
-    margin-bottom: 1.2rem;
-    font-weight: 600;
+    color: var(--red) !important; /* Your brand color */
+
+    font-weight: 400;
 }
 
 /* Slider Styles - Adapted to Your Site */
