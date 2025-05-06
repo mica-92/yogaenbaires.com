@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Respiración on Yoga en Baires</title>
+    <link>http://localhost:1313/otros/respiraci%C3%B3n/</link>
+    <description>Recent content in Respiración on Yoga en Baires</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Fri, 03 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/otros/respiraci%C3%B3n/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>#1 - Ashtanga Yoga Caballito</title>
+      <link>http://localhost:1313/blog/3---ashtanga-yoga-colegiales/</link>
+      <pubDate>Fri, 03 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/3---ashtanga-yoga-colegiales/</guid>
+      <description>&#xD;Descripción de la clase&#xD;Aquí escribe la descripción completa de tu clase de yoga. Puedes incluir:&#xA;Los objetivos de la clase Los beneficios El flujo de la sesión Requisitos o materiales necesarios Horarios&#xD;Días: Horas: Precios&#xD;Clase individual: Paquete de clases: Black and white work day photo. </description>
+    </item>
+    <item>
+      <title>#2 - Ashtanga Yoga Colegiales</title>
+      <link>http://localhost:1313/blog/2---lulea-mindful-chacarita/</link>
+      <pubDate>Fri, 03 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/2---lulea-mindful-chacarita/</guid>
+      <description>&#xD;Descripción de la clase&#xD;Aquí escribe la descripción completa de tu clase de yoga. Puedes incluir:&#xA;Los objetivos de la clase Los beneficios El flujo de la sesión Requisitos o materiales necesarios Horarios&#xD;Días: Horas: Precios&#xD;Clase individual: Paquete de clases: Black and white work day photo. </description>
+    </item>
+  </channel>
+</rss>

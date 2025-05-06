@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+    <head>
+        {{ partial "head/metadata.html" . }}
+        {{ if .Site.Params.plausible }}{{ partial "head/plausible.html" . }}{{ end }}
+        {{ partial "head/openGraph.html" . }}
+        {{ partial "head/favicons.html" . }}
+        {{ partial "head/css.html" . }}
+        {{ partial "css/owlCarousel.html" . }}
+    </head>
+
+    <body>
+
+        <section id="top" class="hero is-{{ .Site.Params.home.introHeight | default "fullheight" }}">
+            <!-- Hero head section to play nice with Bulma -->
+            <div class="hero-head"></div>
+
+            <!-- Super sweet Hero body title -->
+            <!-- Super sweet Hero body title -->
+            <div class="hero-body">
+                <div class="container has-text-centered">
+
+                    <img src="/images/logo-circulo.png" alt="Logo" class="hero-logo">
+                    <div class="subtitle is-3 fade-in two">
+                        <br><b>Ohh no!!!</b><br>
+                        No tenemos visitamos ningún estudio que tenga esas características.<br>
+                        Todavía no hemos vistado ni la mitad de los lugares que nos gustaría. 
+                        Pero no te preocupes, ¡ya estamos en camino!<br>
+                    </div><br> <br>
+                    <div class="container has-text-centered">
+                        <a href="{{ .Site.BaseURL }}" title="Volver al inicio">
+                            <i class="fa fa-arrow-left"></i>
+                        </a><br>
+                    </div>
+                    <!-- End title and tagline -->
+                    <!-- Some social icons -->
+
+                    </div>
+                    <!-- End top social icons -->
+                </div>

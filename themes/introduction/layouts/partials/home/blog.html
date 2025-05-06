@@ -1,0 +1,268 @@
+{{ with .Site.GetPage "/blog" }}
+<div class="section" id="{{ .Title | urlize }}">
+    <!-- Begin Blog container -->
+    <div class="container">
+        {{ if .Site.Params.home.showLatest | default true }}
+        
+        <!-- Image Title -->
+        <div class="responsive-title-image">
+            <a href="{{ .Permalink }}">
+                <img src="/images/camino-titulo.png" alt="Ruta Yogui">
+            </a>
+        </div>
+
+        <!-- Map Legend - Enhanced Version -->
+        <div class="map-legend">
+            <h3>Descubrí tu nuevos estudio, expandí tu práctica, viví el yoga de Buenos Aires.</h3>
+            <p class="legend-text">
+                Explora el mapa y haz clic en los iconos para conocer los estudios de yoga reseñados. Cada estudio incluye una descripción y un identificador # para facilitar la búsqueda de su reseña. Los colores de los iconos indican el estilo de yoga principal que ofrecen.            
+            </p>
+
+            <!-- Enhanced Map Container -->
+            <div class="elegant-map-container">
+                <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1gwWvzDyRnZfYjNuIpOrB7ksEJ3wcD5M&ehbc=2E312F&noprof=1" 
+                        class="elegant-map" 
+                        allowfullscreen="" 
+                        loading="lazy"
+                        style="pointer-events: none;"
+                        title="Mapa de ubicación">
+                </iframe>
+                <div class="map-overlay" onclick="enableMapInteractivity(this)"></div>
+            </div>
+
+            <p class="legend-text"> Para queres aprender más de cada estilo, visita la sección
+                {{ with .Site.GetPage "/yoga" }}
+                    <b><a class="legend-label" href="#yoga-section">Yoga101</a></b>
+                {{ end }}
+            </p>
+
+            <div class="legend-spacer"></div>
+            
+            <div class="legend-items-container">
+
+                <!-- Hatha -->
+                <div class="legend-item">
+                    <a href="{{ "/estilo/hatha/" | relURL }}" class="icon-label-group">
+                        <img src="/images/lotus-varios.png" alt="Hatha" class="legend-icon">
+                        <span class="legend-label">Hatha</span>
+                    </a>
+                </div>
+
+                <!-- Vinyasa -->
+                <div class="legend-item">
+                    <a href="{{ "/estilo/vinyasa/" | relURL }}" class="icon-label-group">
+                        <img src="/images/lotus-vinyasa.png" alt="Vinyasa" class="legend-icon">
+                        <span class="legend-label">Vinyasa</span>
+                    </a>
+                </div>
+
+
+                <!-- Ashtanga -->
+                <div class="legend-item">
+                    <a href="{{ "/estilo/ashtanga/" | relURL }}" class="icon-label-group">
+                        <img src="/images/lotus-ashtanga.png" alt="Ashtanga" class="legend-icon">
+                        <span class="legend-label">Ashtanga</span>
+                    </a>
+                </div>
+                
+                
+                <!-- Yin -->
+                <div class="legend-item">
+                    <a href="{{ "/estilo/yin/" | relURL }}" class="icon-label-group">
+                        <img src="/images/lotus-yin.png" alt="Yin" class="legend-icon">
+                        <span class="legend-label">Yin</span>
+                    </a>
+                </div>
+                
+
+                
+                <!-- Otros -->
+                <div class="legend-item">
+                    <a href="{{ "/estilo/otros/" | relURL }}" class="icon-label-group">
+                        <img src="/images/lotus-otros.png" alt="Otros Estilos" class="legend-icon">
+                        <span class="legend-label">Otros</span>
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="container">
+            <br><hr><br><br>
+        </div>
+
+        <!-- Image Title -->
+        <div class="responsive-title-image">
+            <a href="{{ .Permalink }}">
+                <img src="/images/paradas-titulo.png" alt="Ruta Yogui">
+            </a>
+        </div>
+
+        {{ range first 1 .Pages.ByPublishDate.Reverse }}
+        <div class="summary">
+            <h2 class="title is-2 has-text-centered section-title">
+                última estación
+            </h2> 
+            {{ if .Params.date }}{{ .Date | time.Format "January 2006" | title }}{{ end }}
+            <h3 class="title is-3 latest-post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h3>
+            
+            <!-- Taxonomy Bubbles -->
+            <div class="post-taxonomy">
+                {{ with .Params.barrio }}
+                    {{ range . }}
+                    <a href="{{ "/barrio/" | relLangURL }}{{ . | urlize }}" 
+                       class="taxonomy-item taxonomy-barrio">{{ . }}</a>
+                    {{ end }}
+                {{ end }}
+
+                {{ with .Params.estilo }}
+                    {{ range . }}
+                    <a href="{{ "/estilo/" | relLangURL }}{{ . | urlize }}" 
+                       class="taxonomy-item taxonomy-estilo">{{ . }}</a>
+                    {{ end }}
+                {{ end }}
+                
+                {{ with .Params.duracion }}
+                    {{ range . }}
+                    <a href="{{ "/duracion/" | relLangURL }}{{ . | urlize }}" 
+                       class="taxonomy-item taxonomy-duracion">{{ . }}</a>
+                    {{ end }}
+                {{ end }}
+                
+                {{ with .Params.intensidad }}
+                    {{ range . }}
+                    <a href="{{ "/intensidad/" | relLangURL }}{{ . | urlize }}" 
+                       class="taxonomy-item taxonomy-intensidad">{{ . }}</a>
+                    {{ end }}
+                {{ end }}
+                
+                {{ with .Params.nivel }}
+                    {{ range . }}
+                    <a href="{{ "/nivel/" | relLangURL }}{{ . | urlize }}" 
+                       class="taxonomy-item taxonomy-niveles">{{ . }}</a>
+                    {{ end }}
+                {{ end }}
+                
+                {{ with .Params.otros }}
+                    {{ range . }}
+                    <a href="{{ "/otros/" | relLangURL }}{{ . | urlize }}" 
+                       class="taxonomy-item taxonomy-otros">{{ . }}</a>
+                    {{ end }}
+                {{ end }}
+            </div>
+            
+            {{ if .Params.descripcion }}
+            <div class="post-description">
+                {{ .Params.descripcion | markdownify }}
+            </div>
+            {{ end }}
+        </div>
+        {{ end }}
+        {{ end }}
+    </div>
+</div>
+
+{{ partial "home/projects.html" . }}
+
+{{ if .Site.Params.home.showAllPosts }}
+<div class="section" id="all-posts">
+    <div class="container">
+        <h2 class="title is-2 has-text-centered section-title">
+            el recorrido
+        </h2>      
+        {{if .Site.Params.home.allPostsArchiveFormat}}
+        {{ partialCached "blog/archive.html" .}}
+        {{else}}
+            {{ partialCached "blog/li.html" . }}
+        {{end}}
+    </div>
+</div>
+{{ else }}
+<div class="container has-text-centered top-pad">
+    <a href="{{ .Permalink }}">{{ i18n "index_blog_allPosts" . }}</a>
+</div>
+{{ end }}
+
+<!-- End Blog container -->
+{{ partial "top-icon.html" . }}
+
+<!-- End Blog section -->
+<div class="container">
+    <hr>
+</div>
+{{ end }}
+
+<script>
+    function enableMapInteractivity(overlay) {
+        const iframe = overlay.previousElementSibling;
+        iframe.style.pointerEvents = 'auto';
+        overlay.style.display = 'none';
+        
+        setTimeout(() => {
+            iframe.style.pointerEvents = 'none';
+            overlay.style.display = 'block';
+        }, 30000);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const initSlider = (sliderWrapper) => {
+            const imageList = sliderWrapper.querySelector(".image-list");
+            const slideButtons = sliderWrapper.querySelectorAll(".slide-button");
+            const sliderScrollbar = sliderWrapper.parentElement.querySelector(".slider-scrollbar");
+            const scrollbarThumb = sliderScrollbar.querySelector(".scrollbar-thumb");
+            const maxScrollLeft = imageList.scrollWidth - imageList.clientWidth;
+            
+            scrollbarThumb.addEventListener("mousedown", (e) => {
+                const startX = e.clientX;
+                const thumbPosition = scrollbarThumb.offsetLeft;
+                const maxThumbPosition = sliderScrollbar.getBoundingClientRect().width - scrollbarThumb.offsetWidth;
+                
+                const handleMouseMove = (e) => {
+                    const deltaX = e.clientX - startX;
+                    const newThumbPosition = thumbPosition + deltaX;
+                    const boundedPosition = Math.max(0, Math.min(maxThumbPosition, newThumbPosition));
+                    const scrollPosition = (boundedPosition / maxThumbPosition) * maxScrollLeft;
+                    
+                    scrollbarThumb.style.left = `${boundedPosition}px`;
+                    imageList.scrollLeft = scrollPosition;
+                }
+                
+                const handleMouseUp = () => {
+                    document.removeEventListener("mousemove", handleMouseMove);
+                    document.removeEventListener("mouseup", handleMouseUp);
+                }
+                
+                document.addEventListener("mousemove", handleMouseMove);
+                document.addEventListener("mouseup", handleMouseUp);
+            });
+            
+            slideButtons.forEach(button => {
+                button.addEventListener("click", () => {
+                    const direction = button.id === "prev-slide" ? -1 : 1;
+                    const scrollAmount = imageList.clientWidth * direction;
+                    imageList.scrollBy({ left: scrollAmount, behavior: "smooth" });
+                });
+            });
+            
+            const handleSlideButtons = () => {
+                slideButtons[0].style.display = imageList.scrollLeft <= 0 ? "none" : "flex";
+                slideButtons[1].style.display = imageList.scrollLeft >= maxScrollLeft ? "none" : "flex";
+            }
+            
+            const updateScrollThumbPosition = () => {
+                const scrollPosition = imageList.scrollLeft;
+                const thumbPosition = (scrollPosition / maxScrollLeft) * (sliderScrollbar.clientWidth - scrollbarThumb.offsetWidth);
+                scrollbarThumb.style.left = `${thumbPosition}px`;
+            }
+            
+            imageList.addEventListener("scroll", () => {
+                updateScrollThumbPosition();
+                handleSlideButtons();
+            });
+        }
+        
+        document.querySelectorAll('.slider-wrapper').forEach(slider => {
+            initSlider(slider);
+        });
+    });
+</script>

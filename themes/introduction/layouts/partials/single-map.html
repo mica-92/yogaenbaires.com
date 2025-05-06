@@ -1,0 +1,15 @@
+<!-- Mapa de Ubicacion en Single Blog Post -->
+
+{{ if .Params.direccion.maps }}
+<div class="elegant-map-container">
+    <iframe src="{{ .Params.direccion.maps | safeURL }}" 
+            class="elegant-map" 
+            allowfullscreen="" 
+            loading="lazy"
+            style="pointer-events: none;"
+            title="{{ .Title }} location">
+    </iframe>
+    <div class="map-overlay" onclick="enableMapInteractivity(this)"></div>
+
+</div>
+{{ end }}

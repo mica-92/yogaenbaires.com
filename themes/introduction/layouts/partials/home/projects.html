@@ -1,0 +1,334 @@
+{{ with .Site.GetPage "/projects" }}
+<div class="section projects-section" id="{{ .Title | urlize }}">
+    <!-- Begin Projects container -->
+    <div class="container">
+        <h2 class="title is-2 has-text-centered section-title" style="margin-bottom: 24px !important;">
+            destacados
+        </h2><br>
+        <div class="section" style="padding-top: 0 !important;">
+            <div class="columns is-multiline">
+                {{ $totalProjects := (len .Pages) }}
+                {{ $numberOfProjectsToShow := .Site.Params.home.numberOfProjectsToShow | default $totalProjects }}
+                {{ range $index, $element := .Pages.ByWeight | first $numberOfProjectsToShow }}
+                <div class="column is-half"> <!-- Forced two columns -->
+                    <div class="card" data-target="#project-{{ $index }}">
+                        {{ if .Resources.ByType "image" }}
+                        <div class="card-image">
+                            <figure class="image is-3by2">
+                                <a {{ if .Params.external_link }} href="{{ .Params.external_link }}" {{ end }}>
+                                    {{ with .Resources.ByType "image" }}
+                                    {{ range first 1 (sort . "Params.weight") }}
+                                    {{ $image := .Resize "490x" }} <!-- Larger base size for two columns -->
+                                    <img class="card-thumbnail" src="{{ $image.Permalink }}" alt="{{ $image.Name }}">
+                                    {{ end }}
+                                    {{ end }}
+                                </a>
+                            </figure>
+                        </div>
+                        {{ end }}
+
+                        
+                        <div class="card-content has-text-centered">
+                            <!-- Construccion del titulo basado en los parametros de id+title -->
+                            <h1><a {{ if .Params.external_link }} href="{{ .Params.external_link }}" {{ end }}>
+                                #{{ .Params.id | markdownify }} - {{ .Params.title | markdownify }}
+                            </a></h1>
+
+                            <!-- Taxonomia Centrada -->
+                            <div style="display: flex; justify-content: center;">
+                                {{ partial "post-taxonomy.html" . }}
+                              </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+        {{ if lt $numberOfProjectsToShow $totalProjects }}
+        <div class="container has-text-centered top-pad">
+            <a href="{{ .Permalink }}">{{ i18n "index_projects_allProjects" . }}</a>
+        </div>
+        {{ end }}
+    </div>
+    <!-- End Projects container -->
+
+
+
+    <!-- Projects modals -->
+    {{ range $index, $element := .Pages.ByWeight | first $numberOfProjectsToShow }}
+    {{ if not .Params.external_link }}
+    <div class="modal" id="project-{{ $index }}">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+
+
+            <section class="modal-card-body markdown">
+                {{ with .Resources.ByType "image" }}
+                {{ $moreThenOneImage := gt (len .) 1 }}
+                {{ if $moreThenOneImage }}
+                <div class="owl-carousel owl-theme">
+                {{ end }}
+                    {{ range sort . "Params.weight" }}
+                        {{ $image := .Fit "800x600" }} <!-- Constrained dimensions -->
+                        {{ if $moreThenOneImage }}
+                        <div class="item owl-height">
+                        {{ end }}
+                            <div class="modal-image-container">
+                                <img src="{{ $image.Permalink }}" class="modal-image" alt="{{ $image.Name }}">
+                            </div>
+                        {{ if $moreThenOneImage }}
+                        </div>
+                        {{ end }}
+                    {{ end }}
+                {{ if $moreThenOneImage }}
+                </div>
+                {{ end }}
+                {{ end }}
+                <div class="modal-content">
+                    {{ .Content }}
+                </div>
+            </section>
+        </div>
+        <button class="modal-close is-large" aria-label="close" data-target="#project-{{ $index }}"></button>
+    </div>
+    {{ end }}
+    {{ end }}
+
+</div>
+
+
+
+
+
+<!-- End Projects section -->
+
+{{ end }}
+
+
+
+
+
+<style>
+/* PROJECTS SECTION */
+
+/* Custom Owl Carousel arrows */
+.owl-nav button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5) !important;
+  color: white !important;
+  border: none !important;
+  font-size: 1.5rem !important;
+  padding: 0 1rem !important;
+}
+
+/* Dots styling */
+.owl-dots {
+    text-align: center;
+    margin-top: 15px;
+  }
+
+.projects-section .section-title {
+    font-style: italic !important;
+    color: #6c6464 !important;
+    text-transform: lowercase !important;
+    font-weight: 700 !important;
+    font-size: 28px !important;
+    margin-bottom: 24px !important;
+}
+
+/* Card styling */
+.projects-section .card {
+    border-radius: 6px !important;
+    overflow: hidden !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    height: 100% !important;
+}
+
+.projects-section .card:hover {
+    transform: translateY(-5px) scale(1.02) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Card image */
+.projects-section .card-image {
+    overflow: hidden !important;
+    background: #f9f9f9;
+}
+
+.projects-section .card-thumbnail {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    filter: saturate(0.95) brightness(0.98) !important;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.projects-section .card:hover .card-thumbnail {
+    transform: scale(1.06) !important;
+    filter: saturate(1.05) brightness(1.02) drop-shadow(0 2px 6px rgba(0,0,0,0.1)) !important;
+}
+
+/* Card content */
+.projects-section .card-content {
+    padding: 1.25rem !important;
+    background: white;
+}
+
+.projects-section .card-content h1 {
+    font-size: 1.3rem !important;
+    color: #CD5C5C !important;
+    margin-bottom: 0.5rem !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+}
+
+.projects-section .card:hover .card-content h1 a {
+    color: #6c6464 !important;
+    font-weight: 700 !important;
+}
+
+.projects-section .card-content h1 a {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+.projects-section .card-content p {
+    color: #6c6464 !important;
+    font-size: 0.9rem !important;
+    margin-top: 0.5rem;
+}
+
+
+
+/* Modal Styles */
+.projects-section .modal {
+    z-index: 100 !important;
+}
+
+
+.projects-section .modal-card {
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    max-width: 800px !important;
+    width: 80% !important;
+}
+
+.projects-section .modal-card-header {
+    background-color: white !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+}
+
+.projects-section .modal-card-title {
+    color: #6c6464 !important;
+    font-weight: 700 !important;
+    font-size: 1.5rem !important;
+    text-align: center !important;
+}
+
+.projects-section .modal-card-body {
+    padding: 0 !important;
+}
+
+/* Modal image container */
+.modal-image-container {
+    max-height: 60vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.projects-section .modal-image {
+    max-width: 100% !important;
+    max-height: 60vh !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    margin: 0 auto !important;
+    display: block !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+.projects-section .modal-content {
+    color: #555;
+    line-height: 1.7;
+}
+
+/* Carousel */
+.projects-section .owl-carousel .item {
+    padding: 0 !important;
+}
+
+/* HR styling */
+.container hr {
+    height: 1px !important;
+    background-color: #e6e6e6 !important;
+    border: none !important;
+    max-width: 1200px !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .projects-section .column {
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .projects-section .card {
+        margin-bottom: 1rem;
+    }
+    
+    .projects-section .card-content {
+        padding: 1rem !important;
+    }
+    
+    .projects-section .modal-card {
+        width: 95% !important;
+    }
+    
+    .modal-image-container {
+        max-height: 50vh;
+    }
+    
+    .projects-section .modal-image {
+        max-height: 50vh !important;
+    }
+    
+    .projects-section .modal-content {
+        padding: 1.5rem;
+        width: 90%;
+
+    }
+    
+    .projects-section .section-title {
+        font-size: 24px !important;
+    }
+    
+    .projects-section .card:hover {
+        transform: translateY(-3px) scale(1.01) !important;
+    }
+    
+    .projects-section .card:hover .card-thumbnail {
+        transform: scale(1.04) !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-section .column {
+        width: 100% !important; /* Single column on smallest screens */
+    }
+    
+    .modal-image-container {
+        max-height: 40vh;
+    }
+    
+    .projects-section .modal-image {
+        max-height: 40vh !important;
+    }
+    
+}
+</style>

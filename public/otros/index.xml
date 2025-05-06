@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Otros on Yoga en Baires</title>
+    <link>http://localhost:1313/otros/</link>
+    <description>Recent content in Otros on Yoga en Baires</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Wed, 30 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/otros/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Simulacro</title>
+      <link>http://localhost:1313/otros/simulacro/</link>
+      <pubDate>Wed, 30 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/otros/simulacro/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Meditación</title>
+      <link>http://localhost:1313/otros/meditaci%C3%B3n/</link>
+      <pubDate>Fri, 03 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/otros/meditaci%C3%B3n/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Respiración</title>
+      <link>http://localhost:1313/otros/respiraci%C3%B3n/</link>
+      <pubDate>Fri, 03 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/otros/respiraci%C3%B3n/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

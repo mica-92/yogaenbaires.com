@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Estilo on Yoga en Baires</title>
+    <link>http://localhost:1313/estilo/</link>
+    <description>Recent content in Estilo on Yoga en Baires</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Mon, 05 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/estilo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ashtanga</title>
+      <link>http://localhost:1313/estilo/ashtanga/</link>
+      <pubDate>Mon, 05 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/estilo/ashtanga/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hatha</title>
+      <link>http://localhost:1313/estilo/hatha/</link>
+      <pubDate>Wed, 30 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/estilo/hatha/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vinyasa</title>
+      <link>http://localhost:1313/estilo/vinyasa/</link>
+      <pubDate>Wed, 30 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/estilo/vinyasa/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Yin</title>
+      <link>http://localhost:1313/estilo/yin/</link>
+      <pubDate>Wed, 30 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/estilo/yin/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

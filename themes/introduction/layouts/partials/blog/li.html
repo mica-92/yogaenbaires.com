@@ -1,0 +1,67 @@
+{{ define "title" }}
+<div class="responsive-title-image">
+    <a href="{{ "/blog" | relURL }}">
+        <img src="/images/paradas-titulo.png" alt="Blog">
+    </a>
+</div>
+
+<h2 class="title is-2 has-text-centered section-title taxonomy-header">
+    {{ .Data.Singular | humanize }}: {{ lower .Title | markdownify }}
+</h2>
+{{ end }}
+
+
+    <ul class="post-list">
+        {{ range .Pages.ByPublishDate.Reverse }}
+        <li class="post-item">
+            <a href="{{ .Permalink }}" class="post-title">{{ .Title | markdownify }}</a>
+            
+            <div class="post-taxonomy">
+                {{ with .Params.barrio}}
+                    {{ range . }}
+                    <a href="{{ "/barrio/" | relLangURL }}{{ . | urlize }}" 
+                       class="taxonomy-item taxonomy-barrio">{{ . }}</a>
+                    {{ end }}
+                {{ end }}
+
+                {{ with .Params.estilo }}
+                    {{ range . }}
+                    <a href="{{ "/estilo/" | relLangURL }}{{ . | urlize }}" 
+                       class="taxonomy-item taxonomy-estilo">{{ . }}</a>
+                    {{ end }}
+                {{ end }}
+                
+                {{ with .Params.duracion }}
+                    {{ range . }}
+                    <a href="{{ "/duracion/" | relLangURL }}{{ . | urlize }}" 
+                       class="taxonomy-item taxonomy-duracion">{{ . }}</a>
+                    {{ end }}
+                {{ end }}
+                
+                {{ with .Params.intensidad }}
+                    {{ range . }}
+                    <a href="{{ "/intensidad/" | relLangURL }}{{ . | urlize }}" 
+                       class="taxonomy-item taxonomy-intensidad">{{ . }}</a>
+                    {{ end }}
+                {{ end }}
+                
+                {{ with .Params.nivel }}
+                    {{ range . }}
+                    <a href="{{ "/nivel/" | relLangURL }}{{ . | urlize }}" 
+                       class="taxonomy-item taxonomy-niveles">{{ . }}</a>
+                    {{ end }}
+                {{ end }}
+                
+                {{ with .Params.otros }}
+                    {{ range . }}
+                    <a href="{{ "/otros/" | relLangURL }}{{ . | urlize }}" 
+                       class="taxonomy-item taxonomy-otros">{{ . }}</a>
+                    {{ end }}
+                {{ end }}
+            </div>
+        </li>
+        {{ end }}
+    </ul>
+</div>
+
+

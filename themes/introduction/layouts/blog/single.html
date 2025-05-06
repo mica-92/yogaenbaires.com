@@ -1,0 +1,112 @@
+{{ define "title" }}
+{{ with .Site.GetPage "/blog" }}
+<div class="responsive-title-image">
+    <a href="{{ "/blog" | relURL }}">
+        <img src="/images/paradas-titulo.png" alt="Blog">
+    </a>
+</div>
+{{ end }}
+{{ end }}
+
+{{ define "main" }}
+<div class="container">
+    <!-- Construccion del titulo basado en los parametros de id+title -->
+    <h2 class="title is-1 top-pad strong-post-title">
+        #{{ .Params.id | markdownify }} - {{ .Params.title | markdownify }}
+    </h2>
+
+    {{ partial "post-taxonomy.html" . }}
+    <hr>
+    {{ partial "share-buttons.html" . }}
+    <hr>
+
+
+</div>
+<!-- Begin blog post content -->
+<div class="container markdown">
+    {{ partial "single-map.html" . }}
+
+    <hr>
+
+
+    <div class="connect-section">
+        <h2>Detalles del Estudio</h2><br>
+        <div class="connect-item">
+            <strong><h3>- Dirección:</h3></strong>
+            {{ .Params.direccion.texto | markdownify }}
+        </div>
+        
+        {{ if .Params.instagram }}
+        <div class="connect-item">
+            <strong>- Instagram:</strong>
+            <a href="{{ .Params.instagram }}" target="_blank" class="connect-link">
+                {{ replace .Params.instagram "https://www.instagram.com/" "@" }}
+            </a>
+        </div>
+        {{ end }}
+
+        <div class="connect-item">
+            <strong>- Número de Salones:</strong>
+            {{ .Params.salones | markdownify }}
+        </div>
+
+        <div class="connect-item">
+            <strong>- Número máximo de alumnos por clase:</strong>
+            {{ .Params.capacidad | markdownify }}
+        </div>
+<br>
+
+
+
+
+
+
+    </div>
+
+    {{ if .Params.instagrampost }}
+    <div class="instagram-embed-wrapper">
+        <div class="instagram-embed-container">
+            <blockquote class="instagram-media" data-instgrm-permalink="{{ .Params.instagram }}" data-instgrm-version="14">
+                <div class="instagram-placeholder">
+                    <a href="{{ .Params.instagram }}" target="_blank">View Instagram Post</a>
+                </div>
+            </blockquote>
+            <script async src="//www.instagram.com/embed.js"></script>
+        </div>
+    </div>
+    {{ end }}
+
+    {{ .Content }}
+    <!-- Add this right below the taxonomy section and before the share buttons -->
+    <br><br><br>
+
+    <hr>
+
+    <!-- Fecha de Visita  -->
+    <div class="post-data"><strong>Fecha de visita:</strong>
+        {{ if .Params.date }}{{ .Date.Format (.Site.Params.dateFormat | default ":date_medium") }}{{ end }}
+        {{ if .Site.Params.showReadingTime | default true }}
+        {{ if .Params.date }} {{ end }}
+        {{ end }}
+    </div><hr>
+    
+</div>
+<!-- End blog post content -->
+{{ partial "comments.html" . }}
+
+<script>
+    function enableMapInteractivity(overlay) {
+        const iframe = overlay.previousElementSibling;
+        iframe.style.pointerEvents = 'auto';
+        overlay.style.display = 'none';
+        
+        setTimeout(() => {
+            iframe.style.pointerEvents = 'none';
+            overlay.style.display = 'block';
+        }, 30000);
+    }
+</script>
+
+{{ end }}
+
+

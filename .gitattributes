@@ -1,0 +1,8 @@
+resources/**    linguist-generated=true
+resources/**     -diff -merge
+* text=auto
+*.html text
+*.css text
+*.js text
+*.xml text
+*.md text

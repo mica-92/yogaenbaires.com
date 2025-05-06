@@ -1,0 +1,171 @@
+{{ define "title" }}
+
+<div class="responsive-title-image">
+    <a href="{{ "/blog" | relURL }}">
+        <img src="/images/paradas-titulo.png" alt="Blog">
+    </a>
+</div>
+
+
+<h2 class="title is-2 has-text-centered section-title taxonomy-header">
+    {{ .Data.Singular | humanize }}: {{ lower .Title | markdownify }}
+</h2>
+{{ end }}
+
+
+{{ define "main" }}
+<div class="container">
+
+        <!-- Enhanced Map Container -->
+        <div class="elegant-map-container">
+            <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1gwWvzDyRnZfYjNuIpOrB7ksEJ3wcD5M&ehbc=2E312F&noprof=1" 
+                    class="elegant-map" 
+                    allowfullscreen="" 
+                    loading="lazy"
+                    style="pointer-events: none;"
+                    title="Mapa de ubicación">
+            </iframe>
+            <div class="map-overlay" onclick="enableMapInteractivity(this)"></div>
+        </div>
+
+        <p class="legend-text"> Para queres aprender más de cada estilo, visita la sección
+            {{ with .Site.GetPage "/yoga" }}
+                <b><a class="legend-label" href="#yoga-section">Yoga101</a></b>
+            {{ end }}
+        </p>
+
+        <div class="legend-spacer"></div>
+        
+        <div class="legend-items-container">
+
+            <!-- Hatha -->
+            <div class="legend-item">
+                <a href="{{ "/estilo/hatha/" | relURL }}" class="icon-label-group">
+                    <img src="/images/lotus-varios.png" alt="Hatha" class="legend-icon">
+                    <span class="legend-label">Hatha</span>
+                </a>
+            </div>
+
+            <!-- Vinyasa -->
+            <div class="legend-item">
+                <a href="{{ "/estilo/vinyasa/" | relURL }}" class="icon-label-group">
+                    <img src="/images/lotus-vinyasa.png" alt="Vinyasa" class="legend-icon">
+                    <span class="legend-label">Vinyasa</span>
+                </a>
+            </div>
+
+
+            <!-- Ashtanga -->
+            <div class="legend-item">
+                <a href="{{ "/estilo/ashtanga/" | relURL }}" class="icon-label-group">
+                    <img src="/images/lotus-ashtanga.png" alt="Ashtanga" class="legend-icon">
+                    <span class="legend-label">Ashtanga</span>
+                </a>
+            </div>
+            
+            
+            <!-- Yin -->
+            <div class="legend-item">
+                <a href="{{ "/estilo/yin/" | relURL }}" class="icon-label-group">
+                    <img src="/images/lotus-yin.png" alt="Yin" class="legend-icon">
+                    <span class="legend-label">Yin</span>
+                </a>
+            </div>
+            
+
+            
+            <!-- Otros -->
+            <div class="legend-item">
+                <a href="{{ "/estilo/otros/" | relURL }}" class="icon-label-group">
+                    <img src="/images/lotus-otros.png" alt="Otros Estilos" class="legend-icon">
+                    <span class="legend-label">Otros</span>
+                </a>
+            </div>
+        </div>
+        
+        
+    
+
+<hr>
+
+    <ul class="post-list">
+    
+        {{ range .Pages.ByPublishDate.Reverse }}
+        <li class="post-item">
+            <a href="{{ .Permalink }}" class="post-title">{{ .Title | markdownify }}</a>
+            
+            
+            <div class="post-taxonomy">
+
+                {{ with .Params.barrio}}
+                    {{ range . }}
+                    <a href="{{ "/barrio/" | relLangURL }}{{ . | urlize }}" 
+                       class="taxonomy-item taxonomy-barrio">{{ . }}</a>
+                    {{ end }}
+                {{ end }}
+
+                {{ with .Params.estilo }}
+                    {{ range . }}
+                    <a href="{{ "/estilo/" | relLangURL }}{{ . | urlize }}" 
+                       class="taxonomy-item taxonomy-estilo">{{ . }}</a>
+                    {{ end }}
+                {{ end }}
+                
+                {{ with .Params.duracion }}
+                    {{ range . }}
+                    <a href="{{ "/duracion/" | relLangURL }}{{ . | urlize }}" 
+                       class="taxonomy-item taxonomy-duracion">{{ . }}</a>
+                    {{ end }}
+                {{ end }}
+                
+                {{ with .Params.intensidad }}
+                    {{ range . }}
+                    <a href="{{ "/intensidad/" | relLangURL }}{{ . | urlize }}" 
+                       class="taxonomy-item taxonomy-intensidad">{{ . }}</a>
+                    {{ end }}
+                {{ end }}
+                
+                {{ with .Params.nivel }}
+                    {{ range . }}
+                    <a href="{{ "/nivel/" | relLangURL }}{{ . | urlize }}" 
+                       class="taxonomy-item taxonomy-niveles">{{ . }}</a>
+                    {{ end }}
+                {{ end }}
+                
+                {{ with .Params.otros }}
+                    {{ range . }}
+                    <a href="{{ "/otros/" | relLangURL }}{{ . | urlize }}" 
+                       class="taxonomy-item taxonomy-otros">{{ . }}</a>
+                    {{ end }}
+                {{ end }}
+            </div>
+        </li>
+        {{ end }}
+    </ul>
+</div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        function enableMapInteractivity(overlay) {
+            const iframe = overlay.previousElementSibling;
+            iframe.style.pointerEvents = 'auto';
+            overlay.style.display = 'none';
+            
+            // Optional: Re-disable after 30 seconds of inactivity
+            setTimeout(() => {
+                iframe.style.pointerEvents = 'none';
+                overlay.style.display = 'block';
+            }, 30000);
+        }
+    
+        // Initialize event listeners for all map overlays
+        document.querySelectorAll('.map-overlay').forEach(overlay => {
+            overlay.addEventListener('click', function() {
+                enableMapInteractivity(this);
+            });
+        });
+    });
+    </script>
+
+{{ end }}

@@ -1,0 +1,173 @@
+{{ with .Site.GetPage "/yoga" }}
+<div class="section" id="yoga-section">
+    <div class="container">
+        <!-- Image Title -->
+        <div class="responsive-title-image">
+            <img src="/images/yoga101.png" alt="Yoga101">
+        </div>
+
+        <!-- Toggle Container -->
+        <div class="notion-style-accordion">
+            {{ range where .Pages.ByPublishDate.Reverse ".Params.highlight" true }}
+            <div class="accordion-item">
+                <!-- Toggle Header -->
+                <div class="accordion-header">
+                    <h3 class="post-title">
+                        <button class="toggle-button">
+                            <span class="icon">▶</span>
+                            {{ .Title | markdownify }}
+                        </button>
+                    </h3>
+                </div>
+                
+                <!-- Collapsible Content -->
+                <div class="accordion-content">
+                    <div class="markdown post-content">
+                        {{ .Content }}
+                    </div>
+                </div>
+                
+                <!-- Light Divider -->
+                <hr class="divider">
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</div>
+
+{{ partial "top-icon.html" . }}
+<div class="container">
+    <hr class="tight-hr">
+</div>
+{{ end }}
+
+<style>
+    /* Yoga Section Container */
+    #yoga-section {
+        margin: 1.5rem 0 !important; /* Reduced from default */
+    }
+    
+    /* Accordion Item */
+    .accordion-item {
+        margin-bottom: 0.25rem; /* Reduced spacing between items */
+    }
+    
+    /* Accordion Header */
+    .accordion-header {
+        cursor: pointer;
+        padding: 0.5rem 0 0 0; /* Reduced padding */
+        transition: all 0.2s ease;
+    }
+    
+    /* Toggle Button */
+    .toggle-button {
+        background: none;
+        border: none;
+        width: 100%;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        color: inherit;
+    }
+    
+    /* Post Title */
+    .post-title {
+        margin: 0;
+        font-size: 1.2rem;
+        transition: all 0.2s ease;
+        color: #CD5C5C;
+    }
+    
+    /* Divider Styles */
+    .divider {
+        border: none;
+        height: 1px;
+        background-color: #eee;
+        margin: 0.25rem 0 0 0; /* Very tight spacing */
+        padding: 0;
+    }
+    
+    /* Bottom HR */
+    .tight-hr {
+        margin: 0.5rem auto 0.5rem; /* Tight spacing */
+        height: 1px;
+        background-color: #dbdbdb;
+        border: none;
+        max-width: 1200px;
+    }
+    
+    /* Hover and Active States */
+    .accordion-header:hover .post-title,
+    .accordion-item.active .post-title {
+        color: #6c6464;
+        transform: scale(1.02);
+    }
+    
+    .accordion-item.active .accordion-header {
+        border-radius: 4px;
+        padding-left: 0.5rem;
+        margin-left: -0.5rem;
+    }
+    
+    /* Icon Styling */
+    .icon {
+        margin-right: 0.8rem;
+        transition: transform 0.2s ease;
+        font-size: 0.8em;
+        color: #6c6464;
+    }
+    
+    /* Accordion Content */
+    .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        padding: 0 1rem 0 1.8rem; /* Adjusted for icon alignment */
+    }
+    
+    .accordion-item.active .accordion-content {
+        max-height: 5000px;
+        padding-bottom: 0.5rem; /* Small padding at bottom */
+    }
+    
+    .accordion-item.active .icon {
+        transform: rotate(90deg);
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+        .accordion-header {
+            padding: 0.4rem 0 0 0;
+        }
+        
+        .divider {
+            margin: 0.2rem 0 0 0;
+        }
+        
+        .tight-hr {
+            margin: 0.4rem auto;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const accordionItems = document.querySelectorAll('.accordion-item');
+        
+        accordionItems.forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            
+            header.addEventListener('click', () => {
+                if (item.classList.contains('active')) {
+                    item.classList.remove('active');
+                } else {
+                    accordionItems.forEach(i => i.classList.remove('active'));
+                    item.classList.add('active');
+                }
+            });
+        });
+    });
+</script>
