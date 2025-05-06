@@ -1,0 +1,20 @@
+# Hugo default ignores
+/public/
+/resources/_gen/
+/assets/jsconfig.json
+.hugo_build.lock
+
+# Theme example files
+/themes/**/exampleSite/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Node files
+node_modules/
+package-lock.json
+
+# IDE files
+.idea/
+.vscode/
