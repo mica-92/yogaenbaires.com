@@ -1,5 +1,5 @@
 ---
-title: "Yoga101"
+title: "el-semillero"
 
 cms:
   allowed_params:

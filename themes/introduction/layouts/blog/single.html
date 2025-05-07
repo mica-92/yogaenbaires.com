@@ -1,6 +1,6 @@
 {{ define "title" }}
 {{ with .Site.GetPage "/blog" }}
-<div class="responsive-title-image">
+<div class="responsive-title-imagedoble">
     <a href="{{ "/yogaenbaires/blog" | relURL }}">
         {{ partial "images/paradas" }}
     </a>
@@ -57,7 +57,7 @@
 <br>
 
 
-
+{{ partial "schedule.html" . }}
 
 
 

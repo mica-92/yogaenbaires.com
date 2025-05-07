@@ -2,3 +2,13 @@
 {{ $initOwlCarousel := resources.Get "js/initOwlCarousel.js" | minify }}
 {{ $bundleOwlCarousel := slice $owlCarousel $initOwlCarousel | resources.Concat "js/bundleOwlCarousel.js" | fingerprint }}
 <script src="{{ $bundleOwlCarousel.Permalink }}" integrity="{{ $bundleOwlCarousel.Data.Integrity }}"></script>
+
+<script>
+    function update_localtime() {
+        const time = new Date().toLocaleTimeString('{{ .Site.Params.home.timeFormat }}', { timeZone: '{{ .Site.Params.home.timeZone }}', timeStyle: 'short' });
+        document.getElementById('time').innerHTML = time;
+    }
+    update_localtime();
+    // Updating every second to prevent seconds looking like stood still when timeStyle is ignored.
+    setInterval(update_localtime, 1000);
+</script>

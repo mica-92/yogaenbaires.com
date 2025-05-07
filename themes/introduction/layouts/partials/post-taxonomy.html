@@ -29,7 +29,7 @@
         {{ end }}
     {{ end }}
     
-    {{ with .Params.nivel }}
+    {{ with .Params.niveles }}
         {{ range . }}
         <a href="/yogaenbaires/nivel/{{ . | urlize }}" 
            class="taxonomy-item taxonomy-niveles">{{ . }}</a>

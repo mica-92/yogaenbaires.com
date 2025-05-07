@@ -2,9 +2,9 @@
 <div class="section projects-section" id="{{ .Title | urlize }}">
     <!-- Begin Projects container -->
     <div class="container">
-        <h2 class="title is-2 has-text-centered section-title" style="margin-bottom: 24px !important;">
+        <h2 class="title is-2 has-text-centered section-title">
             destacados
-        </h2><br>
+        </h2><br><br>
         <div class="section" style="padding-top: 0 !important;">
             <div class="columns is-multiline">
                 {{ $totalProjects := (len .Pages) }}
@@ -130,14 +130,16 @@
     text-align: center;
     margin-top: 15px;
   }
+.section{
+padding-bottom: 0 !important;
+}
 
 .projects-section .section-title {
     font-style: italic !important;
     color: #6c6464 !important;
     text-transform: lowercase !important;
     font-weight: 700 !important;
-    font-size: 28px !important;
-    margin-bottom: 24px !important;
+    margin-bottom: 0px !important;
 }
 
 /* Card styling */
@@ -182,7 +184,7 @@
     font-size: 1.3rem !important;
     color: #CD5C5C !important;
     margin-bottom: 0.5rem !important;
-    font-weight: 600 !important;
+    font-weight: 300 !important;
     transition: all 0.3s ease !important;
 }
 
@@ -332,3 +334,20 @@
     
 }
 </style>
+
+<script>
+    $(document).ready(function(){
+        $(".owl-carousel").owlCarousel({
+          loop: true,            // Infinite looping
+          margin: 20,            // Space between items
+          nav: false,            // ← Disable navigation arrows
+          dots: true,            // Keep pagination dots
+          autoplay: true,        // Auto-play (optional)
+          responsive: {          // Responsive settings
+            0: { items: 1 },
+            768: { items: 1 },
+            1024: { items: 1 }
+          }
+        });
+      });
+</script>

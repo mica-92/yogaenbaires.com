@@ -1,5 +1,5 @@
 ---
-title: "El Camino del Yogui"
+title: "El Sendero del Yogui"
 
 cms:
   allowed_params:

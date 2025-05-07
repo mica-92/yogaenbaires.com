@@ -1,6 +1,6 @@
 {{ define "title" }}
 
-<div class="responsive-title-image">
+<div class= "responsive-title-imagedoble">
     <a href="{{ "/yogaenbaires/blog" | relURL }}">
         {{ partial "images/paradas" }}
     </a>
@@ -14,7 +14,15 @@
 
 
 {{ define "main" }}
+{{ partial "nav.html" . }}
+
+
+
 <div class="container">
+<hr>
+{{ partial "share-buttons.html" . }}
+<hr>
+
     {{ partial "legend-map.html" . }}
 
 <hr>

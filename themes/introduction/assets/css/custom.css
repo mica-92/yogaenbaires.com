@@ -111,7 +111,7 @@
 
   /*  */
   /* EL CAMINO DEL YOGUI Y OTROS TITULOS DENTRO DE HOME */
-  .responsive-title-image {
+  .responsive-title-image, .responsive-title-imagedoble {
     text-align: center;
     margin: 0 ;
     max-width: 100%;
@@ -126,10 +126,22 @@
     box-shadow: none;
 }
 
+.responsive-title-imagedoble img {
+    height: 130px; /* Fixed base height */
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    border: none;
+    box-shadow: none;
+}
+
 /* Responsive adjustments */
 @media screen and (max-width: 768px) {
     .responsive-title-image img {
         height: 90px;
+    }
+    .responsive-title-imagedoble{
+        height: 185px;
     }
 }
 
@@ -137,12 +149,15 @@
     .responsive-title-image img {
         height: 70px;
     }
+    .responsive-title-imagedoble{
+        height: 145px;
+    }
 }
 
 /* Existing title styles */
 .title.is-3.latest-post-title {
     color: #6c6464;
-    font-weight: 600;
+    font-weight: 300;
     margin-top: 0.5rem;
     transition: all 0.3s ease; /* Add smooth transition */
 }
@@ -302,7 +317,7 @@
 }
 
 .post-title {
-    font-weight: 700; /* Bold */
+    font-weight: 300; /* Bold */
     display: block;
     margin-bottom: 0.5rem;
     font-size: 1.2rem; /* Slightly larger font */
@@ -736,10 +751,9 @@
 
 
 /* Legend Text Styling */
-.legend-text {
-    color: #333;
-    font-size: 1rem;
-
+.legend-text  {
+    color: var(--gray) !important; /* Your brand color */
+    font-size: 1.2rem !important;
     text-align: center;
 }
 

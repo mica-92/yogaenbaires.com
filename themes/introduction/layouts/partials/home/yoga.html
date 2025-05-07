@@ -1,11 +1,15 @@
 {{ with .Site.GetPage "/yoga" }}
-<div class="section" id="yoga101">
+<div class="section" id="el-semillero">
     <div class="container">
         
         <!-- Image Title -->
-        <div class="responsive-title-image">
-            {{partial "images/yoga101" .}}
+        <div class="responsive-title-imagedoble">
+            <a href="{{ .Permalink }}">
+                {{ partial "images/yoga101" }}
+            </a>
         </div>
+
+        <br><br>
 
         <!-- Toggle Container -->
         <div class="notion-style-accordion">

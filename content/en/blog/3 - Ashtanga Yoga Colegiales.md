@@ -22,7 +22,7 @@ weight: 3
 related_post: "/blog/my-other-post"  # Add this line
 ---
 
-## Descripción de la clase
+# Descripción de la clase
 
 Aquí escribe la descripción completa de tu clase de yoga. Puedes incluir:
 

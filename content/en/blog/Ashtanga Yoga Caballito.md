@@ -1,5 +1,5 @@
 ---
-title: "Ashtanga Yoga Caballito"
+title: "Caballito de Batalla"
 date: 2025-05-05
 id: "1"
 
@@ -22,10 +22,18 @@ salones: "1"
 capacidad: "10"
 clases: "9"
 
-
-
 related_post: "/blog/Ashtanga Yoga Caballito"  # Add this line
 instagrampost: "https://www.instagram.com/reel/C6cGQSPv3P3/"
+website:
+
+
+lunes: ["9:00 - Vinyasa", "18:00 - Ashtanga"]
+martes: ["9:00 - Hatha", "19:00 - Yin"]
+miercoles: ["9:00 - Vinyasa", "18:00 - Ashtanga"]
+jueves: ["9:00 - Hatha", "19:00 - Yin"]
+viernes: ["9:00 - Vinyasa", "18:00 - Ashtanga"]
+sabado: ["10:00 - restaurativo"]
+domingo: []
 ---
 
 Ubicado en el vibrante corazón de Caballito, a tan solo una cuadra de la Avenida Rivadavia, se encuentra Ashtanga Yoga Caballito, un estudio íntimo dedicado a la práctica del Ashtanga yoga. Dirigido por Ernesto, un experimentado instructor con más de dos décadas de enseñanza y práctica, este espacio acoge a un máximo de 10 alumnos por clase, garantizando una atención personalizada. Si bien se mantiene la esencia tradicional del Ashtanga, Ernesto se distingue por su enfoque flexible, alentando el uso de elementos y la modificación de la secuencia para adaptarse a las necesidades individuales de cada estudiante. Con opciones de turno mañana y tarde, Ashtanga Yoga Caballito se diferencia de otros estudios de Ashtanga al ofrecer clases incluso en días de luna.

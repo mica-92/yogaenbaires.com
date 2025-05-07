@@ -19,7 +19,7 @@ publishDir = "public"  # Ensure this is set
     customCSS = ["css/custom.css"]
     basePath = "yogaenbaires"
 
-    
+
     # customJS                   = ["foo.js"]              # Include custom JavaScript files placed under assets/
     # plausible                  = true                    # Use Plausible analytics (requires an account at Plausible.io)
     # Configure the home page

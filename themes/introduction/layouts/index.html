@@ -30,7 +30,7 @@
                     </div>
                     <!-- End title and tagline -->
                     <!-- Some social icons -->
-                    <div class="fade-in three">
+                    <div class="fade-in two">
                         {{ partial "home/social.html" . }}
                     </div>
                     <!-- End top social icons -->
@@ -38,7 +38,7 @@
             </div> <!-- End of Hero body -->
             {{ end }}
 
-            <div class="hero-foot {{ if or (.Site.Params.fadeIn | default true) .Site.Params.fadeInIndex }}fade-in three{{ end }}">
+            <div class="hero-foot {{ if or (.Site.Params.fadeIn | default true) .Site.Params.fadeInIndex }}fade-in two{{ end }}">
                 <!-- Tell them all about it! -->
                 {{ partial "nav.html" . }}
             </div>
@@ -69,14 +69,11 @@
         <!-- Range through all sections in /home execept contact.md -->
         <div class="section" id="{{ .File.TranslationBaseName }}">
             <div class="container">
-                <div class="responsive-title-image">
-
-
+                <div class="responsive-title-imagedoble">
                     <a href="{{ .Permalink }}">
                         {{ partial "images/sobremi" . }}
                     </a>
-
-
+                    <br><br>
                 </div>
                 
                 {{ if .Params.Image }}
@@ -113,7 +110,7 @@
         {{ end }}
         {{ end }}
         {{ end }}
-        
+
         <!-- Let`s chat, shall we? -->
         {{ with .Resources.GetMatch "contact.md" }}
         <div class="section" id="{{ .File.TranslationBaseName }}">
@@ -145,22 +142,25 @@
         {{ end }}
 
         {{ partial "footer/text.html" . }}
+        <br><br>
 
         <!-- End of fade in three section -->
         {{ partial "footer/scripts.html" . }}
         {{ partial "js/owlCarousel.html" . }}
 
         {{ if .Site.Params.home.localTime }}
-        <script>
-            function update_localtime() {
-                const time = new Date().toLocaleTimeString('{{ .Site.Params.home.timeFormat }}', { timeZone: '{{ .Site.Params.home.timeZone }}', timeStyle: 'short' });
-                document.getElementById('time').innerHTML = time;
-            }
-            update_localtime();
-            // Updating every second to prevent seconds looking like stood still when timeStyle is ignored.
-            setInterval(update_localtime, 1000);
-        </script>
+
         {{ end }}
     </body>
 
 </html>
+
+<script>
+    function update_localtime() {
+        const time = new Date().toLocaleTimeString('{{ .Site.Params.home.timeFormat }}', { timeZone: '{{ .Site.Params.home.timeZone }}', timeStyle: 'short' });
+        document.getElementById('time').innerHTML = time;
+    }
+    update_localtime();
+    // Updating every second to prevent seconds looking like stood still when timeStyle is ignored.
+    setInterval(update_localtime, 1000);
+</script>
