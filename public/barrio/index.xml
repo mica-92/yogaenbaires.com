@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Barrio on Yoga en Baires</title>
+    <link>https://mica-92.github.io/yogaenbaires/barrio/</link>
+    <description>Recent content in Barrio on Yoga en Baires</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Mon, 05 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://mica-92.github.io/yogaenbaires/barrio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Caballito</title>
+      <link>https://mica-92.github.io/yogaenbaires/barrio/caballito/</link>
+      <pubDate>Mon, 05 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://mica-92.github.io/yogaenbaires/barrio/caballito/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
