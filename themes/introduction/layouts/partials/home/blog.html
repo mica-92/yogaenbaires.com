@@ -26,9 +26,9 @@
         <br>
         {{ range first 1 .Pages.ByPublishDate.Reverse }}
         <div class="summary">
-            <h2 class="title is-2 has-text-centered section-title">
-                última estación
-            </h2> 
+
+            {{partial "images/laultimaestacion" .}}
+
             {{ if .Params.date }}{{ .Date | time.Format "January 2006" | title }}{{ end }}
             <h3 class="title is-3 latest-post-title">
                 <a href="{{ .Permalink }}">
@@ -53,16 +53,14 @@
 {{ if .Site.Params.home.showAllPosts }}
 <div class="section" id="all-posts">
     <div class="container">
-        <h2 class="title is-2 has-text-centered section-title">
-            el recorrido
-        </h2>      
-        {{if .Site.Params.home.allPostsArchiveFormat}}
-        {{ partialCached "blog/archive.html" .}}
-        {{else}}
-            {{ partialCached "blog/li.html" . }}
-        {{end}}
+
+        {{partial "images/recorrido" .}}
+
+        
+        {{ partialCached "blog/li.html" . }}
     </div>
 </div>
+
 {{ else }}
 <div class="container has-text-centered top-pad">
     <a href="{{ .Permalink }}">{{ i18n "index_blog_allPosts" . }}</a>

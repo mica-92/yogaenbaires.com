@@ -2,9 +2,9 @@
 <div class="section projects-section" id="{{ .Title | urlize }}">
     <!-- Begin Projects container -->
     <div class="container">
-        <h2 class="title is-2 has-text-centered section-title">
-            destacados
-        </h2><br><br>
+
+        {{partial "images/destacados" .}}
+        
         <div class="section" style="padding-top: 0 !important;">
             <div class="columns is-multiline">
                 {{ $totalProjects := (len .Pages) }}
