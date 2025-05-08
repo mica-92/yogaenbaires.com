@@ -2,16 +2,16 @@
 <div class="section projects-section" id="{{ .Title | urlize }}">
     <!-- Begin Projects container -->
     <div class="container">
-
-        {{partial "images/destacados" .}}
         
+        {{partial "images/destacados" .}}
+
         <div class="section" style="padding-top: 0 !important;">
             <div class="columns is-multiline">
-                {{ $totalProjects := (len .Pages) }}
+                {{ $totalProjects := (len (where .Pages ".Params.highlight" true)) }}
                 {{ $numberOfProjectsToShow := .Site.Params.home.numberOfProjectsToShow | default $totalProjects }}
-                {{ range $index, $element := .Pages.ByWeight | first $numberOfProjectsToShow }}
+                {{ range where (.Pages.ByWeight | first $numberOfProjectsToShow) ".Params.highlight" true }}
                 <div class="column is-half"> <!-- Forced two columns -->
-                    <div class="card" data-target="#project-{{ $index }}">
+                    <div class="card" data-target="#project-{{ .File.UniqueID }}">
                         {{ if .Resources.ByType "image" }}
                         <div class="card-image">
                             <figure class="image is-3by2">
@@ -27,20 +27,15 @@
                         </div>
                         {{ end }}
 
-                        
                         <div class="card-content has-text-centered">
-                            <!-- Construccion del titulo basado en los parametros de id+title -->
                             <h1><a {{ if .Params.external_link }} href="{{ .Params.external_link }}" {{ end }}>
                                 #{{ .Params.id | markdownify }} - {{ .Params.title | markdownify }}
                             </a></h1>
 
-                            <!-- Taxonomia Centrada -->
                             <div style="display: flex; justify-content: center;">
                                 {{ partial "post-taxonomy.html" . }}
-                              </div>
-
+                            </div>
                         </div>
-
                     </div>
                 </div>
                 {{ end }}
@@ -54,16 +49,12 @@
     </div>
     <!-- End Projects container -->
 
-
-
     <!-- Projects modals -->
-    {{ range $index, $element := .Pages.ByWeight | first $numberOfProjectsToShow }}
+    {{ range where (.Pages.ByWeight | first $numberOfProjectsToShow) ".Params.highlight" true }}
     {{ if not .Params.external_link }}
-    <div class="modal" id="project-{{ $index }}">
+    <div class="modal" id="project-{{ .File.UniqueID }}">
         <div class="modal-background"></div>
         <div class="modal-card">
-
-
             <section class="modal-card-body markdown">
                 {{ with .Resources.ByType "image" }}
                 {{ $moreThenOneImage := gt (len .) 1 }}
@@ -91,28 +82,15 @@
                 </div>
             </section>
         </div>
-        <button class="modal-close is-large" aria-label="close" data-target="#project-{{ $index }}"></button>
+        <button class="modal-close is-large" aria-label="close" data-target="#project-{{ .File.UniqueID }}"></button>
     </div>
     {{ end }}
     {{ end }}
-
 </div>
-
-
-
-
-
-<!-- End Projects section -->
-
 {{ end }}
-
-
-
-
 
 <style>
 /* PROJECTS SECTION */
-
 /* Custom Owl Carousel arrows */
 .owl-nav button {
   position: absolute;
@@ -204,13 +182,10 @@ padding-bottom: 0 !important;
     margin-top: 0.5rem;
 }
 
-
-
 /* Modal Styles */
 .projects-section .modal {
     z-index: 100 !important;
 }
-
 
 .projects-section .modal-card {
     border-radius: 8px !important;
@@ -303,7 +278,6 @@ padding-bottom: 0 !important;
     .projects-section .modal-content {
         padding: 1.5rem;
         width: 90%;
-
     }
     
     .projects-section .section-title {
@@ -331,7 +305,6 @@ padding-bottom: 0 !important;
     .projects-section .modal-image {
         max-height: 40vh !important;
     }
-    
 }
 </style>
 

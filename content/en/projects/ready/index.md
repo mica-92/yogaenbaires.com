@@ -1,6 +1,6 @@
 ---
-title: "Ashtanga Yoga Caballito"
-id: "1"
+title: "Esto es un proyecto"
+id: "2"
 
 estilo: ["Ashtanga"]
 duracion: [">60 min"]
@@ -16,7 +16,7 @@ instagram: "https://www.instagram.com/ashtanga_yoga_caballito/"
 
 descripcion: "Estudio tradicional de Ashtanga YOga en el corazón de Caballito."
 
-
+highlight: true
 
 related_post: "/blog/Ashtanga Yoga Caballito"  # Add this line
 ---

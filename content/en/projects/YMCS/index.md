@@ -1,6 +1,6 @@
 ---
-title: "Ashtanga Yoga Caballito"
-id: "1"
+title: "Esto es un proyecto"
+id: "3"
 
 estilo: ["Ashtanga"]
 duracion: [">60 min"]

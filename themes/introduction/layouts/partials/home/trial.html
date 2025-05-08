@@ -1,15 +1,11 @@
-{{ with .Site.GetPage "/blog" }}
+{{ with .Site.GetPage "/projects" }}
 <div class="section" id="{{ .Title | urlize }}">
     <!-- Begin Blog container -->
     <div class="container">
         {{ if .Site.Params.home.showLatest | default true }}
         
-        <!-- Image Title -->
-        <div class="responsive-title-imagedoble">
-            <a href="{{ .Permalink }}">
-                {{ partial "images/caminodelyogui" }}
-            </a>
-        </div>
+
+        {{ partial "images/caminodelyogui" }}
         <br>
         {{partial "legend-map.html" .}}
 
@@ -17,13 +13,10 @@
             <br><hr><br><br>
         </div>
 
-        <!-- Image Title -->
-        <div class="responsive-title-imagedoble">
-            <a href="{{ .Permalink }}">
-                {{ partial "images/paradas" }}
-            </a>
-        </div>
+        {{ partial "images/paradas" }}
+
         <br>
+
         {{ range first 1 .Pages.ByPublishDate.Reverse }}
         <div class="summary">
 
@@ -41,31 +34,28 @@
             <div class="post-description">
                 {{ .Params.descripcion | markdownify }}
             </div>
+
             {{ end }}
         </div>
         {{ end }}
         {{ end }}
     </div>
-</div>
 
-{{ partial "home/projects.html" . }}
 
-{{ if .Site.Params.home.showAllPosts }}
-<div class="section" id="all-posts">
-    <div class="container">
+    {{ partial "home/destacados.html" . }}
 
-        {{partial "images/recorrido" .}}
+    {{ if .Site.Params.home.showAllPosts }}
+    <div class="section" id="all-posts">
+        <div class="container">
 
-        
-        {{ partialCached "blog/li.html" . }}
+            {{partial "images/recorrido" .}}
+
+            {{ partialCached "projects/li.html" . }}
+        </div>
     </div>
-</div>
 
-{{ else }}
-<div class="container has-text-centered top-pad">
-    <a href="{{ .Permalink }}">{{ i18n "index_blog_allPosts" . }}</a>
+    {{ end }}
 </div>
-{{ end }}
 
 <!-- End Blog container -->
 {{ partial "top-icon.html" . }}
