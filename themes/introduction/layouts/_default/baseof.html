@@ -20,7 +20,7 @@
                     {{ if eq .Section "projects" }}
 
                         <div class="responsive-title-imagedoble">
-                            <a href="{{ .Permalink }}">
+                            <a href="/yogaenbaires/#el_semillero">
                                 {{ partial "images/caminodelyogui" . }}
                                 {{ partial "slogan.html" . }}
                             </a>
@@ -31,8 +31,10 @@
                 {{ end }}
             </div>
             <!-- End Title -->
+            
             <div class="section {{ if .Site.Params.fadeIn | default true }} fade-in two {{ end }}">
-                {{ partial "nav.html" . }}
+                {{ partial "navshare.html" . }}
+                
 
                 {{ block "main" . }}
                 {{ end }}

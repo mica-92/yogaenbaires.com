@@ -1,326 +1,422 @@
 {{ with .Site.GetPage "/projects" }}
 <div class="section projects-section" id="{{ .Title | urlize }}">
-    <!-- Begin Projects container -->
     <div class="container">
-        
+        <br>
         {{partial "images/destacados" .}}
-
+        <br>
         <div class="section" style="padding-top: 0 !important;">
             <div class="columns is-multiline">
-                {{ $totalProjects := (len (where .Pages ".Params.highlight" true)) }}
-                {{ $numberOfProjectsToShow := .Site.Params.home.numberOfProjectsToShow | default $totalProjects }}
-                {{ range where (.Pages.ByWeight | first $numberOfProjectsToShow) ".Params.highlight" true }}
-                <div class="column is-half"> <!-- Forced two columns -->
-                    <div class="card" data-target="#project-{{ .File.UniqueID }}">
-                        {{ if .Resources.ByType "image" }}
-                        <div class="card-image">
-                            <figure class="image is-3by2">
-                                <a {{ if .Params.external_link }} href="{{ .Params.external_link }}" {{ end }}>
-                                    {{ with .Resources.ByType "image" }}
-                                    {{ range first 1 (sort . "Params.weight") }}
-                                    {{ $image := .Resize "490x" }} <!-- Larger base size for two columns -->
-                                    <img class="card-thumbnail" src="{{ $image.Permalink }}" alt="{{ $image.Name }}">
+                {{ $highlightedProjects := where (.Pages.ByWeight) ".Params.highlight" true }}
+                {{ range $index, $project := $highlightedProjects }}
+                <div class="column is-half">
+                    <div class="project-slider-wrapper hover-effect"> <!-- Added hover-effect class -->
+                        <div class="project-slider-container" id="project-{{ $index }}">
+                            <div class="slider-controls">
+                                <button class="slider-arrow left-arrow" onclick="moveSlide(-1, {{ $index }})">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                
+                                <div class="media-slider">
+                                    {{ $mediaResources := $project.Resources.ByType "image" | append ($project.Resources.ByType "mp4") }}
+                                    {{ range $mediaIndex, $media := sort $mediaResources "Params.weight" }}
+                                    <div class="media-slide {{ if eq $mediaIndex 0 }}active{{ end }}">
+                                        {{ if eq $media.MediaType.MainType "image" }}
+                                            {{ $image := .Fit "800x1000" }}
+                                            <img src="{{ $image.Permalink }}" class="slider-image" alt="{{ $image.Name }}">
+                                        {{ else if eq $media.MediaType.MainType "video" }}
+                                            <div class="video-container">
+                                                <video loop muted playsinline>
+                                                    <source src="{{ $media.RelPermalink }}" type="video/mp4">
+                                                </video>
+                                                <div class="video-controls">
+                                                    <button class="video-play"><i class="fas fa-play"></i></button>
+                                                    <button class="video-mute"><i class="fas fa-volume-mute"></i></button>
+                                                </div>
+                                            </div>
+                                        {{ end }}
+                                    </div>
                                     {{ end }}
-                                    {{ end }}
-                                </a>
-                            </figure>
-                        </div>
-                        {{ end }}
-
-                        <div class="card-content has-text-centered">
-                            <h1><a {{ if .Params.external_link }} href="{{ .Params.external_link }}" {{ end }}>
-                                #{{ .Params.id | markdownify }} - {{ .Params.title | markdownify }}
-                            </a></h1>
-
-                            <div style="display: flex; justify-content: center;">
-                                {{ partial "post-taxonomy.html" . }}
+                                </div>
+                                
+                                <button class="slider-arrow right-arrow" onclick="moveSlide(1, {{ $index }})">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="slider-dots">
+                                {{ $mediaResources := $project.Resources.ByType "image" | append ($project.Resources.ByType "mp4") }}
+                                {{ range $mediaIndex, $media := sort $mediaResources "Params.weight" }}
+                                <span class="dot {{ if eq $mediaIndex 0 }}active{{ end }}" 
+                                      onclick="goToSlide({{ $mediaIndex }}, {{ $index }})"></span>
+                                {{ end }}
                             </div>
                         </div>
+
+                        <div class="project-info">
+                            <h2><a href="{{ $project.RelPermalink }}">#{{ $project.Params.id | markdownify }} - {{ $project.Params.title | markdownify }}</a></h2>
+                            <div style="display: flex; justify-content: center;">
+                                {{ partial "post-taxonomy.html" $project }}
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 {{ end }}
             </div>
         </div>
-        {{ if lt $numberOfProjectsToShow $totalProjects }}
-        <div class="container has-text-centered top-pad">
-            <a href="{{ .Permalink }}">{{ i18n "index_projects_allProjects" . }}</a>
-        </div>
-        {{ end }}
     </div>
-    <!-- End Projects container -->
-
-    <!-- Projects modals -->
-    {{ range where (.Pages.ByWeight | first $numberOfProjectsToShow) ".Params.highlight" true }}
-    {{ if not .Params.external_link }}
-    <div class="modal" id="project-{{ .File.UniqueID }}">
-        <div class="modal-background"></div>
-        <div class="modal-card">
-            <section class="modal-card-body markdown">
-                {{ with .Resources.ByType "image" }}
-                {{ $moreThenOneImage := gt (len .) 1 }}
-                {{ if $moreThenOneImage }}
-                <div class="owl-carousel owl-theme">
-                {{ end }}
-                    {{ range sort . "Params.weight" }}
-                        {{ $image := .Fit "800x600" }} <!-- Constrained dimensions -->
-                        {{ if $moreThenOneImage }}
-                        <div class="item owl-height">
-                        {{ end }}
-                            <div class="modal-image-container">
-                                <img src="{{ $image.Permalink }}" class="modal-image" alt="{{ $image.Name }}">
-                            </div>
-                        {{ if $moreThenOneImage }}
-                        </div>
-                        {{ end }}
-                    {{ end }}
-                {{ if $moreThenOneImage }}
-                </div>
-                {{ end }}
-                {{ end }}
-                <div class="modal-content">
-                    {{ .Content }}
-                </div>
-            </section>
-        </div>
-        <button class="modal-close is-large" aria-label="close" data-target="#project-{{ .File.UniqueID }}"></button>
-    </div>
-    {{ end }}
-    {{ end }}
 </div>
 {{ end }}
 
 <style>
-/* PROJECTS SECTION */
-/* Custom Owl Carousel arrows */
-.owl-nav button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.5) !important;
-  color: white !important;
-  border: none !important;
-  font-size: 1.5rem !important;
-  padding: 0 1rem !important;
+/* PROJECT SLIDER STYLES WITH COMPLETE HOVER EFFECTS */
+.projects-section {
+    padding: 1rem 0;
 }
 
-/* Dots styling */
-.owl-dots {
-    text-align: center;
-    margin-top: 15px;
-  }
-.section{
-padding-bottom: 0 !important;
-}
-
-.projects-section .section-title {
-    font-style: italic !important;
-    color: #6c6464 !important;
-    text-transform: lowercase !important;
-    font-weight: 700 !important;
-    margin-bottom: 0px !important;
-}
-
-/* Card styling */
-.projects-section .card {
-    border-radius: 6px !important;
-    overflow: hidden !important;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
-    height: 100% !important;
-}
-
-.projects-section .card:hover {
-    transform: translateY(-5px) scale(1.02) !important;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important;
-}
-
-/* Card image */
-.projects-section .card-image {
-    overflow: hidden !important;
-    background: #f9f9f9;
-}
-
-.projects-section .card-thumbnail {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    filter: saturate(0.95) brightness(0.98) !important;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
-}
-
-.projects-section .card:hover .card-thumbnail {
-    transform: scale(1.06) !important;
-    filter: saturate(1.05) brightness(1.02) drop-shadow(0 2px 6px rgba(0,0,0,0.1)) !important;
-}
-
-/* Card content */
-.projects-section .card-content {
-    padding: 1.25rem !important;
-    background: white;
-}
-
-.projects-section .card-content h1 {
-    font-size: 1.3rem !important;
-    color: #CD5C5C !important;
-    margin-bottom: 0.5rem !important;
-    font-weight: 300 !important;
-    transition: all 0.3s ease !important;
-}
-
-.projects-section .card:hover .card-content h1 a {
-    color: #6c6464 !important;
-    font-weight: 700 !important;
-}
-
-.projects-section .card-content h1 a {
-    color: inherit !important;
-    text-decoration: none !important;
-}
-
-.projects-section .card-content p {
-    color: #6c6464 !important;
-    font-size: 0.9rem !important;
-    margin-top: 0.5rem;
-}
-
-/* Modal Styles */
-.projects-section .modal {
-    z-index: 100 !important;
-}
-
-.projects-section .modal-card {
-    border-radius: 8px !important;
-    overflow: hidden !important;
-    max-width: 800px !important;
-    width: 80% !important;
-}
-
-.projects-section .modal-card-header {
-    background-color: white !important;
-    border-bottom: 1px solid #f0f0f0 !important;
-}
-
-.projects-section .modal-card-title {
-    color: #6c6464 !important;
-    font-weight: 700 !important;
-    font-size: 1.5rem !important;
-    text-align: center !important;
-}
-
-.projects-section .modal-card-body {
-    padding: 0 !important;
-}
-
-/* Modal image container */
-.modal-image-container {
-    max-height: 60vh;
+.project-slider-wrapper {
+    width: 80%;
+    margin: 0 auto;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border-radius: 6px;
     overflow: hidden;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.project-slider-wrapper.hover-effect:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.project-slider-container {
+    position: relative;
+    margin-bottom: 0;
+}
+
+.slider-controls {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.media-slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.media-slide {
+    display: none;
+    width: 100%;
+}
+
+.media-slide.active {
+    display: block;
+}
+
+.slider-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    filter: saturate(0.95) brightness(0.98);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hover-effect:hover .slider-image {
+    transform: scale(1.06);
+    filter: saturate(1.05) brightness(1.02) drop-shadow(0 2px 6px rgba(0,0,0,0.1));
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 125%; /* 4:5 aspect ratio */
+    background-color: #000;
+}
+
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hover-effect:hover .video-container video {
+    transform: scale(1.03);
+}
+
+/* ARROW STYLES */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 10;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all 0.2s ease;
 }
 
-.projects-section .modal-image {
-    max-width: 100% !important;
-    max-height: 60vh !important;
-    width: auto !important;
-    height: auto !important;
-    object-fit: contain !important;
-    margin: 0 auto !important;
-    display: block !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
+.slider-arrow:hover {
+    background: rgba(0,0,0,0.7);
+    transform: translateY(-50%) scale(1.1);
 }
 
-.projects-section .modal-content {
-    color: #555;
-    line-height: 1.7;
+.left-arrow {
+    left: 10px;
 }
 
-/* Carousel */
-.projects-section .owl-carousel .item {
-    padding: 0 !important;
+.right-arrow {
+    right: 10px;
 }
 
-/* HR styling */
-.container hr {
-    height: 1px !important;
-    background-color: #e6e6e6 !important;
-    border: none !important;
-    max-width: 1200px !important;
+/* DOT NAVIGATION */
+.slider-dots {
+    text-align: center;
+    margin: 10px 0;
+    padding: 0 20px;
 }
 
-/* Responsive Adjustments */
+.dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ccc;
+    margin: 0 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: #333;
+}
+
+.dot:hover {
+    transform: scale(1.2);
+}
+
+/* VIDEO CONTROLS */
+.video-controls {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.video-play, .video-mute {
+    background: rgba(0,0,0,0.7);
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.video-play:hover, .video-mute:hover {
+    background: rgba(0,0,0,0.9);
+    transform: scale(1.1);
+}
+
+/* PROJECT INFO - WITH HOVER EFFECTS */
+.project-info {
+    text-align: center !important;
+    padding: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.project-info h2 {
+    font-size: 1.2rem;
+    color: #CD5C5C;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.hover-effect:hover .project-info h2 {
+    color: #6c6464;
+    font-weight: 700;
+}
+
+.hover-effect:hover .project-info {
+    background-color: white;
+}
+
+/* RESPONSIVE ADJUSTMENTS */
 @media (max-width: 768px) {
-    .projects-section .column {
-        margin-bottom: 1.5rem !important;
-    }
-    
-    .projects-section .card {
-        margin-bottom: 1rem;
-    }
-    
-    .projects-section .card-content {
-        padding: 1rem !important;
-    }
-    
-    .projects-section .modal-card {
-        width: 95% !important;
-    }
-    
-    .modal-image-container {
-        max-height: 50vh;
-    }
-    
-    .projects-section .modal-image {
-        max-height: 50vh !important;
-    }
-    
-    .projects-section .modal-content {
-        padding: 1.5rem;
+    .project-slider-wrapper {
         width: 90%;
     }
     
-    .projects-section .section-title {
-        font-size: 24px !important;
-    }
-    
-    .projects-section .card:hover {
-        transform: translateY(-3px) scale(1.01) !important;
-    }
-    
-    .projects-section .card:hover .card-thumbnail {
-        transform: scale(1.04) !important;
+    .slider-arrow {
+        width: 25px;
+        height: 25px;
     }
 }
 
 @media (max-width: 480px) {
-    .projects-section .column {
-        width: 100% !important; /* Single column on smallest screens */
+    .project-slider-wrapper {
+        width: 95%;
     }
     
-    .modal-image-container {
-        max-height: 40vh;
+    .column.is-half {
+        width: 100%;
     }
     
-    .projects-section .modal-image {
-        max-height: 40vh !important;
+    .project-slider-wrapper.hover-effect:hover {
+        transform: none;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 }
 </style>
 
+
 <script>
-    $(document).ready(function(){
-        $(".owl-carousel").owlCarousel({
-          loop: true,            // Infinite looping
-          margin: 20,            // Space between items
-          nav: false,            // ← Disable navigation arrows
-          dots: true,            // Keep pagination dots
-          autoplay: true,        // Auto-play (optional)
-          responsive: {          // Responsive settings
-            0: { items: 1 },
-            768: { items: 1 },
-            1024: { items: 1 }
-          }
+// Global variable to track current slides
+const projectSlides = {};
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize all sliders
+    document.querySelectorAll('.project-slider-container').forEach(container => {
+        const id = container.id.split('-')[1];
+        projectSlides[id] = 0;
+        
+        // Initialize video controls
+        container.querySelectorAll('.video-play').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const video = this.closest('.video-container').querySelector('video');
+                if(video.paused) {
+                    video.play();
+                    this.innerHTML = '<i class="fas fa-pause"></i>';
+                } else {
+                    video.pause();
+                    this.innerHTML = '<i class="fas fa-play"></i>';
+                }
+            });
         });
-      });
+        
+        container.querySelectorAll('.video-mute').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const video = this.closest('.video-container').querySelector('video');
+                video.muted = !video.muted;
+                this.innerHTML = video.muted ? '<i class="fas fa-volume-mute"></i>' : '<i class="fas fa-volume-up"></i>';
+            });
+        });
+
+        // Auto-play first video if exists
+        const firstVideo = container.querySelector('.media-slide.active video');
+        if (firstVideo) {
+            firstVideo.play().catch(e => console.log("Autoplay prevented:", e));
+        }
+    });
+});
+
+function moveSlide(direction, projectId) {
+    const container = document.getElementById(`project-${projectId}`);
+    if (!container) return;
+    
+    const slides = container.querySelectorAll('.media-slide');
+    const dots = container.querySelectorAll('.dot');
+    
+    // Hide current slide
+    slides[projectSlides[projectId]]?.classList.remove('active');
+    dots[projectSlides[projectId]]?.classList.remove('active');
+    
+    // Calculate new index
+    projectSlides[projectId] += direction;
+    
+    // Handle wrap-around
+    if (projectSlides[projectId] >= slides.length) {
+        projectSlides[projectId] = 0;
+    } else if (projectSlides[projectId] < 0) {
+        projectSlides[projectId] = slides.length - 1;
+    }
+    
+    // Show new slide
+    slides[projectSlides[projectId]]?.classList.add('active');
+    dots[projectSlides[projectId]]?.classList.add('active');
+    
+    // Handle video autoplay
+    const newSlide = slides[projectSlides[projectId]];
+    if (newSlide) {
+        const video = newSlide.querySelector('video');
+        if (video) {
+            video.play().catch(e => console.log("Autoplay prevented:", e));
+        }
+    }
+    
+    // Pause any playing videos in other slides
+    slides.forEach((slide, index) => {
+        if (index !== projectSlides[projectId]) {
+            const otherVideo = slide.querySelector('video');
+            if (otherVideo) {
+                otherVideo.pause();
+                const playBtn = slide.querySelector('.video-play');
+                if (playBtn) playBtn.innerHTML = '<i class="fas fa-play"></i>';
+            }
+        }
+    });
+}
+
+function goToSlide(index, projectId) {
+    const container = document.getElementById(`project-${projectId}`);
+    if (!container) return;
+    
+    const slides = container.querySelectorAll('.media-slide');
+    const dots = container.querySelectorAll('.dot');
+    
+    // Hide current slide
+    slides[projectSlides[projectId]]?.classList.remove('active');
+    dots[projectSlides[projectId]]?.classList.remove('active');
+    
+    // Set new index
+    projectSlides[projectId] = index;
+    
+    // Show new slide
+    slides[projectSlides[projectId]]?.classList.add('active');
+    dots[projectSlides[projectId]]?.classList.add('active');
+    
+    // Handle video autoplay
+    const newSlide = slides[projectSlides[projectId]];
+    if (newSlide) {
+        const video = newSlide.querySelector('video');
+        if (video) {
+            video.play().catch(e => console.log("Autoplay prevented:", e));
+        }
+    }
+    
+    // Pause any playing videos in other slides
+    slides.forEach((slide, i) => {
+        if (i !== projectSlides[projectId]) {
+            const otherVideo = slide.querySelector('video');
+            if (otherVideo) {
+                otherVideo.pause();
+                const playBtn = slide.querySelector('.video-play');
+                if (playBtn) playBtn.innerHTML = '<i class="fas fa-play"></i>';
+            }
+        }
+    });
+}
 </script>

@@ -27,7 +27,7 @@
                     </div>
 
                     <!-- Social icons -->
-                    <div class="fade-in two">
+                    <div class="fade-in one">
                         {{ partial "home/social.html" . }}
                     </div>
 
@@ -55,12 +55,12 @@
                     <a href="{{ .Permalink }}">
                         {{ partial "images/sobremi" . }}
                     </a>
-                    <br><br>
+                    <br>
                 </div>
 
                 <!-- Subtitulo -->
                 {{ with .Site.GetPage "/home" }}
-                    <div class="markdown has-text-centered">
+                    <div class="markdown has-text-centered" style="font-size: 1.4rem;">
                         {{ .Content }}
 
                 <!-- Sobre Mi .md -->

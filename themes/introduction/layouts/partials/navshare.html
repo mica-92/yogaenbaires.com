@@ -12,6 +12,29 @@
           <a class="navbar-item" href="/yogaenbaires/#el_sendero">El Sendero</a>
           <a class="navbar-item" href="/yogaenbaires/#el_semillero">El Semillero</a>
           <a class="navbar-item" href="/yogaenbaires/#acerca">Acerca de Yoga en Baires</a>
+            
+          <a class="navbar-item"><a class="share-button whatsapp-share" 
+          href="https://wa.me/?text={{ .Title | markdownify }}%20{{ .Permalink }}" 
+          target="_blank"
+          aria-label="Compartir en WhatsApp">
+           <i class="fab fa-whatsapp"></i></a>
+       </a>
+       
+       <!-- Instagram -->
+       <a class="navbar-item"></a><a class="share-button instagram-share"
+          href="https://instagram.com/?url={{ .Permalink }}"
+          target="_blank"
+          aria-label="Compartir en Instagram">
+           <i class="fab fa-instagram"></i></a>
+       </a>
+       
+       <!-- Copy Link -->
+       <a class="navbar-item"></a><button class="share-button copy-link"
+               onclick="navigator.clipboard.writeText('{{ .Title | markdownify }} - {{ .Permalink }}');alert('¡Enlace copiado!')"
+               aria-label="Copiar enlace">
+           <i class="fas fa-paperclip"></i></a>
+       </button>
+
         </div>
     </nav>
     <hr>

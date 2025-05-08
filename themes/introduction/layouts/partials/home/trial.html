@@ -22,7 +22,7 @@
 
             {{partial "images/laultimaestacion" .}}
 
-            {{ if .Params.date }}{{ .Date | time.Format "January 2006" | title }}{{ end }}
+            {{ if .Params.date }}{{ .Date | time.Format "01-2006" | title }}{{ end }}
             <h3 class="title is-3 latest-post-title">
                 <a href="{{ .Permalink }}">
                     #{{ .Params.id | markdownify }} - {{ .Params.title | markdownify }}

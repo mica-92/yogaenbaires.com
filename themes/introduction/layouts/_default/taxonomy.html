@@ -1,7 +1,6 @@
 {{ define "title" }}
-
-<div class= "responsive-title-imagedoble">
-    <a href="{{ "/yogaenbaires/blog" | relURL }}">
+<div class="responsive-title-imagedoble">
+    <a href="/yogaenbaires/#el_semillero">
         {{ partial "images/paradas" }}
     </a>
 </div>
@@ -12,33 +11,20 @@
 </h2>
 {{ end }}
 
-
 {{ define "main" }}
-{{ partial "nav.html" . }}
-
-
-
 <div class="container">
-<hr>
-{{ partial "share-buttons.html" . }}
-<hr>
-
     {{ partial "legend-map.html" . }}
-
-<hr>
+    <hr>
 
     <ul class="post-list">
-        {{ range .Pages.ByPublishDate.Reverse }}
+        {{ range where .Pages.ByPublishDate.Reverse "Section" "projects" }}
         <li class="post-item">
             <a href="{{ .Permalink }}" class="post-title">{{ .Title | markdownify }}</a>
-
-                {{ partial "post-taxonomy.html" . }}
-
+            {{ partial "post-taxonomy.html" . }}
         </li>
         {{ end }}
     </ul>
 </div>
-
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -47,20 +33,17 @@
             iframe.style.pointerEvents = 'auto';
             overlay.style.display = 'none';
             
-            // Optional: Re-disable after 30 seconds of inactivity
             setTimeout(() => {
                 iframe.style.pointerEvents = 'none';
                 overlay.style.display = 'block';
             }, 30000);
         }
     
-        // Initialize event listeners for all map overlays
         document.querySelectorAll('.map-overlay').forEach(overlay => {
             overlay.addEventListener('click', function() {
                 enableMapInteractivity(this);
             });
         });
     });
-    </script>
-
+</script>
 {{ end }}
