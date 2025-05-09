@@ -22,7 +22,7 @@
 
             {{partial "images/laultimaestacion" .}}
 
-            {{ if .Params.date }}{{ .Date | time.Format "01-2006" | title }}{{ end }}
+            
             <h3 class="title is-3 latest-post-title">
                 <a href="{{ .Permalink }}">
                     #{{ .Params.id | markdownify }} - {{ .Params.title | markdownify }}
@@ -31,7 +31,8 @@
             {{partial "post-taxonomy.html" .}}
             
             {{ if .Params.descripcion }}
-            <div class="post-description">
+            <div class="post-description" style="margin-top:0.8rem !important;">
+ 
                 {{ .Params.descripcion | markdownify }}
             </div>
 
