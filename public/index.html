@@ -77,7 +77,7 @@ Yoga en Baires
                     </div>
 
                     
-                    <div class="fade-in one">
+                    <div class="fade-in three"> 
                         <div class="social-icons">
     
       
@@ -326,12 +326,13 @@ Yoga en Baires
     <img src="/yogaenbaires/images/destacados.png" alt="Los Deastacados del Camino">
 </div><br>
         <br>
+        
         <div class="section" style="padding-top: 0 !important;">
             <div class="columns is-multiline">
                 
                 
                 <div class="column is-half">
-                    <div class="project-slider-wrapper hover-effect"> 
+                    <div class="project-slider-wrapper hover-effect">
                         <div class="project-slider-container" id="project-0">
                             <div class="slider-controls">
                                 <button class="slider-arrow left-arrow" onclick="moveSlide(-1,  0 )">
@@ -364,12 +365,9 @@ Yoga en Baires
                             
                             <div class="slider-dots">
                                 
+                                <span class="dot " onclick="goToSlide( 0 ,  0 )"></span>
                                 
-                                <span class="dot active" 
-                                      onclick="goToSlide( 0 ,  0 )"></span>
-                                
-                                <span class="dot " 
-                                      onclick="goToSlide( 1 ,  0 )"></span>
+                                <span class="dot " onclick="goToSlide( 1 ,  0 )"></span>
                                 
                             </div>
                         </div>
@@ -425,12 +423,11 @@ Yoga en Baires
 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 
                 <div class="column is-half">
-                    <div class="project-slider-wrapper hover-effect"> 
+                    <div class="project-slider-wrapper hover-effect">
                         <div class="project-slider-container" id="project-1">
                             <div class="slider-controls">
                                 <button class="slider-arrow left-arrow" onclick="moveSlide(-1,  1 )">
@@ -463,12 +460,9 @@ Yoga en Baires
                             
                             <div class="slider-dots">
                                 
+                                <span class="dot " onclick="goToSlide( 0 ,  1 )"></span>
                                 
-                                <span class="dot active" 
-                                      onclick="goToSlide( 0 ,  1 )"></span>
-                                
-                                <span class="dot " 
-                                      onclick="goToSlide( 1 ,  1 )"></span>
+                                <span class="dot " onclick="goToSlide( 1 ,  1 )"></span>
                                 
                             </div>
                         </div>
@@ -524,7 +518,6 @@ Yoga en Baires
 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 
@@ -595,27 +588,6 @@ Yoga en Baires
     filter: saturate(1.05) brightness(1.02) drop-shadow(0 2px 6px rgba(0,0,0,0.1));
 }
 
-.video-container {
-    position: relative;
-    width: 100%;
-    padding-bottom: 125%;  
-    background-color: #000;
-}
-
-.video-container video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.hover-effect:hover .video-container video {
-    transform: scale(1.03);
-}
-
  
 .slider-arrow {
     position: absolute;
@@ -676,37 +648,6 @@ Yoga en Baires
 }
 
  
-.video-controls {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-    z-index: 10;
-}
-
-.video-play, .video-mute {
-    background: rgba(0,0,0,0.7);
-    color: white;
-    border: none;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    font-size: 0.9rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
-}
-
-.video-play:hover, .video-mute:hover {
-    background: rgba(0,0,0,0.9);
-    transform: scale(1.1);
-}
-
- 
 .project-info {
     text-align: center !important;
     padding: 1rem;
@@ -758,7 +699,6 @@ Yoga en Baires
 }
 </style>
 
-
 <script>
 
 const projectSlides = {};
@@ -768,34 +708,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.project-slider-container').forEach(container => {
         const id = container.id.split('-')[1];
         projectSlides[id] = 0;
-        
-        
-        container.querySelectorAll('.video-play').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const video = this.closest('.video-container').querySelector('video');
-                if(video.paused) {
-                    video.play();
-                    this.innerHTML = '<i class="fas fa-pause"></i>';
-                } else {
-                    video.pause();
-                    this.innerHTML = '<i class="fas fa-play"></i>';
-                }
-            });
-        });
-        
-        container.querySelectorAll('.video-mute').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const video = this.closest('.video-container').querySelector('video');
-                video.muted = !video.muted;
-                this.innerHTML = video.muted ? '<i class="fas fa-volume-mute"></i>' : '<i class="fas fa-volume-up"></i>';
-            });
-        });
-
-        
-        const firstVideo = container.querySelector('.media-slide.active video');
-        if (firstVideo) {
-            firstVideo.play().catch(e => console.log("Autoplay prevented:", e));
-        }
     });
 });
 
@@ -823,27 +735,6 @@ function moveSlide(direction, projectId) {
     
     slides[projectSlides[projectId]]?.classList.add('active');
     dots[projectSlides[projectId]]?.classList.add('active');
-    
-    
-    const newSlide = slides[projectSlides[projectId]];
-    if (newSlide) {
-        const video = newSlide.querySelector('video');
-        if (video) {
-            video.play().catch(e => console.log("Autoplay prevented:", e));
-        }
-    }
-    
-    
-    slides.forEach((slide, index) => {
-        if (index !== projectSlides[projectId]) {
-            const otherVideo = slide.querySelector('video');
-            if (otherVideo) {
-                otherVideo.pause();
-                const playBtn = slide.querySelector('.video-play');
-                if (playBtn) playBtn.innerHTML = '<i class="fas fa-play"></i>';
-            }
-        }
-    });
 }
 
 function goToSlide(index, projectId) {
@@ -863,27 +754,6 @@ function goToSlide(index, projectId) {
     
     slides[projectSlides[projectId]]?.classList.add('active');
     dots[projectSlides[projectId]]?.classList.add('active');
-    
-    
-    const newSlide = slides[projectSlides[projectId]];
-    if (newSlide) {
-        const video = newSlide.querySelector('video');
-        if (video) {
-            video.play().catch(e => console.log("Autoplay prevented:", e));
-        }
-    }
-    
-    
-    slides.forEach((slide, i) => {
-        if (i !== projectSlides[projectId]) {
-            const otherVideo = slide.querySelector('video');
-            if (otherVideo) {
-                otherVideo.pause();
-                const playBtn = slide.querySelector('.video-play');
-                if (playBtn) playBtn.innerHTML = '<i class="fas fa-play"></i>';
-            }
-        }
-    });
 }
 </script>
 

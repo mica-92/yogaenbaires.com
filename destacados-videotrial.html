@@ -1,0 +1,460 @@
+{{ with .Site.GetPage "/projects" }}
+<div class="section projects-section" id="{{ .Title | urlize }}">
+    <div class="container">
+        <br>
+        {{ partial "images/destacados" . }}
+        <br>
+        
+        <div class="section" style="padding-top: 0 !important;">
+            <div class="columns is-multiline">
+                {{ $highlightedProjects := where (.Pages.ByWeight) ".Params.highlight" true }}
+                {{ range $index, $project := $highlightedProjects }}
+                <div class="column is-half">
+                    <div class="project-slider-wrapper hover-effect">
+                        <div class="project-slider-container" id="project-{{ $index }}">
+                            <div class="slider-controls">
+                                <button class="slider-arrow left-arrow" onclick="moveSlide(-1, {{ $index }})">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                
+                                <div class="media-slider">
+                                    {{ $mediaResources := $project.Resources.ByType "image" }}
+                                    {{ range $mediaIndex, $media := sort $mediaResources "Params.weight" }}
+                                    <div class="media-slide {{ if eq $mediaIndex 0 }}active{{ end }}">
+                                        {{ if eq $media.MediaType.MainType "image" }}
+                                            {{ $image := .Fit "800x1000" }}
+                                            <img src="{{ $image.Permalink }}" class="slider-image" alt="{{ $image.Name }}">
+                                        {{ end }}
+                                    </div>
+                                    {{ end }}
+                                    
+                                    <!-- Add static videos separately -->
+                                    <div class="media-slide">
+                                        <div class="video-container">
+                                            <video controls loop muted playsinline style="width:100%">
+                                                <source src="/content/en/projects/AYC/Post1.mp4" type="video/mp4">
+                                            </video>
+                                            <div class="video-controls">
+                                                <button class="video-play"><i class="fas fa-play"></i></button>
+                                                <button class="video-mute"><i class="fas fa-volume-mute"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <button class="slider-arrow right-arrow" onclick="moveSlide(1, {{ $index }})">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="slider-dots">
+                                <!-- Update dots count to include both images and videos -->
+                                {{ range $i := seq (add (len $mediaResources) 1) }}
+                                <span class="dot {{ if eq $i 0 }}active{{ end }}" onclick="goToSlide({{ sub $i 1 }}, {{ $index }})"></span>
+                                {{ end }}
+                            </div>
+                        </div>
+
+                        <div class="project-info">
+                            <h2><a href="{{ $project.RelPermalink }}">#{{ $project.Params.id | markdownify }} - {{ $project.Params.title | markdownify }}</a></h2>
+                            <div style="display: flex; justify-content: center;">
+                                {{ partial "post-taxonomy.html" $project }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}
+
+<style>
+/* PROJECT SLIDER STYLES WITH COMPLETE HOVER EFFECTS */
+.projects-section {
+    padding: 1rem 0;
+}
+
+.project-slider-wrapper {
+    width: 80%;
+    margin: 0 auto;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border-radius: 6px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.project-slider-wrapper.hover-effect:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.project-slider-container {
+    position: relative;
+    margin-bottom: 0;
+}
+
+.slider-controls {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.media-slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.media-slide {
+    display: none;
+    width: 100%;
+}
+
+.media-slide.active {
+    display: block;
+}
+
+.slider-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    filter: saturate(0.95) brightness(0.98);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hover-effect:hover .slider-image {
+    transform: scale(1.06);
+    filter: saturate(1.05) brightness(1.02) drop-shadow(0 2px 6px rgba(0,0,0,0.1));
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 125%; /* 4:5 aspect ratio */
+    background-color: #000;
+}
+
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hover-effect:hover .video-container video {
+    transform: scale(1.03);
+}
+
+/* ARROW STYLES */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.slider-arrow:hover {
+    background: rgba(0,0,0,0.7);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+/* DOT NAVIGATION */
+.slider-dots {
+    text-align: center;
+    margin: 10px 0;
+    padding: 0 20px;
+}
+
+.dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ccc;
+    margin: 0 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: #333;
+}
+
+.dot:hover {
+    transform: scale(1.2);
+}
+
+/* VIDEO CONTROLS */
+.video-controls {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.video-play, .video-mute {
+    background: rgba(0,0,0,0.7);
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.video-play:hover, .video-mute:hover {
+    background: rgba(0,0,0,0.9);
+    transform: scale(1.1);
+}
+
+/* PROJECT INFO - WITH HOVER EFFECTS */
+.project-info {
+    text-align: center !important;
+    padding: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.project-info h2 {
+    font-size: 1.2rem;
+    color: #CD5C5C;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.hover-effect:hover .project-info h2 {
+    color: #6c6464;
+    font-weight: 700;
+}
+
+.hover-effect:hover .project-info {
+    background-color: white;
+}
+
+/* RESPONSIVE ADJUSTMENTS */
+@media (max-width: 768px) {
+    .project-slider-wrapper {
+        width: 90%;
+    }
+    
+    .slider-arrow {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-slider-wrapper {
+        width: 95%;
+    }
+    
+    .column.is-half {
+        width: 100%;
+    }
+    
+    .project-slider-wrapper.hover-effect:hover {
+        transform: none;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+}
+</style>
+
+
+<script>
+    // Global variable to track current slides
+    const projectSlides = {};
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize all sliders
+        document.querySelectorAll('.project-slider-container').forEach(container => {
+            const id = container.id.split('-')[1];
+            projectSlides[id] = 0;
+            
+            // Initialize video controls and set up videos
+            container.querySelectorAll('.video-container').forEach(videoContainer => {
+                const video = videoContainer.querySelector('video');
+                const playBtn = videoContainer.querySelector('.video-play');
+                const muteBtn = videoContainer.querySelector('.video-mute');
+                
+                // Ensure videos are muted for autoplay
+                if (video) {
+                    video.muted = true;
+                    video.playsInline = true;
+                    
+                    // Update mute button state
+                    if (muteBtn) {
+                        muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                    }
+                    
+                    // Handle video play/pause events to update button
+                    video.addEventListener('play', () => {
+                        if (playBtn) playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                    });
+                    
+                    video.addEventListener('pause', () => {
+                        if (playBtn) playBtn.innerHTML = '<i class="fas fa-play"></i>';
+                    });
+                }
+                
+                // Play button functionality
+                if (playBtn) {
+                    playBtn.addEventListener('click', function() {
+                        if (video.paused) {
+                            video.play().catch(e => console.log("Play failed:", e));
+                        } else {
+                            video.pause();
+                        }
+                    });
+                }
+                
+                // Mute button functionality
+                if (muteBtn) {
+                    muteBtn.addEventListener('click', function() {
+                        video.muted = !video.muted;
+                        this.innerHTML = video.muted ? 
+                            '<i class="fas fa-volume-mute"></i>' : 
+                            '<i class="fas fa-volume-up"></i>';
+                    });
+                }
+            });
+    
+            // Auto-play first video if exists
+            const firstVideo = container.querySelector('.media-slide.active video');
+            if (firstVideo) {
+                firstVideo.play().catch(e => console.log("Autoplay prevented:", e));
+            }
+        });
+    });
+    
+    function moveSlide(direction, projectId) {
+        const container = document.getElementById(`project-${projectId}`);
+        if (!container) return;
+        
+        const slides = container.querySelectorAll('.media-slide');
+        const dots = container.querySelectorAll('.dot');
+        
+        // Pause current video before switching
+        const currentSlide = slides[projectSlides[projectId]];
+        if (currentSlide) {
+            const currentVideo = currentSlide.querySelector('video');
+            if (currentVideo) {
+                currentVideo.pause();
+                const playBtn = currentSlide.querySelector('.video-play');
+                if (playBtn) playBtn.innerHTML = '<i class="fas fa-play"></i>';
+            }
+        }
+        
+        // Hide current slide
+        currentSlide?.classList.remove('active');
+        dots[projectSlides[projectId]]?.classList.remove('active');
+        
+        // Calculate new index
+        projectSlides[projectId] += direction;
+        
+        // Handle wrap-around
+        if (projectSlides[projectId] >= slides.length) {
+            projectSlides[projectId] = 0;
+        } else if (projectSlides[projectId] < 0) {
+            projectSlides[projectId] = slides.length - 1;
+        }
+        
+        // Show new slide
+        const newSlide = slides[projectSlides[projectId]];
+        newSlide?.classList.add('active');
+        dots[projectSlides[projectId]]?.classList.add('active');
+        
+        // Handle video autoplay in new slide
+        if (newSlide) {
+            const video = newSlide.querySelector('video');
+            if (video) {
+                video.currentTime = 0; // Rewind to start
+                video.play().catch(e => {
+                    console.log("Autoplay prevented:", e);
+                    // Fallback: show play button
+                    const playBtn = newSlide.querySelector('.video-play');
+                    if (playBtn) playBtn.style.display = 'block';
+                });
+            }
+        }
+    }
+    
+    function goToSlide(index, projectId) {
+        const container = document.getElementById(`project-${projectId}`);
+        if (!container) return;
+        
+        const slides = container.querySelectorAll('.media-slide');
+        const dots = container.querySelectorAll('.dot');
+        
+        // Pause current video before switching
+        const currentSlide = slides[projectSlides[projectId]];
+        if (currentSlide) {
+            const currentVideo = currentSlide.querySelector('video');
+            if (currentVideo) {
+                currentVideo.pause();
+                const playBtn = currentSlide.querySelector('.video-play');
+                if (playBtn) playBtn.innerHTML = '<i class="fas fa-play"></i>';
+            }
+        }
+        
+        // Hide current slide
+        currentSlide?.classList.remove('active');
+        dots[projectSlides[projectId]]?.classList.remove('active');
+        
+        // Set new index
+        projectSlides[projectId] = index;
+        
+        // Show new slide
+        const newSlide = slides[projectSlides[projectId]];
+        newSlide?.classList.add('active');
+        dots[projectSlides[projectId]]?.classList.add('active');
+        
+        // Handle video autoplay in new slide
+        if (newSlide) {
+            const video = newSlide.querySelector('video');
+            if (video) {
+                video.currentTime = 0; // Rewind to start
+                video.play().catch(e => {
+                    console.log("Autoplay prevented:", e);
+                    // Fallback: show play button
+                    const playBtn = newSlide.querySelector('.video-play');
+                    if (playBtn) playBtn.style.display = 'block';
+                });
+            }
+        }
+    }
+</script>
