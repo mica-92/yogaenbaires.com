@@ -39,20 +39,8 @@
     </div>
 
     <!-- Right Column - Instagram -->
-    {{ if .Params.instagram }}
-    <div class="instagram-column">
-        <div class="instagram-embed-wrapper">
-            <div class="instagram-embed-container">
-                <blockquote class="instagram-media" data-instgrm-permalink="{{ .Params.instagram }}" data-instgrm-version="14">
-                    <div class="instagram-placeholder">
-                        <a href="{{ .Params.instagram }}" target="_blank">View Instagram Post</a>
-                    </div>
-                </blockquote>
-                <script async src="//www.instagram.com/embed.js"></script>
-            </div>
-        </div>
-    </div>
-    {{ end }}
+    {{ partial "single-map.html" . }}
+
 </div>
 
 <style>
@@ -99,31 +87,46 @@
     align-items: start;
 }
 
-.contact-info, .instagram-column {
+.contact-info {
     display: flex;
     flex-direction: column;
     height: 100%;
 }
 
-.instagram-embed-wrapper {
+/* Instagram Profile Embed Styles */
+.contact-instagram-column {
+    display: flex;
+}
+
+.contact-instagram-wrapper {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
-.instagram-embed-container {
+.contact-instagram-container {
     flex-grow: 1;
     min-height: 300px;
+    width: 100%;
 }
 
-.instagram-media {
+.instagram-profile-media {
     height: 100% !important;
     min-height: 100%;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 @media (max-width: 768px) {
     .contact-grid {
         grid-template-columns: 1fr;
     }
+    
+    .contact-instagram-container {
+        min-height: 250px;
+    }
 }
+
 </style>

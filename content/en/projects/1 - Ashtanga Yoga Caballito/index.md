@@ -22,7 +22,8 @@ salones: "1"
 capacidad: "10"
 reservas: "No hace falta reserva previa."
 
-instagrampost: "https://www.instagram.com/reel/C6cGQSPv3P3/" #ver si dejo esto pata
+instagrampost: "https://www.instagram.com/reel/C6cGQSPv3P3/"
+instagramreview: "https://www.instagram.com/p/DJdIytrItm1/"
 website: www.google.com
 
 

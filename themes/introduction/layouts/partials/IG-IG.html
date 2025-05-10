@@ -1,38 +1,22 @@
 <!-- fotos-opiniones.html -->
 <div class="photos-reviews-section">
-    <h2>Reseña & Redes</h2>
+    <h2>Instagram & Reseña</h2>
     
+    {{ if .Params.instagramreview }}
     <div class="photos-reviews-grid">
-        <!-- Left Column - Photo Carousel -->
-        <div class="photo-carousel-wrapper">
-            <div class="project-slider-container" id="project-carousel">
-                <div class="slider-controls">
-                    <button class="slider-arrow left-arrow" onclick="moveSlide(-1, 'carousel')">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    
-                    <div class="media-slider">
-                        {{ $mediaResources := .Resources.ByType "image" }}
-                        {{ range $index, $media := sort $mediaResources "Params.weight" }}
-                        <div class="media-slide {{ if eq $index 0 }}active{{ end }}">
-                            {{ $image := $media.Fit "800x1000" }}
-                            <img src="{{ $image.Permalink }}" class="slider-image" alt="{{ $image.Name }}">
-                        </div>
-                        {{ end }}
+        <div class="instagram-embed-column">
+            <div class="instagram-embed-wrapper">
+                <blockquote class="instagram-media" data-instgrm-permalink="{{ .Params.instagramreview }}" data-instgrm-version="14" style="width:100%; min-height: 600px; display: flex; justify-content: center;">
+                    <div style="padding:16px;text-align:center;">
+                        <a href="{{ .Params.instagramreview }}" target="_blank" style="color:#3897f0;font-weight:bold;">
+                            View Instagram Post
+                        </a>
                     </div>
-                    
-                    <button class="slider-arrow right-arrow" onclick="moveSlide(1, 'carousel')">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-                
-                <div class="slider-dots">
-                    {{ range $i := seq (len $mediaResources) }}
-                    <span class="dot {{ if eq $i 0 }}active{{ end }}" onclick="goToSlide({{ sub $i 1 }}, 'carousel')"></span>
-                    {{ end }}
-                </div>
+                </blockquote>
+                <script async src="//www.instagram.com/embed.js"></script>
             </div>
         </div>
+        {{end}}
 
         <!-- Instagram Embed Column -->
         {{ if .Params.instagrampost }}
@@ -95,7 +79,7 @@
 
 .project-slider-container {
     position: relative;
-    width: 85%; /* Set to 60% of parent width */
+    width: 90%; /* Set to 60% of parent width */
     max-width: 600px; /* Optional: Prevent excessive stretching */
 }
 

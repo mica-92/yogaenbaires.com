@@ -27,8 +27,6 @@ Esto Es Un Proyecto - Yoga en Baires
 
 
 
-<meta property="og:image" content="https://mica-92.github.io/yogaenbaires/projects/ready/Photo1.jpg"/>
-
 <meta property="og:image" content="https://mica-92.github.io/yogaenbaires/projects/ready/Photo2.webp"/>
 
 
@@ -318,27 +316,8 @@ Esto Es Un Proyecto - Yoga en Baires
 
     <hr>
 
-     <div class="connect-section">
-
-        <p><p>Ubicado en el vibrante corazón de Caballito, a tan solo una cuadra de la Avenida Rivadavia, se encuentra Ashtanga Yoga Caballito, un estudio íntimo dedicado a la práctica del Ashtanga yoga. Dirigido por Ernesto, un experimentado instructor con más de dos décadas de enseñanza y práctica, este espacio acoge a un máximo de 10 alumnos por clase, garantizando una atención personalizada. Si bien se mantiene la esencia tradicional del Ashtanga, Ernesto se distingue por su enfoque flexible, alentando el uso de elementos y la modificación de la secuencia para adaptarse a las necesidades individuales de cada estudiante. Con opciones de turno mañana y tarde, Ashtanga Yoga Caballito se diferencia de otros estudios de Ashtanga al ofrecer clases incluso en días de luna.</p>
-</p>
-
-    </div>
-
-    
-
-
-<div class="elegant-map-container">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.3026172261593!2d-58.4454419!3d-34.6217922!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccba80002ddcd%3A0x9c373431e77ffd8d!2sAshtanga%20Yoga%20Caballito!5e0!3m2!1sen!2sar!4v1746202957648!5m2!1sen!2sar" 
-            class="elegant-map" 
-            allowfullscreen="" 
-            loading="lazy"
-            style="pointer-events: none;"
-            title="Esto es un proyecto location">
-    </iframe>
-    <div class="map-overlay" onclick="enableMapInteractivity(this)"></div>
-
-</div>
+     <div class="connect-section"> <p><p>Ubicado en el vibrante corazón de Caballito, a tan solo una cuadra de la Avenida Rivadavia, se encuentra Ashtanga Yoga Caballito, un estudio íntimo dedicado a la práctica del Ashtanga yoga. Dirigido por Ernesto, un experimentado instructor con más de dos décadas de enseñanza y práctica, este espacio acoge a un máximo de 10 alumnos por clase, garantizando una atención personalizada. Si bien se mantiene la esencia tradicional del Ashtanga, Ernesto se distingue por su enfoque flexible, alentando el uso de elementos y la modificación de la secuencia para adaptarse a las necesidades individuales de cada estudiante. Con opciones de turno mañana y tarde, Ashtanga Yoga Caballito se diferencia de otros estudios de Ashtanga al ofrecer clases incluso en días de luna.</p>
+</p></div>
 
 
 
@@ -374,19 +353,22 @@ Esto Es Un Proyecto - Yoga en Baires
 
     
     
-    <div class="instagram-column">
-        <div class="instagram-embed-wrapper">
-            <div class="instagram-embed-container">
-                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/ashtanga_yoga_caballito/" data-instgrm-version="14">
-                    <div class="instagram-placeholder">
-                        <a href="https://www.instagram.com/ashtanga_yoga_caballito/" target="_blank">View Instagram Post</a>
-                    </div>
-                </blockquote>
-                <script async src="//www.instagram.com/embed.js"></script>
-            </div>
-        </div>
-    </div>
-    
+
+
+<div class="elegant-map-container">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.3026172261593!2d-58.4454419!3d-34.6217922!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccba80002ddcd%3A0x9c373431e77ffd8d!2sAshtanga%20Yoga%20Caballito!5e0!3m2!1sen!2sar!4v1746202957648!5m2!1sen!2sar" 
+            class="elegant-map" 
+            allowfullscreen="" 
+            loading="lazy"
+            style="pointer-events: none;"
+            title="Esto es un proyecto location">
+    </iframe>
+    <div class="map-overlay" onclick="enableMapInteractivity(this)"></div>
+
+</div>
+
+
+
 </div>
 
 <style>
@@ -433,33 +415,48 @@ Esto Es Un Proyecto - Yoga en Baires
     align-items: start;
 }
 
-.contact-info, .instagram-column {
+.contact-info {
     display: flex;
     flex-direction: column;
     height: 100%;
 }
 
-.instagram-embed-wrapper {
+ 
+.contact-instagram-column {
+    display: flex;
+}
+
+.contact-instagram-wrapper {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
-.instagram-embed-container {
+.contact-instagram-container {
     flex-grow: 1;
     min-height: 300px;
+    width: 100%;
 }
 
-.instagram-media {
+.instagram-profile-media {
     height: 100% !important;
     min-height: 100%;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 @media (max-width: 768px) {
     .contact-grid {
         grid-template-columns: 1fr;
     }
+    
+    .contact-instagram-container {
+        min-height: 250px;
+    }
 }
+
 </style>
 
     <div class="connect-item ">
@@ -472,46 +469,9 @@ Esto Es Un Proyecto - Yoga en Baires
 
     
 <div class="photos-reviews-section">
-    <h2>Fotos & Opiniones</h2>
+    <h2>Instagram & Reseña</h2>
     
-    <div class="photos-reviews-grid">
-        
-        <div class="photo-carousel-wrapper">
-            <div class="project-slider-container" id="project-carousel">
-                <div class="slider-controls">
-                    <button class="slider-arrow left-arrow" onclick="moveSlide(-1, 'carousel')">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    
-                    <div class="media-slider">
-                        
-                        
-                        <div class="media-slide active">
-                            
-                            <img src="https://mica-92.github.io/yogaenbaires/projects/ready/Photo1_hue9dfdf774a5267df418b94434e8f7ea1_112687_800x1000_fit_q75_box.jpg" class="slider-image" alt="Photo1.jpg">
-                        </div>
-                        
-                        <div class="media-slide ">
-                            
-                            <img src="https://mica-92.github.io/yogaenbaires/projects/ready/Photo2_hue7dd7edb6d7e09426e773c96dbf98d31_100797_800x1000_fit_q75_h2_box_2.webp" class="slider-image" alt="Photo2.webp">
-                        </div>
-                        
-                    </div>
-                    
-                    <button class="slider-arrow right-arrow" onclick="moveSlide(1, 'carousel')">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-                
-                <div class="slider-dots">
-                    
-                    <span class="dot " onclick="goToSlide( 0 , 'carousel')"></span>
-                    
-                    <span class="dot " onclick="goToSlide( 1 , 'carousel')"></span>
-                    
-                </div>
-            </div>
-        </div>
+    
 
         
         
@@ -555,7 +515,7 @@ Esto Es Un Proyecto - Yoga en Baires
 
 .project-slider-container {
     position: relative;
-    width: 85%;  
+    width: 90%;  
     max-width: 600px;  
 }
 
@@ -738,6 +698,159 @@ function goToSlide(index, projectId) {
 }
 </script>
 
+    
+<div class="pinterest-reviews-section">
+    <h2>Gallery & Reviews</h2>
+    
+    <div class="pinterest-reviews-container">
+        
+        
+        
+        
+        
+        
+        
+            
+            
+            
+            
+                
+                
+                    
+                    
+                    <div class="pinterest-grid-item">
+                        <div class="image-wrapper">
+                            <img src="https://mica-92.github.io/yogaenbaires/projects/ready/Photo2_hue7dd7edb6d7e09426e773c96dbf98d31_100797_600x800_fit_q75_h2_box_2.webp" 
+                                 alt="Photo2.webp" 
+                                 class="pinterest-image"
+                                 loading="lazy">
+                            
+                        </div>
+                    </div>
+                
+                
+                
+                
+            
+        
+    </div>
+</div>
+
+<style>
+ 
+.pinterest-reviews-section {
+    margin: 3rem 0;
+    padding: 0 1rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pinterest-reviews-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #CD5C5C;
+    font-size: 1.8rem;
+}
+
+ 
+.pinterest-reviews-container {
+    columns: 3;
+    column-gap: 1.5rem;
+    padding: 1rem;
+}
+
+ 
+.pinterest-grid-item {
+    break-inside: avoid;
+    margin-bottom: 1.5rem;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.image-wrapper {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    background: #f8f8f8;
+}
+
+.pinterest-grid-item:hover .image-wrapper {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.pinterest-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.pinterest-grid-item:hover .pinterest-image {
+    transform: scale(1.02);
+}
+
+.image-caption {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.4;
+    background: white;
+}
+
+ 
+.review-card {
+    break-inside: avoid;
+    margin-bottom: 1.5rem;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.review-card.style-vinyasa {
+    background-color: #fce4ec;
+    color: #c2185b;
+    border: 1px solid #f8bbd0;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.review-content {
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.review-author {
+    text-align: right;
+    font-weight: 600;
+    color: #ad1457;
+}
+
+ 
+@media (max-width: 768px) {
+    .pinterest-reviews-container {
+        columns: 1 !important;
+        column-gap: 0;
+    }
+    
+    .pinterest-grid-item,
+    .review-card {
+        margin-bottom: 1rem;
+        width: 100%;
+    }
+}
+</style>
+
     <hr>
 <div class="post-data">
     <strong>Fecha de visita:</strong>
@@ -786,7 +899,7 @@ function goToSlide(index, projectId) {
       }
 
         .connect-section p {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         color: var(--gray);
         margin-bottom: 1rem;
         font-weight: 500;

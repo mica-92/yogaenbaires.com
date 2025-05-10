@@ -1,0 +1,87 @@
+<!-- pinterest-grid.html -->
+<div class="pinterest-grid-section">
+    <h2>Fotos</h2>
+    
+    <div class="pinterest-grid-container">
+        {{ $mediaResources := .Resources.ByType "image" }}
+        {{ range $media := sort $mediaResources "Params.weight" }}
+            {{ $image := $media.Fit "600x800" }}
+            <div class="pinterest-grid-item">
+                <img src="{{ $image.Permalink }}" 
+                     alt="{{ $image.Name }}" 
+                     class="pinterest-image"
+                     loading="lazy">
+                {{ if $media.Params.caption }}
+                <div class="image-caption">{{ $media.Params.caption }}</div>
+                {{ end }}
+            </div>
+        {{ end }}
+    </div>
+</div>
+
+<style>
+/* Pinterest Style Grid Layout */
+.pinterest-grid-section {
+    margin: 3rem 0;
+    padding: 0 1rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pinterest-grid-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #CD5C5C;
+    font-size: 1.8rem;
+}
+
+.pinterest-grid-container {
+    columns: 3 300px;
+    column-gap: 1rem;
+    padding: 1rem;
+}
+
+.pinterest-grid-item {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    background: #f8f8f8;
+}
+
+.pinterest-grid-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.pinterest-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px 8px 0 0;
+}
+
+.image-caption {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.4;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .pinterest-grid-container {
+        columns: 2 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pinterest-grid-container {
+        columns: 1;
+    }
+}
+</style>

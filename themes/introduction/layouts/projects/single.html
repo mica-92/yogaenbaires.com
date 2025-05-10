@@ -20,19 +20,17 @@
 
     <hr>
 
-     <div class="connect-section">
+     <div class="connect-section"> <p>{{ .Content }}</p></div>
 
-        <p>{{ .Content }}</p>
 
-    </div>
-
-    {{ partial "single-map.html" . }}
 
     {{partial "contacto-redes.html" .}}
 
     {{ partial "schedule.html" . }}
 
-    {{partial "fotos-IG.html" . }}
+    {{partial "IG-IG.html" . }}
+
+    {{partial "galeria-reviews2.html" . }}
 
     {{partial "visita-disclaimer.html" . }}
 
@@ -54,7 +52,7 @@
       }
 
         .connect-section p {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         color: var(--gray);
         margin-bottom: 1rem;
         font-weight: 500;
