@@ -88,14 +88,14 @@
   }
   
   /* Specifically target Font Awesome solid (fas) - Paper Plane */
-  .fade-in.three .social-icons a .fas {
+  .fade-in.three .social-icons a .fa {
     font-size: 1.75rem !important;
     color: #CD5C5C !important;
     transition: color 0.3s ease-in-out; /* Add a smooth transition for the color change */
   }
   
   /* Hover effects for both */
-  .fade-in.three .social-icons a:hover .fab,
+  .fade-in.three .social-icons a:hover .fa,
   .fade-in.three .social-icons a:hover .fas {
     transform: scale(1.15);
     opacity: 0.9;
@@ -269,6 +269,7 @@
     .elegant-map-container {
         margin: 1rem auto;
         border-radius: 3px;
+        height: 20rem;
     }
     
     .map-legend {

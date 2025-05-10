@@ -94,32 +94,41 @@
             <span aria-hidden="true"></span>
         </a>
         <div class="navbar-menu has-content-centered" id="navMenu">
-            <a class="navbar-item" href="/yogaenbaires/">Home</a>
-            <a class="navbar-item" href="/yogaenbaires/#el_sendero">El Sendero</a>
-          <a class="navbar-item" href="/yogaenbaires/#el_semillero">El Semillero</a>
-          <a class="navbar-item" href="/yogaenbaires/#acerca">Acerca de Yoga en Baires</a>
-          <a class="navbar-item">|</a>  
-          <a class="navbar-item"><a class="yeb-share-button yeb-whatsapp" 
-          href="https://wa.me/?text=%3cblockquote%3e%0a%3cp%3e60%20Min%3c%2fp%3e%0a%3c%2fblockquote%3e%20https%3a%2f%2fmica-92.github.io%2fyogaenbaires%2fduracion%2f60-min%2f" 
-          target="_blank"
-          aria-label="Compartir en WhatsApp">
-           <i class="fab fa-whatsapp"></i></a>
-          </a>
-       
-          
-          <a class="navbar-item"><a class="yeb-share-button yeb-instagram"
-          href="https://instagram.com/?url=https%3a%2f%2fmica-92.github.io%2fyogaenbaires%2fduracion%2f60-min%2f"
-          target="_blank"
-          aria-label="Compartir en Instagram">
-           <i class="fab fa-instagram"></i></a>
-          </a>
-       
-          
-          <a class="navbar-item"></a><button class="yeb-share-button yeb-copy"
-               onclick="navigator.clipboard.writeText('\u003cblockquote\u003e\n\u003cp\u003e60 Min\u003c\/p\u003e\n\u003c\/blockquote\u003e - https:\/\/mica-92.github.io\/yogaenbaires\/duracion\/60-min\/');alert('¡Enlace copiado!')"
-               aria-label="Copiar enlace">
-           <i class="fas fa-paperclip"></i></a>
-          </button>
+            
+            <div class="navbar-section">
+                <a class="navbar-item" href="/yogaenbaires/">Home</a>
+                <a class="navbar-item" href="/yogaenbaires/#el_sendero">El Sendero</a>
+                <a class="navbar-item" href="/yogaenbaires/#el_semillero">El Semillero</a>
+                <a class="navbar-item" href="/yogaenbaires/#acerca">Acerca de Yoga en Baires</a>
+            </div>
+            
+            
+            <div class="navbar-social">
+                
+                <div class="separator is-hidden-mobile no-hover"><b>|</b></div>
+                <div class="navbar-item no-hover">Compartí: </div>
+
+                <div class="social-icons">
+                    <a class="yeb-share-button yeb-whatsapp" 
+                       href="https://wa.me/?text=%3cblockquote%3e%0a%3cp%3e60%20Min%3c%2fp%3e%0a%3c%2fblockquote%3e%20https%3a%2f%2fmica-92.github.io%2fyogaenbaires%2fduracion%2f60-min%2f" 
+                       target="_blank"
+                       aria-label="Compartir en WhatsApp">
+                       <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a class="yeb-share-button yeb-instagram"
+                       href="https://instagram.com/?url=https%3a%2f%2fmica-92.github.io%2fyogaenbaires%2fduracion%2f60-min%2f"
+                       target="_blank"
+                       aria-label="Compartir en Instagram">
+                       <i class="fab fa-instagram"></i>
+                    </a>
+                    <button class="yeb-share-button yeb-copyshare"
+                            onclick="navigator.clipboard.writeText('\u003cblockquote\u003e\n\u003cp\u003e60 Min\u003c\/p\u003e\n\u003c\/blockquote\u003e - https:\/\/mica-92.github.io\/yogaenbaires\/duracion\/60-min\/');alert('¡Enlace copiado!')"
+                            aria-label="Copiar enlace">
+                        <i class="fas fa-share-nodes"></i>
+                    </button>
+                </div>
+
+            </div>
         </div>
     </nav>
     <hr>
@@ -129,72 +138,110 @@
 <style>
  
 .yeb-nav-label {
-    font-weight: 800;
-    color: #6c6464;
-    margin-right: 0.5rem;
+    font-weight: 800 !important;
+    color: #6c6464 !important;
+    margin-right: 0.5rem !important;
 }
 
  
 .yeb-share-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    color: inherit;
-    font-size: 1.4rem;
-    transition: all 0.2s ease;
-    text-decoration: none;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    cursor: pointer !important;
+    color: inherit !important;
+    font-size: 1.4rem !important;
+    text-decoration: none !important;
 }
 
  
 .navbar-item,
 .yeb-whatsapp,
 .yeb-instagram,
-.yeb-copy {
+.yeb-copyshare {
     color: #6c6464 !important;  
 }
 
-.yeb-copy  {
-    font-size: 1.3rem !important;
+.yeb-copyshare {
+    font-size: 0.9rem !important;
     font-weight: 300 !important;
+    margin-left: 0.5rem !important;
 }
 
- 
-.navbar-item:hover,
+.navbar-item:hover:not(.no-hover),
 .yeb-share-button:hover {
-    color: #CD5C5C !important;  
-    transform: scale(1.1);
+    color: #CD5C5C !important;
+    transform: none !important;
 }
 
  
-.yeb-connect {
-    color: #CD5C5C;
-    margin-bottom: 1rem;
-    font-weight: 500;
+.no-hover,
+.no-hover:hover {
+    color: #6c6464 !important;
+    cursor: default !important;
+    transform: none !important;
 }
 
-.yeb-connect-item {
-    margin-bottom: 0.8rem;
-    color: #6c6464;
+ 
+.navbar-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.yeb-connect-link {
-    color: #6c6464;
-    text-decoration: none;
-    margin-right: 0.5rem;
-    transition: color 0.3s ease;
+.navbar-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.yeb-connect-link:hover {
-    color: #CD5C5C;
+.social-icons {
+    display: flex;
+    gap: 0.4rem;  
+    padding-left: 0rem !important;
+
+}
+
+ 
+@media (max-width: 768px) {
+    .navbar-menu {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .navbar-section {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .navbar-social {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0.5rem;
+        width: 100%;
+    }
+    
+    .social-icons {
+        margin-top: 0.5rem;
+        justify-content: center;
+    }
+    
+    .navbar-item {
+        padding: 0.5rem 0 !important;
+    }
+    
+    .is-hidden-mobile {
+        display: none !important;
+    }
 }
 
  
 .navbar-item {
-    transition: all 0.3s ease;
+    transition: color 0.3s ease !important;  
 }
 
 .navbar-item:hover {
@@ -287,56 +334,6 @@
     <hr>
 
     <ul class="post-list">
-        
-        <li class="post-item">
-            <a href="https://mica-92.github.io/yogaenbaires/projects/ayc/" class="post-title">Caballito de Batalla</a>
-            
-
-<div class="post-taxonomy">
-    
-        
-        <a href="/yogaenbaires/barrio/caballito" 
-            class="taxonomy-item taxonomy-barrio">Caballito</a>
-        
-    
-
-    
-        
-        <a href="/yogaenbaires/estilo/ashtanga" 
-           class="taxonomy-item taxonomy-estilo">Ashtanga</a>
-        
-    
-    
-    
-        
-        <a href="/yogaenbaires/duracion/60-min" 
-           class="taxonomy-item taxonomy-duracion">&gt;60 min</a>
-        
-    
-    
-    
-        
-        <a href="/yogaenbaires/intensidad/media" 
-           class="taxonomy-item taxonomy-intensidad">Media</a>
-        
-        <a href="/yogaenbaires/intensidad/alta" 
-           class="taxonomy-item taxonomy-intensidad">Alta</a>
-        
-    
-    
-    
-        
-        <a href="/yogaenbaires/nivel/intermedio" 
-           class="taxonomy-item taxonomy-niveles">Intermedio</a>
-        
-        <a href="/yogaenbaires/nivel/avanzado" 
-           class="taxonomy-item taxonomy-niveles">Avanzado</a>
-        
-    
-    
-    
-</div>
-        </li>
         
         <li class="post-item">
             <a href="https://mica-92.github.io/yogaenbaires/projects/ymcs/" class="post-title">Esto es un proyecto</a>
@@ -441,6 +438,12 @@
     </ul>
 </div>
 
+<style> 
+        div.section.fade-in.two {
+        padding: 0 !important;
+    }
+</style>
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         function enableMapInteractivity(overlay) {
@@ -471,18 +474,28 @@
 </div>
 
                 <div class="section" id="footer"> 
-
-    
     <div class="container has-text-centered">
-    <hr>
-        
-        <span class="footer-text">
-            Hecho con <i class="fa fa-heart"></i>   |   Buenos Aires, Argentina   |  <i class="fa-regular fa-copyright"></i> YogaEnBaires, 2025
+        <hr>
+        <span class="footer-text">            
+
+            Hecho con <i class="fa fa-heart"></i>  | YogaEnBaires, 2025 <br>
+            </span>
         </span>
-    
     </div>
 </div>
 
+<style>
+    .fab {
+    font-size: 0.9rem !important;
+    margin-left: 0.3rem !important;
+    margin-right: 0.3rem !important;
+    }
+
+
+    .fab:hover{
+    color: #CD5C5C !important;
+    }
+</style>
                 
             </div>
         </section>

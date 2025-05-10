@@ -1,14 +1,23 @@
 <div class="section" id="footer"> 
-
-    
     <div class="container has-text-centered">
-    <hr>
-        {{ with .Site.Params.footerText }}
-        {{ . | markdownify }}
-    {{ else }}
-        <span class="footer-text">
-            {{ i18n "footer_text" . | markdownify }}
+        <hr>
+        <span class="footer-text">            
+
+            Hecho con <i class="fa fa-heart"></i>  | YogaEnBaires, 2025 <br>
+            </span>
         </span>
-    {{ end }}
     </div>
 </div>
+
+<style>
+    .fab {
+    font-size: 0.9rem !important;
+    margin-left: 0.3rem !important;
+    margin-right: 0.3rem !important;
+    }
+
+
+    .fab:hover{
+    color: #CD5C5C !important;
+    }
+</style>

@@ -78,11 +78,11 @@ Yoga en Baires
 
                     
                     <div class="fade-in three"> 
-                        <div class="social-icons">
+                        <div class="social-icons-hero">
     
       
       
-        <a href="https://instagram.com/" >
+        <a href="https://instagram.com/yogaenbaires" >
           <i class="fab fab fa-instagram"></i>
         </a>
       
@@ -92,7 +92,7 @@ Yoga en Baires
       
       
       
-        <a href="mailto:youremail@email.com" >
+        <a href="mailto:mmicaninni92@email.com" >
           <i class="fas fas fa-envelope"></i>
         </a>
       
@@ -100,15 +100,43 @@ Yoga en Baires
   
       
       
-        <a href="https://tiktok.com" >
+        <a href="https://www.tiktok.com/@yogaenbaires" >
           <i class="fab fab fa-tiktok"></i>
         </a>
       
       
       
   
+            <a 
+               onclick="navigator.clipboard.writeText('Yoga en Baires - ');alert('¡Enlace copiado!')"
+               aria-label="Copiar enlace">
+           <i class="fas fa-share-nodes"></i></a>
+            
+          
 </div>
 
+<style>
+
+  .fas{
+  font-size: 1.8rem !important;
+  margin-left: 0.7rem !important;
+  margin-right: 0.7rem !important;
+  }
+  .fab{
+  font-size: 1.8rem !important;
+  margin-left: 0.7rem !important;
+  margin-right: 0.7rem !important;
+  }
+
+  .fab:hover{
+    color: #6c6464 !important;
+    }
+
+  .fas:hover{
+    color: #6c6464 !important;    
+}
+
+</style>
                     </div>
 
                 </div>
@@ -131,7 +159,10 @@ Yoga en Baires
           <a class="navbar-item" href="/yogaenbaires/#el_sendero">El Sendero</a>
           <a class="navbar-item" href="/yogaenbaires/#el_semillero">El Semillero</a>
           <a class="navbar-item" href="/yogaenbaires/#acerca">Acerca de Yoga en Baires</a>
+          
         </div>
+
+
     </nav>
     <hr>
 </div>
@@ -255,8 +286,8 @@ Yoga en Baires
 
             
             <h3 class="title is-3 latest-post-title">
-                <a href="https://mica-92.github.io/yogaenbaires/projects/ayc/">
-                    #1 - Caballito de Batalla
+                <a href="https://mica-92.github.io/yogaenbaires/projects/1---ashtanga-yoga-caballito/">
+                    #1 - Ashtanga Yoga Caballito
                 </a></h3>
             
             
@@ -278,8 +309,8 @@ Yoga en Baires
     
     
         
-        <a href="/yogaenbaires/duracion/60-min" 
-           class="taxonomy-item taxonomy-duracion">&gt;60 min</a>
+        <a href="/yogaenbaires/duracion/&#43;60-min" 
+           class="taxonomy-item taxonomy-duracion">&#43;60 min</a>
         
     
     
@@ -346,14 +377,14 @@ Yoga en Baires
                                     <div class="media-slide active">
                                         
                                             
-                                            <img src="https://mica-92.github.io/yogaenbaires/projects/ayc/Photo1_hue9dfdf774a5267df418b94434e8f7ea1_112687_800x1000_fit_q75_box.jpg" class="slider-image" alt="Photo1.jpg">
+                                            <img src="https://mica-92.github.io/yogaenbaires/projects/1---ashtanga-yoga-caballito/Photo1_hue9dfdf774a5267df418b94434e8f7ea1_112687_800x1000_fit_q75_box.jpg" class="slider-image" alt="Photo1.jpg">
                                         
                                     </div>
                                     
                                     <div class="media-slide ">
                                         
                                             
-                                            <img src="https://mica-92.github.io/yogaenbaires/projects/ayc/Photo2_hue7dd7edb6d7e09426e773c96dbf98d31_100797_800x1000_fit_q75_h2_box_2.webp" class="slider-image" alt="Photo2.webp">
+                                            <img src="https://mica-92.github.io/yogaenbaires/projects/1---ashtanga-yoga-caballito/Photo2_hue7dd7edb6d7e09426e773c96dbf98d31_100797_800x1000_fit_q75_h2_box_2.webp" class="slider-image" alt="Photo2.webp">
                                         
                                     </div>
                                     
@@ -374,7 +405,7 @@ Yoga en Baires
                         </div>
 
                         <div class="project-info">
-                            <h2><a href="/yogaenbaires/projects/ayc/">#1 - Caballito de Batalla</a></h2>
+                            <h2><a href="/yogaenbaires/projects/1---ashtanga-yoga-caballito/">#1 - Ashtanga Yoga Caballito</a></h2>
                             <div style="display: flex; justify-content: center;">
                                 
 
@@ -395,8 +426,8 @@ Yoga en Baires
     
     
         
-        <a href="/yogaenbaires/duracion/60-min" 
-           class="taxonomy-item taxonomy-duracion">&gt;60 min</a>
+        <a href="/yogaenbaires/duracion/&#43;60-min" 
+           class="taxonomy-item taxonomy-duracion">&#43;60 min</a>
         
     
     
@@ -766,14 +797,21 @@ function goToSlide(index, projectId) {
     <img src="/yogaenbaires/images/recorrido.png" alt="El Recorrido del Camino">
 </div><br>
 
+                    
+        <div class="search-container" style="margin: 2rem auto; max-width: 600px;">
+            <input type="text" id="postSearch" placeholder="Buscar publicaciones..." 
+                   style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;">
+            <div id="searchResults" style="margin-top: 1rem;"></div>
+        </div>
+
             
 
 
     <ul class="post-list">
         
         <li class="post-item">
-            <a href="https://mica-92.github.io/yogaenbaires/projects/ayc/" class="post-title">
-                #1 - Caballito de Batalla    
+            <a href="https://mica-92.github.io/yogaenbaires/projects/1---ashtanga-yoga-caballito/" class="post-title">
+                #1 - Ashtanga Yoga Caballito    
             </a>
             
             <div class="post-taxonomy">
@@ -796,8 +834,8 @@ function goToSlide(index, projectId) {
     
     
         
-        <a href="/yogaenbaires/duracion/60-min" 
-           class="taxonomy-item taxonomy-duracion">&gt;60 min</a>
+        <a href="/yogaenbaires/duracion/&#43;60-min" 
+           class="taxonomy-item taxonomy-duracion">&#43;60 min</a>
         
     
     
@@ -1034,6 +1072,60 @@ function goToSlide(index, projectId) {
             initSlider(slider);
         });
     });
+
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('postSearch');
+        const searchResults = document.getElementById('searchResults');
+        
+        if (searchInput && searchResults) {
+            searchInput.addEventListener('input', function() {
+                const query = this.value.toLowerCase();
+                
+                if (query.length < 2) {
+                    searchResults.innerHTML = '';
+                    return;
+                }
+                
+                
+                const posts = document.querySelectorAll('.post-item, .project-item, .summary'); 
+                let resultsHTML = '';
+                let matchCount = 0;
+                
+                posts.forEach(post => {
+                    const title = post.querySelector('h2, h3, h4')?.textContent.toLowerCase() || '';
+                    const content = post.textContent.toLowerCase();
+                    
+                    if (title.includes(query) || content.includes(query)) {
+                        const link = post.querySelector('a')?.href || '#';
+                        const titleText = post.querySelector('h2, h3, h4')?.textContent || 'Sin título';
+                        
+                        resultsHTML += `
+                            <div class="search-result-item" style="padding: 0.5rem; border-bottom: 1px solid #eee;">
+                                <a href="${link}" style="color: inherit; text-decoration: none;">
+                                    ${titleText}
+                                </a>
+                            </div>
+                        `;
+                        matchCount++;
+                    }
+                });
+                
+                if (matchCount > 0) {
+                    searchResults.innerHTML = resultsHTML;
+                } else {
+                    searchResults.innerHTML = '<p style="padding: 0.5rem;">No se encontraron resultados</p>';
+                }
+            });
+        }
+        
+        
+        document.querySelectorAll('.slider-wrapper').forEach(slider => {
+            initSlider(slider);
+        });
+    });
+
 </script>
 
         
@@ -1058,7 +1150,7 @@ function goToSlide(index, projectId) {
                 <div class="accordion-header">
                     <h3 class="post-title">
                         <button class="toggle-button">
-                            <span class="icon">▶</span>
+                            <span class="icon"><i class="fa-solid fa-caret-right"></i></span>
                             Primera Clase
                         </button>
                     </h3>
@@ -1116,7 +1208,7 @@ function goToSlide(index, projectId) {
                 <div class="accordion-header">
                     <h3 class="post-title">
                         <button class="toggle-button">
-                            <span class="icon">▶</span>
+                            <span class="icon"><i class="fa-solid fa-caret-right"></i></span>
                             Estilos de Yoga
                         </button>
                     </h3>
@@ -1238,7 +1330,7 @@ function goToSlide(index, projectId) {
     .icon {
         margin-right: 0.8rem;
         transition: transform 0.2s ease;
-        font-size: 0.8em;
+        font-size: 1.2em;
         color: #6c6464;
     }
     
@@ -1337,36 +1429,25 @@ function goToSlide(index, projectId) {
 
                         <br>
                         <div class="social-icons">
-    
-      
-      
-        <a href="https://instagram.com/" >
-          <i class="fab fab fa-instagram"></i>
-        </a>
-      
-      
-      
-  
-      
-      
-      
-        <a href="mailto:youremail@email.com" >
-          <i class="fas fas fa-envelope"></i>
-        </a>
-      
-      
-  
-      
-      
-        <a href="https://tiktok.com" >
-          <i class="fab fab fa-tiktok"></i>
-        </a>
-      
-      
-      
-  
-</div>
-  
+                            
+
+                            
+
+                        
+
+                            
+                                <a href="mailto:mmicaninni92@email.com" >
+                                <i class="fas fas fa-envelope"></i>
+                                </a>
+                            
+
+                        
+
+                            
+
+                        
+
+
                     </div>
                 
 
@@ -1383,18 +1464,28 @@ function goToSlide(index, projectId) {
         
     
         <div class="section" id="footer"> 
-
-    
     <div class="container has-text-centered">
-    <hr>
-        
-        <span class="footer-text">
-            Hecho con <i class="fa fa-heart"></i>   |   Buenos Aires, Argentina   |  <i class="fa-regular fa-copyright"></i> YogaEnBaires, 2025
+        <hr>
+        <span class="footer-text">            
+
+            Hecho con <i class="fa fa-heart"></i>  | YogaEnBaires, 2025 <br>
+            </span>
         </span>
-    
     </div>
 </div>
 
+<style>
+    .fab {
+    font-size: 0.9rem !important;
+    margin-left: 0.3rem !important;
+    margin-right: 0.3rem !important;
+    }
+
+
+    .fab:hover{
+    color: #CD5C5C !important;
+    }
+</style>
 
 
         
@@ -1422,6 +1513,28 @@ function goToSlide(index, projectId) {
 
     </body>
 </html>
+
+<style>
+
+  .fas{
+  font-size: 1.8rem !important;
+  margin-left: 0.7rem !important;
+  margin-right: 0.7rem !important;
+  }
+  .fab{
+  font-size: 1.8rem !important;
+  margin-left: 0.7rem !important;
+  margin-right: 0.7rem !important;
+  }
+
+  .fab:hover{
+    color: #6c6464 !important;
+    }
+
+  .fas:hover{
+    color: #6c6464 !important;    
+}
+</style>
 
 <script>
     function update_localtime() {

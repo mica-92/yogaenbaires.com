@@ -1,0 +1,279 @@
+<!-- fotos-opiniones.html -->
+<div class="photos-reviews-section">
+    <h2>Fotos & Opiniones</h2>
+    
+    <div class="photos-reviews-grid">
+        <!-- Left Column - Photo Carousel -->
+        <div class="photo-carousel-wrapper">
+            <div class="project-slider-container" id="project-carousel">
+                <div class="slider-controls">
+                    <button class="slider-arrow left-arrow" onclick="moveSlide(-1, 'carousel')">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    
+                    <div class="media-slider">
+                        {{ $mediaResources := .Resources.ByType "image" }}
+                        {{ range $index, $media := sort $mediaResources "Params.weight" }}
+                        <div class="media-slide {{ if eq $index 0 }}active{{ end }}">
+                            {{ $image := $media.Fit "800x1000" }}
+                            <img src="{{ $image.Permalink }}" class="slider-image" alt="{{ $image.Name }}">
+                        </div>
+                        {{ end }}
+                    </div>
+                    
+                    <button class="slider-arrow right-arrow" onclick="moveSlide(1, 'carousel')">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <div class="slider-dots">
+                    {{ range $i := seq (len $mediaResources) }}
+                    <span class="dot {{ if eq $i 0 }}active{{ end }}" onclick="goToSlide({{ sub $i 1 }}, 'carousel')"></span>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+
+        <!-- Instagram Embed Column -->
+        {{ if .Params.instagrampost }}
+        
+
+        <div class="instagram-embed-column">
+            <div class="instagram-embed-wrapper">
+                <blockquote class="instagram-media" data-instgrm-permalink="{{ .Params.instagrampost }}" data-instgrm-version="14" style="width:100%; min-height: 600px; display: flex; justify-content: center;">
+                    <div style="padding:16px;text-align:center;">
+                        <a href="{{ .Params.instagrampost }}" target="_blank" style="color:#3897f0;font-weight:bold;">
+                            View Instagram Post
+                        </a>
+                    </div>
+                </blockquote>
+                <script async src="//www.instagram.com/embed.js"></script>
+            </div>
+        </div>
+
+
+
+
+        {{ end }}
+    </div>
+</div>
+
+<style>
+/* Photos & Reviews Section */
+.photos-reviews-section {
+    margin: 3rem 0;
+    padding: 0 1rem;
+}
+
+.photos-reviews-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #CD5C5C;
+    font-size: 1.8rem;
+}
+
+.photos-reviews-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .photos-reviews-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Photo Carousel */
+.photo-carousel-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center the carousel */
+}
+
+.project-slider-container {
+    position: relative;
+    width: 85%; /* Set to 60% of parent width */
+    max-width: 600px; /* Optional: Prevent excessive stretching */
+}
+
+.media-slider {
+    position: relative;
+    width: 100%; /* Takes full width of .project-slider-container */
+    overflow: hidden;
+}
+
+.slider-image {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    aspect-ratio: 4/5; /* Optional: Adjust if needed */
+    object-fit: cover;
+}
+
+.slider-controls {
+    position: relative;
+}
+
+
+.media-slide {
+    display: none;
+    width: 100%;
+}
+
+.media-slide.active {
+    display: block;
+}
+
+
+/* Slider Navigation */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-arrow {
+    left: -40px; /* Move outside the 60% container */
+}
+
+.right-arrow {
+    right: -40px; /* Move outside the 60% container */
+}
+
+.slider-dots {
+    text-align: center;
+    padding: 10px 0;
+    width: 60%; /* Match carousel width */
+    margin: 0 auto; /* Center dots */
+}
+
+.dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ccc;
+    margin: 0 4px;
+    cursor: pointer;
+}
+
+.dot.active {
+    background: #333;
+}
+
+/* Instagram Embed Column */
+.instagram-embed-column {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center vertically */
+    width: 100%;
+}
+
+.instagram-embed-wrapper {
+    width: 60% !important; /* 60% of the column width */
+    min-width: 300px; /* Minimum width to prevent squeezing */
+    max-width: 400px; /* Maximum width for larger screens */
+    margin: 0 auto; /* Center horizontally */
+}
+
+.instagram-media {
+    width: 100% !important;
+    min-height: 600px !important; /* Ensure full height */
+    background: #FFF;
+    border: 0;
+    border-radius: 3px;
+    box-shadow: 0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);
+    margin: 0 auto; /* Center horizontally */
+    padding: 0;
+    overflow: hidden; /* Prevent internal cropping */
+}
+
+@media (max-width: 768px) {
+    .project-slider-container {
+        width: 90%; /* Wider on small screens */
+    }
+
+    .left-arrow {
+        left: 10px; /* Reset to default */
+    }
+
+    .right-arrow {
+        right: 10px; /* Reset to default */
+    }
+
+    .slider-dots {
+        width: 90%; /* Match mobile width */
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .photos-reviews-grid {
+        grid-template-columns: 1fr;
+    }
+    
+}
+</style>
+
+<script>
+// Slider functionality
+const projectSlides = {};
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.project-slider-container').forEach(container => {
+        const id = container.id.split('-')[1];
+        projectSlides[id] = 0;
+    });
+});
+
+function moveSlide(direction, projectId) {
+    const container = document.getElementById(`project-${projectId}`);
+    if (!container) return;
+    
+    const slides = container.querySelectorAll('.media-slide');
+    const dots = container.querySelectorAll('.dot');
+    
+    slides[projectSlides[projectId]]?.classList.remove('active');
+    dots[projectSlides[projectId]]?.classList.remove('active');
+    
+    projectSlides[projectId] += direction;
+    
+    if (projectSlides[projectId] >= slides.length) {
+        projectSlides[projectId] = 0;
+    } else if (projectSlides[projectId] < 0) {
+        projectSlides[projectId] = slides.length - 1;
+    }
+    
+    slides[projectSlides[projectId]]?.classList.add('active');
+    dots[projectSlides[projectId]]?.classList.add('active');
+}
+
+function goToSlide(index, projectId) {
+    const container = document.getElementById(`project-${projectId}`);
+    if (!container) return;
+    
+    const slides = container.querySelectorAll('.media-slide');
+    const dots = container.querySelectorAll('.dot');
+    
+    slides[projectSlides[projectId]]?.classList.remove('active');
+    dots[projectSlides[projectId]]?.classList.remove('active');
+    
+    projectSlides[projectId] = index;
+    
+    slides[projectSlides[projectId]]?.classList.add('active');
+    dots[projectSlides[projectId]]?.classList.add('active');
+}
+</script>

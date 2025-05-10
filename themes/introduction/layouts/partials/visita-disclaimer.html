@@ -1,0 +1,28 @@
+<hr>
+<div class="post-data">
+    <strong>Fecha de visita:</strong>
+    {{ if .Params.date }}{{ .Date.Format (.Site.Params.dateFormat | default ":date_medium") }}{{ end }}
+    {{ if .Site.Params.showReadingTime | default true }}
+    {{ if .Params.date }} {{ end }}<br>
+    <p class="disclaimer-text">
+        <strong>Aviso importante:</strong> La información proporcionada refleja el estado de los datos al momento de cada visita. 
+        Los horarios pueden estar sujetos a modificaciones, por lo que recomendamos confirmar directamente con los estudios antes de asistir. 
+        Las imágenes han sido capturadas personalmente, compartidas por los establecimientos o obtenidas de sus plataformas digitales 
+        con fines ilustrativos. Si apareces en alguna fotografía y deseas su retiro, por favor contáctame y la eliminaremos inmediatamente.
+    </p>
+    {{ end }}
+</div>
+<hr>
+
+<style>
+.post-data {
+    margin: 2rem 0;
+}
+
+.disclaimer-text {
+    font-size: 0.8rem;
+    font-style: italic;
+    line-height: 1.4;
+    margin-top: 1rem;
+}
+</style>

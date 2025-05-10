@@ -68,7 +68,18 @@
                     <div class="markdown has-text-centered">
                         {{ .Content }}
                         <br>
-                        {{ partial "home/social.html" . }}  
+                        <div class="social-icons">
+                            {{ range .Site.Params.social }}
+
+                            {{ if eq .icon_pack "fas" }}
+                                <a href="{{ .url }}" {{ .html_attributes | safeHTMLAttr }}>
+                                <i class="{{ .icon_pack}} fas fa-{{ .icon}}"></i>
+                                </a>
+                            {{ end }}
+
+                        {{ end }}
+
+
                     </div>
                 {{end}}
 
@@ -87,6 +98,28 @@
 
     </body>
 </html>
+
+<style>
+
+  .fas{
+  font-size: 1.8rem !important;
+  margin-left: 0.7rem !important;
+  margin-right: 0.7rem !important;
+  }
+  .fab{
+  font-size: 1.8rem !important;
+  margin-left: 0.7rem !important;
+  margin-right: 0.7rem !important;
+  }
+
+  .fab:hover{
+    color: #6c6464 !important;
+    }
+
+  .fas:hover{
+    color: #6c6464 !important;    
+}
+</style>
 
 <script>
     function update_localtime() {

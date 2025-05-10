@@ -1,0 +1,262 @@
+<!-- fotos-opiniones.html -->
+<div class="photos-reviews-section">
+    <h2>Fotos & Opiniones</h2>
+    
+    <div class="photos-reviews-grid">
+        <!-- Left Column - Photo Carousel -->
+        <div class="photo-carousel-wrapper">
+            <div class="project-slider-container" id="project-carousel">
+                <div class="slider-controls">
+                    <button class="slider-arrow left-arrow" onclick="moveSlide(-1, 'carousel')">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    
+                    <div class="media-slider">
+                        {{ $mediaResources := .Resources.ByType "image" }}
+                        {{ range $index, $media := sort $mediaResources "Params.weight" }}
+                        <div class="media-slide {{ if eq $index 0 }}active{{ end }}">
+                            {{ $image := $media.Fit "800x1000" }}
+                            <img src="{{ $image.Permalink }}" class="slider-image" alt="{{ $image.Name }}">
+                        </div>
+                        {{ end }}
+                    </div>
+                    
+                    <button class="slider-arrow right-arrow" onclick="moveSlide(1, 'carousel')">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <div class="slider-dots">
+                    {{ range $i := seq (len $mediaResources) }}
+                    <span class="dot {{ if eq $i 0 }}active{{ end }}" onclick="goToSlide({{ sub $i 1 }}, 'carousel')"></span>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column - Reviews -->
+        {{ with .Params.comments }}
+        <div class="reviews-column">
+            <div class="review-cards-container">
+                {{ range . }}
+                <div class="review-card style-vinyasa">
+                    <div class="review-content">
+                        {{ .text | markdownify }}
+                    </div>
+                    {{ if .author }}
+                    <div class="review-author">
+                        — {{ .author }}
+                    </div>
+                    {{ end }}
+                </div>
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</div>
+
+<style>
+/* Photos & Reviews Section */
+.photos-reviews-section {
+    margin: 3rem 0;
+    padding: 0 1rem;
+}
+
+.photos-reviews-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #CD5C5C;
+    font-size: 1.8rem;
+}
+
+.photos-reviews-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .photos-reviews-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Photo Carousel */
+.photo-carousel-wrapper {
+    width: 100%;
+}
+
+.project-slider-container {
+    position: relative;
+}
+
+.slider-controls {
+    position: relative;
+}
+
+.media-slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.media-slide {
+    display: none;
+    width: 100%;
+}
+
+.media-slide.active {
+    display: block;
+}
+
+.slider-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+}
+
+/* Slider Navigation */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+.slider-dots {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ccc;
+    margin: 0 4px;
+    cursor: pointer;
+}
+
+.dot.active {
+    background: #333;
+}
+
+/* Reviews Section */
+.reviews-column {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.review-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 90%;
+    padding: 1rem;
+}
+
+.review-card.style-vinyasa {
+    background-color: #fce4ec;
+    color: #c2185b;
+    border: 1px solid #f8bbd0;
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.review-card.style-vinyasa .review-content {
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.review-card.style-vinyasa .review-author {
+    text-align: right;
+    font-weight: 600;
+    color: #ad1457;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .photos-reviews-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .review-cards-container {
+        width: 100%;
+    }
+}
+</style>
+
+<script>
+// Slider functionality
+const projectSlides = {};
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.project-slider-container').forEach(container => {
+        const id = container.id.split('-')[1];
+        projectSlides[id] = 0;
+    });
+});
+
+function moveSlide(direction, projectId) {
+    const container = document.getElementById(`project-${projectId}`);
+    if (!container) return;
+    
+    const slides = container.querySelectorAll('.media-slide');
+    const dots = container.querySelectorAll('.dot');
+    
+    slides[projectSlides[projectId]]?.classList.remove('active');
+    dots[projectSlides[projectId]]?.classList.remove('active');
+    
+    projectSlides[projectId] += direction;
+    
+    if (projectSlides[projectId] >= slides.length) {
+        projectSlides[projectId] = 0;
+    } else if (projectSlides[projectId] < 0) {
+        projectSlides[projectId] = slides.length - 1;
+    }
+    
+    slides[projectSlides[projectId]]?.classList.add('active');
+    dots[projectSlides[projectId]]?.classList.add('active');
+}
+
+function goToSlide(index, projectId) {
+    const container = document.getElementById(`project-${projectId}`);
+    if (!container) return;
+    
+    const slides = container.querySelectorAll('.media-slide');
+    const dots = container.querySelectorAll('.dot');
+    
+    slides[projectSlides[projectId]]?.classList.remove('active');
+    dots[projectSlides[projectId]]?.classList.remove('active');
+    
+    projectSlides[projectId] = index;
+    
+    slides[projectSlides[projectId]]?.classList.add('active');
+    dots[projectSlides[projectId]]?.classList.add('active');
+}
+</script>

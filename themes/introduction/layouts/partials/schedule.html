@@ -1,3 +1,8 @@
+<div class="connect-item ">
+    <h2>Horarios:</h2>
+    El estudio cuenta con <b>{{ .Params.salones }}</b> salon con capacidad para <b>{{ .Params.capacidad }}</b> alumnos.
+    {{.Params.reservas }}
+
 <!-- layouts/partials/schedule.html -->
 {{ if or .Params.lunes .Params.martes .Params.miercoles .Params.jueves .Params.viernes .Params.sabado .Params.domingo }}
 {{ $maxClasses := 0 }}

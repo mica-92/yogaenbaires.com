@@ -1,0 +1,143 @@
+{{ with .Site.GetPage "/projects" }}
+<div class="section" id="el_sendero">
+    <!-- Begin Blog container -->
+    <div class="container">
+        {{ if .Site.Params.home.showLatest | default true }}
+        
+
+        {{ partial "images/caminodelyogui" }}
+        <br>
+        {{partial "legend-map.html" .}}
+
+        <div class="container">
+            <br><hr><br><br>
+        </div>
+
+        {{ partial "images/paradas" }}
+
+        <br>
+
+        {{ range first 1 .Pages.ByPublishDate.Reverse }}
+        <div class="summary">
+
+            {{partial "images/laultimaestacion" .}}
+
+            
+            <h3 class="title is-3 latest-post-title">
+                <a href="{{ .Permalink }}">
+                    #{{ .Params.id | markdownify }} - {{ .Params.title | markdownify }}
+                </a></h3>
+            
+            {{partial "post-taxonomy.html" .}}
+            
+            {{ if .Params.descripcion }}
+            <div class="post-description" style="margin-top:0.8rem !important;">
+ 
+                {{ .Params.descripcion | markdownify }}
+            </div>
+
+            {{ end }}
+        </div>
+        {{ end }}
+        {{ end }}
+    </div>
+
+
+    {{ partial "home/destacados.html" . }}
+
+    {{ if .Site.Params.home.showAllPosts }}
+    <div class="section" id="all-posts">
+        <div class="container">
+
+            {{partial "images/recorrido" .}}
+
+            {{ partialCached "projects/li.html" . }}
+        </div>
+    </div>
+
+    {{ end }}
+</div>
+
+<!-- End Blog container -->
+{{ partial "top-icon.html" . }}
+
+<!-- End Blog section -->
+<div class="container">
+    <hr>
+</div>
+{{ end }}
+
+<script>
+    function enableMapInteractivity(overlay) {
+        const iframe = overlay.previousElementSibling;
+        iframe.style.pointerEvents = 'auto';
+        overlay.style.display = 'none';
+        
+        setTimeout(() => {
+            iframe.style.pointerEvents = 'none';
+            overlay.style.display = 'block';
+        }, 30000);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const initSlider = (sliderWrapper) => {
+            const imageList = sliderWrapper.querySelector(".image-list");
+            const slideButtons = sliderWrapper.querySelectorAll(".slide-button");
+            const sliderScrollbar = sliderWrapper.parentElement.querySelector(".slider-scrollbar");
+            const scrollbarThumb = sliderScrollbar.querySelector(".scrollbar-thumb");
+            const maxScrollLeft = imageList.scrollWidth - imageList.clientWidth;
+            
+            scrollbarThumb.addEventListener("mousedown", (e) => {
+                const startX = e.clientX;
+                const thumbPosition = scrollbarThumb.offsetLeft;
+                const maxThumbPosition = sliderScrollbar.getBoundingClientRect().width - scrollbarThumb.offsetWidth;
+                
+                const handleMouseMove = (e) => {
+                    const deltaX = e.clientX - startX;
+                    const newThumbPosition = thumbPosition + deltaX;
+                    const boundedPosition = Math.max(0, Math.min(maxThumbPosition, newThumbPosition));
+                    const scrollPosition = (boundedPosition / maxThumbPosition) * maxScrollLeft;
+                    
+                    scrollbarThumb.style.left = `${boundedPosition}px`;
+                    imageList.scrollLeft = scrollPosition;
+                }
+                
+                const handleMouseUp = () => {
+                    document.removeEventListener("mousemove", handleMouseMove);
+                    document.removeEventListener("mouseup", handleMouseUp);
+                }
+                
+                document.addEventListener("mousemove", handleMouseMove);
+                document.addEventListener("mouseup", handleMouseUp);
+            });
+            
+            slideButtons.forEach(button => {
+                button.addEventListener("click", () => {
+                    const direction = button.id === "prev-slide" ? -1 : 1;
+                    const scrollAmount = imageList.clientWidth * direction;
+                    imageList.scrollBy({ left: scrollAmount, behavior: "smooth" });
+                });
+            });
+            
+            const handleSlideButtons = () => {
+                slideButtons[0].style.display = imageList.scrollLeft <= 0 ? "none" : "flex";
+                slideButtons[1].style.display = imageList.scrollLeft >= maxScrollLeft ? "none" : "flex";
+            }
+            
+            const updateScrollThumbPosition = () => {
+                const scrollPosition = imageList.scrollLeft;
+                const thumbPosition = (scrollPosition / maxScrollLeft) * (sliderScrollbar.clientWidth - scrollbarThumb.offsetWidth);
+                scrollbarThumb.style.left = `${thumbPosition}px`;
+            }
+            
+            imageList.addEventListener("scroll", () => {
+                updateScrollThumbPosition();
+                handleSlideButtons();
+            });
+        }
+        
+        document.querySelectorAll('.slider-wrapper').forEach(slider => {
+            initSlider(slider);
+        });
+    });
+</script>
