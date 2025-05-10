@@ -4,7 +4,7 @@
         <br>
         {{ partial "images/destacados" . }}
         <br>
-        
+
     {{ $highlightedProjects := where .Pages.ByWeight ".Params.highlight" true }}
     {{ range $project := $highlightedProjects }}
     <div class="highlighted-project">
@@ -25,7 +25,7 @@
         
         <!-- Pinterest Gallery for this project -->
         <div class="pinterest-reviews-container">
-            {{ $images := first 3 (sort ($project.Resources.ByType "image") "Params.weight") }}
+            {{ $images := first 4 (sort ($project.Resources.ByType "image") "Params.weight") }}
             {{ $reviews := first 3 $project.Params.comments }}
             
             <!-- Always show first image -->
@@ -47,7 +47,7 @@
                 {{ $review := index $reviews 0 }}
                 <div class="review-card style-vinyasa mobile-first-review">
                     <div class="review-content">
-                        {{ $review.text | markdownify }}
+                        " {{ $review.text | markdownify }} "
                     </div>
                     {{ if $review.author }}
                     <div class="review-author">
@@ -78,7 +78,7 @@
                     {{ $review := index $reviews $index }}
                     <div class="review-card style-vinyasa desktop-item">
                         <div class="review-content">
-                            {{ $review.text | markdownify }}
+                           " {{ $review.text | markdownify }} "
                         </div>
                         {{ if $review.author }}
                         <div class="review-author">
@@ -132,7 +132,7 @@
 
 /* Pinterest Gallery Styles (same as before) */
 .pinterest-reviews-container {
-    columns: 3;
+    columns: 4;
     column-gap: 1.5rem;
     padding: 1rem;
 }
@@ -171,37 +171,6 @@
     transform: scale(1.02);
 }
 
-.review-card {
-    break-inside: avoid;
-    margin-bottom: 1.5rem;
-    border-radius: 12px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-}
-
-.review-card.style-vinyasa {
-    background-color: #fce4ec;
-    color: #c2185b;
-    border: 1px solid #f8bbd0;
-}
-
-.review-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-}
-
-.review-content {
-    font-style: italic;
-    line-height: 1.6;
-    margin-bottom: 0.5rem;
-}
-
-.review-author {
-    text-align: right;
-    font-weight: 600;
-    color: #ad1457;
-}
 
 .project-separator {
     border: 0;
@@ -212,7 +181,56 @@
 }
 
 
-/* [Keep all your existing desktop CSS] */
+.review-card {
+    break-inside: avoid;
+    margin-bottom: 1.5rem;
+    border-radius: 12px;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    border: 2px solid #CD5C5C; /* Larger signature red border */
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(2px); /* Subtle blur effect */
+    text-align: center; /* Center all text inside the card */
+}
+
+.review-card.style-vinyasa {
+    background: rgba(255, 245, 245, 0.95); /* Very light pink tint */
+    color: #CD5C5C; /* Darker text for better readability */
+}
+
+.review-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 16px rgba(205, 92, 92, 0.15);
+    border-color: #CD5C5C; /* Full red on hover */
+}
+
+.review-content {
+    font-style: italic;
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+    color:#CD5C5C; /* Softer text color */
+    font-size: 0.95rem;
+    text-align: center; /* Ensure content is centered */
+}
+
+.review-author {
+    text-align: right; /* Author aligned to left */
+    font-weight: bold; /* Bolded author name */
+    color: #CD5C5C; /* Signature red */
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .review-card {
+        padding: 1.2rem;
+    }
+    .review-content {
+        font-size: 0.9rem;
+    }
+}
 
 /* Mobile Layout Updates */
 @media (max-width: 768px) {

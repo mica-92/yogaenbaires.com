@@ -1,12 +1,10 @@
 <div class="contact-grid">
     <!-- Left Column - Contact Info -->
     <div class="contact-info">
-        <div class="connect-item">
-            <h2>Contacto & Redes:</h2>
-        </div>
+
 
         <div class="connect-item">
-            <h3>- Dirección:</h3><br>
+           <br> <h3>- Dirección:</h3><br>
             <div class="address-container">
                 <a href="https://www.google.com/maps/place/?q=place_id:{{ .Params.direccion.maps | replaceRE `.*!3d([^!]+).*` `$1` }}" 
                    target="_blank" 
@@ -61,8 +59,12 @@
     font-size: 1.2rem;
     color: var(--gray);
     margin-bottom: 0.5rem;
-    font-weight: 500;
+    font-weight: 600;
     display: inline;
+}
+
+.connect-item a {
+    margin-left: 1rem;
 }
 
 .address-link {

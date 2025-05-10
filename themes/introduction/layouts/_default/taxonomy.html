@@ -19,7 +19,9 @@
     <ul class="post-list">
         {{ range where .Pages.ByPublishDate.Reverse "Section" "projects" }}
         <li class="post-item">
-            <a href="{{ .Permalink }}" class="post-title">{{ .Title | markdownify }}</a>
+            <a href="{{ .Permalink }}" class="post-title">
+                #{{ .Params.id | markdownify }} - {{ .Params.title | markdownify }}    
+            </a>
             {{ partial "post-taxonomy.html" . }}
         </li>
         {{ end }}

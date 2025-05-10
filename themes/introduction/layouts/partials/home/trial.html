@@ -18,8 +18,8 @@
         <br>
 
         {{ range first 1 .Pages.ByPublishDate.Reverse }}
-        <div class="summary">
-
+        <div class="container">
+            <br>
             {{partial "images/laultimaestacion" .}}
 
             
@@ -42,7 +42,7 @@
         {{ end }}
     </div>
 
-
+    
     {{ partial "home/destacados2.html" . }}
 
     {{ if .Site.Params.home.showAllPosts }}
@@ -51,12 +51,7 @@
 
             {{partial "images/recorrido" .}}
 
-                    <!-- Add this search bar section -->
-        <div class="search-container" style="margin: 2rem auto; max-width: 600px;">
-            <input type="text" id="postSearch" placeholder="Buscar publicaciones..." 
-                   style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;">
-            <div id="searchResults" style="margin-top: 1rem;"></div>
-        </div>
+            {{partial "search.html" .}}
 
             {{ partialCached "projects/li.html" . }}
         </div>
@@ -73,6 +68,8 @@
     <hr>
 </div>
 {{ end }}
+
+
 
 <script>
     function enableMapInteractivity(overlay) {
@@ -147,58 +144,4 @@
             initSlider(slider);
         });
     });
-
-
-
-    document.addEventListener('DOMContentLoaded', function() {
-        const searchInput = document.getElementById('postSearch');
-        const searchResults = document.getElementById('searchResults');
-        
-        if (searchInput && searchResults) {
-            searchInput.addEventListener('input', function() {
-                const query = this.value.toLowerCase();
-                
-                if (query.length < 2) {
-                    searchResults.innerHTML = '';
-                    return;
-                }
-                
-                // Get all post items - adjust selector based on your projects/li.html structure
-                const posts = document.querySelectorAll('.post-item, .project-item, .summary'); 
-                let resultsHTML = '';
-                let matchCount = 0;
-                
-                posts.forEach(post => {
-                    const title = post.querySelector('h2, h3, h4')?.textContent.toLowerCase() || '';
-                    const content = post.textContent.toLowerCase();
-                    
-                    if (title.includes(query) || content.includes(query)) {
-                        const link = post.querySelector('a')?.href || '#';
-                        const titleText = post.querySelector('h2, h3, h4')?.textContent || 'Sin título';
-                        
-                        resultsHTML += `
-                            <div class="search-result-item" style="padding: 0.5rem; border-bottom: 1px solid #eee;">
-                                <a href="${link}" style="color: inherit; text-decoration: none;">
-                                    ${titleText}
-                                </a>
-                            </div>
-                        `;
-                        matchCount++;
-                    }
-                });
-                
-                if (matchCount > 0) {
-                    searchResults.innerHTML = resultsHTML;
-                } else {
-                    searchResults.innerHTML = '<p style="padding: 0.5rem;">No se encontraron resultados</p>';
-                }
-            });
-        }
-        
-        // Your existing slider initialization code
-        document.querySelectorAll('.slider-wrapper').forEach(slider => {
-            initSlider(slider);
-        });
-    });
-
 </script>
