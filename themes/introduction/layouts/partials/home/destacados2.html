@@ -4,6 +4,7 @@
         <br>
         {{ partial "images/destacados" . }}
         <br>
+        
     {{ $highlightedProjects := where .Pages.ByWeight ".Params.highlight" true }}
     {{ range $project := $highlightedProjects }}
     <div class="highlighted-project">
