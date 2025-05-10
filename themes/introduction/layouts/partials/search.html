@@ -1,64 +1,75 @@
-<!-- layouts/partials/search.html -->
 <div class="search-container" style="margin: 2rem auto; max-width: 600px; position: relative;">
-    <i class="fa-solid fa-magnifying-glass" 
-       style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: #999;"></i>
+    <i id="searchIcon" class="fa-solid fa-magnifying-glass" 
+       style="position: absolute; left: 1rem; top: 0.75rem; color: #999; font-weight: bold; transition: color 0.3s ease;"></i>
     <input type="text" id="postSearch" placeholder="Buscar Estudios por Nombre, Categoria o #ID..." 
-           style="width: 100%; padding: 0.75rem 0.75rem 0.75rem 2.5rem; border: 1px solid #ddd; border-radius: 4px;">
+           style="width: 100%; padding: 0.75rem 0.75rem 0.75rem 2.5rem; border: none; border-bottom: 1px solid #ddd; border-radius: 0; outline: none; font-weight: 500; background: transparent;">
     <div id="searchResults" style="margin-top: 1rem;"></div>
 </div>
-
-<!-- Keep all the existing JavaScript and CSS from your previous search.html -->
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('postSearch');
     const searchResults = document.getElementById('searchResults');
+    const searchIcon = document.getElementById('searchIcon');
+
+    function updateSearchStyles() {
+        if (searchInput.value || document.activeElement === searchInput) {
+            searchInput.style.borderBottom = '2px solid #CD5C5C';
+            searchIcon.style.color = '#CD5C5C';
+            searchIcon.style.fontWeight = 'bold';
+        } else {
+            searchInput.style.borderBottom = '1px solid #ddd';
+            searchIcon.style.color = '#999';
+        }
+    }
+
+    searchInput.addEventListener('focus', updateSearchStyles);
+    searchInput.addEventListener('blur', function() {
+        if (!this.value) {
+            updateSearchStyles();
+        }
+    });
     
-    if (searchInput && searchResults) {
-        searchInput.addEventListener('input', function() {
-            const query = this.value.toLowerCase().trim();
+    searchInput.addEventListener('input', function() {
+        updateSearchStyles();
+        
+        const query = this.value.toLowerCase().trim();
+        
+        if (query.length < 2) {
+            searchResults.innerHTML = '';
+            return;
+        }
+        
+        const posts = document.querySelectorAll('.post-item'); 
+        let resultsHTML = '';
+        let matchCount = 0;
+        
+        posts.forEach(post => {
+            const titleLink = post.querySelector('.post-title');
+            const titleText = titleLink?.textContent.trim() || '';
+            const taxonomyText = post.querySelector('.post-taxonomy')?.textContent.trim() || '';
+            const fullText = (titleText + ' ' + taxonomyText).toLowerCase();
             
-            if (query.length < 2) {
-                searchResults.innerHTML = '';
-                return;
-            }
-            
-            const posts = document.querySelectorAll('.post-item'); 
-            let resultsHTML = '';
-            let matchCount = 0;
-            
-            posts.forEach(post => {
-                // Get the title in format "#ID - Title"
-                const titleLink = post.querySelector('.post-title');
-                const titleText = titleLink?.textContent.trim() || '';
+            if (fullText.includes(query)) {
+                const link = titleLink?.href || '#';
                 
-                // Get taxonomy data
-                const taxonomyText = post.querySelector('.post-taxonomy')?.textContent.trim() || '';
-                
-                // Combine all searchable text
-                const fullText = (titleText + ' ' + taxonomyText).toLowerCase();
-                
-                if (fullText.includes(query)) {
-                    const link = titleLink?.href || '#';
-                    
-                    resultsHTML += `
-                        <div class="search-result-item" style="padding: 0.5rem; border-bottom: 1px solid #eee;">
-                            <a href="${link}" style="color: inherit; text-decoration: none;">
-                                ${titleText}
-                            </a>
-                        </div>
-                    `;
-                    matchCount++;
-                }
-            });
-            
-            if (matchCount > 0) {
-                searchResults.innerHTML = resultsHTML;
-            } else {
-                searchResults.innerHTML = '<p style="padding: 0.5rem;">No se encontraron resultados</p>';
+                resultsHTML += `
+                    <div class="search-result-item" style="padding: 0.5rem; border-bottom: 1px solid #eee;">
+                        <a href="${link}" style="color: inherit; text-decoration: none; font-weight: 500;">
+                            ${titleText}
+                        </a>
+                    </div>
+                `;
+                matchCount++;
             }
         });
-    }
+        
+        if (matchCount > 0) {
+            searchResults.innerHTML = resultsHTML;
+        } else {
+            searchResults.innerHTML = '<p style="padding: 0.5rem; color: #666;">No se encontraron resultados</p>';
+        }
+    });
 });
 </script>
 

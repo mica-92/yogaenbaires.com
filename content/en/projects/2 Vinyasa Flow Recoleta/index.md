@@ -37,6 +37,7 @@ domingo: []
 comments:
   - text: "Las secuencias son desafiantes pero increíbles."
     author: Juan
+    cardcolor: "style-hatha"
   - text: "Me encanta la energía del lugar."
     author: Ana
   - text: "El mejor estudio de Vinyasa en BA."

@@ -62,13 +62,14 @@ publishDir = "public"  # Ensure this is set
         icon  = "instagram" # icon name without the 'fa-'
         icon_pack = "fab"
     [[params.social]]
-        url = "mailto:mmicaninni92@email.com"  # For a direct email link, use "mailto:test@example.org".
-        icon = "envelope" # icon name without the 'fa-'
-        icon_pack = "fas"
-    [[params.social]]
         url = "https://www.tiktok.com/@yogaenbaires"  # For a direct email link, use "mailto:test@example.org".
         icon = "tiktok" # icon name without the 'fa-'
         icon_pack = "fab"
+    [[params.social]]
+        url = "mailto:mmicaninni92@email.com"  # For a direct email link, use "mailto:test@example.org".
+        icon = "envelope" # icon name without the 'fa-'
+        icon_pack = "fas"
+
 
 
 # If you don't want to use the default menu, you can define one by yourself

@@ -20,9 +20,5 @@ weight: 3
 
 <br>
 
-### Lokāḥ Samastāḥ Sukhino Bhavantu
-
-### <i style= color:#6c6464>"Que todos los seres en todas partes sean felices y libres".</i><br><br>
-
 ### Queres conectarme conmigo? Dejarme un comentario? Que tu estudio aparezca? 
 ### Escribime:

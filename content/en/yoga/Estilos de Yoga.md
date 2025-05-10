@@ -15,3 +15,5 @@ Hola:
 
 
 - En esencia, mientras que el Ashtanga Vinyasa es una práctica fluida y energética, el Hatha es más estático y fundamental, y el Yin es una exploración profunda de la quietud y la flexibilidad pasiva. Cada estilo ofrece beneficios únicos y puede ser valioso según las necesidades y preferencias de cada practicante.
+
+#### <img src="/yogaenbaires/images/lotus-vinyasa.png" alt="Vinyasa" class="legend-icon">  Vinyasa

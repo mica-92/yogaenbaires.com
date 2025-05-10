@@ -36,15 +36,25 @@
                 <!-- Reviews -->
                 {{ if lt $index $reviewsCount }}
                     {{ $review := index $reviews $index }}
-                    <div class="review-card style-vinyasa">
-                        <div class="review-content">
-                            {{ $review.text | markdownify }}
-                        </div>
-                        {{ if $review.author }}
-                        <div class="review-author">
-                            — {{ $review.author }}
-                        </div>
-                        {{ end }}
+                    {{ $cardStyle := default "style-default" $review.cardcolor }}
+                    <div class="review-card {{ $cardStyle }} mobile-first-review">
+                            <div class="review-content">
+                                
+                                <!-- Other Styles Agregar -->
+                                {{ if eq $cardStyle "style-hatha" }}<i class="fa fa-quote-left"></i>{{ end }}
+
+
+
+
+
+
+                                {{ $review.text | markdownify }}
+                            </div>
+                            {{ if $review.author }}
+                            <div class="review-author">
+                                — {{ $review.author }}
+                            </div>
+                            {{ end }}
                     </div>
                 {{ end }}
             {{ end }}
@@ -122,13 +132,15 @@
 }
 
 /* Review Cards */
+/* Review Cards with Color Styles */
 .review-card {
     break-inside: avoid;
     margin-bottom: 1.5rem;
     border-radius: 12px;
     padding: 1.5rem;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
     transition: all 0.3s ease;
+    text-align: center;
 }
 
 .review-card.style-vinyasa {
@@ -144,14 +156,17 @@
 
 .review-content {
     font-style: italic;
-    line-height: 1.6;
+    line-height: 1.7;
     margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    text-align: center;
 }
 
 .review-author {
     text-align: right;
-    font-weight: 600;
-    color: #ad1457;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
 }
 
 /* Mobile Layout (1 column) */
@@ -166,5 +181,47 @@
         margin-bottom: 1rem;
         width: 100%;
     }
+}
+
+.style-hatha { 
+    background-color: #e3f2fd;
+    color: #1976d2;
+    border: 1px solid #bbdefb;
+}
+
+.style-default {
+    background-color: #f5f5f5;
+    color: #333333;
+    border: 1px solid #e0e0e0;
+}
+
+/* Font Awesome quote styling */
+.review-card.style-hatha .fa-quote-left {
+    color: #1976d2;
+    margin-right: 8px;
+    font-size: 1.9em;
+    opacity: 0.7;
+}
+
+/* Hover Effects - Updated for Hatha cards with FA icon */
+.style-hatha:hover, 
+.style-hatha:hover .fa-quote-left {
+    background-color: #e3f2fd;
+    color: #1976d2; /* Maintains icon color on hover */
+    opacity: 1; /* Makes icon more visible on hover */
+}
+
+/* Font Awesome quote styling - Enhanced for hover */
+.review-card.style-hatha .fa-quote-left {
+    color: #1976d2;
+    margin-right: 8px;
+    font-size: 1.9em;
+    opacity: 0.7;
+    transition: all 0.3s ease; /* Add smooth transition */
+}
+
+.review-card.style-hatha:hover .fa-quote-left {
+    opacity: 1;
+    transform: scale(1.05); /* Slight scale effect on hover */
 }
 </style>

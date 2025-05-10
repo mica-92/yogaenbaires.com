@@ -38,6 +38,7 @@ domingo: []
 comments:
   - text: "Las clases de alineación son increíbles."
     author: Laura
+    cardcolor: hatha
   - text: "Ambiente muy relajante."
     author: Carlos
   - text: "Recomiendo totalmente."
