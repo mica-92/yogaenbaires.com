@@ -1,0 +1,235 @@
+{{ with .Site.GetPage "/projects" }}
+<div class="section projects-section" id="{{ .Title | urlize }}">
+    <div class="container">
+        <br>
+        {{ partial "images/destacados" . }}
+        <br>
+    {{ $highlightedProjects := where .Pages.ByWeight ".Params.highlight" true }}
+    {{ range $project := $highlightedProjects }}
+    <div class="highlighted-project">
+        <!-- Project Title and Taxonomy -->
+        <h3 class="title is-3 latest-post-title">
+            <a href="{{ .Permalink }}">
+                #{{ .Params.id | markdownify }} - {{ .Params.title | markdownify }}
+            </a>
+        </h3>
+        
+        {{ partial "post-taxonomy.html" . }}
+        
+        {{ if .Params.descripcion }}
+        <div class="post-description" style="margin-top:0.8rem !important;">
+            {{ .Params.descripcion | markdownify }}
+        </div><br>
+        {{ end }}
+        
+        <!-- Pinterest Gallery for this project -->
+        <div class="pinterest-reviews-container">
+            {{ $images := first 3 (sort ($project.Resources.ByType "image") "Params.weight") }}
+            {{ $reviews := first 3 $project.Params.comments }}
+            
+            <!-- Always show first image -->
+            {{ if $images }}
+                {{ $media := index $images 0 }}
+                {{ $image := $media.Fit "600x800" }}
+                <div class="pinterest-grid-item mobile-first-image">
+                    <div class="image-wrapper">
+                        <img src="{{ $image.Permalink }}" 
+                             alt="{{ $image.Name }}" 
+                             class="pinterest-image"
+                             loading="lazy">
+                    </div>
+                </div>
+            {{ end }}
+            
+            <!-- Always show first review if it exists -->
+            {{ if $reviews }}
+                {{ $review := index $reviews 0 }}
+                <div class="review-card style-vinyasa mobile-first-review">
+                    <div class="review-content">
+                        {{ $review.text | markdownify }}
+                    </div>
+                    {{ if $review.author }}
+                    <div class="review-author">
+                        — {{ $review.author }}
+                    </div>
+                    {{ end }}
+                </div>
+            {{ end }}
+            
+            <!-- Additional items for desktop -->
+            {{ range $index := seq 1 2 }}
+                <!-- Images -->
+                {{ if lt $index (len $images) }}
+                    {{ $media := index $images $index }}
+                    {{ $image := $media.Fit "600x800" }}
+                    <div class="pinterest-grid-item desktop-item">
+                        <div class="image-wrapper">
+                            <img src="{{ $image.Permalink }}" 
+                                 alt="{{ $image.Name }}" 
+                                 class="pinterest-image"
+                                 loading="lazy">
+                        </div>
+                    </div>
+                {{ end }}
+                
+                <!-- Reviews -->
+                {{ if lt $index (len $reviews) }}
+                    {{ $review := index $reviews $index }}
+                    <div class="review-card style-vinyasa desktop-item">
+                        <div class="review-content">
+                            {{ $review.text | markdownify }}
+                        </div>
+                        {{ if $review.author }}
+                        <div class="review-author">
+                            — {{ $review.author }}
+                        </div>
+                        {{ end }}
+                    </div>
+                {{ end }}
+            {{ end }}
+        </div>
+        
+        <!-- Separator -->
+        <hr class="project-separator">
+    </div>
+    {{ end }}
+</div>
+{{ end }}
+
+
+
+<style>
+.highlighted-projects-section {
+    margin: 3rem 0;
+    padding: 0 1rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.highlighted-projects-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #CD5C5C;
+    font-size: 1.8rem;
+}
+
+.project-header {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.project-title {
+    color: #CD5C5C;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-taxonomy {
+    margin-bottom: 1rem;
+}
+
+/* Pinterest Gallery Styles (same as before) */
+.pinterest-reviews-container {
+    columns: 3;
+    column-gap: 1.5rem;
+    padding: 1rem;
+}
+
+.pinterest-grid-item {
+    break-inside: avoid;
+    margin-bottom: 1.5rem;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.image-wrapper {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    background: #f8f8f8;
+}
+
+.pinterest-grid-item:hover .image-wrapper {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.pinterest-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.pinterest-grid-item:hover .pinterest-image {
+    transform: scale(1.02);
+}
+
+.review-card {
+    break-inside: avoid;
+    margin-bottom: 1.5rem;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.review-card.style-vinyasa {
+    background-color: #fce4ec;
+    color: #c2185b;
+    border: 1px solid #f8bbd0;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.review-content {
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.review-author {
+    text-align: right;
+    font-weight: 600;
+    color: #ad1457;
+}
+
+.project-separator {
+    border: 0;
+    height: 1px;
+    background-color: #f8bbd0;
+    margin: 3rem auto;
+    width: 80%;
+}
+
+
+/* [Keep all your existing desktop CSS] */
+
+/* Mobile Layout Updates */
+@media (max-width: 768px) {
+    .pinterest-reviews-container {
+        columns: 1 !important;
+    }
+    
+    /* Hide all desktop items on mobile */
+    .desktop-item {
+        display: none !important;
+    }
+    
+    /* Ensure first image and review are shown */
+    .mobile-first-image,
+    .mobile-first-review {
+        display: block !important;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}
+</style>
