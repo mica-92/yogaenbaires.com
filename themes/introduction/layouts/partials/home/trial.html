@@ -4,11 +4,11 @@
     <div class="container">
         {{ if .Site.Params.home.showLatest | default true }}
         
-
+        <div class="container">
         {{ partial "images/caminodelyogui" }}
         <br>
         {{partial "legend-map.html" .}}
-
+            </div>
         <div class="container">
             <br><hr><br><br>
         </div>
@@ -18,7 +18,7 @@
         <br>
 
         {{ range first 1 .Pages.ByPublishDate.Reverse }}
-        <div class="container">
+        <div class="container"><div class="container">
             <br>
             {{partial "images/laultimaestacion" .}}
 
@@ -37,12 +37,12 @@
             </div>
 
             {{ end }}
-        </div>
+        </div></div>
         {{ end }}
         {{ end }}
     </div>
 
-    
+    <div class="container">
     {{ partial "home/destacados2.html" . }}
 
     {{ if .Site.Params.home.showAllPosts }}
@@ -56,7 +56,7 @@
             {{ partialCached "projects/li.html" . }}
         </div>
     </div>
-
+    </div>
     {{ end }}
 </div>
 
