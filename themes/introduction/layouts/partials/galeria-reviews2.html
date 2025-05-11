@@ -40,13 +40,12 @@
                     <div class="review-card {{ $cardStyle }} mobile-first-review">
                             <div class="review-content">
                                 
-                                <!-- Other Styles Agregar -->
+                                {{ if eq $cardStyle "style-vinyasa" }}<i class="fa fa-exclamation"></i>{{ end }}
+                                {{ if eq $cardStyle "style-ashtanga" }}<i class="fa fa-spa"></i>{{ end }}
+                                {{ if eq $cardStyle "style-yin" }}<i class="fa fa-user"></i>{{ end }}
+                                {{ if eq $cardStyle "style-restaurativo" }}<i class="fa fa-info"></i>{{ end }}
+                                {{ if eq $cardStyle "style-default" }}<i class="fa fa-moon"></i>{{ end }}
                                 {{ if eq $cardStyle "style-hatha" }}<i class="fa fa-quote-left"></i>{{ end }}
-
-
-
-
-
 
                                 {{ $review.text | markdownify }}
                             </div>
@@ -132,7 +131,6 @@
 }
 
 /* Review Cards */
-/* Review Cards with Color Styles */
 .review-card {
     break-inside: avoid;
     margin-bottom: 1.5rem;
@@ -141,12 +139,6 @@
     box-shadow: 0 2px 12px rgba(0,0,0,0.05);
     transition: all 0.3s ease;
     text-align: center;
-}
-
-.review-card.style-vinyasa {
-    background-color: #fce4ec;
-    color: #c2185b;
-    border: 1px solid #f8bbd0;
 }
 
 .review-card:hover {
@@ -169,6 +161,168 @@
     margin-top: 0.5rem;
 }
 
+/* Hatha - Quote */
+
+.style-hatha { 
+    background-color: #e3f2fd;
+    color: #1976d2;
+    border: 1px solid #bbdefb;
+}
+
+.review-card.style-hatha .fa-quote-left {
+    color: #1976d2;
+    margin-right: 8px;
+    font-size: 1.9em;
+    opacity: 0.7;
+}
+
+.style-hatha:hover, 
+.style-hatha:hover .fa-quote-left {
+    background-color: #e3f2fd;
+    color: #1976d2; /* Maintains icon color on hover */
+    opacity: 1; /* Makes icon more visible on hover */
+}
+
+.review-card.style-hatha .fa-quote-left {
+    color: #1976d2;
+    margin-right: 8px;
+    font-size: 1.9em;
+    opacity: 0.7;
+    transition: all 0.3s ease; /* Add smooth transition */
+}
+
+/* Vinyasa - Exclamation Mark */
+.style-vinyasa { 
+    background-color: #fce4ec;
+    color: #c2185b;
+    border: 1px solid #f8bbd0;
+}
+
+.review-card.style-vinyasa .fa-exclamation {
+    color: #c2185b;
+    margin-right: 8px;
+    font-size: 1.9em;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.style-vinyasa:hover,
+.style-vinyasa:hover .fa-exclamation {
+    background-color: #fce4ec;
+    color: #c2185b;
+}
+
+.review-card.style-vinyasa:hover .fa-exclamation {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* Ashtanga - Spa */
+.style-ashtanga { 
+    background-color: #e8f5e9;
+    color: #388e3c;
+    border: 1px solid #c8e6c9;
+}
+
+.review-card.style-ashtanga .fa-spa {
+    color: #388e3c;
+    margin-right: 8px;
+    font-size: 1.9em;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.style-ashtanga:hover,
+.style-ashtanga:hover .fa-spa {
+    background-color: #e8f5e9;
+    color: #388e3c;
+}
+
+.review-card.style-ashtanga:hover .fa-spa {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* Yin - User */
+.style-yin {
+    background-color: #f3e5f5;
+    color: #8e24aa;
+    border: 1px solid #e1bee7;
+}
+
+.review-card.style-yin .fa-user {
+    color: #8e24aa;
+    margin-right: 8px;
+    font-size: 1.9em;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.style-yin:hover,
+.style-yin:hover .fa-user {
+    background-color: #f3e5f5;
+    color: #8e24aa;
+}
+
+.review-card.style-yin:hover .fa-user {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* Restaurativo - Info */
+.style-restaurativo { 
+    background-color: #fff8e1;
+    color: #ff8f00;
+    border: 1px solid #ffe0b2;
+}
+
+.review-card.style-restaurativo .fa-info {
+    color: #ff8f00;
+    margin-right: 8px;
+    font-size: 1.9em;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.style-restaurativo:hover,
+.style-restaurativo:hover .fa-info {
+    background-color: #fff8e1;
+    color: #ff8f00;
+}
+
+.review-card.style-restaurativo:hover .fa-info {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* Default - Caret Right */
+.style-default {
+    background-color: #f5f5f5;
+    color: #333333;
+    border: 1px solid #e0e0e0;
+}
+
+.review-card.style-default .fa-moon {
+    color: #333333;
+    margin-right: 8px;
+    font-size: 1.9em;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.style-default:hover,
+.style-default:hover .fa-moon {
+    background-color: #f5f5f5;
+    color: #333333;
+}
+
+.review-card.style-default:hover .fa-moon {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+
+
 /* Mobile Layout (1 column) */
 @media (max-width: 768px) {
     .pinterest-reviews-container {
@@ -181,47 +335,5 @@
         margin-bottom: 1rem;
         width: 100%;
     }
-}
-
-.style-hatha { 
-    background-color: #e3f2fd;
-    color: #1976d2;
-    border: 1px solid #bbdefb;
-}
-
-.style-default {
-    background-color: #f5f5f5;
-    color: #333333;
-    border: 1px solid #e0e0e0;
-}
-
-/* Font Awesome quote styling */
-.review-card.style-hatha .fa-quote-left {
-    color: #1976d2;
-    margin-right: 8px;
-    font-size: 1.9em;
-    opacity: 0.7;
-}
-
-/* Hover Effects - Updated for Hatha cards with FA icon */
-.style-hatha:hover, 
-.style-hatha:hover .fa-quote-left {
-    background-color: #e3f2fd;
-    color: #1976d2; /* Maintains icon color on hover */
-    opacity: 1; /* Makes icon more visible on hover */
-}
-
-/* Font Awesome quote styling - Enhanced for hover */
-.review-card.style-hatha .fa-quote-left {
-    color: #1976d2;
-    margin-right: 8px;
-    font-size: 1.9em;
-    opacity: 0.7;
-    transition: all 0.3s ease; /* Add smooth transition */
-}
-
-.review-card.style-hatha:hover .fa-quote-left {
-    opacity: 1;
-    transform: scale(1.05); /* Slight scale effect on hover */
 }
 </style>

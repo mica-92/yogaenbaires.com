@@ -38,8 +38,10 @@ domingo: []
 comments:
   - text: "Las clases de Gong Bath son mágicas."
     author: Gabriela
+    cardcolor: "style-hatha"
   - text: "Me cambió la energía por completo."
     author: Roberto
+    cardcolor: "style-vinyasa"
   - text: "Muy recomendado para principiantes."
     author: Elena
 ---

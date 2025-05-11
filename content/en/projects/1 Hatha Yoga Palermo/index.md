@@ -16,6 +16,7 @@ direccion:
 instagram: "https://www.instagram.com/hatha_yoga_palermo/"
 
 highlight: false
+draft: false
 
 descripcion: "Estudio especializado en Hatha Yoga con enfoque en alineación y relajación profunda."
 

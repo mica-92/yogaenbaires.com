@@ -37,11 +37,13 @@ domingo: []
 comments:
   - text: "Las secuencias son desafiantes pero increíbles."
     author: Juan
-    cardcolor: "style-hatha"
+    cardcolor: "style-restaurativo"
   - text: "Me encanta la energía del lugar."
     author: Ana
+    cardcolor: "style-ashtanga"
   - text: "El mejor estudio de Vinyasa en BA."
     author: Marcos
+    cardcolor: "style-yin"
 ---
 
 En plena Recoleta, cerca de la icónica Biblioteca Nacional, Vinyasa Flow Recoleta atrae a yoguis que buscan dinamismo y creatividad en su práctica. Dirigido por Martín López, ex bailarín y profesor certificado en Power Yoga, el estudio fusiona secuencias fluidas con música en vivo (en clases especiales los viernes). Con capacidad para 20 personas, el espacio—iluminado por velas y luces tenues—tiene un ambiente moderno pero cálido. Lo que lo hace único: ofrecen "Yoga con Pesas" los martes, una combinación innovadora de fuerza y movilidad. Perfecto para quienes quieren sudar y desafiar sus límites, pero siempre con ajustes personalizados.
