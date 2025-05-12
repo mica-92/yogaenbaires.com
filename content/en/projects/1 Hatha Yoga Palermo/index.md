@@ -15,7 +15,7 @@ direccion:
   maps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.123456789012!2d-58.4309876!3d-34.5987654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1234567890abcdef!2sHatha%20Yoga%20Palermo!5e0!3m2!1sen!2sar!4v1746203000000!5m2!1sen!2sar"
 instagram: "https://www.instagram.com/hatha_yoga_palermo/"
 
-highlight: false
+highlight: true
 draft: false
 
 descripcion: "Estudio especializado en Hatha Yoga con enfoque en alineación y relajación profunda."
@@ -37,9 +37,8 @@ sabado: ["10:00 - Clase Comunitaria"]
 domingo: []
 
 comments:
-  - text: "Las clases de alineación son increíbles."
-    author: Laura
-    cardcolor: hatha
+  - text: "Las <b>clases</b> de alineación son increíbles."
+    cardcolor: style-person
   - text: "Ambiente muy relajante."
     author: Carlos
   - text: "Recomiendo totalmente."

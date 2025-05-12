@@ -1,0 +1,194 @@
+<div class="connect-item ">
+    <h2>Horarios:</h2>
+    El estudio cuenta con <b>{{ .Params.salones }}</b> salon con capacidad para <b>{{ .Params.capacidad }}</b> alumnos.
+    {{.Params.reservas }}
+
+<!-- layouts/partials/schedule.html -->
+{{ if or .Params.lunes .Params.martes .Params.miercoles .Params.jueves .Params.viernes .Params.sabado .Params.domingo }}
+{{ $maxClasses := 0 }}
+{{ range $day := slice "lunes" "martes" "miercoles" "jueves" "viernes" "sabado" "domingo" }}
+  {{ if isset $.Params $day }}
+    {{ $dayClasses := len (index $.Params $day) }}
+    {{ if gt $dayClasses $maxClasses }}
+      {{ $maxClasses = $dayClasses }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+<div class="schedule">
+
+  <div class="schedule-table">
+    {{ $days := slice "lunes" "martes" "miercoles" "jueves" "viernes" "sabado" "domingo" }}
+    {{ $dayNames := slice "Lunes" "Martes" "Miércoles" "Jueves" "Viernes" "Sábado" "Domingo" }}
+    
+    {{ range $index, $day := $days }}
+      {{ if and (isset $.Params $day) (gt (len (index $.Params $day)) 0) }}
+        <div class="schedule-day" style="--class-count: {{ $maxClasses }}">
+          <div class="day-name">{{ index $dayNames $index }}</div>
+          <div class="day-classes">
+            {{ range $classEntry := (index $.Params $day) }}
+              {{ $parts := split $classEntry " - " }}
+              {{ if ge (len $parts) 2 }}
+                <div class="class-time style-{{ anchorize (index $parts 1) }}">
+                  <span class="class-hour">{{ index $parts 0 }}</span>
+                  <span class="class-style">{{ index $parts 1 }}</span>
+                </div>
+              {{ else }}
+                <div class="class-time">
+                  {{ $classEntry }}
+                </div>
+              {{ end }}
+            {{ end }}
+            <!-- Empty class placeholders to maintain height -->
+            {{ range $i := (seq (sub $maxClasses (len (index $.Params $day)))) }}
+              <div class="class-time empty"></div>
+            {{ end }}
+          </div>
+        </div>
+      {{ end }}
+    {{ end }}
+  </div>
+</div>
+
+<style>
+.schedule {
+  margin: 20px 0;
+}
+.schedule-table {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: flex-start;
+}
+.schedule-day {
+  flex: 1;
+  min-width: 120px;
+  max-width: 180px;
+  border: 2px solid #d2c2c2;
+  border-radius: 8px;
+  padding: 10px;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+  /* Calculate height based on max classes */
+  min-height: calc(40px + (var(--class-count) * 50px));
+}
+.schedule-day:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-color: #4a4545;
+  filter: brightness(92%);
+  z-index: 2;
+}
+.day-name {
+  font-weight: bold;
+  margin-bottom: 8px;
+  text-align: center;
+  white-space: nowrap;
+}
+.day-classes {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  height: 100%;
+}
+.class-time {
+  text-align: center;
+  font-family: 'Menlo', 'Consolas', monospace;
+  padding: 8px 5px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  background: white;
+  border-left: 4px solid transparent;
+  min-height: 40px;
+  box-sizing: border-box;
+  justify-content: center;
+}
+.class-time.empty {
+  visibility: hidden;
+  pointer-events: none;
+}
+.class-time:hover {
+  transform: scale(1.05);
+  filter: brightness(92%) drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+  position: relative;
+  z-index: 3;
+}
+.class-hour {
+  font-size: 0.9em;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.class-style {
+  font-family: 'Menlo', 'Consolas', monospace;
+  font-weight: bold;
+  font-size: 0.8em;
+  transition: all 0.2s ease;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+.class-time:hover .class-hour {
+  font-size: 0.95em;
+}
+.class-time:hover .class-style {
+  font-size: 0.85em;
+  letter-spacing: 0.5px;
+  white-space: normal;
+  overflow: visible;
+}
+
+/* Style-specific colors */
+.style-hatha { 
+    background-color: #e3f2fd;
+    color: #1976d2;
+    border: 1px solid #bbdefb;
+}
+.style-vinyasa { 
+    background-color: #fce4ec;
+    color: #c2185b;
+    border: 1px solid #f8bbd0;
+}
+.style-ashtanga { 
+    background-color: #e8f5e9;
+    color: #388e3c;
+    border: 1px solid #c8e6c9;
+}
+.style-restaurativo { 
+    background-color: #fff8e1;
+    color: #ff8f00;
+    border: 1px solid #ffe0b2;
+}
+.style-yin {
+    background-color: #f3e5f5;
+    color: #8e24aa;
+    border: 1px solid #e1bee7;
+}
+
+/* Hover effects */
+.style-hatha:hover { background-color: #e3f2fd; }
+.style-vinyasa:hover { background-color: #fce4ec; }
+.style-ashtanga:hover { background-color: #e8f5e9; }
+.style-yin:hover { background-color: #fff3e0; }
+.style-restaurativo:hover {
+  background-color: #f3e5f5;
+}
+
+@media (max-width: 768px) {
+  .schedule-table {
+    flex-direction: column;
+  }
+  .schedule-day {
+    width: 100%;
+    max-width: none;
+  }
+  .class-time:hover {
+    transform: none;
+  }
+}
+</style>
+{{ end }}

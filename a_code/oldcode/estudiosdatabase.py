@@ -7,54 +7,6 @@ import yaml  # pip install pyyaml
 # Initialize the database
 database = {}
 
-# Fields to include in CSV export
-CSV_FIELDS = [
-    'id',
-    'title',
-    'date',
-    'estilo',
-    'duracion',
-    'intensidad',
-    'niveles',
-    'barrio',
-    'direccion:texto',
-    'direccion:maps',
-    'instagram',
-    'salones',
-    'capacidad'
-]
-
-# Fields to include in Markdown export
-MD_FIELDS = [
-    'title',
-    'date',
-    'id',
-    'estilo',
-    'duracion',
-    'intensidad',
-    'niveles',
-    'barrio',
-    'otros',
-    'direccion',
-    'instagram',
-    'highlight',
-    'draft',
-    'descripcion',
-    'salones',
-    'capacidad',
-    'reservas',
-    'instagrampost',
-    'instagramreview',
-    'website',
-    'lunes',
-    'martes',
-    'miercoles',
-    'jueves',
-    'viernes',
-    'sabado',
-    'domingo',
-    'comments'
-]
 
 def generate_id():
     """Generate a new sequential ID"""
@@ -85,9 +37,10 @@ def input_nested_field(field_name, parent_field=None):
                 'cardcolor': cardcolor
             })
         return comments
-    elif isinstance(field_name, list):
+    elif field_name in ['estilo', 'duracion', 'intensidad', 'niveles', 'barrio', 'otros',
+                       'lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado', 'domingo']:
         values = []
-        print(f"Enter {parent_field} (one per line, empty to finish):")
+        print(f"Enter {field_name} (one per line, empty to finish):")
         while True:
             value = input().strip()
             if not value:
@@ -96,6 +49,12 @@ def input_nested_field(field_name, parent_field=None):
         return values
     else:
         return input(f"{field_name}: ")
+
+def save_changes():
+    """Save changes to JSON and CSV files"""
+    export_json()
+    export_csv()
+    export_markdown()
 
 def create_studio():
     """Create a new yoga studio entry"""
@@ -106,12 +65,12 @@ def create_studio():
         'id': studio_id,
         'title': input("Title: "),
         'date': datetime.now().strftime("%Y-%m-%d"),
-        'estilo': input_nested_field('estilo', 'estilo'),
-        'duracion': input_nested_field('duracion', 'duracion'),
-        'intensidad': input_nested_field('intensidad', 'intensidad'),
-        'niveles': input_nested_field('niveles', 'niveles'),
-        'barrio': input_nested_field('barrio', 'barrio'),
-        'otros': input_nested_field('otros', 'otros'),
+        'estilo': input_nested_field('estilo'),
+        'duracion': input_nested_field('duracion'),
+        'intensidad': input_nested_field('intensidad'),
+        'niveles': input_nested_field('niveles'),
+        'barrio': input_nested_field('barrio'),
+        'otros': input_nested_field('otros'),
         'direccion': input_nested_field('direccion'),
         'instagram': input("Instagram URL: "),
         'highlight': False,
@@ -123,13 +82,13 @@ def create_studio():
         'instagrampost': input("Instagram post URL (optional): "),
         'instagramreview': input("Instagram review URL (optional): "),
         'website': input("Website URL (optional): "),
-        'lunes': input_nested_field('lunes', 'Monday schedule'),
-        'martes': input_nested_field('martes', 'Tuesday schedule'),
-        'miercoles': input_nested_field('miercoles', 'Wednesday schedule'),
-        'jueves': input_nested_field('jueves', 'Thursday schedule'),
-        'viernes': input_nested_field('viernes', 'Friday schedule'),
-        'sabado': input_nested_field('sabado', 'Saturday schedule'),
-        'domingo': input_nested_field('domingo', 'Sunday schedule'),
+        'lunes': input_nested_field('lunes'),
+        'martes': input_nested_field('martes'),
+        'miercoles': input_nested_field('miercoles'),
+        'jueves': input_nested_field('jueves'),
+        'viernes': input_nested_field('viernes'),
+        'sabado': input_nested_field('sabado'),
+        'domingo': input_nested_field('domingo'),
         'comments': input_nested_field('comments')
     }
     
@@ -138,6 +97,7 @@ def create_studio():
     
     database[studio_id] = studio
     print(f"\nStudio {studio_id} created successfully!")
+    save_changes()
 
 def modify_studio():
     """Modify an existing yoga studio entry"""
@@ -173,6 +133,7 @@ def modify_studio():
                 studio[key] = input(f"New {key}: ")
     
     print(f"\nStudio {studio_id} updated successfully!")
+    save_changes()
 
 def delete_studio():
     """Delete a yoga studio entry"""
@@ -193,6 +154,7 @@ def delete_studio():
     if confirm == 'y':
         del database[studio_id]
         print(f"Studio {studio_id} deleted.")
+        save_changes()
     else:
         print("Deletion canceled.")
 
@@ -241,14 +203,33 @@ def export_markdown():
         dir_name = f"{studio_id} {studio['title']}"
         os.makedirs(dir_name, exist_ok=True)
         
-        # Prepare content for Markdown
+        # Prepare content for Markdown with proper array formatting
         md_content = {}
         for field in MD_FIELDS:
             if field in studio:
-                md_content[field] = studio[field]
+                # Convert string lists to proper arrays
+                if isinstance(studio[field], str) and ',' in studio[field]:
+                    if field in ['lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado', 'domingo']:
+                        # Clean up schedule entries
+                        items = [item.strip().strip('"') for item in studio[field].split('", "')]
+                        md_content[field] = items
+                    else:
+                        md_content[field] = studio[field]
+                elif isinstance(studio[field], list):
+                    md_content[field] = studio[field]
+                else:
+                    # Ensure consistent quoting
+                    md_content[field] = studio[field]
         
-        # Add YAML front matter
-        yaml_content = yaml.dump(md_content, allow_unicode=True, sort_keys=False)
+        # Add YAML front matter with proper formatting
+        yaml_content = yaml.dump(
+            md_content,
+            allow_unicode=True,
+            sort_keys=False,
+            default_style='"',  # Force quotes on strings
+            default_flow_style=False  # Force block style for arrays
+        )
+        
         full_content = f"---\n{yaml_content}---\n\n{studio.get('Content', '')}"
         
         # Write to file
@@ -256,7 +237,7 @@ def export_markdown():
             f.write(full_content)
         
         print(f"Exported {dir_name}/index.md")
-
+        
 def swipe_clean():
     """Clear the database (for testing)"""
     global database
@@ -264,6 +245,7 @@ def swipe_clean():
     if confirm == 'y':
         database = {}
         print("Database cleared.")
+        save_changes()
     else:
         print("Operation canceled.")
 
@@ -287,7 +269,7 @@ def main_menu():
         print("1. Nuevo Estudio")
         print("2. Modificar Estudio")
         print("3. Eliminar Estudio")
-        print("4. Crear/Update .json, .csv, .md")
+        print("4. Export All (JSON, CSV, Markdown)")
         print("5. Swipe Clean")
         print("6. Exit")
         
@@ -313,4 +295,3 @@ def main_menu():
 
 if __name__ == "__main__":
     main_menu()
-    

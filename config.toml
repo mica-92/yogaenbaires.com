@@ -15,7 +15,7 @@ publishDir = "public"  # Ensure this is set
     fadeIn                       = true                    # Turn on/off the fade-in effect
     fadeInIndex                  = false                   # Turn on/off the fade-in effect on the index page even if fade-in was otherwise turned off
     dateFormat                   = "01-2006"
-    email                        = "youremail@email.com"   # E-mail address for contact section
+    email                        = "desenrollatumat@gmail.com"   # E-mail address for contact section
     customCSS = ["css/custom.css"]
     basePath = "yogaenbaires"
 

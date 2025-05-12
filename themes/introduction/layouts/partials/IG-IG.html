@@ -1,14 +1,15 @@
 <!-- fotos-opiniones.html -->
+{{ if .Params.instagram_review }}
 <div class="photos-reviews-section">
     <h2>Instagram & Reseña</h2>
     
-    {{ if .Params.instagramreview }}
+    
     <div class="photos-reviews-grid">
         <div class="instagram-embed-column">
             <div class="instagram-embed-wrapper">
-                <blockquote class="instagram-media" data-instgrm-permalink="{{ .Params.instagramreview }}" data-instgrm-version="14" style="width:100%; min-height: 600px; display: flex; justify-content: center;">
+                <blockquote class="instagram-media" data-instgrm-permalink="{{ .Params.instagram_review }}" data-instgrm-version="14" style="width:100%; min-height: 600px; display: flex; justify-content: center;">
                     <div style="padding:16px;text-align:center;">
-                        <a href="{{ .Params.instagramreview }}" target="_blank" style="color:#3897f0;font-weight:bold;">
+                        <a href="{{ .Params.instagram_review }}" target="_blank" style="color:#3897f0;font-weight:bold;">
                             View Instagram Post
                         </a>
                     </div>
@@ -19,14 +20,14 @@
         {{end}}
 
         <!-- Instagram Embed Column -->
-        {{ if .Params.instagrampost }}
+        {{ if .Params.instagram_post }}
         
 
         <div class="instagram-embed-column">
             <div class="instagram-embed-wrapper">
-                <blockquote class="instagram-media" data-instgrm-permalink="{{ .Params.instagrampost }}" data-instgrm-version="14" style="width:100%; min-height: 600px; display: flex; justify-content: center;">
+                <blockquote class="instagram-media" data-instgrm-permalink="{{ .Params.instagram_post }}" data-instgrm-version="14" style="width:100%; min-height: 600px; display: flex; justify-content: center;">
                     <div style="padding:16px;text-align:center;">
-                        <a href="{{ .Params.instagrampost }}" target="_blank" style="color:#3897f0;font-weight:bold;">
+                        <a href="{{ .Params.instagram_post }}" target="_blank" style="color:#3897f0;font-weight:bold;">
                             View Instagram Post
                         </a>
                     </div>

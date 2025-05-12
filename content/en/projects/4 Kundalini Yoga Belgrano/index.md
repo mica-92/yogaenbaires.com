@@ -38,7 +38,7 @@ domingo: []
 comments:
   - text: "Las clases de Gong Bath son mágicas."
     author: Gabriela
-    cardcolor: "style-hatha"
+    cardcolor: "style-mountain"
   - text: "Me cambió la energía por completo."
     author: Roberto
     cardcolor: "style-vinyasa"

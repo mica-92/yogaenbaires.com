@@ -1,0 +1,121 @@
+{
+    "001": {
+        "title": "Ashtanga Yoga Caballito",
+        "date": "2025-05-11",
+        "estilos": [
+            "Vinyasa"
+        ],
+        "duracion": [
+            "90 min",
+            "90+ min"
+        ],
+        "intensidad": [
+            "Intensa",
+            "Variable"
+        ],
+        "barrio": "Caballito",
+        "direccion": "Anchorena 1250",
+        "google_maps": {
+            "url": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d26264.35553387357!2d-58.4515584!3d-34.6283172!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccba80002ddcd%3A0x9c373431e77ffd8d!2sAshtanga%20Yoga%20Caballito!5e0!3m2!1sen!2sar!4v1746993031558!5m2!1sen!2sar",
+            "coordenadas": {
+                "lat": "-34.6283172",
+                "lng": "-58.4515584"
+            }
+        },
+        "highlight": true,
+        "draft": true,
+        "descripcion": "Este es un estudio de Ashtanga tradicional",
+        "salon": "1",
+        "capacidad": "10",
+        "reserva": "No hace falta reserva previa"
+    },
+    "002": {
+        "title": "Hermos aYogui",
+        "date": "2025-05-11",
+        "estilos": [
+            "Hatha"
+        ],
+        "duracion": [
+            "60 min"
+        ],
+        "intensidad": [
+            "Moderada"
+        ],
+        "barrio": "Olivos",
+        "direccion": "Quintana 50",
+        "google_maps": {
+            "url": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d26264.35553387357!2d-58.4515584!3d-34.6283172!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccba80002ddcd%3A0x9c373431e77ffd8d!2sAshtanga%20Yoga%20Caballito!5e0!3m2!1sen!2sar!4v1746993031558!5m2!1sen!2sar",
+            "coordenadas": {
+                "lat": "-34.6283172",
+                "lng": "-58.4515584"
+            }
+        },
+        "highlight": false,
+        "weight": 10,
+        "draft": true,
+        "descripcion": "",
+        "salon": "1",
+        "capacidad": "10",
+        "reserva": "No hace falta reserva previa",
+        "instagram": "",
+        "instagram_post": "",
+        "instagram_review": "https://www.instagram.com/p/DJdIytrItm1/",
+        "website": "",
+        "comments": [
+            {
+                "text": "Hola",
+                "author": null,
+                "cardcolor": "style-quote",
+                "weight": 10
+            },
+            {
+                "text": "La nacion es un diario",
+                "author": "Mica",
+                "cardcolor": "style-info",
+                "weight": 10
+            }
+        ]
+    },
+    "003": {
+        "title": "Shala",
+        "date": "2025-05-12",
+        "estilos": [
+            "Hatha"
+        ],
+        "duracion": [
+            "60 min"
+        ],
+        "intensidad": [
+            "Moderada"
+        ],
+        "barrio": "Olivos",
+        "direccion": "Anchorena 1250",
+        "google_maps": {
+            "url": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d26264.35553387357!2d-58.4515584!3d-34.6283172!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccba80002ddcd%3A0x9c373431e77ffd8d!2sAshtanga%20Yoga%20Caballito!5e0!3m2!1sen!2sar!4v1746993031558!5m2!1sen!2sar",
+            "coordenadas": {
+                "lat": "-34.6283172",
+                "lng": "-58.4515584"
+            }
+        },
+        "highlight": true,
+        "weight": 9,
+        "draft": false,
+        "descripcion": "Este es un estudio",
+        "salon": "1",
+        "capacidad": "10",
+        "reserva": "No hace falta reserva previa",
+        "instagram": "",
+        "instagram_post": "",
+        "instagram_review": "https://www.instagram.com/p/DJdIytrItm1/",
+        "website": "",
+        "comments": [
+            {
+                "text": "Los bichos raros se comen todo en el Eternauta",
+                "author": "Darin",
+                "cardcolor": "style-info",
+                "weight": 10
+            }
+        ],
+        "otros": []
+    }
+}
