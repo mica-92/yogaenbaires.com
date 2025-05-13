@@ -1,0 +1,180 @@
+{
+    "001": {
+        "title": "Ashtanga Yoga Caballito",
+        "date": "2025-05-12",
+        "estilos": [
+            "Ashtanga"
+        ],
+        "duracion": [
+            "90 min",
+            "90+ min"
+        ],
+        "intensidad": [
+            "Intensa",
+            "Personalizada"
+        ],
+        "barrio": "Caballito",
+        "direccion": "Anchorena 1250",
+        "google_maps": {
+            "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26264.35553387357!2d-58.451558399999996!3d-34.628317200000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccba80002ddcd%3A0x9c373431e77ffd8d!2sAshtanga%20Yoga%20Caballito!5e0!3m2!1sen!2sar!4v1747066546172!5m2!1sen!2sar",
+            "coordenadas": {
+                "lat": "-34.628317200000005",
+                "lng": "-58.451558399999996"
+            }
+        },
+        "highlight": true,
+        "weight": 10,
+        "draft": false,
+        "descripcion": "Estudio de Ashtanga tradicional con clases estilo Mysore diarias.",
+        "salon": "1",
+        "capacidad": "10",
+        "reserva": "No hace falta reserva previa",
+        "instagram": "https://www.instagram.com/ashtanga_yoga_caballito",
+        "instagram_post": "https://www.instagram.com/ashtanga_yoga_caballito",
+        "instagram_review": "https://www.instagram.com/p/DJdIytrItm1/",
+        "website": "",
+        "comments": [],
+        "otros": [],
+        "horarios": {
+            "lunes": [
+                {
+                    "horario": "08:00",
+                    "clase": "Ashtanga Mysore",
+                    "descripcion": "Clase tradicional de Ashtanga Yoga",
+                    "style": "style-ashtanga"
+                },
+                {
+                    "horario": "18:30",
+                    "clase": "Ashtanga Mysore",
+                    "descripcion": "Clase tradicional de Ashtanga Yoga",
+                    "style": "style-ashtanga"
+                }
+            ],
+            "martes": [
+                {
+                    "horario": "08:00",
+                    "clase": "Ashtanga Mysore",
+                    "descripcion": "Clase tradicional de Ashtanga Yoga",
+                    "style": "style-ashtanga"
+                },
+                {
+                    "horario": "18:30",
+                    "clase": "Ashtanga Mysore",
+                    "descripcion": "Clase tradicional de Ashtanga Yoga",
+                    "style": "style-ashtanga"
+                }
+            ],
+            "miercoles": [
+                {
+                    "horario": "08:00",
+                    "clase": "Ashtanga Mysore",
+                    "descripcion": "Clase tradicional de Ashtanga Yoga",
+                    "style": "style-ashtanga"
+                },
+                {
+                    "horario": "18:30",
+                    "clase": "Ashtanga Mysore",
+                    "descripcion": "Clase tradicional de Ashtanga Yoga",
+                    "style": "style-ashtanga"
+                }
+            ],
+            "jueves": [
+                {
+                    "horario": "08:00",
+                    "clase": "Ashtanga Mysore",
+                    "descripcion": "Clase tradicional de Ashtanga Yoga",
+                    "style": "style-ashtanga"
+                },
+                {
+                    "horario": "18:30",
+                    "clase": "Ashtanga Mysore",
+                    "descripcion": "Clase tradicional de Ashtanga Yoga",
+                    "style": "style-ashtanga"
+                }
+            ],
+            "viernes": [
+                {
+                    "horario": "08:00",
+                    "clase": "Ashtanga Mysore",
+                    "descripcion": "Clase tradicional de Ashtanga Yoga",
+                    "style": "style-ashtanga"
+                }
+            ]
+        },
+        "visitas": {}
+    },
+    "002": {
+        "title": "AYC",
+        "date": "2025-05-12",
+        "estilos": [
+            "Hatha"
+        ],
+        "duracion": [
+            "60 min"
+        ],
+        "intensidad": [
+            "Moderada"
+        ],
+        "barrio": "Caballito",
+        "direccion": "Anchorena 1250",
+        "google_maps": {
+            "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21469.568112163084!2d-58.46821325193069!3d-34.579173631652914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb5dea799069d%3A0x905f0bb03ebb64ea!2sAshtanga%20Yoga%20Colegiales!5e0!3m2!1sen!2sar!4v1747071562013!5m2!1sen!2sar",
+            "coordenadas": {
+                "lat": "-34.579173631652914",
+                "lng": "-58.46821325193069"
+            }
+        },
+        "highlight": false,
+        "weight": 10,
+        "draft": true,
+        "descripcion": "",
+        "salon": "1",
+        "capacidad": "10",
+        "reserva": "No hace falta reserva previa",
+        "instagram": "",
+        "instagram_post": "",
+        "instagram_review": "https://www.instagram.com/p/DJdIytrItm1/",
+        "website": "",
+        "comments": [],
+        "otros": [],
+        "horarios": {},
+        "visitas": {}
+    },
+    "003": {
+        "title": "Shala Luna",
+        "date": "2025-05-12",
+        "estilos": [
+            "Hatha"
+        ],
+        "duracion": [
+            "60 min"
+        ],
+        "intensidad": [
+            "Moderada"
+        ],
+        "barrio": "Caballito",
+        "direccion": "Yrigoyen 23",
+        "google_maps": {
+            "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6565.803730107961!2d-58.463513106107676!3d-34.631920151507856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca2e5ef3ce37%3A0x220af716b788792d!2sAnandi%20Yoga!5e0!3m2!1ses!2sar!4v1747072841419!5m2!1ses!2sar",
+            "coordenadas": {
+                "lat": "-34.631920151507856",
+                "lng": "-58.463513106107676"
+            }
+        },
+        "highlight": false,
+        "weight": 10,
+        "draft": true,
+        "descripcion": "",
+        "salon": "1",
+        "capacidad": "10",
+        "reserva": "No hace falta reserva previa",
+        "instagram": "",
+        "instagram_post": "",
+        "instagram_review": "https://www.instagram.com/p/DJdIytrItm1/",
+        "website": "",
+        "comments": [],
+        "otros": [],
+        "horarios": {},
+        "visitas": {}
+    }
+}

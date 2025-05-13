@@ -1,12 +1,136 @@
 {
     "001": {
-        "title": "Ashtanga Yoga Caballito",
-        "date": "2025-05-11",
+        "title": "Shala Luna",
+        "date": "2025-05-12",
         "estilos": [
-            "Vinyasa"
+            "Hatha",
+            "Vinyasa",
+            "Ashtanga",
+            "Otros"
         ],
         "duracion": [
-            "90 min",
+            "60 min"
+        ],
+        "intensidad": [
+            "Suave",
+            "Moderada"
+        ],
+        "barrio": "Olivos",
+        "direccion": "Mariano Pelliza 1196, B1636 Olivos, Provincia de Buenos Aires",
+        "google_maps": {
+            "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4931.759026086876!2d-58.49168618745024!3d-34.50695437287632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb1401b107327%3A0xb52bc43959610d5d!2sShala%20Luna%20Pelliza%20-%20Yoga!5e1!3m2!1sen!2sar!4v1747097055832!5m2!1sen!2sar",
+            "coordenadas": {
+                "lat": "-34.50695437287632",
+                "lng": "-58.49168618745024"
+            }
+        },
+        "highlight": false,
+        "weight": 10,
+        "draft": false,
+        "descripcion": "Estudio con una diversa variedad de estilos de yoga. Gran n\u00famero de clases diarias.",
+        "salon": "3",
+        "capacidad": "15",
+        "reserva": "Requiere reserva previa a traves de la App TurnosWeb, para m\u00e1s informaci\u00f3n visitar la p\u00e1gina web.",
+        "instagram": "https://www.instagram.com/shala_luna",
+        "instagram_post": "https://www.instagram.com/p/DJburNyt8NK/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+        "instagram_review": "https://www.instagram.com/p/DJdIytrItm1/",
+        "website": "https://shalaluna.com.ar",
+        "comments": [
+            {
+                "text": "Ofrece formaciones en Kundalini Yoga y Hatha.",
+                "author": null,
+                "cardcolor": "style-info",
+                "weight": 10
+            }
+        ],
+        "otros": [
+            "Meditaci\u00c3\u00b3n",
+            "Online",
+            "Para Mayores",
+            "Iyengar"
+        ],
+        "horarios": {
+            "lunes": [
+                {
+                    "horario": "08:15",
+                    "clase": "Hatha",
+                    "descripcion": "Hatha Yoga es una pr\u00e1ctica met\u00f3dica y estructurada que enfatiza la precisi\u00f3n postural, la conciencia respiratoria y la sostenibilidad de las posturas, buscando generar estabilidad f\u00edsica y mental a trav\u00e9s de la atenci\u00f3n plena en el movimiento y la quietud.",
+                    "style": "style-hatha"
+                },
+                {
+                    "horario": "19:30",
+                    "clase": "Kundalini",
+                    "descripcion": "Durante una sesi\u00f3n de Kundalini Yoga realizaremos un trabajo dirigido tanto al cuerpo (asanas, bandhas o contracciones corporales) como a la mente (a trav\u00e9s de la meditaci\u00f3n y los mantras, que son palabras o sonidos a los que se atribuye un cierto poder psicol\u00f3gico o espiritual). El uso de mantras es muy habitual tanto al inicio y al final de la clase como en la parte de la meditaci\u00f3n.",
+                    "style": "style-otros2"
+                }
+            ],
+            "martes": [
+                {
+                    "horario": "08:15",
+                    "clase": "Hatha",
+                    "descripcion": "Hatha Yoga es una pr\u00e1ctica met\u00f3dica y estructurada que enfatiza la precisi\u00f3n postural, la conciencia respiratoria y la sostenibilidad de las posturas, buscando generar estabilidad f\u00edsica y mental a trav\u00e9s de la atenci\u00f3n plena en el movimiento y la quietud.",
+                    "style": "style-hatha"
+                },
+                {
+                    "horario": "19:30",
+                    "clase": "Kundalini",
+                    "descripcion": "Durante una sesi\u00f3n de Kundalini Yoga realizaremos un trabajo dirigido tanto al cuerpo (asanas, bandhas o contracciones corporales) como a la mente (a trav\u00e9s de la meditaci\u00f3n y los mantras, que son palabras o sonidos a los que se atribuye un cierto poder psicol\u00f3gico o espiritual). El uso de mantras es muy habitual tanto al inicio y al final de la clase como en la parte de la meditaci\u00f3n.",
+                    "style": "style-otros2"
+                }
+            ],
+            "miercoles": [
+                {
+                    "horario": "08:15",
+                    "clase": "Hatha",
+                    "descripcion": "Hatha Yoga es una pr\u00e1ctica met\u00f3dica y estructurada que enfatiza la precisi\u00f3n postural, la conciencia respiratoria y la sostenibilidad de las posturas, buscando generar estabilidad f\u00edsica y mental a trav\u00e9s de la atenci\u00f3n plena en el movimiento y la quietud.",
+                    "style": "style-hatha"
+                },
+                {
+                    "horario": "19:30",
+                    "clase": "Kundalini",
+                    "descripcion": "Durante una sesi\u00f3n de Kundalini Yoga realizaremos un trabajo dirigido tanto al cuerpo (asanas, bandhas o contracciones corporales) como a la mente (a trav\u00e9s de la meditaci\u00f3n y los mantras, que son palabras o sonidos a los que se atribuye un cierto poder psicol\u00f3gico o espiritual). El uso de mantras es muy habitual tanto al inicio y al final de la clase como en la parte de la meditaci\u00f3n.",
+                    "style": "style-otros2"
+                }
+            ],
+            "jueves": [
+                {
+                    "horario": "08:15",
+                    "clase": "Hatha",
+                    "descripcion": "Hatha Yoga es una pr\u00e1ctica met\u00f3dica y estructurada que enfatiza la precisi\u00f3n postural, la conciencia respiratoria y la sostenibilidad de las posturas, buscando generar estabilidad f\u00edsica y mental a trav\u00e9s de la atenci\u00f3n plena en el movimiento y la quietud.",
+                    "style": "style-hatha"
+                },
+                {
+                    "horario": "19:30",
+                    "clase": "Kundalini",
+                    "descripcion": "Durante una sesi\u00f3n de Kundalini Yoga realizaremos un trabajo dirigido tanto al cuerpo (asanas, bandhas o contracciones corporales) como a la mente (a trav\u00e9s de la meditaci\u00f3n y los mantras, que son palabras o sonidos a los que se atribuye un cierto poder psicol\u00f3gico o espiritual). El uso de mantras es muy habitual tanto al inicio y al final de la clase como en la parte de la meditaci\u00f3n.",
+                    "style": "style-otros2"
+                }
+            ],
+            "viernes": [
+                {
+                    "horario": "08:15",
+                    "clase": "Hatha",
+                    "descripcion": "Hatha Yoga es una pr\u00e1ctica met\u00f3dica y estructurada que enfatiza la precisi\u00f3n postural, la conciencia respiratoria y la sostenibilidad de las posturas, buscando generar estabilidad f\u00edsica y mental a trav\u00e9s de la atenci\u00f3n plena en el movimiento y la quietud.",
+                    "style": "style-hatha"
+                },
+                {
+                    "horario": "19:30",
+                    "clase": "Kundalini",
+                    "descripcion": "Durante una sesi\u00f3n de Kundalini Yoga realizaremos un trabajo dirigido tanto al cuerpo (asanas, bandhas o contracciones corporales) como a la mente (a trav\u00e9s de la meditaci\u00f3n y los mantras, que son palabras o sonidos a los que se atribuye un cierto poder psicol\u00f3gico o espiritual). El uso de mantras es muy habitual tanto al inicio y al final de la clase como en la parte de la meditaci\u00f3n.",
+                    "style": "style-otros2"
+                }
+            ]
+        },
+        "content": "Pausa.",
+        "visitas": {}
+    },
+    "002": {
+        "title": "Ashtanga Yoga Caballito",
+        "date": "2025-05-12",
+        "estilos": [
+            "Ashtanga"
+        ],
+        "duracion": [
             "90+ min"
         ],
         "intensidad": [
@@ -14,108 +138,101 @@
             "Variable"
         ],
         "barrio": "Caballito",
-        "direccion": "Anchorena 1250",
+        "direccion": "Gral. Mart\u00edn de Gainza 40, C1405AJB Cdad. Aut\u00f3noma de Buenos Aires",
         "google_maps": {
-            "url": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d26264.35553387357!2d-58.4515584!3d-34.6283172!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccba80002ddcd%3A0x9c373431e77ffd8d!2sAshtanga%20Yoga%20Caballito!5e0!3m2!1sen!2sar!4v1746993031558!5m2!1sen!2sar",
+            "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4924.9537827804015!2d-58.44802218744705!3d-34.62179217283499!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccba80002ddcd%3A0x9c373431e77ffd8d!2sAshtanga%20Yoga%20Caballito!5e1!3m2!1sen!2sar!4v1747098411515!5m2!1sen!2sar",
             "coordenadas": {
-                "lat": "-34.6283172",
-                "lng": "-58.4515584"
+                "lat": "-34.62179217283499",
+                "lng": "-58.44802218744705"
             }
         },
         "highlight": true,
-        "draft": true,
-        "descripcion": "Este es un estudio de Ashtanga tradicional",
-        "salon": "1",
-        "capacidad": "10",
-        "reserva": "No hace falta reserva previa"
-    },
-    "002": {
-        "title": "Hermos aYogui",
-        "date": "2025-05-11",
-        "estilos": [
-            "Hatha"
-        ],
-        "duracion": [
-            "60 min"
-        ],
-        "intensidad": [
-            "Moderada"
-        ],
-        "barrio": "Olivos",
-        "direccion": "Quintana 50",
-        "google_maps": {
-            "url": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d26264.35553387357!2d-58.4515584!3d-34.6283172!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccba80002ddcd%3A0x9c373431e77ffd8d!2sAshtanga%20Yoga%20Caballito!5e0!3m2!1sen!2sar!4v1746993031558!5m2!1sen!2sar",
-            "coordenadas": {
-                "lat": "-34.6283172",
-                "lng": "-58.4515584"
-            }
-        },
-        "highlight": false,
         "weight": 10,
-        "draft": true,
-        "descripcion": "",
+        "draft": false,
+        "descripcion": "Estudio de Ashtanga Yoga Tradicional con clases Mysore de lunes a viernes. Ernesto Mu\u00f1oz due\u00f1o y docente de la escuela cuenta con m\u00e1s de 20 a\u00f1os de practica.",
         "salon": "1",
         "capacidad": "10",
         "reserva": "No hace falta reserva previa",
-        "instagram": "",
-        "instagram_post": "",
+        "instagram": "https://www.instagram.com/ashtanga_yoga_caballito",
+        "instagram_post": "https://www.instagram.com/ashtanga_yoga_caballito",
         "instagram_review": "https://www.instagram.com/p/DJdIytrItm1/",
         "website": "",
         "comments": [
             {
-                "text": "Hola",
-                "author": null,
+                "text": "Ernesto es un docente con m\u00e1s de 20 a\u00f1os de experiencia, su sabidur\u00eda se refleja en cada clase.",
+                "author": "Mica",
                 "cardcolor": "style-quote",
                 "weight": 10
-            },
-            {
-                "text": "La nacion es un diario",
-                "author": "Mica",
-                "cardcolor": "style-info",
-                "weight": 10
             }
-        ]
-    },
-    "003": {
-        "title": "Shala",
-        "date": "2025-05-12",
-        "estilos": [
-            "Hatha"
         ],
-        "duracion": [
-            "60 min"
-        ],
-        "intensidad": [
-            "Moderada"
-        ],
-        "barrio": "Olivos",
-        "direccion": "Anchorena 1250",
-        "google_maps": {
-            "url": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d26264.35553387357!2d-58.4515584!3d-34.6283172!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccba80002ddcd%3A0x9c373431e77ffd8d!2sAshtanga%20Yoga%20Caballito!5e0!3m2!1sen!2sar!4v1746993031558!5m2!1sen!2sar",
-            "coordenadas": {
-                "lat": "-34.6283172",
-                "lng": "-58.4515584"
-            }
+        "otros": [],
+        "horarios": {
+            "lunes": [
+                {
+                    "horario": "08:00",
+                    "clase": "Ashtanga Mysore",
+                    "descripcion": "Clase tradicional de Ashtanga Yoga",
+                    "style": "style-ashtanga"
+                },
+                {
+                    "horario": "18:30",
+                    "clase": "Ashtanga Mysore",
+                    "descripcion": "Clase tradicional de Ashtanga Yoga",
+                    "style": "style-ashtanga"
+                }
+            ],
+            "martes": [
+                {
+                    "horario": "08:00",
+                    "clase": "Ashtanga Mysore",
+                    "descripcion": "Clase tradicional de Ashtanga Yoga",
+                    "style": "style-ashtanga"
+                },
+                {
+                    "horario": "18:30",
+                    "clase": "Ashtanga Mysore",
+                    "descripcion": "Clase tradicional de Ashtanga Yoga",
+                    "style": "style-ashtanga"
+                }
+            ],
+            "miercoles": [
+                {
+                    "horario": "08:00",
+                    "clase": "Ashtanga Mysore",
+                    "descripcion": "Clase tradicional de Ashtanga Yoga",
+                    "style": "style-ashtanga"
+                },
+                {
+                    "horario": "18:30",
+                    "clase": "Ashtanga Mysore",
+                    "descripcion": "Clase tradicional de Ashtanga Yoga",
+                    "style": "style-ashtanga"
+                }
+            ],
+            "jueves": [
+                {
+                    "horario": "08:00",
+                    "clase": "Ashtanga Mysore",
+                    "descripcion": "Clase tradicional de Ashtanga Yoga",
+                    "style": "style-ashtanga"
+                },
+                {
+                    "horario": "18:30",
+                    "clase": "Ashtanga Mysore",
+                    "descripcion": "Clase tradicional de Ashtanga Yoga",
+                    "style": "style-ashtanga"
+                }
+            ],
+            "viernes": [
+                {
+                    "horario": "08:00",
+                    "clase": "Ashtanga Mysore",
+                    "descripcion": "Clase tradicional de Ashtanga Yoga",
+                    "style": "style-ashtanga"
+                }
+            ]
         },
-        "highlight": true,
-        "weight": 9,
-        "draft": false,
-        "descripcion": "Este es un estudio",
-        "salon": "1",
-        "capacidad": "10",
-        "reserva": "No hace falta reserva previa",
-        "instagram": "",
-        "instagram_post": "",
-        "instagram_review": "https://www.instagram.com/p/DJdIytrItm1/",
-        "website": "",
-        "comments": [
-            {
-                "text": "Los bichos raros se comen todo en el Eternauta",
-                "author": "Darin",
-                "cardcolor": "style-info",
-                "weight": 10
-            }
-        ],
-        "otros": []
+        "content": "Pausa.",
+        "visitas": {}
     }
 }

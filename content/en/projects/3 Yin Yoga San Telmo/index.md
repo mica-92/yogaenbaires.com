@@ -26,14 +26,48 @@ instagrampost: "https://www.instagram.com/p/C6fGhIjKlMn/"
 instagramreview: "https://www.instagram.com/p/DJdNnOpQrSt/"
 website: "www.yinyogasantelmo.com"
 
-lunes: ["18:00 - Yin Profundo"]
-martes: ["19:30 - Meditación + Sonidos"]
-miercoles: ["18:00 - Yin Profundo"]
-jueves: ["19:30 - Meditación + Sonidos"]
-viernes: ["18:00 - Yin Profundo"]
-sabado: ["16:00 - Yin Restaurativo"]
-domingo: ["10:00 - Meditación Grupal"]
-
+lunes:
+  - horario: "8:00"
+    clase: "Yin"
+    descripcion: "Clase de trabajo muscular pasivo"
+    style: "Yin"
+  - horario: "16:00"
+    clase: "Vinyasa"
+    descripcion: "Clase dinámica con secuencias fluidas"
+    style: "Vinyasa"
+martes:
+  - horario: "9:30"
+    clase: "Hatha Flow"
+    descripcion: "Posturas mantenidas con transiciones suaves"
+    style: "Hatha"
+miercoles:
+  - horario: "8:00"
+    clase: "Yin"
+    descripcion: "Clase de trabajo muscular pasivo"
+    style: "Yin"
+  - horario: "16:00"
+    clase: "Vinyasa"
+    descripcion: "Clase dinámica con secuencias fluidas"
+    style: "Vinyasa"
+jueves:
+  - horario: "9:30"
+    clase: "Hatha Flow"
+    descripcion: "Posturas mantenidas con transiciones suaves"
+    style: "Hatha"
+viernes:
+  - horario: "8:00"
+    clase: "Yin"
+    descripcion: "Clase de trabajo muscular pasivo"
+    style: "Yin"
+  - horario: "16:00"
+    clase: "Vinyasa"
+    descripcion: "Clase dinámica con secuencias fluidas"
+    style: "Vinyasa"
+sabado:
+  - horario: "9:30"
+    clase: "Hatha Flow"
+    descripcion: "Posturas mantenidas con transiciones suaves"
+    style: "Hatha"
 comments:
   - text: "El lugar es un oasis de paz."
     author: Lucía

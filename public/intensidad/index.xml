@@ -2,31 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Intensidad on Yoga en Baires</title>
-    <link>https://mica-92.github.io/yogaenbaires/intensidad/</link>
+    <link>http://localhost:1313/yogaenbaires/intensidad/</link>
     <description>Recent content in Intensidad on Yoga en Baires</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Fri, 09 May 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://mica-92.github.io/yogaenbaires/intensidad/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/yogaenbaires/intensidad/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Intensa</title>
+      <link>http://localhost:1313/yogaenbaires/intensidad/intensa/</link>
+      <pubDate>Mon, 12 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/yogaenbaires/intensidad/intensa/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Variable</title>
+      <link>http://localhost:1313/yogaenbaires/intensidad/variable/</link>
+      <pubDate>Mon, 12 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/yogaenbaires/intensidad/variable/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Media</title>
-      <link>https://mica-92.github.io/yogaenbaires/intensidad/media/</link>
+      <link>http://localhost:1313/yogaenbaires/intensidad/media/</link>
       <pubDate>Fri, 09 May 2025 00:00:00 +0000</pubDate>
-      <guid>https://mica-92.github.io/yogaenbaires/intensidad/media/</guid>
+      <guid>http://localhost:1313/yogaenbaires/intensidad/media/</guid>
       <description></description>
     </item>
     <item>
       <title>Baja</title>
-      <link>https://mica-92.github.io/yogaenbaires/intensidad/baja/</link>
+      <link>http://localhost:1313/yogaenbaires/intensidad/baja/</link>
       <pubDate>Thu, 08 May 2025 00:00:00 +0000</pubDate>
-      <guid>https://mica-92.github.io/yogaenbaires/intensidad/baja/</guid>
+      <guid>http://localhost:1313/yogaenbaires/intensidad/baja/</guid>
       <description></description>
     </item>
     <item>
       <title>Alta</title>
-      <link>https://mica-92.github.io/yogaenbaires/intensidad/alta/</link>
+      <link>http://localhost:1313/yogaenbaires/intensidad/alta/</link>
       <pubDate>Wed, 07 May 2025 00:00:00 +0000</pubDate>
-      <guid>https://mica-92.github.io/yogaenbaires/intensidad/alta/</guid>
+      <guid>http://localhost:1313/yogaenbaires/intensidad/alta/</guid>
       <description></description>
     </item>
   </channel>

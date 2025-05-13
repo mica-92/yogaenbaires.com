@@ -26,14 +26,48 @@ instagrampost: "https://www.instagram.com/reel/C6eFgHiMnOp/"
 instagramreview: "https://www.instagram.com/p/DJdLmNoPqRs/"
 website: "www.vinyasaflowrecoleta.com"
 
-lunes: ["7:00 - Power Vinyasa", "19:00 - Flow Nocturno"]
-martes: ["12:00 - Vinyasa Express", "20:00 - Yoga con Pesas"]
-miercoles: ["7:00 - Power Vinyasa", "19:00 - Flow Nocturno"]
-jueves: ["12:00 - Vinyasa Express", "20:00 - Yoga con Pesas"]
-viernes: ["7:00 - Power Vinyasa", "19:00 - Flow Nocturno"]
-sabado: ["11:00 - Vinyasa Weekend"]
-domingo: []
-
+lunes:
+  - horario: "8:00"
+    clase: "Yin"
+    descripcion: "Clase de trabajo muscular pasivo"
+    style: "Yin"
+  - horario: "16:00"
+    clase: "Vinyasa"
+    descripcion: "Clase dinámica con secuencias fluidas"
+    style: "Vinyasa"
+martes:
+  - horario: "9:30"
+    clase: "Hatha Flow"
+    descripcion: "Posturas mantenidas con transiciones suaves"
+    style: "Hatha"
+miercoles:
+  - horario: "8:00"
+    clase: "Yin"
+    descripcion: "Clase de trabajo muscular pasivo"
+    style: "Yin"
+  - horario: "16:00"
+    clase: "Vinyasa"
+    descripcion: "Clase dinámica con secuencias fluidas"
+    style: "Vinyasa"
+jueves:
+  - horario: "9:30"
+    clase: "Hatha Flow"
+    descripcion: "Posturas mantenidas con transiciones suaves"
+    style: "Hatha"
+viernes:
+  - horario: "8:00"
+    clase: "Yin"
+    descripcion: "Clase de trabajo muscular pasivo"
+    style: "Yin"
+  - horario: "16:00"
+    clase: "Vinyasa"
+    descripcion: "Clase dinámica con secuencias fluidas"
+    style: "Vinyasa"
+sabado:
+  - horario: "9:30"
+    clase: "Hatha Flow"
+    descripcion: "Posturas mantenidas con transiciones suaves"
+    style: "Hatha"
 comments:
   - text: "Las secuencias son desafiantes pero increíbles."
     author: Juan

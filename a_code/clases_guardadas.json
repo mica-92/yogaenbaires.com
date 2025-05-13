@@ -1,0 +1,26 @@
+{
+  "Ashtanga Mysore": {
+    "descripcion": "Clase tradicional de Ashtanga Yoga",
+    "style": "style-ashtanga"
+  },
+  "Yin Yoga": {
+    "descripcion": "Clase de yoga pasivo",
+    "style": "style-yin"
+  },
+  "Hatha Dinámico": {
+    "descripcion": "Es una modalidad derivada del Hatha Yoga que incorpora técnicas del Ashtanga Yoga. Las posturas se combinan una detrás de otra, de manera continua y fluida, para crear una secuencia completa de movimientos pausados y siempre acompañados por la respiración profunda para favorecer la relajación.",
+    "style": "style-hatha"
+  },
+  "Yoga & Flexibilidad": {
+    "descripcion": "1",
+    "style": "style-hatha"
+  },
+  "Hatha": {
+    "descripcion": "",
+    "style": "style-hatha"
+  },
+  "Kundalini": {
+    "descripcion": "Durante una sesión de Kundalini Yoga realizaremos un trabajo dirigido tanto al cuerpo (asanas, bandhas o contracciones corporales) como a la mente (a través de la meditación y los mantras, que son palabras o sonidos a los que se atribuye un cierto poder psicológico o espiritual). El uso de mantras es muy habitual tanto al inicio y al final de la clase como en la parte de la meditación.",
+    "style": "style-otros2"
+  }
+}

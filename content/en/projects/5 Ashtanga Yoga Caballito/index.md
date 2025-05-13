@@ -28,18 +28,53 @@ instagram_review: "https://www.instagram.com/p/DJdIytrItm1/"
 website: www.google.com
 
 
-lunes: ["9:00 - Vinyasa", "18:00 - Ashtanga"]
-martes: ["9:00 - Hatha", "19:00 - Yin"]
-miercoles: ["9:00 - Vinyasa", "18:00 - Ashtanga"]
-jueves: ["9:00 - Hatha", "19:00 - Yin"]
-viernes: ["9:00 - Vinyasa", "18:00 - Ashtanga"]
-sabado: ["10:00 - restaurativo"]
-domingo: []
+lunes:
+  - horario: "8:00"
+    clase: "Yin"
+    descripcion: "Clase de trabajo muscular pasivo"
+    style: "Yin"
+  - horario: "16:00"
+    clase: "Vinyasa"
+    descripcion: "Clase dinámica con secuencias fluidas"
+    style: "Vinyasa"
+martes:
+  - horario: "9:30"
+    clase: "Hatha Flow"
+    descripcion: "Posturas mantenidas con transiciones suaves"
+    style: "Hatha"
+miercoles:
+  - horario: "8:00"
+    clase: "Yin"
+    descripcion: "Clase de trabajo muscular pasivo"
+    style: "Yin"
+  - horario: "16:00"
+    clase: "Vinyasa"
+    descripcion: "Clase dinámica con secuencias fluidas"
+    style: "Vinyasa"
+jueves:
+  - horario: "9:30"
+    clase: "Hatha Flow"
+    descripcion: "Posturas mantenidas con transiciones suaves"
+    style: "Hatha"
+viernes:
+  - horario: "8:00"
+    clase: "Yin"
+    descripcion: "Clase de trabajo muscular pasivo"
+    style: "Yin"
+  - horario: "16:00"
+    clase: "Vinyasa"
+    descripcion: "Clase dinámica con secuencias fluidas"
+    style: "Vinyasa"
+sabado:
+  - horario: "9:30"
+    clase: "Hatha Flow"
+    descripcion: "Posturas mantenidas con transiciones suaves"
+    style: "Hatha"
 
 comments:
   - text: "Esto es genial"
     author: María
-    
+
   - text: "Agauante el estudio"
     author: Sonia
   - text: "Este estudio la rompe"

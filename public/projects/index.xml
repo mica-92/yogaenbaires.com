@@ -2,46 +2,46 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects on Yoga en Baires</title>
-    <link>https://mica-92.github.io/yogaenbaires/projects/</link>
+    <link>http://localhost:1313/yogaenbaires/projects/</link>
     <description>Recent content in Projects on Yoga en Baires</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Fri, 09 May 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://mica-92.github.io/yogaenbaires/projects/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/yogaenbaires/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ashtanga Yoga Caballito</title>
-      <link>https://mica-92.github.io/yogaenbaires/projects/5-ashtanga-yoga-caballito/</link>
+      <link>http://localhost:1313/yogaenbaires/projects/5-ashtanga-yoga-caballito/</link>
       <pubDate>Mon, 05 May 2025 00:00:00 +0000</pubDate>
-      <guid>https://mica-92.github.io/yogaenbaires/projects/5-ashtanga-yoga-caballito/</guid>
+      <guid>http://localhost:1313/yogaenbaires/projects/5-ashtanga-yoga-caballito/</guid>
       <description>Ubicado en el vibrante corazón de Caballito, a tan solo una cuadra de la Avenida Rivadavia, se encuentra Ashtanga Yoga Caballito, un estudio íntimo dedicado a la práctica del Ashtanga yoga. Dirigido por Ernesto, un experimentado instructor con más de dos décadas de enseñanza y práctica, este espacio acoge a un máximo de 10 alumnos por clase, garantizando una atención personalizada. Si bien se mantiene la esencia tradicional del Ashtanga, Ernesto se distingue por su enfoque flexible, alentando el uso de elementos y la modificación de la secuencia para adaptarse a las necesidades individuales de cada estudiante.</description>
     </item>
     <item>
+      <title>Ashtanga Yoga Caballito</title>
+      <link>http://localhost:1313/yogaenbaires/projects/1-hatha-yoga-palermo/</link>
+      <pubDate>Mon, 12 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/yogaenbaires/projects/1-hatha-yoga-palermo/</guid>
+      <description>Pausa.</description>
+    </item>
+    <item>
       <title>Kundalini Yoga Belgrano</title>
-      <link>https://mica-92.github.io/yogaenbaires/projects/4-kundalini-yoga-belgrano/</link>
+      <link>http://localhost:1313/yogaenbaires/projects/4-kundalini-yoga-belgrano/</link>
       <pubDate>Fri, 09 May 2025 00:00:00 +0000</pubDate>
-      <guid>https://mica-92.github.io/yogaenbaires/projects/4-kundalini-yoga-belgrano/</guid>
+      <guid>http://localhost:1313/yogaenbaires/projects/4-kundalini-yoga-belgrano/</guid>
       <description>A metros de la estación de Belgrano R, Kundalini Yoga Belgrano es pionero en enseñar esta disciplina energética en Buenos Aires. Fundado por Gurpreet Kaur (maestra formada en India), el estudio combina kriyas dinámicas, pranayama y mantras en un espacio decorado con telas doradas y murales de símbolos sagrados. Las clases incluyen Gong Bath los martes y jueves, donde las vibraciones del gong ayudan a equilibrar el sistema nervioso. Con un enfoque comunitario, los sábados invitan a practicantes a compartir un &amp;ldquo;langar&amp;rdquo; (comida vegetariana grupal) después de la clase.</description>
     </item>
     <item>
       <title>Yin Yoga San Telmo</title>
-      <link>https://mica-92.github.io/yogaenbaires/projects/3-yin-yoga-san-telmo/</link>
+      <link>http://localhost:1313/yogaenbaires/projects/3-yin-yoga-san-telmo/</link>
       <pubDate>Thu, 08 May 2025 00:00:00 +0000</pubDate>
-      <guid>https://mica-92.github.io/yogaenbaires/projects/3-yin-yoga-san-telmo/</guid>
+      <guid>http://localhost:1313/yogaenbaires/projects/3-yin-yoga-san-telmo/</guid>
       <description>Escondido en una casona restaurada del histórico San Telmo, Yin Yoga San Telmo es un santuario dedicado a la quietud y la introspección. La profesora Valeria Montes, especializada en yoga terapéutico, guía sesiones de Yin Profundo usando apoyos como bolster y sandbags para liberar fascias y articulaciones. El estudio—con capacidad para solo 12 alumnos—tiene una decoración rústica con plantas colgantes y aromas esenciales. Los domingos al amanecer, organizan &amp;ldquo;Meditación con Cuencos Tibetanos&amp;rdquo;, una experiencia sensorial que atrae incluso a no yoguis.</description>
     </item>
     <item>
       <title>Vinyasa Flow Recoleta</title>
-      <link>https://mica-92.github.io/yogaenbaires/projects/2-vinyasa-flow-recoleta/</link>
+      <link>http://localhost:1313/yogaenbaires/projects/2-vinyasa-flow-recoleta/</link>
       <pubDate>Wed, 07 May 2025 00:00:00 +0000</pubDate>
-      <guid>https://mica-92.github.io/yogaenbaires/projects/2-vinyasa-flow-recoleta/</guid>
+      <guid>http://localhost:1313/yogaenbaires/projects/2-vinyasa-flow-recoleta/</guid>
       <description>En plena Recoleta, cerca de la icónica Biblioteca Nacional, Vinyasa Flow Recoleta atrae a yoguis que buscan dinamismo y creatividad en su práctica. Dirigido por Martín López, ex bailarín y profesor certificado en Power Yoga, el estudio fusiona secuencias fluidas con música en vivo (en clases especiales los viernes). Con capacidad para 20 personas, el espacio—iluminado por velas y luces tenues—tiene un ambiente moderno pero cálido. Lo que lo hace único: ofrecen &amp;ldquo;Yoga con Pesas&amp;rdquo; los martes, una combinación innovadora de fuerza y movilidad.</description>
-    </item>
-    <item>
-      <title>Hatha Yoga Palermo</title>
-      <link>https://mica-92.github.io/yogaenbaires/projects/1-hatha-yoga-palermo/</link>
-      <pubDate>Tue, 06 May 2025 00:00:00 +0000</pubDate>
-      <guid>https://mica-92.github.io/yogaenbaires/projects/1-hatha-yoga-palermo/</guid>
-      <description>Ubicado en el bohemio barrio de Palermo, a pocos pasos de Plaza Serrano, Hatha Yoga Palermo es un refugio de calma en medio de la ciudad. Fundado por la instructora Laura Ríos, con más de 15 años de experiencia en Hatha y Yoga Restaurativo, este estudio se destaca por su enfoque en la alineación precisa y la relajación profunda. Las clases, diseñadas para grupos reducidos (máximo 15 personas), incorporan props como bloques, mantas y cinturones para facilitar el acceso a las posturas.</description>
     </item>
   </channel>
 </rss>

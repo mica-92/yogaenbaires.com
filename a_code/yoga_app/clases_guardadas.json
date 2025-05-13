@@ -1,0 +1,10 @@
+{
+  "Ashtanga Mysore": {
+    "descripcion": "Clase tradicional de Ashtanga Yoga",
+    "style": "style-ashtanga"
+  },
+  "Yin Yoga": {
+    "descripcion": "Clase de yoga pasivo",
+    "style": "style-yin"
+  }
+}

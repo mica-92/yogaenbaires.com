@@ -1,0 +1,428 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Estudios de Yoga</title>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyoGPqU8Azdkio3V34bmazwhGFnpVa6qA"></script>
+        <style>
+            #map { height: 100vh; width: 100%; }
+            body { margin: 0; padding: 0; }
+        </style>
+    </head>
+    <body>
+        <div id="map"></div>
+        <script>
+            function initMap() {
+                // Mapa con estilo personalizado
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 14,
+                    center: {lat: -34.628317200000005, lng: -58.451558399999996},
+                    styles: 
+    [   
+    {
+        "elementType": "geometry",
+        "stylers": [
+        {
+            "color": "f5f5f5"
+        }
+        ]
+    },
+    {
+        "elementType": "labels.text.fill",
+        "stylers": [
+        {
+            "color": "#523735"
+        }
+        ]
+    },
+    {
+        "elementType": "labels.text.stroke",
+        "stylers": [
+        {
+            "color": "#f5f1e6"
+        }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "geometry",
+        "stylers": [
+        {
+            "visibility": "off"
+        }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "geometry.stroke",
+        "stylers": [
+        {
+            "color": "#c9b2a6"
+        }
+        ]
+    },
+    {
+        "featureType": "administrative.land_parcel",
+        "stylers": [
+        {
+            "visibility": "off"
+        }
+        ]
+    },
+    {
+        "featureType": "administrative.land_parcel",
+        "elementType": "geometry.stroke",
+        "stylers": [
+        {
+            "color": "#dcd2be"
+        }
+        ]
+    },
+    {
+        "featureType": "administrative.land_parcel",
+        "elementType": "labels.text.fill",
+        "stylers": [
+        {
+            "color": "#ae9e90"
+        }
+        ]
+    },
+    {
+        "featureType": "administrative.neighborhood",
+        "stylers": [
+        {
+            "visibility": "off"
+        }
+        ]
+    },
+    {
+        "featureType": "landscape.natural",
+        "elementType": "geometry",
+        "stylers": [
+        {
+            "color": "#dfd2ae"
+        }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "stylers": [
+        {
+            "visibility": "off"
+        }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "geometry",
+        "stylers": [
+        {
+            "color": "#dfd2ae"
+        }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "labels.text.fill",
+        "stylers": [
+        {
+            "color": "#93817c"
+        }
+        ]
+    },
+    {
+        "featureType": "poi.park",
+        "stylers": [
+        {
+            "visibility": "on"
+        }
+        ]
+    },
+    {
+        "featureType": "poi.park",
+        "elementType": "geometry.fill",
+        "stylers": [
+        {
+            "color": "#a5b076"
+        }
+        ]
+    },
+    {
+        "featureType": "poi.park",
+        "elementType": "labels",
+        "stylers": [
+        {
+            "visibility": "on"
+        }
+        ]
+    },
+    {
+        "featureType": "poi.park",
+        "elementType": "labels.icon",
+        "stylers": [
+        {
+            "visibility": "off"
+        }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "geometry",
+        "stylers": [
+        {
+            "color": "#f5f1e6"
+        }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "labels",
+        "stylers": [
+        {
+            "visibility": "off"
+        }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "labels.icon",
+        "stylers": [
+        {
+            "visibility": "off"
+        }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "stylers": [
+        {
+            "visibility": "on"
+        }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "geometry",
+        "stylers": [
+        {
+            "color": "#fdfcf8"
+        }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry",
+        "stylers": [
+        {
+            "color": "#f8c967"
+        }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry.stroke",
+        "stylers": [
+        {
+            "color": "#e9bc62"
+        }
+        ]
+    },
+    {
+        "featureType": "road.highway.controlled_access",
+        "elementType": "geometry",
+        "stylers": [
+        {
+            "color": "#e98d58"
+        }
+        ]
+    },
+    {
+        "featureType": "road.highway.controlled_access",
+        "elementType": "geometry.stroke",
+        "stylers": [
+        {
+            "color": "#db8555"
+        }
+        ]
+    },
+    {
+        "featureType": "road.local",
+        "elementType": "labels.text.fill",
+        "stylers": [
+        {
+            "color": "#806b63"
+        }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "stylers": [
+        {
+            "visibility": "off"
+        }
+        ]
+    },
+    {
+        "featureType": "transit.line",
+        "elementType": "geometry",
+        "stylers": [
+        {
+            "color": "#dfd2ae"
+        }
+        ]
+    },
+    {
+        "featureType": "transit.line",
+        "elementType": "labels.text.fill",
+        "stylers": [
+        {
+            "color": "#8f7d77"
+        }
+        ]
+    },
+    {
+        "featureType": "transit.line",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+        {
+            "color": "#ebe3cd"
+        }
+        ]
+    },
+    {
+        "featureType": "transit.station",
+        "stylers": [
+        {
+            "visibility": "on"
+        }
+        ]
+    },
+    {
+        "featureType": "transit.station",
+        "elementType": "geometry",
+        "stylers": [
+        {
+            "color": "#dfd2ae"
+        }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "geometry.fill",
+        "stylers": [
+        {
+            "color": "#b9d3c2"
+        }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "labels.text",
+        "stylers": [
+        {
+            "visibility": "off"
+        }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "labels.text.fill",
+        "stylers": [
+        {
+            "color": "#92998d"
+        }
+        ]
+    }
+    ]
+    
+                });
+                
+                // Añadir marcadores
+                
+        // Marcador para 001
+        var marker_001 = new google.maps.Marker({
+            position: {lat: -34.628317200000005, lng: -58.451558399999996},
+            map: map,
+            title: "Ashtanga Yoga Caballito",
+            icon: {
+                url: "assets/yoga_icon.png",
+                scaledSize: new google.maps.Size(30, 30)
+            }
+        });
+        
+        // Ventana de información
+        var infoWindow_001 = new google.maps.InfoWindow({
+            content: `
+                <div style="padding: 10px; font-family: Arial, sans-serif;">
+                    <h3 style="margin: 0 0 5px 0; color: #2c3e50;">ID: 001</h3>
+                    <h2 style="margin: 0; color: #e74c3c;">Ashtanga Yoga Caballito</h2>
+                    <p style="margin: 5px 0;">📍 Anchorena 1250</p>
+                </div>
+            `
+        });
+        
+        // Evento click
+        marker_001.addListener('click', function() {
+            infoWindow_001.open(map, marker_001);
+        });
+        
+        // Marcador para 002
+        var marker_002 = new google.maps.Marker({
+            position: {lat: -34.579173631652914, lng: -58.46821325193069},
+            map: map,
+            title: "AYC",
+            icon: {
+                url: "assets/yoga_icon.png",
+                scaledSize: new google.maps.Size(30, 30)
+            }
+        });
+        
+        // Ventana de información
+        var infoWindow_002 = new google.maps.InfoWindow({
+            content: `
+                <div style="padding: 10px; font-family: Arial, sans-serif;">
+                    <h3 style="margin: 0 0 5px 0; color: #2c3e50;">ID: 002</h3>
+                    <h2 style="margin: 0; color: #e74c3c;">AYC</h2>
+                    <p style="margin: 5px 0;">📍 Anchorena 1250</p>
+                </div>
+            `
+        });
+        
+        // Evento click
+        marker_002.addListener('click', function() {
+            infoWindow_002.open(map, marker_002);
+        });
+        
+        // Marcador para 003
+        var marker_003 = new google.maps.Marker({
+            position: {lat: -34.631920151507856, lng: -58.463513106107676},
+            map: map,
+            title: "Shala Luna",
+            icon: {
+                url: "assets/yoga_icon.png",
+                scaledSize: new google.maps.Size(30, 30)
+            }
+        });
+        
+        // Ventana de información
+        var infoWindow_003 = new google.maps.InfoWindow({
+            content: `
+                <div style="padding: 10px; font-family: Arial, sans-serif;">
+                    <h3 style="margin: 0 0 5px 0; color: #2c3e50;">ID: 003</h3>
+                    <h2 style="margin: 0; color: #e74c3c;">Shala Luna</h2>
+                    <p style="margin: 5px 0;">📍 Yrigoyen 23</p>
+                </div>
+            `
+        });
+        
+        // Evento click
+        marker_003.addListener('click', function() {
+            infoWindow_003.open(map, marker_003);
+        });
+        
+            }
+            window.onload = initMap;
+        </script>
+    </body>
+    </html>
+    

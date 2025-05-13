@@ -2,25 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>60 Min on Yoga en Baires</title>
-    <link>https://mica-92.github.io/yogaenbaires/duracion/60-min/</link>
+    <link>http://localhost:1313/yogaenbaires/duracion/60-min/</link>
     <description>Recent content in 60 Min on Yoga en Baires</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
     <lastBuildDate>Fri, 09 May 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://mica-92.github.io/yogaenbaires/duracion/60-min/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/yogaenbaires/duracion/60-min/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kundalini Yoga Belgrano</title>
-      <link>https://mica-92.github.io/yogaenbaires/projects/4-kundalini-yoga-belgrano/</link>
+      <link>http://localhost:1313/yogaenbaires/projects/4-kundalini-yoga-belgrano/</link>
       <pubDate>Fri, 09 May 2025 00:00:00 +0000</pubDate>
-      <guid>https://mica-92.github.io/yogaenbaires/projects/4-kundalini-yoga-belgrano/</guid>
+      <guid>http://localhost:1313/yogaenbaires/projects/4-kundalini-yoga-belgrano/</guid>
       <description>A metros de la estación de Belgrano R, Kundalini Yoga Belgrano es pionero en enseñar esta disciplina energética en Buenos Aires. Fundado por Gurpreet Kaur (maestra formada en India), el estudio combina kriyas dinámicas, pranayama y mantras en un espacio decorado con telas doradas y murales de símbolos sagrados. Las clases incluyen Gong Bath los martes y jueves, donde las vibraciones del gong ayudan a equilibrar el sistema nervioso. Con un enfoque comunitario, los sábados invitan a practicantes a compartir un &amp;ldquo;langar&amp;rdquo; (comida vegetariana grupal) después de la clase.</description>
-    </item>
-    <item>
-      <title>Hatha Yoga Palermo</title>
-      <link>https://mica-92.github.io/yogaenbaires/projects/1-hatha-yoga-palermo/</link>
-      <pubDate>Tue, 06 May 2025 00:00:00 +0000</pubDate>
-      <guid>https://mica-92.github.io/yogaenbaires/projects/1-hatha-yoga-palermo/</guid>
-      <description>Ubicado en el bohemio barrio de Palermo, a pocos pasos de Plaza Serrano, Hatha Yoga Palermo es un refugio de calma en medio de la ciudad. Fundado por la instructora Laura Ríos, con más de 15 años de experiencia en Hatha y Yoga Restaurativo, este estudio se destaca por su enfoque en la alineación precisa y la relajación profunda. Las clases, diseñadas para grupos reducidos (máximo 15 personas), incorporan props como bloques, mantas y cinturones para facilitar el acceso a las posturas.</description>
     </item>
   </channel>
 </rss>
