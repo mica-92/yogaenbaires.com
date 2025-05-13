@@ -1,0 +1,205 @@
+PS C:\Users\mica_\Documents\YEB\gmaps_code> python apisearch.py
+Iniciando búsqueda en Caballito...
+Caballito: Búsqueda inicial encontró 60 lugares
+Caballito: Sub-área 1 agregó 60 lugares (Total: 120)
+Caballito: Sub-área 2 agregó 60 lugares (Total: 180)
+Caballito: Sub-área 3 agregó 36 lugares (Total: 216)
+Caballito: Sub-área 4 agregó 33 lugares (Total: 249)
+Caballito: Sub-área 5 agregó 37 lugares (Total: 286)
+Caballito: Sub-área 6 agregó 39 lugares (Total: 325)
+
+Resumen:
+- Zona procesada: Caballito
+- Radio inicial: 3000 metros
+- Lugares encontrados: 152
+- Tiempo total: 60.13 segundos
+Datos exportados a yoga_studios_caballito_20250513_1401.csv
+PS C:\Users\mica_\Documents\YEB\gmaps_code> python apisearch.py
+Iniciando búsqueda en Centro...
+Centro: Búsqueda inicial encontró 60 lugares
+Centro: Sub-área 1 agregó 32 lugares (Total: 92)
+Centro: Sub-área 2 agregó 37 lugares (Total: 129)
+Centro: Sub-área 3 agregó 60 lugares (Total: 189)
+Centro: Sub-área 4 agregó 20 lugares (Total: 209)
+Centro: Sub-área 5 agregó 31 lugares (Total: 240)
+Centro: Sub-área 6 agregó 25 lugares (Total: 265)
+
+Resumen:
+- Zona procesada: Centro
+- Radio inicial: 3000 metros
+- Lugares encontrados: 116
+- Tiempo total: 53.16 segundos
+Datos exportados a yoga_studios_caballito_20250513_1456.csv
+PS C:\Users\mica_\Documents\YEB\gmaps_code> python apisearch.py
+Iniciando búsqueda en palermo...
+palermo: Búsqueda inicial encontró 60 lugares
+palermo: Sub-área 1 agregó 57 lugares (Total: 117)
+palermo: Sub-área 2 agregó 14 lugares (Total: 131)
+palermo: Sub-área 3 agregó 50 lugares (Total: 181)
+palermo: Sub-área 4 agregó 60 lugares (Total: 241)
+palermo: Sub-área 5 agregó 57 lugares (Total: 298)
+palermo: Sub-área 6 agregó 60 lugares (Total: 358)
+
+Resumen:
+- Zona procesada: palermo
+- Radio inicial: 3000 metros
+- Lugares encontrados: 178
+- Tiempo total: 67.89 segundos
+Datos exportados a yoga_studios_palermo_20250513_1503.csv
+PS C:\Users\mica_\Documents\YEB\gmaps_code> python apisearch.py
+Iniciando búsqueda en Coghlan...
+Coghlan: Búsqueda inicial encontró 60 lugares
+Coghlan: Sub-área 1 agregó 60 lugares (Total: 120)
+Coghlan: Sub-área 2 agregó 37 lugares (Total: 157)
+Coghlan: Sub-área 3 agregó 46 lugares (Total: 203)
+Coghlan: Sub-área 4 agregó 58 lugares (Total: 261)
+Coghlan: Sub-área 5 agregó 58 lugares (Total: 319)
+Coghlan: Sub-área 6 agregó 55 lugares (Total: 374)
+
+Resumen:
+- Zona procesada: Coghlan
+- Radio inicial: 3000 metros
+- Lugares encontrados: 174
+- Tiempo total: 71.16 segundos
+Datos exportados a yoga_studios_coghlan_20250513_1505.csv
+PS C:\Users\mica_\Documents\YEB\gmaps_code> python apisearch.py
+Iniciando búsqueda en ViLo...
+ViLo: Búsqueda inicial encontró 38 lugares
+
+Resumen:
+- Zona procesada: ViLo
+- Radio inicial: 3000 metros
+- Lugares encontrados: 38
+- Tiempo total: 6.05 segundos
+Datos exportados a yoga_studios_vilo_20250513_1505.csv
+PS C:\Users\mica_\Documents\YEB\gmaps_code> python apisearch.py
+Iniciando búsqueda en San Isisdor...
+San Isisdor: Búsqueda inicial encontró 50 lugares
+
+Resumen:
+- Zona procesada: San Isisdor
+- Radio inicial: 3000 metros
+- Lugares encontrados: 50
+- Tiempo total: 9.89 segundos
+Datos exportados a yoga_studios_san isidro_20250513_1509.csv
+PS C:\Users\mica_\Documents\YEB\gmaps_code> python apisearch.py
+Iniciando búsqueda en Lomas de Zamora...
+Lomas de Zamora: Búsqueda inicial encontró 40 lugares
+
+Resumen:
+- Zona procesada: Lomas de Zamora
+- Radio inicial: 3000 metros
+- Lugares encontrados: 40
+- Tiempo total: 6.38 segundos
+Datos exportados a yoga_studios_lomas_20250513_1509.csv
+PS C:\Users\mica_\Documents\YEB\gmaps_code> python apisearch.py
+Iniciando búsqueda en San Isidro...
+San Isidro: Búsqueda inicial encontró 54 lugares
+
+Resumen:
+- Zona procesada: San Isidro
+- Radio inicial: 3000 metros
+- Lugares encontrados: 54
+- Tiempo total: 9.81 segundos
+Datos exportados a yoga_studios_sanisidro2_20250513_1516.csv
+PS C:\Users\mica_\Documents\YEB\gmaps_code> python apisearch.py
+Iniciando búsqueda en San Isidro...
+Traceback (most recent call last):
+  File "C:\Users\mica_\Documents\YEB\gmaps_code\apisearch.py", line 186, in <module>
+    caballito_places = process_zone(CABALLITO_CONFIG)
+  File "C:\Users\mica_\Documents\YEB\gmaps_code\apisearch.py", line 138, in process_zone
+    base_places = get_places(API_KEY, coords, radius, QUERY, RESULTS_PER_API_CALL)
+  File "C:\Users\mica_\Documents\YEB\gmaps_code\apisearch.py", line 102, in get_places
+    "language": LANGUAGE
+                ^^^^^^^^
+NameError: name 'LANGUAGE' is not defined
+PS C:\Users\mica_\Documents\YEB\gmaps_code> python apisearch.py
+Iniciando búsqueda en Vicente Lopez...
+Vicente Lopez: Búsqueda inicial encontró 60 lugares
+Vicente Lopez: Sub-área 1 agregó 24 lugares (Total: 84)
+Vicente Lopez: Sub-área 2 agregó 24 lugares (Total: 108)
+Vicente Lopez: Sub-área 3 agregó 36 lugares (Total: 144)
+Vicente Lopez: Sub-área 4 agregó 34 lugares (Total: 178)
+Vicente Lopez: Sub-área 5 agregó 40 lugares (Total: 218)
+Vicente Lopez: Sub-área 6 agregó 58 lugares (Total: 276)
+
+Resumen:
+- Zona procesada: Vicente Lopez
+- Radio inicial: 3000 metros
+- Lugares encontrados: 114
+- Tiempo total: 56.10 segundos
+Datos exportados a yoga_studios_vilo2_20250513_1522.csv
+PS C:\Users\mica_\Documents\YEB\gmaps_code> python apisearch.py
+Iniciando búsqueda en Lomas de Zamora...
+Lomas de Zamora: Búsqueda inicial encontró 40 lugares
+
+Resumen:
+- Zona procesada: Lomas de Zamora
+- Radio inicial: 3000 metros
+- Lugares encontrados: 40
+- Tiempo total: 6.10 segundos
+Datos exportados a yoga_studios_lomas2_20250513_1523.csv
+PS C:\Users\mica_\Documents\YEB\gmaps_code> python apisearch.py
+Iniciando búsqueda en Caballito...
+Caballito: Búsqueda inicial encontró 60 lugares
+Caballito: Sub-área 1 agregó 60 lugares (Total: 120)
+Caballito: Sub-área 2 agregó 60 lugares (Total: 180)
+Caballito: Sub-área 3 agregó 60 lugares (Total: 240)
+Caballito: Sub-área 4 agregó 60 lugares (Total: 300)
+Caballito: Sub-área 5 agregó 34 lugares (Total: 334)
+Caballito: Sub-área 6 agregó 41 lugares (Total: 375)
+
+Resumen:
+- Zona procesada: Caballito
+- Radio inicial: 3000 metros
+- Lugares encontrados: 193
+- Tiempo total: 71.87 segundos
+Datos exportados a yoga_studios_caballito2_20250513_1525.csv
+PS C:\Users\mica_\Documents\YEB\gmaps_code> python apisearch.py
+Iniciando búsqueda en Palermo...
+Palermo: Búsqueda inicial encontró 60 lugares
+Palermo: Sub-área 1 agregó 60 lugares (Total: 120)
+Palermo: Sub-área 2 agregó 16 lugares (Total: 136)
+Palermo: Sub-área 3 agregó 55 lugares (Total: 191)
+Palermo: Sub-área 4 agregó 60 lugares (Total: 251)
+Palermo: Sub-área 5 agregó 60 lugares (Total: 311)
+Palermo: Sub-área 6 agregó 60 lugares (Total: 371)
+
+Resumen:
+- Zona procesada: Palermo
+- Radio inicial: 3000 metros
+- Lugares encontrados: 189
+- Tiempo total: 67.98 segundos
+Datos exportados a yoga_studios_palermo2_20250513_1526.csv
+PS C:\Users\mica_\Documents\YEB\gmaps_code> python apisearch.py
+Iniciando búsqueda en Coghlan...
+Coghlan: Búsqueda inicial encontró 60 lugares
+Coghlan: Sub-área 1 agregó 60 lugares (Total: 120)
+Coghlan: Sub-área 2 agregó 40 lugares (Total: 160)
+Coghlan: Sub-área 3 agregó 52 lugares (Total: 212)
+Coghlan: Sub-área 4 agregó 60 lugares (Total: 272)
+Coghlan: Sub-área 5 agregó 49 lugares (Total: 321)
+Coghlan: Sub-área 6 agregó 60 lugares (Total: 381)
+
+Resumen:
+- Zona procesada: Coghlan
+- Radio inicial: 3000 metros
+- Lugares encontrados: 178
+- Tiempo total: 70.95 segundos
+Datos exportados a yoga_studios_coghlan2_20250513_1528.csv
+PS C:\Users\mica_\Documents\YEB\gmaps_code> python apisearch.py
+Iniciando búsqueda en centro...
+centro: Búsqueda inicial encontró 60 lugares
+centro: Sub-área 1 agregó 36 lugares (Total: 96)
+centro: Sub-área 2 agregó 41 lugares (Total: 137)
+centro: Sub-área 3 agregó 60 lugares (Total: 197)
+centro: Sub-área 4 agregó 60 lugares (Total: 257)
+centro: Sub-área 5 agregó 20 lugares (Total: 277)
+centro: Sub-área 6 agregó 17 lugares (Total: 294)
+
+Resumen:
+- Zona procesada: centro
+- Radio inicial: 3000 metros
+- Lugares encontrados: 127
+- Tiempo total: 56.86 segundos
+Datos exportados a yoga_studios_centro2_20250513_1530.csv

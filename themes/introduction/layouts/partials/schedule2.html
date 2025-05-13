@@ -31,10 +31,6 @@
         <div class="day-classes">
           {{ if isset $.Params $day }}
             {{ range $class := (index $.Params $day) }}
-
-
-              <!-- style- implementado -->
-
               <div class="class-time style-{{ anchorize $class.style }}">
                 <span class="class-hour">{{ $class.horario }}</span>
                 <span class="class-style">{{ $class.clase }}</span>
@@ -119,30 +115,20 @@
   pointer-events: none;
 }
 .class-time:hover {
-  transform: scale(1.05);
   filter: brightness(92%) drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-  z-index: 3;
 }
+
 .class-hour {
   font-size: 0.9em;
-  transition: all 0.2s ease;
   white-space: nowrap;
 }
 .class-style {
   font-family: 'Menlo', 'Consolas', monospace;
   font-weight: bold;
   font-size: 0.8em;
-  transition: all 0.2s ease;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%;
-}
-.class-time:hover .class-hour {
-  font-size: 0.95em;
-}
-.class-time:hover .class-style {
-  font-size: 0.85em;
-  letter-spacing: 0.5px;
 }
 
 /* Tooltip styles */
@@ -170,15 +156,12 @@
   position: absolute;
   top: 100%;
   left: 50%;
-  transform: translateX(-50%);
   border-width: 5px;
   border-style: solid;
   border-color: rgba(0,0,0,0.8) transparent transparent transparent;
 }
 .class-time:hover .class-tooltip {
   opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) translateY(-5px);
 }
 
 /* Style-specific colors */
@@ -207,20 +190,19 @@
     color: #8e24aa;
     border: 1px solid #e1bee7;
 }
-
 .style-marron {
-    background-color: #efebe9; /* Light brownish-beige */
-    color: #5d4037; /* Dark brown */
+    background-color: #efebe9;
+    color: #5d4037;
     border: 1px solid #d7ccc8;
 }
 
-/* Hover effects */
-.style-hatha:hover { background-color: #e3f2fd; }
-.style-vinyasa:hover { background-color: #fce4ec; }
-.style-ashtanga:hover { background-color: #e8f5e9; }
-.style-otros:hover { background-color: #f3e5f5; }
-.style-yin:hover { background-color: #fff3e0; }
-.style-marron:hover { background-color: #efebe9; }
+/* Hover effects - only color changes remain */
+.style-hatha:hover { background-color: #bbdefb; }
+.style-vinyasa:hover { background-color: #f8bbd0; }
+.style-ashtanga:hover { background-color: #c8e6c9; }
+.style-otros:hover { background-color: #e1bee7; }
+.style-yin:hover { background-color: #ffe0b2; }
+.style-marron:hover { background-color: #d7ccc8; }
 
 @media (max-width: 768px) {
   .schedule-table {

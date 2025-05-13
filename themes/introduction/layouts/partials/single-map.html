@@ -12,4 +12,28 @@
     <div class="map-overlay" onclick="enableMapInteractivity(this)"></div>
 
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        function enableMapInteractivity(overlay) {
+            const iframe = overlay.previousElementSibling;
+            iframe.style.pointerEvents = 'auto';
+            overlay.style.display = 'none';
+            
+            // Optional: Re-disable after 30 seconds of inactivity
+            setTimeout(() => {
+                iframe.style.pointerEvents = 'none';
+                overlay.style.display = 'block';
+            }, 30000);
+        }
+    
+        // Initialize event listeners for all map overlays
+        document.querySelectorAll('.map-overlay').forEach(overlay => {
+            overlay.addEventListener('click', function() {
+                enableMapInteractivity(this);
+            });
+        });
+    });
+    </script>
+
 {{ end }}
+
