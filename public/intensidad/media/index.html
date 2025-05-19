@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head><script src="/yogaenbaires/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=yogaenbaires/livereload" data-no-instant defer></script>
+    <head>
         
         
 
@@ -22,13 +22,13 @@ Media - Yoga en Baires
         <meta property="og:title" content="Media - Yoga en Baires" />
 <meta property="og:type" content="website" />
 <meta property="og:description" content="Yoga en Baires es un blog sobre reseñas de estudios de yoga en Buenos Aires, Argentina"/>
-<meta property="og:url" content="http://localhost:1313/yogaenbaires/intensidad/media/"/>
+<meta property="og:url" content="https://mica-92.github.io/yogaenbaires/intensidad/media/"/>
 <meta property="og:site_name" content="Yoga en Baires"/>
 
 
 
 
-<meta property="og:image" content="http://localhost:1313/yogaenbaires/home/profile.jpg"/>
+<meta property="og:image" content="https://mica-92.github.io/yogaenbaires/home/profile.jpg"/>
 
 
 
@@ -42,7 +42,8 @@ Media - Yoga en Baires
 
 
 
-<link rel="stylesheet" href="/yogaenbaires/css/main.css" media="screen">
+
+<link rel="stylesheet" href="/yogaenbaires/css/main.min.8b0016bd3749715409bbf7950aea2bfebf1403c12aeed17ac14b5a4113110288.css" integrity="sha256-iwAWvTdJcVQJu/eVCuor/r8UA8Eq7tF6wUtaQRMRAog=" crossorigin="anonymous" media="screen">
 
 
 
@@ -105,19 +106,19 @@ Media - Yoga en Baires
 
                 <div class="social-icons">
                     <a class="yeb-share-button yeb-whatsapp" 
-                       href="https://wa.me/?text=Media%20http%3a%2f%2flocalhost%3a1313%2fyogaenbaires%2fintensidad%2fmedia%2f" 
+                       href="https://wa.me/?text=Media%20https%3a%2f%2fmica-92.github.io%2fyogaenbaires%2fintensidad%2fmedia%2f" 
                        target="_blank"
                        aria-label="Compartir en WhatsApp">
                        <i class="fab fa-whatsapp"></i>
                     </a>
                     <a class="yeb-share-button yeb-instagram"
-                       href="https://instagram.com/?url=http%3a%2f%2flocalhost%3a1313%2fyogaenbaires%2fintensidad%2fmedia%2f"
+                       href="https://instagram.com/?url=https%3a%2f%2fmica-92.github.io%2fyogaenbaires%2fintensidad%2fmedia%2f"
                        target="_blank"
                        aria-label="Compartir en Instagram">
                        <i class="fab fa-instagram"></i>
                     </a>
                     <button class="yeb-share-button yeb-copyshare"
-                            onclick="navigator.clipboard.writeText('Media - http:\/\/localhost:1313\/yogaenbaires\/intensidad\/media\/');alert('¡Enlace copiado!')"
+                            onclick="navigator.clipboard.writeText('Media - https:\/\/mica-92.github.io\/yogaenbaires\/intensidad\/media\/');alert('¡Enlace copiado!')"
                             aria-label="Copiar enlace">
                         <i class="fas fa-share-nodes"></i>
                     </button>
@@ -270,8 +271,6 @@ Media - Yoga en Baires
     Explora el mapa y haz clic en los iconos para conocer los estudios de yoga reseñados. Cada estudio incluye una descripción y un identificador # para facilitar la búsqueda de su reseña. Los colores de los iconos indican el estilo de yoga principal que ofrecen.            
 </p>
 
-
-
 <div class="elegant-map-container">
     <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1gwWvzDyRnZfYjNuIpOrB7ksEJ3wcD5M&ehbc=2E312F&noprof=1" 
             class="elegant-map" 
@@ -279,10 +278,150 @@ Media - Yoga en Baires
             loading="lazy"
             style="pointer-events: none;"
             title="Mapa de ubicación">
-            
     </iframe>
-    <div class="map-overlay" onclick="enableMapInteractivity(this)"></div>
+    <div class="map-overlay" onclick="enableMapInteractivity(this)">
+        <div class="map-instruction-box">
+            <div class="map-instruction-title"># Camino del Yogui</div>
+            <div class="map-instruction-text">
+                Explora el mapa y haz clic en los iconos para conocer los estudios de yoga reseñados. Cada estudio incluye una descripción y un identificador # para facilitar la búsqueda de su reseña. Los colores de los iconos indican el estilo de yoga principal que ofrecen.
+            </div>
+        </div>
+    </div>
 </div>
+
+<style>
+ 
+.elegant-map-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    overflow: hidden;
+    margin: 0;
+    border: 1px solid #6c6464;
+}
+
+.map-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(42,28,2,0.4);
+    cursor: pointer;
+    z-index: 10;
+    transition: all 2s ease;
+}
+
+.map-instruction-box {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    background: white;
+    padding: 20px;
+    max-width: 400px;
+    margin: 0;
+    transition: all 2s ease;
+}
+
+.map-instruction-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.map-instruction-text {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+.elegant-map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    filter: saturate(0.9) brightness(0.98);
+    transition: all 2s ease;
+}
+
+ 
+.elegant-map-container.active .map-overlay {
+    opacity: 0;
+    pointer-events: none;
+    background: rgba(0,0,0,0);
+}
+
+.elegant-map-container.active .map-overlay .map-instruction-box {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.elegant-map-container.active .elegant-map {
+    filter: saturate(1.1) brightness(1.05);
+    pointer-events: auto;
+}
+
+ 
+@media screen and (max-width: 1024px) {
+    .map-instruction-box {
+        max-width: 350px;
+        padding: 16px;
+    }
+    
+    .map-instruction-title {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .map-instruction-box {
+        max-width: 300px;
+        padding: 14px;
+        left: 15px;
+        bottom: 15px;
+    }
+    
+    .map-instruction-text {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .map-instruction-box {
+        max-width: 260px;
+        padding: 12px;
+        left: 10px;
+        bottom: 10px;
+    }
+    
+    .map-instruction-title {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+    }
+}
+</style>
+
+<script>
+    function enableMapInteractivity(overlay) {
+        const container = overlay.closest('.elegant-map-container');
+        const iframe = overlay.previousElementSibling;
+        
+        
+        container.classList.add('active');
+        iframe.style.pointerEvents = 'auto';
+        
+        
+        setTimeout(() => {
+            container.classList.remove('active');
+            iframe.style.pointerEvents = 'none';
+        }, 300000); 
+    }
+</script>
 
 <p class="legend-text"> Para queres aprender más de cada estilo, visita la sección
         <b><i><a class="legend-label" href="/yogaenbaires/#el-semillero">El Semillero del Yoga</del></a></i></b>.
@@ -332,7 +471,7 @@ Media - Yoga en Baires
     <ul class="post-list">
         
         <li class="post-item">
-            <a href="http://localhost:1313/yogaenbaires/projects/4-kundalini-yoga-belgrano/" class="post-title">
+            <a href="https://mica-92.github.io/yogaenbaires/projects/4-kundalini-yoga-belgrano/" class="post-title">
                 #4 - Kundalini Yoga Belgrano    
             </a>
             
@@ -389,7 +528,7 @@ Media - Yoga en Baires
         </li>
         
         <li class="post-item">
-            <a href="http://localhost:1313/yogaenbaires/projects/2-vinyasa-flow-recoleta/" class="post-title">
+            <a href="https://mica-92.github.io/yogaenbaires/projects/2-vinyasa-flow-recoleta/" class="post-title">
                 #2 - Vinyasa Flow Recoleta    
             </a>
             
@@ -444,7 +583,7 @@ Media - Yoga en Baires
         </li>
         
         <li class="post-item">
-            <a href="http://localhost:1313/yogaenbaires/projects/5-ashtanga-yoga-caballito/" class="post-title">
+            <a href="https://mica-92.github.io/yogaenbaires/projects/5-ashtanga-yoga-caballito/" class="post-title">
                 #5 - Ashtanga Yoga Caballito    
             </a>
             
@@ -569,7 +708,7 @@ Media - Yoga en Baires
         
 
 
-<script src="http://localhost:1313/yogaenbaires/js/bundle.a930c39d78409614838fcdf3d9c43a226556708d8667f1ca78e2188d438c9922.js" integrity="sha256-qTDDnXhAlhSDj83z2cQ6ImVWcI2GZ/HKeOIYjUOMmSI="></script>
+<script src="https://mica-92.github.io/yogaenbaires/js/bundle.d88dc23dade09be15b445646f6efdb27d65961ef4665c4b6df918ebef201353b.js" integrity="sha256-2I3CPa3gm&#43;FbRFZG9u/bJ9ZZYe9GZcS235GOvvIBNTs="></script>
 
 
 

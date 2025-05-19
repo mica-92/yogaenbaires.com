@@ -9,93 +9,21 @@
         {{ partial "head/css.html" . }}
         {{ partial "css/owlCarousel.html" . }}
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+
+
+
     </head>
 
     <body>
-        {{ with .Site.GetPage "/home" }}
-        <section id="top" class="hero is-{{ .Site.Params.home.introHeight | default "fullheight" }}">
-
-            <div class="hero-body">
-                <div class="container has-text-centered">
-                    
-                    <!-- Logo -->
-                    {{ partial "images/logo" }}
-                    
-                    <!-- Subtitle -->
-                    <div class="subtitle is-3 fade-in two">
-                        {{ .Content }}
-                    </div>
-
-                    <!-- Social icons three-->
-                    <div class="fade-in three"> 
-                        {{ partial "home/social.html" . }}
-                    </div>
-
-                </div>
-            </div>
-
-            {{ end }}
-
-            <div class="hero-foot {{ if or (.Site.Params.fadeIn | default true) .Site.Params.fadeInIndex }}fade-in two{{ end }}">
-                {{ partial "nav.html" . }}
-            </div>
-
-        </section> 
-
-        <div class="fade-in two">
-        {{ partial "home/trial.html" . }}
-        
-        <div class="container">
-        {{ partial "home/yoga.html" . }}
-            </div>
-        <div class="container">
-        <div class="section" id="acerca">
-            <div class="container">
-                <!-- Imagen -->
-                <div class="responsive-title-imagedoble">
-                    <a href="{{ .Permalink }}">
-                        {{ partial "images/sobremi" . }}
-                    </a>
-                    <br>
-                </div>
-
-                <!-- Subtitulo -->
-                {{ with .Site.GetPage "/home" }}
-                    <div class="markdown has-text-centered" style="font-size: 1.4rem;">
-                        {{ .Content }}
-
-                <!-- Sobre Mi .md -->
-                {{ with .Resources.GetMatch "sobremi.md" }}
-                    <div class="markdown has-text-centered">
-                        {{ .Content }}
-                        <br>
-                        <div class="social-icons">
-                            {{ range .Site.Params.social }}
-
-                            {{ if eq .icon_pack "fas" }}
-                                <a href="{{ .url }}" {{ .html_attributes | safeHTMLAttr }}>
-                                <i class="{{ .icon_pack}} fas fa-{{ .icon}}"></i>
-                                </a>
-                            {{ end }}
-
-                        {{ end }}
 
 
-                    </div>
-                {{end}}
+        {{ partial "home/3columnas.html" . }}
 
-            <br></div></div>
-            
-            {{ partial "top-icon.html" . }}{{ end }}
-        </div>
-
-        <!-- Footer -->
-    
-        {{ partial "footer/text.html" . }}
-
-
-        {{ partial "footer/scripts.html" . }}
-        {{ partial "js/owlCarousel.html" . }}
     </div>
     </body>
 </html>

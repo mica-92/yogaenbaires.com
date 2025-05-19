@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+    <head>
+        {{ partial "head/metadata.html" . }}
+        {{ if .Site.Params.plausible }}{{ partial "head/plausible.html" . }}{{ end }}
+        {{ partial "head/openGraph.html" . }}
+        {{ partial "head/favicons.html" . }}
+        {{ partial "head/css.html" . }}
+        {{ partial "css/owlCarousel.html" . }}
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+    </head>
+
+    <body>
+        {{ with .Site.GetPage "/home" }}
+        <section id="top" class="hero is-{{ .Site.Params.home.introHeight | default "fullheight" }}">
+
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                    
+                    <!-- Logo -->
+                    {{ partial "images/logo" }}
+                    
+                    <!-- Subtitle -->
+                    <div class="subtitle is-3 fade-in two">
+                        {{ .Content }}
+                    </div>
+
+                    <!-- Social icons three-->
+                    <div class="fade-in three"> 
+                        {{ partial "home/social.html" . }}
+                    </div>
+
+                </div>
+            </div>
+
+            {{ end }}
+
+            <div class="hero-foot {{ if or (.Site.Params.fadeIn | default true) .Site.Params.fadeInIndex }}fade-in two{{ end }}">
+                {{ partial "nav.html" . }}
+            </div>
+
+        </section> 
+
+        <div class="fade-in two">
+        {{ partial "home/trial.html" . }}
+        
+        <div class="container">
+        {{ partial "home/yoga.html" . }}
+            </div>
+        <div class="container">
+        <div class="section" id="acerca">
+            <div class="container">
+                <!-- Imagen -->
+                <div class="responsive-title-imagedoble">
+                    <a href="{{ .Permalink }}">
+                        {{ partial "images/sobremi" . }}
+                    </a>
+                    <br>
+                </div>
+
+                <!-- Subtitulo -->
+                {{ with .Site.GetPage "/home" }}
+                    <div class="markdown has-text-centered" style="font-size: 1.4rem;">
+                        {{ .Content }}
+
+                <!-- Sobre Mi .md -->
+                {{ with .Resources.GetMatch "sobremi.md" }}
+                    <div class="markdown has-text-centered">
+                        {{ .Content }}
+                        <br>
+                        <div class="social-icons">
+                            {{ range .Site.Params.social }}
+
+                            {{ if eq .icon_pack "fas" }}
+                                <a href="{{ .url }}" {{ .html_attributes | safeHTMLAttr }}>
+                                <i class="{{ .icon_pack}} fas fa-{{ .icon}}"></i>
+                                </a>
+                            {{ end }}
+
+                        {{ end }}
+
+
+                    </div>
+                {{end}}
+
+            <br></div></div>
+            
+            {{ partial "top-icon.html" . }}{{ end }}
+        </div>
+
+        <!-- Footer -->
+    
+        {{ partial "footer/text.html" . }}
+
+
+        {{ partial "footer/scripts.html" . }}
+        {{ partial "js/owlCarousel.html" . }}
+    </div>
+    </body>
+</html>
+
+<style>
+
+  .fas{
+  font-size: 1.8rem !important;
+  margin-left: 0.7rem !important;
+  margin-right: 0.7rem !important;
+  }
+  .fab{
+  font-size: 1.8rem !important;
+  margin-left: 0.7rem !important;
+  margin-right: 0.7rem !important;
+  }
+
+  .fab:hover{
+    color: #6c6464 !important;
+    }
+
+  .fas:hover{
+    color: #6c6464 !important;    
+}
+</style>
+
+<script>
+    function update_localtime() {
+        const time = new Date().toLocaleTimeString('{{ .Site.Params.home.timeFormat }}', { timeZone: '{{ .Site.Params.home.timeZone }}', timeStyle: 'short' });
+        document.getElementById('time').innerHTML = time;
+    }
+    update_localtime();
+    // Updating every second to prevent seconds looking like stood still when timeStyle is ignored.
+    setInterval(update_localtime, 1000);
+</script>

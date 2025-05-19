@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Estilo on Yoga en Baires</title>
-    <link>http://localhost:1313/yogaenbaires/estilo/</link>
+    <link>https://mica-92.github.io/yogaenbaires/estilo/</link>
     <description>Recent content in Estilo on Yoga en Baires</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
     <lastBuildDate>Mon, 12 May 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/yogaenbaires/estilo/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://mica-92.github.io/yogaenbaires/estilo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ashtanga</title>
-      <link>http://localhost:1313/yogaenbaires/estilo/ashtanga/</link>
+      <link>https://mica-92.github.io/yogaenbaires/estilo/ashtanga/</link>
       <pubDate>Mon, 12 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/yogaenbaires/estilo/ashtanga/</guid>
+      <guid>https://mica-92.github.io/yogaenbaires/estilo/ashtanga/</guid>
       <description></description>
     </item>
     <item>
       <title>Otros</title>
-      <link>http://localhost:1313/yogaenbaires/estilo/otros/</link>
+      <link>https://mica-92.github.io/yogaenbaires/estilo/otros/</link>
       <pubDate>Fri, 09 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/yogaenbaires/estilo/otros/</guid>
+      <guid>https://mica-92.github.io/yogaenbaires/estilo/otros/</guid>
       <description></description>
     </item>
     <item>
       <title>Hatha</title>
-      <link>http://localhost:1313/yogaenbaires/estilo/hatha/</link>
+      <link>https://mica-92.github.io/yogaenbaires/estilo/hatha/</link>
       <pubDate>Thu, 08 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/yogaenbaires/estilo/hatha/</guid>
+      <guid>https://mica-92.github.io/yogaenbaires/estilo/hatha/</guid>
       <description></description>
     </item>
     <item>
       <title>Yin</title>
-      <link>http://localhost:1313/yogaenbaires/estilo/yin/</link>
+      <link>https://mica-92.github.io/yogaenbaires/estilo/yin/</link>
       <pubDate>Thu, 08 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/yogaenbaires/estilo/yin/</guid>
+      <guid>https://mica-92.github.io/yogaenbaires/estilo/yin/</guid>
       <description></description>
     </item>
     <item>
       <title>Vinyasa</title>
-      <link>http://localhost:1313/yogaenbaires/estilo/vinyasa/</link>
+      <link>https://mica-92.github.io/yogaenbaires/estilo/vinyasa/</link>
       <pubDate>Wed, 07 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/yogaenbaires/estilo/vinyasa/</guid>
+      <guid>https://mica-92.github.io/yogaenbaires/estilo/vinyasa/</guid>
       <description></description>
     </item>
   </channel>

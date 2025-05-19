@@ -1,0 +1,227 @@
+{{ partial "navbar.html" .}}
+
+<div class="three-column-layout" id="el_sendero">
+    <!-- Left column (46%) - Map -->
+    <div class="map-column">
+        {{partial "map.html" .}}
+    </div>
+
+    <!-- Center column (42%) - Content -->
+    <div class="content-column">
+        {{partial "images/sendero" .}}
+        <div class="sub_section">
+            {{ partial "home/destacados.html" . }}
+        </div>
+        <br><hr><br>
+        {{ if .Site.Params.home.showAllPosts }}
+        <div class="sub_section" id="all-posts">
+            {{partial "images/recorrido" .}}
+            
+            {{ partial "home/estudios_list.html" . }}
+        </div>
+        {{ end }}
+    </div>
+
+    <!-- Right column (12%) - Blog posts -->
+    <div class="blog-column">
+        {{ partial "home/blog_list.html" . }}
+    </div>
+</div>
+
+
+<style>
+
+:root {
+    --red: #CD5C5C; /* Define your color variable */
+    --gray: #6c6464; /* Define your color variable */
+}
+
+.hr{
+    color: #a8a8a8
+}
+
+/* Navigation Bar Styles */
+.nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 88%; /* Only span left and center columns */
+    height: 60px;
+    background: white;
+    z-index: 100; /* Lower than blog column */
+}
+
+.nav-content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    /* Add your navigation item styles here */
+}
+
+
+/* Reset and base styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Main layout container */
+.three-column-layout {
+    display: flex;
+    width: 100%;
+    height: 100vh; /* Adjust height */
+    box-sizing: border-box;
+    position: relative;
+
+}
+
+/* Column base styles */
+.three-column-layout > div {
+    height: 100%;
+    box-sizing: border-box;
+    overflow-y: auto;
+    flex-shrink: 0;
+}
+
+.map-column {
+    width: 46%;
+    padding: 1rem;
+
+    padding-top: calc(1rem + 60px); /* Maintain original padding + nav height */
+}
+
+.content-column {
+    width: 42%;
+    padding: 1rem;
+    padding-top: calc(1rem + 60px);
+    padding-right: 2rem;
+}
+
+/* Blog column adjustments */
+.blog-column {
+    width: 12%;
+    padding: 1rem;
+    position: fixed; /* Changed from relative to fixed */
+    right: 0;
+    top: 0;
+    height: 100vh;
+    z-index: 101; /* Higher than nav bar */
+    overflow-y: auto;
+}
+
+/* Adjust the border to match new positioning */
+.blog-column::before {
+    content: "";
+    position: fixed;
+    left: calc(46% + 42%);
+    top: 0; /* Start from very top */
+    height: 100vh; /* Full viewport height */
+    width: 1px;
+    background-color: #e3e2e2;
+    pointer-events: none;
+    z-index: 102; /* Above both columns */
+}
+
+
+/* Viewport-height border */
+.blog-column::before {
+    content: "";
+    position: fixed; /* Fixed to viewport */
+    left: calc(46% + 42%); /* Left position: map-column + content-column widths */
+    top: 5vh; /* (100vh - 80vh)/2 = 10vh for vertical centering */
+    height: 90vh; /* 80% of viewport height */
+    width: 1px;
+    background-color: #e3e2e2;
+    pointer-events: none; /* Allow clicks to pass through */
+}
+
+/* Hide scrollbars */
+.three-column-layout > div {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.three-column-layout > div::-webkit-scrollbar {
+    display: none;
+}
+
+</style>
+
+<!-- Keep your existing JavaScript -->
+
+<script>
+    function enableMapInteractivity(overlay) {
+        const iframe = overlay.previousElementSibling;
+        iframe.style.pointerEvents = 'auto';
+        overlay.style.display = 'none';
+        
+        setTimeout(() => {
+            iframe.style.pointerEvents = 'none';
+            overlay.style.display = 'block';
+        }, 30000);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const initSlider = (sliderWrapper) => {
+            const imageList = sliderWrapper.querySelector(".image-list");
+            const slideButtons = sliderWrapper.querySelectorAll(".slide-button");
+            const sliderScrollbar = sliderWrapper.parentElement.querySelector(".slider-scrollbar");
+            const scrollbarThumb = sliderScrollbar.querySelector(".scrollbar-thumb");
+            const maxScrollLeft = imageList.scrollWidth - imageList.clientWidth;
+            
+            scrollbarThumb.addEventListener("mousedown", (e) => {
+                const startX = e.clientX;
+                const thumbPosition = scrollbarThumb.offsetLeft;
+                const maxThumbPosition = sliderScrollbar.getBoundingClientRect().width - scrollbarThumb.offsetWidth;
+                
+                const handleMouseMove = (e) => {
+                    const deltaX = e.clientX - startX;
+                    const newThumbPosition = thumbPosition + deltaX;
+                    const boundedPosition = Math.max(0, Math.min(maxThumbPosition, newThumbPosition));
+                    const scrollPosition = (boundedPosition / maxThumbPosition) * maxScrollLeft;
+                    
+                    scrollbarThumb.style.left = `${boundedPosition}px`;
+                    imageList.scrollLeft = scrollPosition;
+                }
+                
+                const handleMouseUp = () => {
+                    document.removeEventListener("mousemove", handleMouseMove);
+                    document.removeEventListener("mouseup", handleMouseUp);
+                }
+                
+                document.addEventListener("mousemove", handleMouseMove);
+                document.addEventListener("mouseup", handleMouseUp);
+            });
+            
+            slideButtons.forEach(button => {
+                button.addEventListener("click", () => {
+                    const direction = button.id === "prev-slide" ? -1 : 1;
+                    const scrollAmount = imageList.clientWidth * direction;
+                    imageList.scrollBy({ left: scrollAmount, behavior: "smooth" });
+                });
+            });
+            
+            const handleSlideButtons = () => {
+                slideButtons[0].style.display = imageList.scrollLeft <= 0 ? "none" : "flex";
+                slideButtons[1].style.display = imageList.scrollLeft >= maxScrollLeft ? "none" : "flex";
+            }
+            
+            const updateScrollThumbPosition = () => {
+                const scrollPosition = imageList.scrollLeft;
+                const thumbPosition = (scrollPosition / maxScrollLeft) * (sliderScrollbar.clientWidth - scrollbarThumb.offsetWidth);
+                scrollbarThumb.style.left = `${thumbPosition}px`;
+            }
+            
+            imageList.addEventListener("scroll", () => {
+                updateScrollThumbPosition();
+                handleSlideButtons();
+            });
+        }
+        
+        document.querySelectorAll('.slider-wrapper').forEach(slider => {
+            initSlider(slider);
+        });
+    });
+</script>

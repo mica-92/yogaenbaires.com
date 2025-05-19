@@ -6,8 +6,13 @@
 
 {{ if or .Params.lunes .Params.martes .Params.miercoles .Params.jueves .Params.viernes .Params.sabado .Params.domingo }}
 {{ $maxClasses := 0 }}
-{{ range $day := slice "lunes" "martes" "miercoles" "jueves" "viernes" "sabado" "domingo" }}
+{{ $daysWithClasses := slice }}
+{{ $dayNames := slice "Lunes" "Martes" "Miércoles" "Jueves" "Viernes" "Sábado" "Domingo" }}
+{{ $dayKeys := slice "lunes" "martes" "miercoles" "jueves" "viernes" "sabado" "domingo" }}
+
+{{ range $index, $day := $dayKeys }}
   {{ if isset $.Params $day }}
+    {{ $daysWithClasses = $daysWithClasses | append (dict "name" (index $dayNames $index) "key" $day) }}
     {{ $dayClasses := len (index $.Params $day) }}
     {{ if gt $dayClasses $maxClasses }}
       {{ $maxClasses = $dayClasses }}
@@ -15,32 +20,25 @@
   {{ end }}
 {{ end }}
 
+{{ if gt (len $daysWithClasses) 0 }}
 <div class="schedule">
-  <div class="schedule-table">
-    {{ $days := slice "lunes" "martes" "miercoles" "jueves" "viernes" "sabado" "domingo" }}
-    {{ $dayNames := slice "Lunes" "Martes" "Miércoles" "Jueves" "Viernes" "Sábado" "Domingo" }}
-    
-    {{ range $index, $day := $days }}
-      {{ $dayClasses := 0 }}
-      {{ if isset $.Params $day }}
-        {{ $dayClasses = len (index $.Params $day) }}
-      {{ end }}
+  <div class="schedule-table" style="--days-count: {{ len $daysWithClasses }}">
+    {{ range $day := $daysWithClasses }}
+      {{ $dayClasses := len (index $.Params $day.key) }}
       
       <div class="schedule-day" style="--class-count: {{ $maxClasses }}">
-        <div class="day-name">{{ index $dayNames $index }}</div>
+        <div class="day-name">{{ $day.name }}</div>
         <div class="day-classes">
-          {{ if isset $.Params $day }}
-            {{ range $class := (index $.Params $day) }}
-              <div class="class-time style-{{ anchorize $class.style }}">
-                <span class="class-hour">{{ $class.horario }}</span>
-                <span class="class-style">{{ $class.clase }}</span>
-                {{ if $class.descripcion }}
-                <div class="class-tooltip">
-                  {{ $class.descripcion }}
-                </div>
-                {{ end }}
+          {{ range $class := (index $.Params $day.key) }}
+            <div class="class-time style-{{ anchorize $class.style }}">
+              <span class="class-hour">{{ $class.horario }}</span>
+              <span class="class-style">{{ $class.clase }}</span>
+              {{ if $class.descripcion }}
+              <div class="class-tooltip">
+                {{ $class.descripcion }}
               </div>
-            {{ end }}
+              {{ end }}
+            </div>
           {{ end }}
           
           <!-- Empty class placeholders to maintain height -->
@@ -61,6 +59,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 15px;
+  width: 100%;
 }
 .schedule-day {
   border: 2px solid #d2c2c2;
@@ -156,12 +155,14 @@
   position: absolute;
   top: 100%;
   left: 50%;
+  transform: translateX(-50%);
   border-width: 5px;
   border-style: solid;
   border-color: rgba(0,0,0,0.8) transparent transparent transparent;
 }
 .class-time:hover .class-tooltip {
   opacity: 1;
+  visibility: visible;
 }
 
 /* Style-specific colors */
@@ -196,7 +197,7 @@
     border: 1px solid #d7ccc8;
 }
 
-/* Hover effects - only color changes remain */
+/* Hover effects */
 .style-hatha:hover { background-color: #bbdefb; }
 .style-vinyasa:hover { background-color: #f8bbd0; }
 .style-ashtanga:hover { background-color: #c8e6c9; }
@@ -206,15 +207,19 @@
 
 @media (max-width: 768px) {
   .schedule-table {
-    grid-template-columns: 1fr;
-  }
-  .class-time:hover {
-    transform: none;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   }
   .class-tooltip {
     max-width: 150px;
     font-size: 0.7em;
   }
 }
+
+@media (max-width: 480px) {
+  .schedule-table {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
+{{ end }}
 {{ end }}

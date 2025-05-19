@@ -13066,11 +13066,6 @@ p {
 ul {
   padding: 0; }
 
-img {
-  border-radius: 5px;
-  border: 1px solid #6c6464;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4); }
-
 hr {
   background-color: #6c6464;
   height: 1px; }
@@ -13101,7 +13096,7 @@ details[open] summary {
   display: none; }
 
 .img-responsive {
-  border-radius: 5px;
+  border-radius: 0px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4); }
 
 .avatar {

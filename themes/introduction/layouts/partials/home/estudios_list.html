@@ -1,0 +1,81 @@
+{{ with .Site.GetPage "/estudios" }}
+<div class="estudios-posts-container">
+    {{ range where .Pages.ByPublishDate.Reverse ".Params.highlight" true }}
+    <div class="estudios-post-item">
+        <h4 class="estudios-post-title">
+            <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
+        </h4>
+        {{ if .Params.descripcion }}
+        <div class="estudios-post-description">
+            {{ .Params.descripcion | markdownify }}
+        </div>
+        {{ end }}
+        <hr class="estudios-post-divider">
+    </div>
+    {{ end }}
+</div>
+{{ end }}
+
+<style>
+:root {
+    --red: #CD5C5C; /* Define your color variable */
+    --gray: #6c6464;
+    --brown: #6b3d08; /* Define your color variable */
+}
+
+/* Content styles */
+.sub_section {
+    min-height: min-content;
+}
+
+.estudios-posts-container {
+    padding: 0.5rem 0;
+}
+
+.estudios-post-item {
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+.estudios-post-title {
+    font-size: 2.3rem;
+    margin: 0 0 0.3rem 0;
+    line-height: 1.3;
+    font-weight: 600;
+    color: var(--gray);
+}
+
+.estudios-post-title a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.estudios-post-title a:hover {
+    color: var(--brown);
+}
+
+.estudios-post-description {
+    font-size: 1rem;
+    line-height: 1.4;
+    color: #555;
+    margin-bottom: 1.5rem !important;
+}
+
+.estudios-post-divider {
+    border: none;
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .blog-column {
+        display: none;
+    }
+    .map-column,
+    .content-column {
+        width: 50%;
+    }
+}
+</style>

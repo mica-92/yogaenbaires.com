@@ -1,287 +1,162 @@
-{{ with .Site.GetPage "/projects" }}
-<div class="section projects-section" id="{{ .Title | urlize }}">
-    <div class="container">
-        <br>
-        {{ partial "images/destacados" . }}
-        <br>
-        
-        <div class="section" style="padding-top: 0 !important;">
-            <div class="columns is-multiline">
-                {{ $highlightedProjects := where (.Pages.ByWeight) ".Params.highlight" true }}
-                {{ range $index, $project := $highlightedProjects }}
-                <div class="column is-half">
-                    <div class="project-slider-wrapper hover-effect">
-                        <div class="project-slider-container" id="project-{{ $index }}">
-                            <div class="slider-controls">
-                                <button class="slider-arrow left-arrow" onclick="moveSlide(-1, {{ $index }})">
-                                    <i class="fas fa-chevron-left"></i>
-                                </button>
-                                
-                                <div class="media-slider">
-                                    {{ $mediaResources := $project.Resources.ByType "image" }}
-                                    {{ range $mediaIndex, $media := sort $mediaResources "Params.weight" }}
-                                    <div class="media-slide {{ if eq $mediaIndex 0 }}active{{ end }}">
-                                        {{ if eq $media.MediaType.MainType "image" }}
-                                            {{ $image := .Fit "800x1000" }}
-                                            <img src="{{ $image.Permalink }}" class="slider-image" alt="{{ $image.Name }}">
-                                        {{ end }}
-                                    </div>
-                                    {{ end }}
-                                </div>
-                                
-                                <button class="slider-arrow right-arrow" onclick="moveSlide(1, {{ $index }})">
-                                    <i class="fas fa-chevron-right"></i>
-                                </button>
-                            </div>
-                            
-                            <div class="slider-dots">
-                                {{ range $i := seq (len $mediaResources) }}
-                                <span class="dot {{ if eq $i 0 }}active{{ end }}" onclick="goToSlide({{ sub $i 1 }}, {{ $index }})"></span>
-                                {{ end }}
-                            </div>
-                        </div>
-
-                        <div class="project-info">
-                            <h2><a href="{{ $project.RelPermalink }}">#{{ $project.Params.id | markdownify }} - {{ $project.Params.title | markdownify }}</a></h2>
-                            <div style="display: flex; justify-content: center;">
-                                {{ partial "post-taxonomy.html" $project }}
-                            </div>
+{{ with .Site.GetPage "/estudios" }}
+<div class="projects-gallery-section" id="{{ .Title | urlize }}">
+    {{ partial "images/destacados" . }}
+    {{ $highlightedProjects := where .Pages.ByWeight ".Params.highlight" true }}
+    <div class="simple-projects-grid">
+        {{ range $project := $highlightedProjects }}
+        <div class="simple-project-card">
+            {{ $images := $project.Resources.ByType "image" }}
+            {{ if $images }}
+                {{ $firstImage := (index $images 0).Fill "1380x1200 Center" }}
+                <div class="image-wrapper">
+                    <img src="{{ $firstImage.Permalink }}" 
+                         alt="{{ $project.Title }}" 
+                         class="simple-project-image"
+                         loading="lazy">
+                    <div class="image-overlay">
+                        <div class="taxonomy-overlay">
+                            {{ partial "post-taxonomy.html" . }}
                         </div>
                     </div>
                 </div>
-                {{ end }}
+            {{ end }}
+            
+            <div class="simple-project-info">
+                <h3 class="simple-project-title">
+                    <a href="{{ .Permalink }}" style="color:inherit !important">
+                        #{{ .Params.id | markdownify }} - {{ .Params.title | markdownify }}
+                    </a>
+                </h3>
             </div>
         </div>
+        {{ end }}
     </div>
 </div>
-{{ end }}
 
 <style>
-/* PROJECT SLIDER STYLES WITH COMPLETE HOVER EFFECTS */
-.projects-section {
-    padding: 1rem 0;
+:root {
+    --brown: #c97516; /* Define your color variable */
+    --gray: #6c6464; /* Define your color variable */
+    --red: #CD5C5C; /* Define your color variable */
+
 }
 
-.project-slider-wrapper {
-    width: 80%;
-    margin: 0 auto;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    border-radius: 6px;
-    overflow: hidden;
-    background: white;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+.container {
+    padding: 0 !important;
 }
 
-.project-slider-wrapper.hover-effect:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-}
-
-.project-slider-container {
-    position: relative;
-    margin-bottom: 0;
-}
-
-.slider-controls {
-    position: relative;
-    width: 100%;
-    margin: 0 auto;
-}
-
-.media-slider {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-}
-
-.media-slide {
-    display: none;
-    width: 100%;
-}
-
-.media-slide.active {
-    display: block;
-}
-
-.slider-image {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 4/5;
-    object-fit: cover;
-    filter: saturate(0.95) brightness(0.98);
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.hover-effect:hover .slider-image {
-    transform: scale(1.06);
-    filter: saturate(1.05) brightness(1.02) drop-shadow(0 2px 6px rgba(0,0,0,0.1));
-}
-
-/* ARROW STYLES */
-.slider-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0,0,0,0.5);
-    color: white;
+/* Add this to your existing styles */
+.content-column hr {
+    width: 95%;
+    margin: 1rem auto; /* Centers the hr horizontally */
     border: none;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    font-size: 1rem;
-    cursor: pointer;
-    z-index: 10;
+    height: 1px;
+    background-color: #e3e2e2; /* Same as your border color */
+}
+
+
+.projects-gallery-section {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden !important; /* Remove scrolling */
+}
+
+.simple-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 0;
+}
+
+.simple-project-card {
+    position: relative;
+    overflow: hidden;
+    border: none !important; /* Force no border */
+    border-radius: 0 !important; /* Force square corners */
+}
+
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 138/120;
+    overflow: hidden;
+    border: none !important;
+    border-radius: 0 !important;
+}
+
+.simple-project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+    border: none !important;
+    border-radius: 0 !important;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(42, 28, 2, 0.4);
+    opacity: 0;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
+    align-items: flex-end; /* Changed from center to flex-end */
+    justify-content: flex-start; /* Changed from center to flex-start */
+    transition: opacity 0.3s ease;
+    border: none !important;
+    border-radius: 0 !important;
 }
 
-.slider-arrow:hover {
-    background: rgba(0,0,0,0.7);
-    transform: translateY(-50%) scale(1.1);
+.taxonomy-overlay {
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-size: 0.9rem;
 }
 
-.left-arrow {
-    left: 10px;
+.simple-project-card:hover .image-overlay {
+    opacity: 1;
 }
 
-.right-arrow {
-    right: 10px;
+.simple-project-card:hover .simple-project-image {
+    transform: scale(1.03);
 }
 
-/* DOT NAVIGATION */
-.slider-dots {
-    text-align: center;
-    margin: 10px 0;
-    padding: 0 20px;
+.simple-project-info {
+    padding: 12px 0 0 0;
+    text-align: left;
 }
 
-.dot {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #ccc;
-    margin: 0 4px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.dot.active {
-    background: #333;
-}
-
-.dot:hover {
-    transform: scale(1.2);
-}
-
-/* PROJECT INFO - WITH HOVER EFFECTS */
-.project-info {
-    text-align: center !important;
-    padding: 1rem;
-    transition: all 0.3s ease;
-    background: white;
-}
-
-.project-info h2 {
+.simple-project-title {
+    margin: 0;
     font-size: 1.2rem;
-    color: #CD5C5C;
-    margin-bottom: 0.5rem;
-    transition: all 0.3s ease;
+    color: var(--gray);
+    line-height: 1.3;
+    font-weight: 600;
+
 }
 
-.hover-effect:hover .project-info h2 {
-    color: #6c6464;
-    font-weight: 700;
+.simple-project-title:hover {
+    color: #6f3f08 !important;
 }
 
-.hover-effect:hover .project-info {
-    background-color: white;
-}
-
-/* RESPONSIVE ADJUSTMENTS */
+/* Mobile adjustments */
 @media (max-width: 768px) {
-    .project-slider-wrapper {
-        width: 90%;
+    .simple-projects-grid {
+        grid-template-columns: 1fr;
     }
     
-    .slider-arrow {
-        width: 25px;
-        height: 25px;
-    }
-}
-
-@media (max-width: 480px) {
-    .project-slider-wrapper {
-        width: 95%;
+    .image-wrapper {
+        aspect-ratio: 138/120;
     }
     
-    .column.is-half {
-        width: 100%;
-    }
-    
-    .project-slider-wrapper.hover-effect:hover {
-        transform: none;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    .simple-project-info {
+        padding: 10px 0 0 0;
     }
 }
 </style>
-
-<script>
-// Global variable to track current slides
-const projectSlides = {};
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all sliders
-    document.querySelectorAll('.project-slider-container').forEach(container => {
-        const id = container.id.split('-')[1];
-        projectSlides[id] = 0;
-    });
-});
-
-function moveSlide(direction, projectId) {
-    const container = document.getElementById(`project-${projectId}`);
-    if (!container) return;
-    
-    const slides = container.querySelectorAll('.media-slide');
-    const dots = container.querySelectorAll('.dot');
-    
-    // Hide current slide
-    slides[projectSlides[projectId]]?.classList.remove('active');
-    dots[projectSlides[projectId]]?.classList.remove('active');
-    
-    // Calculate new index
-    projectSlides[projectId] += direction;
-    
-    // Handle wrap-around
-    if (projectSlides[projectId] >= slides.length) {
-        projectSlides[projectId] = 0;
-    } else if (projectSlides[projectId] < 0) {
-        projectSlides[projectId] = slides.length - 1;
-    }
-    
-    // Show new slide
-    slides[projectSlides[projectId]]?.classList.add('active');
-    dots[projectSlides[projectId]]?.classList.add('active');
-}
-
-function goToSlide(index, projectId) {
-    const container = document.getElementById(`project-${projectId}`);
-    if (!container) return;
-    
-    const slides = container.querySelectorAll('.media-slide');
-    const dots = container.querySelectorAll('.dot');
-    
-    // Hide current slide
-    slides[projectSlides[projectId]]?.classList.remove('active');
-    dots[projectSlides[projectId]]?.classList.remove('active');
-    
-    // Set new index
-    projectSlides[projectId] = index;
-    
-    // Show new slide
-    slides[projectSlides[projectId]]?.classList.add('active');
-    dots[projectSlides[projectId]]?.classList.add('active');
-}
-</script>
+{{ end }}

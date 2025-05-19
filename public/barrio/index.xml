@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Barrio on Yoga en Baires</title>
-    <link>http://localhost:1313/yogaenbaires/barrio/</link>
+    <link>https://mica-92.github.io/yogaenbaires/barrio/</link>
     <description>Recent content in Barrio on Yoga en Baires</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
     <lastBuildDate>Mon, 12 May 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/yogaenbaires/barrio/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://mica-92.github.io/yogaenbaires/barrio/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Caballito</title>
-      <link>http://localhost:1313/yogaenbaires/barrio/caballito/</link>
+      <link>https://mica-92.github.io/yogaenbaires/barrio/caballito/</link>
       <pubDate>Mon, 12 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/yogaenbaires/barrio/caballito/</guid>
+      <guid>https://mica-92.github.io/yogaenbaires/barrio/caballito/</guid>
       <description></description>
     </item>
     <item>
       <title>Belgrano</title>
-      <link>http://localhost:1313/yogaenbaires/barrio/belgrano/</link>
+      <link>https://mica-92.github.io/yogaenbaires/barrio/belgrano/</link>
       <pubDate>Fri, 09 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/yogaenbaires/barrio/belgrano/</guid>
+      <guid>https://mica-92.github.io/yogaenbaires/barrio/belgrano/</guid>
       <description></description>
     </item>
     <item>
       <title>San Telmo</title>
-      <link>http://localhost:1313/yogaenbaires/barrio/san-telmo/</link>
+      <link>https://mica-92.github.io/yogaenbaires/barrio/san-telmo/</link>
       <pubDate>Thu, 08 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/yogaenbaires/barrio/san-telmo/</guid>
+      <guid>https://mica-92.github.io/yogaenbaires/barrio/san-telmo/</guid>
       <description></description>
     </item>
     <item>
       <title>Recoleta</title>
-      <link>http://localhost:1313/yogaenbaires/barrio/recoleta/</link>
+      <link>https://mica-92.github.io/yogaenbaires/barrio/recoleta/</link>
       <pubDate>Wed, 07 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/yogaenbaires/barrio/recoleta/</guid>
+      <guid>https://mica-92.github.io/yogaenbaires/barrio/recoleta/</guid>
       <description></description>
     </item>
   </channel>

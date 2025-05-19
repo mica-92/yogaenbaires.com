@@ -1,0 +1,101 @@
+
+{{ with .Site.GetPage "/blog" }}
+<br><img src="/yogaenbaires/images/elsemillero.png" alt="El Semillero">
+<hr class="yoga-title-divider">
+<div class="yoga-posts-container">
+    {{ range where .Pages.ByPublishDate.Reverse ".Params.highlight" true }}
+    <div class="yoga-post-item">
+        <h4 class="yoga-post-title">
+            <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
+        </h4>
+        {{ if .Params.description }}
+        <div class="yoga-post-description">
+            {{ .Params.description | markdownify }}
+        </div>
+        {{ end }}
+        <hr class="yoga-post-divider">
+    </div>
+    {{ end }}
+</div>
+{{ end }}
+
+<style>
+    /* Content styles */
+.sub_section {
+    min-height: min-content;
+}
+
+/* Blog column specific styles */
+.blog-column {
+    width: 12%;
+    padding: 1rem;
+    border-right: 1px solid #e0e0e0; /* Right border */
+}
+
+.yoga-posts-container {
+    padding: 0.5rem;
+    text-align: center; /* Center all content */
+}
+
+.yoga-post-item {
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+.yoga-post-title {
+    font-size: 1rem;
+    font-weight: 800;
+    margin: 0 0 0.3rem 0;
+    line-height: 1.3;
+    color: #2c2900ff;
+    font-style: italic; /* Italic text */
+    text-align: center; /* Centered */
+}
+
+.yoga-post-title a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.yoga-post-title a:hover {
+    color:#6c6464;
+}
+
+.yoga-post-description {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: #555;
+    margin-bottom: 1.3rem;
+    font-style: italic; /* Italic text */
+    text-align: center; /* Centered */
+    
+}
+
+.yoga-post-divider {
+    border: none;
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 0.5rem auto 0 auto; /* Center the divider */
+    width: 100%; /* Make divider slightly shorter than full width */
+}
+
+.yoga-title-divider {
+    border: none;
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 1rem 0; /* Center the divider */
+    width: 100%; /* Make divider slightly shorter than full width */
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .blog-column {
+        display: none;
+    }
+    .map-column,
+    .content-column {
+        width: 50%;
+    }
+}
+</style>
