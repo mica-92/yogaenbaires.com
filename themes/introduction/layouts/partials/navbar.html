@@ -1,35 +1,50 @@
 <div class="nav-bar">
     <div class="nav-content">
         <div class="left-items">
-            <!-- Social Icons -->
-            
             <div class="menu-toggle" id="menuToggle">
                 <img src="/yogaenbaires/images/IG-prof.png" alt="Menu" class="burger-icon">
-                <img src="/yogaenbaires/images/IG-prof.png" alt="IG Logo" class="logo-icon" style="display:none;">
+                <img src="/yogaenbaires/images/burger.png" alt="Menu Icon" class="burger-icon-hover" style="display:none;">
             </div>
-            <img src="/yogaenbaires/images/logoderecho.png" alt="Logo" class="right-logo">
+            
+            <a href="/yogaenbaires/" class="logo-link">
+                <img src="/yogaenbaires/images/logoderecho.png" alt="Logo" class="right-logo">
+            </a>
             
             <div class="slogan">
-            <i>el viaje de una <b>yogini</b> por los <b>cien</b> barrios porteños</i>
+                <i>el viaje de una <b>yogini</b> por los <b>cien</b> barrios porteños</i>
             </div>
-
-
         </div>
 
-            <div class="social-icons">
-                
-                <a href="#" target="_blank" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" target="_blank" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
-                <a href="#" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
-            </div>
-        
+        <div class="social-icons">
+            <a href="https:/instagram.com/yogaenbaires" target="_blank" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@yogaenbaires" target="_blank" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="mailto:mmicaninni92@email.com" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
         </div>
+    </div>
 
     <div class="fullscreen-menu" id="fullscreenMenu">
         <div class="menu-content">
-            <div class="menu-close" id="menuClose">
-                <i class="fa-solid fa-xmark"></i>
+            <div class="mobile-header">
+                <div class="menu-close" id="menuClose">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
             </div>
+
+            {{ $estudios := where .Site.RegularPages "Section" "estudios" }}
+            <script>
+              window.estudiosData = [
+                {{ range $estudios }}
+                {
+                  title: {{ .Title | jsonify }},
+                  permalink: {{ .Permalink | jsonify }},
+                  {{ with .Params.barrio }}barrio: {{ . | jsonify }},{{ end }}
+                  {{ with .Params.estilo }}estilo: {{ . | jsonify }},{{ end }}
+                  id: {{ .Params.id | default .File.BaseFileName | jsonify }},
+                  content: {{ .Plain | jsonify }}
+                },
+                {{ end }}
+              ];
+            </script>
 
             <div class="search-container">
                 <i id="searchIcon" class="fa-solid fa-magnifying-glass"></i>
@@ -38,24 +53,56 @@
             </div>
 
             <nav class="menu-links">
-                <a href="/yogaenbaires/blog/about">About Me</a>
-                <a href="/yogaenbaires/blog/portfolio">Portfolio</a>
-                <a href="/yogaenbaires/blog/contact">Contact</a>
-                </nav>
+                <a href="/yogaenbaires/blog/about">sobre mi & <i>yogaenbaires</i></a>
+                <a href="/yogaenbaires/blog/">el semillero</a>
+                
+                <div class="taxonomy-section">
+                    <h3>Barrios</h3>
+                    <div class="taxonomy-list">
+                        {{ range $name, $taxonomy := .Site.Taxonomies.barrio }}
+                            <a href="/yogaenbaires/barrio/{{ $name | urlize }}" class="taxonomy-item">{{ $name | title }}</a>
+                        {{ end }}
+                    </div>
+                    
+                    <h3>Estilos</h3>
+                    <div class="taxonomy-list">
+                        {{ range $name, $taxonomy := .Site.Taxonomies.estilo }}
+                            <a href="/yogaenbaires/estilo/{{ $name | urlize }}" class="taxonomy-item">{{ $name | title }}</a>
+                        {{ end }}
+                    </div>
+                    
+                    <h3>Intensidad</h3>
+                    <div class="taxonomy-list">
+                        {{ range $name, $taxonomy := .Site.Taxonomies.intensidad }}
+                            <a href="/yogaenbaires/intensidad/{{ $name | urlize }}" class="taxonomy-item">{{ $name | title }}</a>
+                        {{ end }}
+                    </div>
+                </div>
+            </nav>
         </div>
     </div>
 </div>
 
+
+
+
 <style>
-/* Navigation Bar Styles */
-.slogan{
-    padding-top: 0.9rem;
-    justify-content: left;
-    margin-left: 1rem; /* Space between the IG logo and the right logo */
-    font-size: 18px;
-    color: #2c2900
+/* Modified styles for logo and link */
+.logo-link {
+    display: flex;
+    align-items: center;
+    height: 30px; /* Match your logo height */
+    margin-right: 1rem;
 }
 
+.right-logo {
+    height: 100%;
+    width: auto;
+    max-height: 30px;
+}
+
+
+/* Base Styles */
 .nav-bar {
     position: fixed;
     top: 0;
@@ -73,30 +120,31 @@
 .nav-content {
     width: 100%;
     display: flex;
-    justify-content: space-between; /* Changed to space-between */
+    justify-content: space-between;
     align-items: center;
 }
 
-/* Container for the left items */
 .left-items {
     display: flex;
     align-items: center;
 }
 
-/* Social Icons Styles */
+.slogan {
+    padding-top: 0.9rem;
+    margin-left: 1rem;
+    font-size: 18px;
+    color: #2c2900;
+}
+
 .social-icons {
     display: flex;
-    padding-top: 0.5rem;
 }
 
 .social-icon {
-    padding-top: calc(0.5rem);
-    justify-content: left;
-    margin-left: 1rem; /* Space between the IG logo and the right logo */
+    margin-left: 1.4rem;
     font-size: 24px;
     color: #6c6464;
     transition: all 0.3s ease;
-    margin-left: 1.4rem !important;
 }
 
 .social-icon:hover {
@@ -105,59 +153,81 @@
 }
 
 .menu-toggle {
-    padding-top: 0.5rem;
     cursor: pointer;
     height: 40px;
     width: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 1rem; /* Space between the IG logo and the right logo */
+    margin-right: 1rem;
+    position: relative;
 }
 
-.menu-toggle img, .right-logo {
+.menu-toggle img {
     height: 30px;
     width: auto;
     transition: all 0.3s ease;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-/* Make logos same height */
+.burger-icon-hover {
+    opacity: 0;
+}
+
+.menu-toggle:hover .burger-icon {
+    opacity: 0;
+}
+
+.menu-toggle:hover .burger-icon-hover {
+    opacity: 1;
+}
+
 .right-logo {
-    height: 30px !important;
-    padding-top: 0.5rem ;
-    justify-content: left;
-    margin-right: 1rem; /* Add some space between the logo and the slogan */
+    height: 30px;
+    width: auto;
+    margin-right: 1rem;
 }
 
-/* Fullscreen menu (no changes) */
+/* Fullscreen Menu */
 .fullscreen-menu {
     position: fixed;
     top: 0;
     left: 0;
-    width: 88%;
+    width: 100%;
     height: 100vh;
     background: white;
     z-index: 999;
     display: none;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-top: 60px;
-    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .menu-content {
     width: 100%;
     max-width: 800px;
-    padding: 2rem;
-    position: relative;
+    margin: 0 auto;
+    padding: 1.5rem;
+    height: 100vh;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
-/* Close button (X) (no changes) */
+.menu-content::-webkit-scrollbar {
+    display: none;
+}
+
+.mobile-header {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
 .menu-close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
     font-size: 1.5rem;
     color: #333;
     cursor: pointer;
@@ -169,11 +239,9 @@
     transform: scale(1.1);
 }
 
-/* Search styles (no changes) */
 .search-container {
-    margin: 2rem auto;
+    margin: 1.5rem 0;
     position: relative;
-    width: 100%;
 }
 
 .search-container i {
@@ -182,7 +250,6 @@
     top: 0.75rem;
     color: #999;
     font-weight: bold;
-    transition: color 0.3s ease;
 }
 
 .search-container input {
@@ -190,8 +257,6 @@
     padding: 0.75rem 0.75rem 0.75rem 2.5rem;
     border: none;
     border-bottom: 1px solid #ddd;
-    border-radius: 0;
-    outline: none;
     font-weight: 500;
     background: transparent;
     font-size: 1rem;
@@ -205,14 +270,12 @@
     margin-top: 1rem;
 }
 
-/* Menu links (no changes) */
 .menu-links {
     display: flex;
     flex-direction: column;
-    margin-top: 2rem;
 }
 
-.menu-links a {
+.menu-links > a {
     padding: 1rem 0;
     font-size: 1.2rem;
     color: #333;
@@ -221,68 +284,122 @@
     transition: all 0.3s ease;
 }
 
-.menu-links a:hover {
+.menu-links > a:hover {
     color: #CD5C5C;
 }
 
-/* Search result styles (no changes) */
+/* Taxonomy Section */
+.taxonomy-section {
+    margin-top: 2rem;
+}
+
+.taxonomy-section h3 {
+    margin: 1.5rem 0 0.8rem 0;
+    color: #555;
+    font-size: 1.2rem;
+}
+
+.taxonomy-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.taxonomy-item {
+    padding: 0.2rem 0.6rem;
+    background: #f5f5f5;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    color: #555;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid #555;
+}
+
+.taxonomy-item:hover {
+    background: #CD5C5C;
+    color: white;
+}
+
+/* Search Results */
 .search-result-item {
-    padding: 0.5rem;
+    padding: 0.75rem;
     border-bottom: 1px solid #eee;
+    transition: background 0.3s ease;
 }
 
 .search-result-item:hover {
-    background-color: #f5f5f5;
+    background-color: #f9f9f9;
 }
 
 .search-result-item a {
-    color: #CD5C5C !important;
+    color: #CD5C5C;
     text-decoration: none;
     font-weight: 500;
 }
 
+.search-tag {
+    display: inline-block;
+    margin-left: 0.5rem;
+    padding: 0.2rem 0.5rem;
+    background: #f5f5f5;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .slogan {
+        display: none;
+    }
+    
+    .taxonomy-list {
+        gap: 0.4rem;
+    }
+    
+    .taxonomy-item {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+}
 </style>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+    // Menu toggle functionality
     const menuToggle = document.getElementById('menuToggle');
     const menuClose = document.getElementById('menuClose');
     const fullscreenMenu = document.getElementById('fullscreenMenu');
     const burgerIcon = document.querySelector('.burger-icon');
-    const logoIcon = document.querySelector('.logo-icon');
-    const rightLogo = document.querySelector('.right-logo');
+    const burgerIconHover = document.querySelector('.burger-icon-hover');
+    const navBar = document.querySelector('.nav-bar');
 
     function toggleMenu(isOpen) {
         if (isOpen) {
             fullscreenMenu.style.display = 'none';
             burgerIcon.style.display = 'block';
-            logoIcon.style.display = 'none';
+            burgerIconHover.style.display = 'none';
+            navBar.classList.remove('menu-open');
         } else {
             fullscreenMenu.style.display = 'flex';
             burgerIcon.style.display = 'none';
-            logoIcon.style.display = 'block';
+            burgerIconHover.style.display = 'block';
+            navBar.classList.add('menu-open');
         }
     }
 
-    // Toggle menu with burger/logo
     menuToggle.addEventListener('click', function() {
         const isOpen = fullscreenMenu.style.display === 'flex';
         toggleMenu(isOpen);
     });
 
-    // Close menu with X button
     menuClose.addEventListener('click', function() {
         toggleMenu(true);
     });
 
-    // Close menu by clicking right logo
-    rightLogo.addEventListener('click', function() {
-        if (fullscreenMenu.style.display === 'flex') {
-            toggleMenu(true);
-        }
-    });
-
-    // Your existing search functionality (no changes)
+    // Search functionality
     const searchInput = document.getElementById('postSearch');
     const searchResults = document.getElementById('searchResults');
     const searchIcon = document.getElementById('searchIcon');
@@ -291,7 +408,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (searchInput.value || document.activeElement === searchInput) {
             searchInput.style.borderBottom = '2px solid #CD5C5C';
             searchIcon.style.color = '#CD5C5C';
-            searchIcon.style.fontWeight = 'bold';
         } else {
             searchInput.style.borderBottom = '1px solid #ddd';
             searchIcon.style.color = '#999';
@@ -299,49 +415,55 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     searchInput.addEventListener('focus', updateSearchStyles);
-    searchInput.addEventListener('blur', function() {
-        if (!this.value) {
-            updateSearchStyles();
-        }
-    });
+    searchInput.addEventListener('blur', updateSearchStyles);
 
     searchInput.addEventListener('input', function() {
         updateSearchStyles();
-
         const query = this.value.toLowerCase().trim();
-
+        
         if (query.length < 2) {
             searchResults.innerHTML = '';
             return;
         }
-
-        const posts = document.querySelectorAll('.post-item');
+        
+        const isIdSearch = query.startsWith('#');
+        const cleanQuery = isIdSearch ? query.substring(1) : query;
         let resultsHTML = '';
         let matchCount = 0;
-
-        posts.forEach(post => {
-            const titleLink = post.querySelector('.post-title');
-            const titleText = titleLink?.textContent.trim() || '';
-            const taxonomyText = post.querySelector('.post-taxonomy')?.textContent.trim() || '';
-            const fullText = (titleText + ' ' + taxonomyText).toLowerCase();
-
-            if (fullText.includes(query)) {
-                const link = titleLink?.href || '#';
-
-                resultsHTML += `
-                    <div class="search-result-item">
-                        <a href="${link}">${titleText}</a>
-                    </div>
-                `;
+        
+        window.estudiosData.forEach(estudio => {
+            if (isIdSearch) {
+                if (estudio.id && estudio.id.toString().toLowerCase().includes(cleanQuery)) {
+                    resultsHTML += createResultItem(estudio);
+                    matchCount++;
+                }
+                return;
+            }
+            
+            const matchesTitle = estudio.title.toLowerCase().includes(cleanQuery);
+            const matchesBarrio = estudio.barrio && estudio.barrio.toString().toLowerCase().includes(cleanQuery);
+            const matchesEstilo = estudio.estilo && estudio.estilo.toString().toLowerCase().includes(cleanQuery);
+            const matchesId = estudio.id && estudio.id.toString().toLowerCase().includes(cleanQuery);
+            
+            if (matchesTitle || matchesBarrio || matchesEstilo || matchesId) {
+                resultsHTML += createResultItem(estudio);
                 matchCount++;
             }
         });
 
-        if (matchCount > 0) {
-            searchResults.innerHTML = resultsHTML;
-        } else {
-            searchResults.innerHTML = '<p style="padding: 0.5rem; color: #666;">No se encontraron resultados</p>';
-        }
+        searchResults.innerHTML = matchCount > 0 ? resultsHTML : 
+            '<p style="padding: 0.5rem; color: #666;">No se encontraron resultados</p>';
     });
+
+    function createResultItem(estudio) {
+        return `
+            <div class="search-result-item">
+                <a href="${estudio.permalink}">${estudio.title}</a>
+                ${estudio.id ? `<span class="search-tag">#${estudio.id}</span>` : ''}
+                ${estudio.barrio ? `<span class="search-tag">${Array.isArray(estudio.barrio) ? estudio.barrio.join(', ') : estudio.barrio}</span>` : ''}
+                ${estudio.estilo ? `<span class="search-tag">${Array.isArray(estudio.estilo) ? estudio.estilo.join(', ') : estudio.estilo}</span>` : ''}
+            </div>
+        `;
+    }
 });
 </script>

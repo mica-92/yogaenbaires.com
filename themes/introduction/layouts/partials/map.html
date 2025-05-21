@@ -1,3 +1,11 @@
+<!-- Place this BEFORE the map container in your HTML -->
+<div class="mobile-map-instructions" style="display: none;">
+    <div class="map-instruction-title"># Camino del Yogui</div>
+    <div class="map-instruction-text">
+        Explora el mapa y haz clic en los iconos para conocer los estudios de yoga reseñados. Cada estudio incluye una descripción y un identificador # para facilitar la búsqueda de su reseña. Los colores de los iconos indican el estilo de yoga principal que ofrecen.
+    </div>
+</div>
+
 <div class="elegant-map-container">
     <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1gwWvzDyRnZfYjNuIpOrB7ksEJ3wcD5M&ehbc=2E312F&noprof=1" 
             class="elegant-map" 
@@ -48,9 +56,9 @@
     padding: 20px;
     max-width: 400px;
     margin: 0;
-    transition: all 2s ease;
 }
 
+/* Consistent text styles (removed all responsive scaling) */
 .map-instruction-title {
     font-size: 1.4rem;
     font-weight: 600;
@@ -93,44 +101,41 @@
     pointer-events: auto;
 }
 
+/* Mobile instructions (hidden by default) */
+.mobile-map-instructions {
+    display: none;
+    padding: 20px;
+    background: white;
+    margin-bottom: 20px;
+
+}
+
 /* Responsive adjustments */
-@media screen and (max-width: 1024px) {
-    .map-instruction-box {
-        max-width: 350px;
-        padding: 16px;
+@media screen and (max-width: 1000px) {
+    /* Hide the overlay box on mobile */
+    .map-overlay {
+        background: rgba(42,28,2,0.3)
+    }
+    .mobile-map-instructions {
+        display: block;
     }
     
-    .map-instruction-title {
-        font-size: 1.2rem;
+    /* Adjust instruction box for mobile */
+    .map-instruction-box {
+        left: 0;
+        right: 0;
+        bottom: 0;
+        max-width: none;
+        padding: 15px;
+    }
+    
+    /* Ensure map has proper height on mobile */
+    .elegant-map-container {
+        min-height: 60vh;
     }
 }
 
-@media screen and (max-width: 768px) {
-    .map-instruction-box {
-        max-width: 300px;
-        padding: 14px;
-        left: 15px;
-        bottom: 15px;
-    }
-    
-    .map-instruction-text {
-        font-size: 0.9rem;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .map-instruction-box {
-        max-width: 260px;
-        padding: 12px;
-        left: 10px;
-        bottom: 10px;
-    }
-    
-    .map-instruction-title {
-        font-size: 1.1rem;
-        margin-bottom: 8px;
-    }
-}
+/* Remove all media queries that affect the text size */
 </style>
 
 <script>

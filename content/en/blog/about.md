@@ -1,20 +1,26 @@
 ---
-title: "Hola mi nombre es mica"
+title: "Sobre Yoga en Baires"
 date: 2025-01-03
 highlight: false
 description: "acerca de mi "
 ---
 
-Hola:   
-- Ashtanga Vinyasa es un estilo dinámico y vigoroso que se caracteriza por secuencias fijas de posturas enlazadas mediante la respiración, conocida como vinyasa. El énfasis está en la sincronización de la respiración y el movimiento (Tristhana), buscando desarrollar fuerza, resistencia, flexibilidad y una profunda purificación a nivel físico y mental a través de una práctica disciplinada. Es ideal para quienes buscan un desafío físico y mental estructurado y constante.
+# 👋 Hola, soy Mica. Creadora de YogaEnBaires. 
+### Profe, practicante, estudiante y amante del yoga. 
 
+<p style= font-size:1.2rem>Conocí el yoga de casualidad mientras me encontraba viviendo en México temporalmente en el 2018 y desde entonces se ha converido en un pilar fundamental de mi vida. Sin importar las circuntancias del mundo exterior, desenrollar la <i>mat</i> se convirtió en un ritual para encontrar un espacio de reconexión conmigo misma. Suena <i>cliché</i>? Seguro, pero es que siento que la disciplina permeó mi vida de una manera impensada, volviendose un ancla de apoyo incluso en los momentos más tumultosos.</p>
 
-- En contraste, el Hatha es un estilo más lento y fundamental. Las posturas se mantienen durante varias respiraciones, permitiendo un mayor enfoque en la alineación, la conciencia de la respiración y el desarrollo gradual de la flexibilidad y la fuerza. El Hatha sienta las bases para muchos otros estilos y es adecuado tanto para principiantes como para practicantes de todos los niveles que prefieren una práctica más pausada y consciente.
+<p style= font-size:1.2rem>Luego de años de práctica y de cursitos intensivos en filosofía, anatomía, <i>pranayama</i> - y dos años de sáncrito - oficialicé mis estudios con un YTT200 en YogaRenew, un estudio focalizado en Power Vinyasa ubicado en Nueva Jersey, en el cual había estado practicando varios meses mientras hacia mi doctorado (también en USA). Un paso fundamental para dictar clases en el Hemisferio Norte, lo cual hice hasta que regrese al país en el 2024. </p>
 
+<p style= font-size:1.2rem>Ashtangui de día, fuí muy afortunada, y durante los últimos años viaje muchísimo,iempre encontrando el espacio para chusmear la escena yogui local. Lamento no haber llevado la cuenta - o no haber empezado con este proyecto antes - pero debo haber practicado en decenas de estudios a lo largo y ancho de USA, Argentina y Europa. Practique en estudios ultramodernos hasta santuarios de la tradición, aprendiendo de maestros reconocidos y de guías anónimos, de principiantes entusiastas y de yoguis experimentados... en cada encuentro enriqueciendo mi comprensión y conectandome con personas increíbles, muchas de las cuales hoy lideran sus propios proyectos y se han convertido en colegas y referentes.</p>
 
-- Por último, el Yin Yoga se distingue por ser una práctica muy lenta y pasiva. Las posturas se mantienen durante períodos prolongados, de uno a cinco minutos o incluso más, con el objetivo de estimular profundamente los tejidos conectivos como la fascia, los ligamentos y las articulaciones. El Yin busca cultivar la quietud mental, la paciencia y liberar bloqueos energéticos, siendo un excelente complemento para prácticas más dinámicas y para quienes buscan aliviar tensiones profundas y mejorar la flexibilidad articular.
+<p style= font-size:1.2rem>Una de las cosas más fascinantes que he descubierto es que, si bien el yoga posee un lenguaje universal, cada rincón del mundo le añade su propio acento y es desde este deseo de explorar y dar a conocer la escena yogui porteña y Argentina que nace YogaEnBaires. </p>
 
+<p style= font-size:1.2rem><b>YogaenBaires es un espacio que busca iluminar la dinámica y diversa escena del yoga, creando un punto de encuentro virtual donde tanto curiosos principiantes como practicantes avanzados puedan descubrir y conectar con estudios para comenzar o expandir su práctica.</b></p>
 
-- En esencia, mientras que el Ashtanga Vinyasa es una práctica fluida y energética, el Hatha es más estático y fundamental, y el Yin es una exploración profunda de la quietud y la flexibilidad pasiva. Cada estilo ofrece beneficios únicos y puede ser valioso según las necesidades y preferencias de cada practicante.
+<p style= font-size:1.2rem>Mi mayor deseo es crear un portal único para este comunidad y disciplina que tanto me nutrió durante todos estos años :) </p>
 
-#### <img src="/yogaenbaires/images/lotus-vinyasa.png" alt="Vinyasa" class="legend-icon">  Vinyasa
+<br>
+
+### Queres conectarme conmigo? Dejarme un comentario? Que tu estudio aparezca? 
+### Escribime:

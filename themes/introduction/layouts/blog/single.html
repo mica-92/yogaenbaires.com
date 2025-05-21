@@ -1,88 +1,46 @@
 {{ define "title" }}
-<div class="responsive-title-imagedoble">
-    <a href="/yogaenbaires/#el_semillero">
-        {{ partial "images/paradas" }}
-    </a>
-</div>
-<br>
 
-<h2 class="title is-2 has-text-centered section-title taxonomy-header">
-    {{ .Data.Singular | humanize }}: {{ lower .Title | markdownify }}
-</h2>
 {{ end }}
 
 {{ define "main" }}
 {{ partial "navbar.html" .}}
 
 <div class="three-column-layout" id="el_sendero">
-    <!-- Mobile sendero container (hidden on desktop) -->
+
+    <!-- Left column (46%) - Map -->
+    <div class="map-column">
+        <!-- Mobile sendero container (hidden on desktop) -->
     <div class="sendero-mobile-container">
         <div class="slogan-home" style="text-align: center;">
             <i>el viaje de una <b>yogini</b> por los <b>cien</b> barrios porteños</i>
         </div>
         <br><br>
-        {{partial "images/sendero" .}}<br>
-        <h4 class="estudios-post-title", style="font-size: 1.6rem !important;">
-            
-            {{ if eq .Type "barrio" }}
-                Barrio: {{ .Title }}
-            {{ else if eq .Type "estilo" }}
-                Estilo: {{ .Title }}
-            {{ else if eq .Type "duracion" }}
-                Duración: {{ .Title }}
-            {{ else if eq .Type "intensidad" }}
-                Intensidad: {{ .Title }}
-            {{ else if eq .Type "Otros" }}
-                Otros: {{ .Title }}
-            {{ end }}
-
-        </h4><hr>
+        {{partial "images/elsemillerogris" .}}
     </div>
 
-    <!-- Left column (46%) - Map -->
-    <div class="map-column">
-        {{partial "map.html" .}}
+
+        <div class="sendero-desktop"><bR>
+        {{partial "images/elsemillerogris" .}}
+
+            <div class="title-container">
+                <h2 class="estudio-title-big">
+                    {{ .Title | markdownify }}
+                </h2>
+                
+            </div>
+        </div>
+
     </div>
 
     <!-- Center column (42%) - Content -->
     <div class="content-column">
-        <div class="sendero-desktop">
-            {{partial "images/sendero" .}}
-        <h4 class="estudios-post-title", style="font-size: 1.6rem !important;">
-            
-            {{ if eq .Type "barrio" }}
-                Barrio: {{ .Title }}
-            {{ else if eq .Type "estilo" }}
-                Estilo: {{ .Title }}
-            {{ else if eq .Type "duracion" }}
-                Duración: {{ .Title }}
-            {{ else if eq .Type "intensidad" }}
-                Intensidad: {{ .Title }}
-            {{ else if eq .Type "Otros" }}
-                Otros: {{ .Title }}
-            {{ end }}
 
-        </h4><hr>
-
-        </div>
-        
-        <div class="estudios-posts-container">
-            {{ range where .Pages.ByPublishDate.Reverse "Section" "estudios" }}
-            <div class="estudios-post-item">
-                <h4 class="estudios-post-title">
-                <a href="{{ .Permalink }}">#{{ .Params.id | markdownify }} - {{ .Title | markdownify }}</a>
-                </h4>
-                {{partial "post-taxonomy.html" .}}
-                {{ if .Params.descripcion }}
-                <div class="estudios-post-description">
-                    {{ .Params.descripcion | markdownify }}
-                </div>
-                {{ end }}
-                <hr class="estudios-post-divider">
-            </div>
-            {{ end }}
+        <div class="description">
+            {{ .Content }}
         </div>
     </div>
+
+    
 
     <!-- Right column (12%) - Blog posts -->
     <div class="blog-column">
@@ -90,11 +48,176 @@
     </div>
 </div>
 
-<style> 
+<style>
+
+/* Add these styles to your existing style section */
+
+/* Heading styles */
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+    margin: 1.5rem 0;
+    color: #555;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 2rem;
+    line-height: 1.3;
+}
+
+h3 {
+    font-size: 1.75rem;
+    line-height: 1.3;
+}
+
+h4 {
+    font-size: 1.5rem;
+    line-height: 1.4;
+}
+
+h5 {
+    font-size: 1.25rem;
+    line-height: 1.4;
+}
+
+h6 {
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+
+/* Center aligned text */
+.center-text {
+    text-align: center;
+}
+
+/* Maintain your existing text styling */
+p, ul, ol, li, .description {
+    font-size: 1.1rem;
+    line-height: 1.4;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+/* If you want to style links within text */
+a {
+    color: var(--brown);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--red);
+    text-decoration: underline;
+}
+
+
+
+
+
+/* Light HR style */
+.light-hr {
+    border: none;
+    height: 1px;
+    background-color: #dacece;
+    width: 95%;
+    margin: 1.5rem auto;
+}
+
+
+.sendero-desktop img {
+    max-height: 36px;
+    height: auto;
+    width: auto;
+}
+
+.description{
+    font-size: 1.1rem;
+    line-height: 1.4;
+    color: #555;
+    margin-bottom: 1.5rem !important;
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.vertical-divider {
+    width: 1px;
+    height: 120px;
+    background-color: #e3e2e2;
+}
+
+.estudio-title-big {
+    font-size: 6rem;
+    margin: 0;
+    line-height: 1.3;
+    font-weight: 600;
+    color: #555;
+}
+
+.estudio-subtitle-big {
+    font-size: 3rem;
+    margin: 0;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+    font-weight: 600;
+    color: #555;
+}
+
+.estudio-subtitle {
+    font-size: 1.6rem;
+    margin: 0;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+    font-weight: 600;
+    color: var(--gray);
+}
+
+.links {
+    font-size: 1.2rem;
+    margin: 0;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+    font-weight: 300;
+    color: var(--gray);
+}
+
+.map-container {
+    width: 100%;
+    aspect-ratio: 3/1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.elegant-map-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.elegant-map {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
 :root {
-    --red: #CD5C5C; /* Define your color variable */
+    --red: #CD5C5C;
     --gray: #6c6464;
-    --brown: #6b3d08; /* Define your color variable */
+    --brown: #6b3d08;
 }
 
 /* Content styles */
@@ -113,7 +236,7 @@
 
 .estudios-post-title {
     font-size: 2.3rem;
-    margin: 0 0 1rem 0;
+    margin: 0 0 0.3rem 0;
     line-height: 1.3;
     font-weight: 600;
     color: var(--gray);
@@ -131,7 +254,6 @@
 .estudios-post-description {
     font-size: 1rem;
     line-height: 1.4;
-    padding-top: 1rem;
     color: #555;
     margin-bottom: 1.5rem !important;
 }
@@ -141,31 +263,6 @@
     height: 1px;
     background-color: #e0e0e0;
     margin: 0;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .blog-column {
-        display: none;
-    }
-    .map-column,
-    .content-column {
-        width: 50%;
-    }
-}
-
-div.section.fade-in.two {
-    padding: 0 !important;
-}
-
-/* Reuse the styles from index.html */
-:root {
-    --red: #CD5C5C;
-    --gray: #6c6464;
-}
-
-.hr {
-    color: #a8a8a8;
 }
 
 /* Navigation Bar Styles */
@@ -197,14 +294,6 @@ div.section.fade-in.two {
     padding: 0 20px;
 }
 
-/* Reset and base styles */
-body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-}
-
 /* Main layout container */
 .three-column-layout {
     display: flex;
@@ -224,7 +313,7 @@ body, html {
 
 .map-column {
     width: 46%;
-    padding: 1rem;
+    padding: 3rem;
     padding-top: calc(1rem + 60px);
 }
 
@@ -277,16 +366,26 @@ body, html {
     display: block;
 }
 
+.elegant-map-container {
+    position: relative;
+}
+
+.map-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    cursor: pointer;
+}
+
 /* Responsive Breakpoints */
 @media screen and (max-width: 1200px) {
     .three-column-layout {
         flex-wrap: wrap;
     }
     
-    .sendero-mobile-container {
-        padding-bottom: 0 !important;
-    }
-
     .map-column {
         width: 50%;
         order: 1;
@@ -295,8 +394,6 @@ body, html {
     .content-column {
         width: 50%;
         order: 2;
-        padding-bottom: 0 !important;
-        margin-bottom: 0 !important;
     }
     
     .blog-column {
@@ -308,13 +405,6 @@ body, html {
     }
     
     .nav-bar {
-        width: 100%;
-    }
-}
-
-@media screen and (max-width: 800px) {
-    .map-column,
-    .content-column {
         width: 100%;
     }
 }
@@ -362,25 +452,16 @@ body, html {
     
     .map-column {
         width: 100%;
-        height: 70vh !important; /* Increased height */
-        min-height: 400px;
-        max-height: none !important; /* Remove max-height restriction */
-        overflow: hidden;
+        height: auto !important;
+        aspect-ratio: 3/2;
         order: 2;
-        padding-top: 1rem;
-        padding-left: 1.5rem !important;
-        padding-right: 1.5rem !important;
-        padding-bottom: 0 !important;
-        margin-bottom: 0 !important;
+        padding: 1.5rem !important;
     }
-    
     
     .content-column {
         width: 100%;
         order: 3;
-        padding-top: 1rem;
-        padding-left: 1.5rem !important;
-        padding-right: 1.5rem !important;
+        padding: 1.5rem !important;
     }
     
     .blog-column {
@@ -400,31 +481,75 @@ body, html {
         margin-bottom: 2rem;
     }
     
-    /* Remove the vertical border */
+    /* Remove the vertical border and divider on mobile */
     .blog-column::before {
         display: none;
+    }
+    
+    .vertical-divider {
+        display: none;
+    }
+    
+    .title-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .map-column,
+    .content-column {
+        width: 100%;
+    }
+    
+    .estudio-title-big {
+        font-size: 4rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .estudio-title-big {
+        font-size: 3rem;
     }
 }
 </style>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        function enableMapInteractivity(overlay) {
-            const iframe = overlay.previousElementSibling;
-            iframe.style.pointerEvents = 'auto';
-            overlay.style.display = 'none';
-            
-            setTimeout(() => {
-                iframe.style.pointerEvents = 'none';
-                overlay.style.display = 'block';
-            }, 30000);
-        }
-    
-        document.querySelectorAll('.map-overlay').forEach(overlay => {
-            overlay.addEventListener('click', function() {
-                enableMapInteractivity(this);
-            });
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize all map overlays
+    document.querySelectorAll('.map-overlay').forEach(overlay => {
+        overlay.addEventListener('click', function() {
+            enableMapInteractivity(this);
         });
     });
+
+    function enableMapInteractivity(overlay) {
+        const container = overlay.closest('.elegant-map-container');
+        const iframe = container.querySelector('iframe');
+        
+        // First remove pointer-events none from iframe
+        iframe.style.pointerEvents = 'auto';
+        
+        // Hide the overlay
+        overlay.style.display = 'none';
+        
+        // Set timeout to reset after 5 minutes (300,000ms)
+        const timeoutId = setTimeout(() => {
+            iframe.style.pointerEvents = 'none';
+            overlay.style.display = 'block';
+        }, 300000);
+        
+        // Also reset when clicking anywhere outside the map
+        document.addEventListener('click', function outsideClickHandler(e) {
+            if (!container.contains(e.target)) {
+                iframe.style.pointerEvents = 'none';
+                overlay.style.display = 'block';
+                clearTimeout(timeoutId);
+                document.removeEventListener('click', outsideClickHandler);
+            }
+        });
+    }
+});
 </script>
 {{ end }}

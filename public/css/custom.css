@@ -121,7 +121,7 @@
 }
 
 .responsive-title-image img {
-    height: 30px; /* Fixed base height */
+    height: 60px; /* Fixed base height */
     width: auto;
     max-width: 100%;
     object-fit: contain;
@@ -130,7 +130,7 @@
 }
 
 .responsive-title-imagedoble img {
-    height: 130px; /* Fixed base height */
+    height: 60px; /* Fixed base height */
     width: auto;
     max-width: 100%;
     object-fit: contain;
@@ -150,7 +150,7 @@
 
 @media screen and (max-width: 480px) {
     .responsive-title-image img {
-        height: 70px;
+        height: 90px;
     }
     .responsive-title-imagedoble{
         height: 145px;

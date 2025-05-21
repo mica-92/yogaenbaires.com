@@ -3,8 +3,10 @@
     {{ range where .Pages.ByPublishDate.Reverse ".Params.highlight" true }}
     <div class="estudios-post-item">
         <h4 class="estudios-post-title">
-            <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
+                <a href="{{ .Permalink }}">#{{ .Params.id | markdownify }} - {{ .Title | markdownify }}</a>
         </h4>
+        {{partial "post-taxonomy.html" .}}
+
         {{ if .Params.descripcion }}
         <div class="estudios-post-description">
             {{ .Params.descripcion | markdownify }}

@@ -1,225 +1,109 @@
-<!-- layouts/partials/schedule2.html -->
-<div class="connect-item">
-    <h2>Horarios:</h2>
-    El estudio cuenta con <b>{{ .Params.salones }}</b> salon con capacidad para <b>{{ .Params.capacidad }}</b> alumnos.
-    {{ .Params.reservas }}
-
 {{ if or .Params.lunes .Params.martes .Params.miercoles .Params.jueves .Params.viernes .Params.sabado .Params.domingo }}
-{{ $maxClasses := 0 }}
-{{ $daysWithClasses := slice }}
-{{ $dayNames := slice "Lunes" "Martes" "Miércoles" "Jueves" "Viernes" "Sábado" "Domingo" }}
-{{ $dayKeys := slice "lunes" "martes" "miercoles" "jueves" "viernes" "sabado" "domingo" }}
+<div class="simple-schedule">
+  {{ $dayNames := slice "Lunes" "Martes" "Miércoles" "Jueves" "Viernes" "Sábado" "Domingo" }}
+  {{ $dayKeys := slice "lunes" "martes" "miercoles" "jueves" "viernes" "sabado" "domingo" }}
 
-{{ range $index, $day := $dayKeys }}
-  {{ if isset $.Params $day }}
-    {{ $daysWithClasses = $daysWithClasses | append (dict "name" (index $dayNames $index) "key" $day) }}
-    {{ $dayClasses := len (index $.Params $day) }}
-    {{ if gt $dayClasses $maxClasses }}
-      {{ $maxClasses = $dayClasses }}
-    {{ end }}
-  {{ end }}
-{{ end }}
-
-{{ if gt (len $daysWithClasses) 0 }}
-<div class="schedule">
-  <div class="schedule-table" style="--days-count: {{ len $daysWithClasses }}">
-    {{ range $day := $daysWithClasses }}
-      {{ $dayClasses := len (index $.Params $day.key) }}
-      
-      <div class="schedule-day" style="--class-count: {{ $maxClasses }}">
-        <div class="day-name">{{ $day.name }}</div>
-        <div class="day-classes">
-          {{ range $class := (index $.Params $day.key) }}
-            <div class="class-time style-{{ anchorize $class.style }}">
-              <span class="class-hour">{{ $class.horario }}</span>
-              <span class="class-style">{{ $class.clase }}</span>
-              {{ if $class.descripcion }}
-              <div class="class-tooltip">
-                {{ $class.descripcion }}
-              </div>
-              {{ end }}
-            </div>
-          {{ end }}
-          
-          <!-- Empty class placeholders to maintain height -->
-          {{ range $i := (seq (sub $maxClasses $dayClasses)) }}
-            <div class="class-time empty"></div>
-          {{ end }}
-        </div>
+  {{ range $index, $day := $dayKeys }}
+    {{ if isset $.Params $day }}
+      <h3 class="estudio-subtitle">{{ index $dayNames $index }}</h3>
+      <div class="classes-list">
+        {{ range $class := (index $.Params $day) }}
+          <div class="class-item">
+            <span class="class-time">{{ $class.horario }}</span>
+            <span class="class-name">{{ $class.clase }}</span>
+            {{ if $class.descripcion }}
+              <div class="class-description">{{ $class.descripcion }}</div>
+            {{ end }}
+          </div>
+        {{ end }}
       </div>
     {{ end }}
-  </div>
+  {{ end }}
 </div>
 
 <style>
-.schedule {
+.simple-schedule {
   margin: 20px 0;
 }
-.schedule-table {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 15px;
-  width: 100%;
+
+.classes-list {
+  margin-bottom: 20px;
 }
-.schedule-day {
-  border: 2px solid #d2c2c2;
-  border-radius: 8px;
-  padding: 10px;
-  transition: all 0.3s ease;
+
+.class-item {
+  width: 90%;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
   position: relative;
-  z-index: 1;
-  min-height: calc(40px + (var(--class-count) * 50px));
-  display: flex;
-  flex-direction: column;
-}
-.schedule-day:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  border-color: #4a4545;
-  filter: brightness(92%);
-  z-index: 2;
-}
-.day-name {
-  font-weight: bold;
-  margin-bottom: 8px;
-  text-align: center;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-.day-classes {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  flex-grow: 1;
-}
-.class-time {
-  text-align: center;
-  font-family: 'Menlo', 'Consolas', monospace;
-  padding: 8px 5px;
-  border-radius: 4px;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.2s ease;
   cursor: pointer;
-  background: white;
-  border-left: 4px solid transparent;
-  min-height: 40px;
-  box-sizing: border-box;
-  justify-content: center;
-  position: relative;
-  flex-grow: 1;
-}
-.class-time.empty {
-  visibility: hidden;
-  pointer-events: none;
-}
-.class-time:hover {
-  filter: brightness(92%) drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+  transition: all 0.2s ease;
 }
 
-.class-hour {
-  font-size: 0.9em;
-  white-space: nowrap;
+.class-item:hover {
+  color: #CD5C5C;
 }
-.class-style {
+
+.class-time {
+  display: inline-block;
+  width: 60px;
   font-family: 'Menlo', 'Consolas', monospace;
-  font-weight: bold;
-  font-size: 0.8em;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
+  color: #666;
 }
 
-/* Tooltip styles */
-.class-tooltip {
+.class-item:hover .class-time {
+  color: inherit;
+}
+
+.class-name {
+  font-weight: 500;
+}
+
+.class-description {
   position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0,0,0,0.8);
-  color: white;
-  padding: 8px 12px;
+  left: 70px;
+  top: 100%;
+  background: white;
+  padding: 15px; /* Increased padding */
   border-radius: 6px;
-  font-size: 0.8em;
-  width: max-content;
-  max-width: 200px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Stronger shadow */
+  z-index: 10;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
-  margin-bottom: 10px;
-  pointer-events: none;
-  z-index: 10;
+  width: 300px; /* Increased width */
+  font-size: 0.8em; /* Larger font */
+  color: #333;
+  line-height: 1.5; /* Better line spacing */
+  border: 1px solid #f0f0f0; /* Subtle border */
 }
-.class-tooltip:after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  border-width: 5px;
-  border-style: solid;
-  border-color: rgba(0,0,0,0.8) transparent transparent transparent;
-}
-.class-time:hover .class-tooltip {
+
+.class-item:hover .class-description {
   opacity: 1;
   visibility: visible;
+  transform: translateY(5px); /* Smooth slide-in effect */
 }
-
-/* Style-specific colors */
-.style-hatha { 
-    background-color: #e3f2fd;
-    color: #1976d2;
-    border: 1px solid #bbdefb;
-}
-.style-vinyasa { 
-    background-color: #fce4ec;
-    color: #c2185b;
-    border: 1px solid #f8bbd0;
-}
-.style-ashtanga { 
-    background-color: #e8f5e9;
-    color: #388e3c;
-    border: 1px solid #c8e6c9;
-}
-.style-yin { 
-    background-color: #fff8e1;
-    color: #ff8f00;
-    border: 1px solid #ffe0b2;
-}
-.style-otros {
-    background-color: #f3e5f5;
-    color: #8e24aa;
-    border: 1px solid #e1bee7;
-}
-.style-marron {
-    background-color: #efebe9;
-    color: #5d4037;
-    border: 1px solid #d7ccc8;
-}
-
-/* Hover effects */
-.style-hatha:hover { background-color: #bbdefb; }
-.style-vinyasa:hover { background-color: #f8bbd0; }
-.style-ashtanga:hover { background-color: #c8e6c9; }
-.style-otros:hover { background-color: #e1bee7; }
-.style-yin:hover { background-color: #ffe0b2; }
-.style-marron:hover { background-color: #d7ccc8; }
 
 @media (max-width: 768px) {
-  .schedule-table {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  .class-time {
+    width: 50px;
   }
-  .class-tooltip {
-    max-width: 150px;
-    font-size: 0.7em;
+  
+  .class-description {
+    left: 0;
+    width: 100%;
+    position: relative;
+    margin-top: 10px; /* More spacing */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    padding: 12px; /* Consistent with desktop */
+    font-size: 0.95em; /* Slightly smaller but still readable */
   }
-}
-
-@media (max-width: 480px) {
-  .schedule-table {
-    grid-template-columns: 1fr;
+  
+  .class-item:hover .class-description {
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+    transform: none; /* Remove transform on mobile */
   }
 }
 </style>
-{{ end }}
 {{ end }}

@@ -1,6 +1,12 @@
-
 {{ with .Site.GetPage "/blog" }}
-<br><img src="/yogaenbaires/images/elsemillero.png" alt="El Semillero">
+<br>
+<div class="semillero-container">
+    <a href="/yogaenbaires/blog/">
+    <img src="/yogaenbaires/images/elsemillero.png" alt="El Semillero" class="semillero-img desktop-img">
+    <img src="/yogaenbaires/images/elsemilleroderecho.png" alt="El Semillero Derecho" class="semillero-img mobile-img">
+        </a>
+</div>
+
 <hr class="yoga-title-divider">
 <div class="yoga-posts-container">
     {{ range where .Pages.ByPublishDate.Reverse ".Params.highlight" true }}
@@ -20,82 +26,140 @@
 {{ end }}
 
 <style>
-    /* Content styles */
-.sub_section {
-    min-height: min-content;
-}
-
-/* Blog column specific styles */
-.blog-column {
-    width: 12%;
-    padding: 1rem;
-    border-right: 1px solid #e0e0e0; /* Right border */
-}
-
-.yoga-posts-container {
-    padding: 0.5rem;
-    text-align: center; /* Center all content */
-}
-
-.yoga-post-item {
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-}
-
-.yoga-post-title {
-    font-size: 1rem;
-    font-weight: 800;
-    margin: 0 0 0.3rem 0;
-    line-height: 1.3;
-    color: #2c2900ff;
-    font-style: italic; /* Italic text */
-    text-align: center; /* Centered */
-}
-
-.yoga-post-title a {
-    text-decoration: none;
-    color: inherit;
-}
-
-.yoga-post-title a:hover {
-    color:#6c6464;
-}
-
-.yoga-post-description {
-    font-size: 0.8rem;
-    line-height: 1.4;
-    color: #555;
-    margin-bottom: 1.3rem;
-    font-style: italic; /* Italic text */
-    text-align: center; /* Centered */
-    
-}
-
-.yoga-post-divider {
-    border: none;
-    height: 1px;
-    background-color: #e0e0e0;
-    margin: 0.5rem auto 0 auto; /* Center the divider */
-    width: 100%; /* Make divider slightly shorter than full width */
-}
-
-.yoga-title-divider {
-    border: none;
-    height: 1px;
-    background-color: #e0e0e0;
-    margin: 1rem 0; /* Center the divider */
-    width: 100%; /* Make divider slightly shorter than full width */
-}
-
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .blog-column {
-        display: none;
+    /* Base styles */
+    .sub_section {
+        min-height: min-content;
     }
-    .map-column,
-    .content-column {
-        width: 50%;
+
+    /* Semillero container styles */
+    .semillero-container {
+        text-align: center;
     }
-}
+
+    /* Image base styles */
+    .semillero-img {
+        height: auto;
+        width: auto;
+        max-height: 80px;
+        display: none; /* Hide both by default */
+    }
+
+    /* Default styles (used for all screen sizes below 1200px) */
+    .yoga-posts-container {
+        padding: 0.5rem;
+        text-align: center;
+    }
+
+    .yoga-post-item {
+        padding-bottom: 0.5rem;
+    }
+
+    .yoga-post-title {
+        font-size: 2.3rem;
+        font-size: 2.3rem;
+        font-weight: 600;
+        color:  var(--gray);;
+        margin: 0 0 0.3rem 0;
+        line-height: 1.3;
+        font-weight: 600;
+        text-align: left;
+        font-style: italic;
+    }
+
+    .yoga-post-title a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .yoga-post-title a:hover {
+        color:#6c6464;
+    }
+
+    .yoga-post-description {
+        font-size: 1rem;
+        line-height: 1.4;
+        color: var(--gray);;
+        margin-bottom: 1.3rem;
+        font-style: italic;
+        text-align: left;
+    }
+
+    .yoga-post-divider {
+        border: none;
+        height: 1px;
+        background-color: #e0e0e0;
+        width: calc(100% - 0.5rem);
+        
+    }
+
+    .yoga-title-divider {
+        border: none;
+        height: 1px;
+        background-color: #e0e0e0;
+        margin: 1rem 0;
+        width: 100%;
+    }
+
+    /* Mobile image shows below 1200px */
+        .semillero-container {
+            text-align: left; /* Left align container contents */
+            padding-left: 0.5rem; /* Add some left padding */
+        }
+    @media (max-width: 1199px) {
+        .mobile-img {
+            display: inline-block;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        .desktop-img {
+            display: none;
+        }
+        
+        .yoga-title-divider{
+            display: none;
+        }
+
+    }
+
+    /* Desktop styles (1200px and above) */
+    @media (min-width: 1200px) {
+        .desktop-img {
+            display: inline-block;
+        }
+        .mobile-img {
+            display: none;
+        }
+
+
+        
+        /* Only change the font sizes, keep other styles */
+        .yoga-post-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--gray);
+            font-style: italic;
+            text-align: center;
+        }
+
+        .yoga-post-title a:hover {
+            color: var(--brown);
+        }
+
+        .yoga-post-description {
+            font-size: 0.8rem;
+            margin-bottom: 1.5rem !important;
+            text-align: center;
+        }
+    }
+
+    /* Other responsive adjustments */
+    @media (max-width: 768px) {
+        .blog-column {
+            display: none;
+        }
+        .map-column,
+        .content-column {
+            width: 50%;
+        }
+    }
 </style>

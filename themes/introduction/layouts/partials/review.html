@@ -1,0 +1,117 @@
+<!-- galeria-reviews2.html -->
+
+    <h2 class="estudio-subtitle-big">Reseñas:</h2>
+    
+    <div class="reviews-list">
+        {{ $reviews := sort (default slice .Params.comments) "weight" }}
+        
+        {{ if gt (len $reviews) 0 }}
+            {{ range $reviews }}
+                <div class="review-item">
+                    <div class="review-content">
+                        <blockquote>
+                            <i class="quote-icon fas fa-quote-left"></i>
+                            <p>{{ .text | markdownify }}</p>
+                        </blockquote>
+                        {{ if .author }}
+                        <div class="review-author">
+                            — {{ .author }}
+                        </div>
+                        {{ end }}
+                    </div>
+                </div>
+            {{ end }}
+        {{ else }}
+            <p class="no-reviews">No hay reseñas aún.</p>
+        {{ end }}
+        <hr class="light-hr">
+    </div>
+
+<style>
+/* Reviews Section */
+.estudio-subtitle-big {
+    font-size: 2rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.light-hr {
+    border: none;
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 2rem 0;
+}
+
+/* Reviews List */
+.reviews-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0 1rem;
+}
+
+/* Review Item */
+.review-item {
+    background: transparent;
+    padding: 0;
+}
+
+/* Review Content */
+.review-content {
+    position: relative;
+}
+
+blockquote {
+    margin: 0;
+    padding: 0;
+    font-style: italic;
+    color: #666; /* Gray text */
+    line-height: 1.7;
+    font-size: 1.1rem;
+    font-family: Georgia, serif; /* More elegant font for quotes */
+}
+
+.quote-icon {
+    color: #999;
+    opacity: 0.5;
+    font-size: 1.1rem;
+    margin-right: 0.5rem;
+}
+
+blockquote p {
+    margin: 0;
+    display: inline;
+}
+
+.review-author {
+    text-align: right;
+    font-weight: 500;
+    color: #888;
+    font-style: normal;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    font-family: 'Menlo', 'Consolas', monospace;
+}
+
+.no-reviews {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    font-family: 'Menlo', 'Consolas', monospace;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .reviews-list {
+        padding: 0;
+    }
+    
+    blockquote {
+        font-size: 1rem;
+    }
+    
+    .estudio-subtitle-big {
+        font-size: 1.6rem;
+    }
+}
+</style>

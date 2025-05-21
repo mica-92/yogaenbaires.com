@@ -7,7 +7,7 @@ description: "instructivo para disfrutar de tu primera clase de yoga"
 
 ¡Claro! Aquí tienes un resumen con cosas importantes a tener en cuenta si es tu primera vez en una clase de yoga:
 
-**Si es tu Primera Vez en Yoga: Puntos Clave a Considerar**
+## **Si es tu Primera Vez en Yoga: Puntos Clave a Considerar**
 
 Ir a tu primera clase de yoga puede generar un poco de incertidumbre, ¡y eso es normal! Aquí tienes algunos consejos para que tu experiencia sea lo más agradable y beneficiosa posible:
 
