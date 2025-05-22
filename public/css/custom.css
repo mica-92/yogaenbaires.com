@@ -83,27 +83,6 @@
     transition: color 0.3s ease-in-out; /* Add a smooth transition for the color change */
   }
   
-  /* Specifically target Font Awesome brands (fab) - Instagram */
-  .fade-in.three .social-icons a .fab {
-    font-size: 1.85rem !important;
-    color: #CD5C5C !important;
-    transition: color 0.2s ease-in-out; /* Add a smooth transition for the color change */
-  }
-  
-  /* Specifically target Font Awesome solid (fas) - Paper Plane */
-  .fade-in.three .social-icons a .fa {
-    font-size: 1.75rem !important;
-    color: #CD5C5C !important;
-    transition: color 0.3s ease-in-out; /* Add a smooth transition for the color change */
-  }
-  
-  /* Hover effects for both */
-  .fade-in.three .social-icons a:hover .fa,
-  .fade-in.three .social-icons a:hover .fas {
-    transform: scale(1.15);
-    opacity: 0.9;
-    color: #6c6464ff !important; /* Set the hover color */
-  }
 
 
 .h3 {
@@ -530,7 +509,11 @@
     transition: color 0.3s ease;
 }
 
-.post-full .markdown a:hover {
+.a:hover {
+    text-decoration: none !important;
+}
+
+.post-full .markdown  {
     color: #6c6464;
     text-decoration: underline;
 }

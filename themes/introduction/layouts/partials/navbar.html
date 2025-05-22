@@ -2,8 +2,7 @@
     <div class="nav-content">
         <div class="left-items">
             <div class="menu-toggle" id="menuToggle">
-                <img src="/yogaenbaires/images/IG-prof.png" alt="Menu" class="burger-icon">
-                <img src="/yogaenbaires/images/burger.png" alt="Menu Icon" class="burger-icon-hover" style="display:none;">
+                <img src="/yogaenbaires/images/IG-prof.png" alt="Menu" class="burger-icon" width="30" height="30">
             </div>
             
             <a href="/yogaenbaires/" class="logo-link">
@@ -16,7 +15,7 @@
         </div>
 
         <div class="social-icons">
-            <a href="https:/instagram.com/yogaenbaires" target="_blank" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.instagram.com/yogaenbaires" target="_blank" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
             <a href="https://www.tiktok.com/@yogaenbaires" target="_blank" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
             <a href="mailto:mmicaninni92@email.com" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
         </div>
@@ -48,30 +47,31 @@
 
             <div class="search-container">
                 <i id="searchIcon" class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" id="postSearch" placeholder="Buscar Estudios por Nombre, Categoria o #ID...">
+                <input type="text" id="postSearch" placeholder="Buscar por Nombre, Categoria o #ID...">
                 <div id="searchResults"></div>
             </div>
 
             <nav class="menu-links">
-                <a href="/yogaenbaires/blog/about">sobre mi & <i>yogaenbaires</i></a>
+                <a href="/yogaenbaires/">home: <i>el sendero del yogui</i></a>
+                <a href="/yogaenbaires/blog/sobre-mi/">sobre mi & <i>yogaenbaires</i></a>
                 <a href="/yogaenbaires/blog/">el semillero</a>
                 
                 <div class="taxonomy-section">
-                    <h3>Barrios</h3>
+                    <h3 class="categorias-title">Barrios</h3>
                     <div class="taxonomy-list">
                         {{ range $name, $taxonomy := .Site.Taxonomies.barrio }}
                             <a href="/yogaenbaires/barrio/{{ $name | urlize }}" class="taxonomy-item">{{ $name | title }}</a>
                         {{ end }}
                     </div>
                     
-                    <h3>Estilos</h3>
+                    <h3 class="categorias-title">Estilos</h3>
                     <div class="taxonomy-list">
                         {{ range $name, $taxonomy := .Site.Taxonomies.estilo }}
                             <a href="/yogaenbaires/estilo/{{ $name | urlize }}" class="taxonomy-item">{{ $name | title }}</a>
                         {{ end }}
                     </div>
                     
-                    <h3>Intensidad</h3>
+                    <h3 class="categorias-title">Intensidad</h3>
                     <div class="taxonomy-list">
                         {{ range $name, $taxonomy := .Site.Taxonomies.intensidad }}
                             <a href="/yogaenbaires/intensidad/{{ $name | urlize }}" class="taxonomy-item">{{ $name | title }}</a>
@@ -83,10 +83,75 @@
     </div>
 </div>
 
-
-
-
 <style>
+.a:hover {
+    text-decoration: none !important;
+}
+
+
+.categorias-title {
+    font-size: 1.6rem !important;
+    font-weight: 600 !important;
+    text-align: left !important;
+    color: #555;
+}
+/* Logo and icon container adjustments */
+.menu-toggle {
+    height: 30px; /* Fixed height to match logo */
+    width: 30px; /* Fixed width to maintain square ratio */
+}
+
+
+.burger-icon {
+    width: 30px !important;
+    height: 30px !important;
+    transition: none !important; /* Disable transition during initial load */
+}
+
+/* Add this to your existing CSS */
+.menu-toggle {
+    overflow: hidden; /* Contain any initial image flash */
+}
+
+/* Logo and icon image styles */
+.right-logo, 
+.burger-icon, 
+.burger-icon-hover {
+    height: 100%;
+    width: auto; /* Maintain aspect ratio */
+    max-height: 30px; /* Same as container */
+    object-fit: contain; /* Ensure image isn't stretched */
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+    .logo-link {
+        height: 25px; /* Slightly smaller on mobile */
+    }
+    
+    .right-logo {
+        max-height: 25px;
+    }
+    
+    .menu-toggle {
+        height: 25px;
+        width: 25px;
+    }
+    
+    .burger-icon, 
+    .burger-icon-hover {
+        max-height: 25px;
+    }
+}
+
+/* Prevent any accidental distortion */
+img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+
 /* Modified styles for logo and link */
 .logo-link {
     display: flex;
@@ -136,19 +201,26 @@
     color: #2c2900;
 }
 
+  /* Hover effects for both */
+  .fa, .fab, .fas {
+    font-size: 36px !important;
+
+  }
+
 .social-icons {
     display: flex;
 }
 
 .social-icon {
-    margin-left: 1.4rem;
-    font-size: 24px;
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+    font-size: 30px;
     color: #6c6464;
     transition: all 0.3s ease;
 }
 
 .social-icon:hover {
-    color: #2c2900;
+    color: #CD5C5C;
     transform: scale(1.1);
 }
 
@@ -250,20 +322,33 @@
     top: 0.75rem;
     color: #999;
     font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.search-container input:focus ~ i {
+    color: #CD5C5C; /* Icon turns red when input is focused */
 }
 
 .search-container input {
     width: 100%;
     padding: 0.75rem 0.75rem 0.75rem 2.5rem;
     border: none;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #ddd; /* Default thin gray bottom border */
     font-weight: 500;
     background: transparent;
     font-size: 1rem;
+    outline: none; /* Remove default focus outline */
+    box-shadow: none; /* Remove any box shadow */
+    transition: border-bottom 0.3s ease; /* Smooth transition */
 }
 
 .search-container input:focus {
-    border-bottom: 2px solid #CD5C5C;
+    border-bottom: 2px solid #CD5C5C; /* Thicker red bottom border when focused */
+    border-radius: 0; /* Ensure no rounded corners */
+}
+
+.search-container input:focus-visible {
+    outline: none; /* Remove outline in modern browsers */
 }
 
 #searchResults {
@@ -349,6 +434,12 @@
     color: #666;
 }
 
+@media (max-width: 1000px) {
+    .slogan {
+        display: none;
+    }
+
+
 /* Responsive */
 @media (max-width: 768px) {
     .slogan {
@@ -363,6 +454,21 @@
         padding: 0.4rem 0.8rem;
         font-size: 0.85rem;
     }
+
+      /* Hover effects for both */
+  .fa, .fab, .fas {
+    font-size: 14px !important;
+
+  }
+
+.social-icon {
+    margin-left: 0.5rem !important;
+    margin-right: 0.5rem !important;
+    font-size: 28px;
+    color: #6c6464;
+    transition: all 0.3s ease;
+}
+
 }
 </style>
 

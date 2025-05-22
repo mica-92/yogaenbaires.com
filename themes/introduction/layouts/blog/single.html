@@ -15,7 +15,34 @@
             <i>el viaje de una <b>yogini</b> por los <b>cien</b> barrios porteños</i>
         </div>
         <br><br>
-        {{partial "images/elsemillerogris" .}}
+        {{partial "images/elsemillerogris" .}}<br>
+        <hr class="light-hr">
+        <!-- Add the Compartí section here for mobile -->
+        <div class="Comparti-mobile" style="font-size: 24px; font-weight: 300; margin-top: 1rem; text-align: center;">Compartí: </div>
+        
+        <div class="social-icons-mobile" style="display: flex; justify-content: center; gap: 1rem; margin-top: 0.5rem;">
+            <a class="social-share" 
+            style="font-size: 36px !important;"
+            href="https://wa.me/?text={{ .Title | markdownify }}%20{{ .Permalink }}" 
+            target="_blank"
+            aria-label="Compartir en WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+            </a>
+            <a class="social-share"
+            style="font-size: 36px !important;"
+            href="https://instagram.com/?url={{ .Permalink }}"
+            target="_blank"
+            aria-label="Compartir en Instagram">
+            <i class="fab fa-instagram"></i>
+            </a>
+            <a class="social-share"
+            style="font-size: 36px !important;"
+            onclick="navigator.clipboard.writeText('{{ .Title | markdownify }} - {{ .Permalink }}');alert('¡Enlace copiado!')"
+            aria-label="Copiar enlace">
+            <i class="fas fa-share-nodes"></i>
+            </a>
+        </div>
+        <hr class="light-hr">
     </div>
 
 
@@ -28,6 +55,30 @@
                 </h2>
                 
             </div>
+                
+                <div class="Compatrti", style="font-size: 24px; font-weight: 300;">Compartí: </div>
+
+                <div class="social-icons">
+                    <a class="social-share" 
+                        style="font-size: 48px !important;"
+                       href="https://wa.me/?text={{ .Title | markdownify }}%20{{ .Permalink }}" 
+                       target="_blank"
+                       aria-label="Compartir en WhatsApp">
+                       <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a class="social-share"
+                        style="font-size: 48px !important;"
+                       href="https://instagram.com/?url={{ .Permalink }}"
+                       target="_blank"
+                       aria-label="Compartir en Instagram">
+                       <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="social-share"
+                            onclick="navigator.clipboard.writeText('{{ .Title | markdownify }} - {{ .Permalink }}');alert('¡Enlace copiado!')"
+                            aria-label="Copiar enlace">
+                        <i class="fas fa-share-nodes"></i>
+                </a>
+                </div>
         </div>
 
     </div>
@@ -49,11 +100,35 @@
 </div>
 
 <style>
+  /* Hover effects for both */
+  .fa, .fab, .fas {
+    font-size: 36px !important;
+    margin-right: 1.4rem;
+  }
+
+
+
+
+.social-icons {
+    display: flex;
+}
+
+.social-share {
+    margin-left: 1.4rem;
+    font-size: 48px;
+    color: #6c6464;
+    transition: all 0.3s ease;
+}
+
+.social-share:hover {
+    color: #CD5C5C;
+    transform: scale(1.1);
+}
 
 /* Add these styles to your existing style section */
 
 /* Heading styles */
-h1, h2, h3, h4, h5, h6 {
+h1, h3, h4, h5, h6 {
     text-align: center;
     margin: 1.5rem 0;
     color: #555;
@@ -65,10 +140,6 @@ h1 {
     line-height: 1.2;
 }
 
-h2 {
-    font-size: 2rem;
-    line-height: 1.3;
-}
 
 h3 {
     font-size: 1.75rem;
@@ -98,7 +169,7 @@ h6 {
 
 /* Maintain your existing text styling */
 p, ul, ol, li, .description {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     line-height: 1.4;
     color: #555;
     margin-bottom: 1.5rem;
@@ -106,14 +177,14 @@ p, ul, ol, li, .description {
 
 /* If you want to style links within text */
 a {
-    color: var(--brown);
+    color: #555;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 a:hover {
     color: var(--red);
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 
@@ -513,6 +584,37 @@ a:hover {
         font-size: 3rem;
     }
 }
+
+/* Mobile-specific social sharing styles */
+@media screen and (max-width: 1000px) {
+    .Comparti-mobile {
+        text-align: center;
+        font-size: 24px;
+        font-weight: 300;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .social-icons-mobile {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .social-icons-mobile .social-share {
+        font-size: 36px;
+        color: #6c6464;
+        transition: all 0.3s ease;
+        margin-left: 0;
+    }
+    
+    .social-icons-mobile .social-share:hover {
+        color: #CD5C5C;
+        transform: scale(1.1);
+    }
+}
+
 </style>
 
 <script>

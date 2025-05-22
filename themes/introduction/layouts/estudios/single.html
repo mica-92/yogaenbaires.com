@@ -21,19 +21,70 @@
             #{{ .Params.id | markdownify }} <br> {{ .Title | markdownify }}
         </h2>
         <hr class="light-hr">
+        <!-- Add the Compartí section here for mobile -->
+        <div class="Comparti-mobile" style="font-size: 24px; font-weight: 300; margin-top: 1rem; text-align: center;">Compartí: </div>
+        
+        <div class="social-icons-mobile" style="display: flex; justify-content: center; gap: 1rem; margin-top: 0.5rem;">
+            <a class="social-share" 
+            style="font-size: 36px !important;"
+            href="https://wa.me/?text={{ .Title | markdownify }}%20{{ .Permalink }}" 
+            target="_blank"
+            aria-label="Compartir en WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+            </a>
+            <a class="social-share"
+            style="font-size: 36px !important;"
+            href="https://instagram.com/?url={{ .Permalink }}"
+            target="_blank"
+            aria-label="Compartir en Instagram">
+            <i class="fab fa-instagram"></i>
+            </a>
+            <a class="social-share"
+            style="font-size: 36px !important;"
+            onclick="navigator.clipboard.writeText('{{ .Title | markdownify }} - {{ .Permalink }}');alert('¡Enlace copiado!')"
+            aria-label="Copiar enlace">
+            <i class="fas fa-share-nodes"></i>
+            </a>
+        </div>
+        <hr class="light-hr">
     </div>
 
 
-        <div class="sendero-desktop"><bR>
+    <div class="sendero-desktop"><br>
         {{partial "images/senderogris" .}}
 
-            <div class="title-container">
-                <h2 class="estudio-title-big">
-                    #{{ .Params.id | markdownify }} <br> {{ .Title | markdownify }}
-                </h2>
-            </div>
-            
+        <div class="title-container">
+            <h2 class="estudio-title-big">
+                #{{ .Params.id | markdownify }} <br> {{ .Title | markdownify }}
+            </h2>
         </div>
+        
+        <!-- Add the Compartí section here for desktop -->
+        <div class="Compatrti" style="font-size: 24px; font-weight: 300;">Compartí: </div>
+        
+        <div class="social-icons">
+            <a class="social-share" 
+            style="font-size: 48px !important;"
+            href="https://wa.me/?text={{ .Title | markdownify }}%20{{ .Permalink }}" 
+            target="_blank"
+            aria-label="Compartir en WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+            </a>
+            <a class="social-share"
+            style="font-size: 48px !important;"
+            href="https://instagram.com/?url={{ .Permalink }}"
+            target="_blank"
+            aria-label="Compartir en Instagram">
+            <i class="fab fa-instagram"></i>
+            </a>
+            <a class="social-share"
+            style="font-size: 48px !important;"
+            onclick="navigator.clipboard.writeText('{{ .Title | markdownify }} - {{ .Permalink }}');alert('¡Enlace copiado!')"
+            aria-label="Copiar enlace">
+            <i class="fas fa-share-nodes"></i>
+            </a>
+        </div>
+    </div>
 
     </div>
 
@@ -256,7 +307,7 @@
 }
 
 .estudios-post-title a:hover {
-    color: var(--brown);
+    color: var(--red);
 }
 
 .estudios-post-description {
@@ -521,6 +572,63 @@
         font-size: 3rem;
     }
 }
+
+  /* Hover effects for both */
+  .fa, .fab, .fas {
+    font-size: 36px !important;
+    margin-right: 1.4rem;
+  }
+
+
+
+
+.social-icons {
+    display: flex;
+}
+
+.social-share {
+    margin-left: 1.4rem;
+    font-size: 48px;
+    color: #6c6464;
+    transition: all 0.3s ease;
+}
+
+.social-share:hover {
+    color: #CD5C5C;
+    transform: scale(1.1);
+}
+
+/* Mobile-specific social sharing styles */
+@media screen and (max-width: 1000px) {
+    .Comparti-mobile {
+        text-align: center;
+        font-size: 24px;
+        font-weight: 300;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .social-icons-mobile {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .social-icons-mobile .social-share {
+        font-size: 36px;
+        color: #6c6464;
+        transition: all 0.3s ease;
+        margin-left: 0;
+    }
+    
+    .social-icons-mobile .social-share:hover {
+        color: #CD5C5C;
+        transform: scale(1.1);
+    }
+}
+
+
 </style>
 
 <script>

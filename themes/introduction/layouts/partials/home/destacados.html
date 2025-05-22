@@ -35,31 +35,28 @@
 
 <style>
 :root {
-    --brown: #c97516; /* Define your color variable */
-    --gray: #6c6464; /* Define your color variable */
-    --red: #CD5C5C; /* Define your color variable */
-
+    --brown: #c97516;
+    --gray: #6c6464;
+    --red: #CD5C5C;
 }
 
 .container {
     padding: 0 !important;
 }
 
-/* Add this to your existing styles */
 .content-column hr {
     width: 95%;
-    margin: 1rem auto; /* Centers the hr horizontally */
+    margin: 1rem auto;
     border: none;
     height: 1px;
-    background-color: #e3e2e2; /* Same as your border color */
+    background-color: #e3e2e2;
 }
-
 
 .projects-gallery-section {
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
-    overflow: hidden !important; /* Remove scrolling */
+    overflow: hidden !important;
 }
 
 .simple-projects-grid {
@@ -72,14 +69,14 @@
 .simple-project-card {
     position: relative;
     overflow: hidden;
-    border: none !important; /* Force no border */
-    border-radius: 0 !important; /* Force square corners */
+    border: none !important;
+    border-radius: 0 !important;
 }
 
 .image-wrapper {
     position: relative;
     width: 100%;
-    aspect-ratio: 138/120;
+    aspect-ratio: 138/120; /* Desktop aspect ratio */
     overflow: hidden;
     border: none !important;
     border-radius: 0 !important;
@@ -104,11 +101,9 @@
     background: rgba(42, 28, 2, 0.4);
     opacity: 0;
     display: flex;
-    align-items: flex-end; /* Changed from center to flex-end */
-    justify-content: flex-start; /* Changed from center to flex-start */
+    align-items: flex-end;
+    justify-content: flex-start;
     transition: opacity 0.3s ease;
-    border: none !important;
-    border-radius: 0 !important;
 }
 
 .taxonomy-overlay {
@@ -137,13 +132,30 @@
     color: var(--gray);
     line-height: 1.3;
     font-weight: 600;
-
 }
 
 .simple-project-title:hover {
-    color: #6f3f08 !important;
+    color: var(--red) !important;
 }
 
-
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+    .simple-projects-grid {
+        grid-template-columns: 1fr; /* Single column layout */
+        gap: 30px; /* Increased gap for better mobile spacing */
+    }
+    
+    .image-wrapper {
+        aspect-ratio: 3/1; /* 3:1 aspect ratio for mobile */
+    }
+    
+    .simple-project-info {
+        padding: 15px 0 0 0; /* Slightly more padding on mobile */
+    }
+    
+    .simple-project-title {
+        font-size: 1.4rem; /* Slightly smaller font on mobile */
+    }
+}
 </style>
 {{ end }}

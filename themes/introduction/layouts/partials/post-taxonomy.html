@@ -1,5 +1,83 @@
-<!-- Taxonomia de Posts -->
+<style>
+/* TAXONOMIES BUBBLES */
+/* Base Taxonomy Style */
+.post-taxonomy {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 12px; /* horizontal and vertical gap */
+    margin: 8px 0; /* top/bottom margin */
+}
 
+.taxonomy-item {
+    font-family: 'Menlo', 'Consolas', monospace;
+    font-size: 0.8rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+    color: #555; /* Default text color for all items */
+}
+
+/* Color Styles for Each Taxonomy Type */
+.taxonomy-estilo {
+    background-color: #e8f5e9;  /* Light Green */
+    border-color: #c8e6c9;
+}
+.taxonomy-estilo:hover {
+    background-color: #c8e6c9;
+}
+
+.taxonomy-duracion {
+    background-color: #e3f2fd;  /* Light Blue */
+    border-color: #bbdefb;
+}
+.taxonomy-duracion:hover {
+    background-color: #bbdefb;
+}
+
+.taxonomy-intensidad {
+    background-color: #fce4ec;  /* Light Pink */
+    border-color: #f8bbd0;
+}
+.taxonomy-intensidad:hover {
+    background-color: #f8bbd0;
+}
+
+.taxonomy-niveles {
+    background-color: #fff8e1;  /* Light Yellow */
+    border-color: #ffe0b2;
+}
+.taxonomy-niveles:hover {
+    background-color: #ffe0b2;
+}
+
+.taxonomy-otros {
+    background-color: #f3e5f5;  /* Light Purple */
+    border-color: #e1bee7;
+}
+.taxonomy-otros:hover {
+    background-color: #e1bee7;
+}
+
+.taxonomy-barrio {
+    background-color: #fff3e0;  /* Light Orange */
+    border-color: #ffcc80;
+}
+.taxonomy-barrio:hover {
+    background-color: #ffcc80;
+}
+
+/* Hover effects */
+.taxonomy-item:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    color: #555 !important; /* Ensures text stays #555 on hover */
+}
+</style>
+
+<!-- Taxonomia de Posts -->
 <div class="post-taxonomy">
     {{ with .Params.barrio}}
         {{ range . }}
