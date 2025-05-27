@@ -1,4 +1,4 @@
-baseURL                          = "https://mica-92.github.io/yogaenbaires/"   # Your domain name. Must end with "/"
+baseURL                          = "https://www.yogaenbaires.com.ar"   # Your domain name. Must end with "/"
 theme                            = "introduction"
 DefaultContentLanguage           = "es"                    # Default language for multilingual sites
 # disqusshortname                 = ""                     # https://gohugo.io/content-management/comments

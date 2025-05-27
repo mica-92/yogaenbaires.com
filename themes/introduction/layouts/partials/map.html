@@ -1,8 +1,48 @@
 <!-- Place this BEFORE the map container in your HTML -->
 <div class="mobile-map-instructions" style="display: none;">
-    <div class="map-instruction-title"># Camino del Yogui</div>
+    
     <div class="map-instruction-text">
         Explora el mapa y haz clic en los iconos para conocer los estudios de yoga reseñados. Cada estudio incluye una descripción y un identificador # para facilitar la búsqueda de su reseña. Los colores de los iconos indican el estilo de yoga principal que ofrecen.
+        <div class="legend-spacer"></div>
+
+            <div class="legend-items-container">
+
+                <div class="legend-item">     <!-- Hatha -->
+                    <a href="/yogaenbaires/estilo/hatha" class="icon-label-group">
+                        <img src="/yogaenbaires/images/lotus-varios.png" alt="Hatha" class="legend-icon">
+                        <span class="legend-label">Hatha</span>
+                    </a>
+                </div>
+
+                <div class="legend-item">    <!-- Vinyasa -->
+                    <a href="/yogaenbaires/estilo/vinyasa" class="icon-label-group">
+                        <img src="/yogaenbaires/images/lotus-vinyasa.png" alt="Vinyasa" class="legend-icon">
+                        <span class="legend-label">Vinyasa</span>
+                    </a>
+                </div>
+
+                <div class="legend-item">    <!-- Ashtanga -->
+                    <a href="/yogaenbaires/estilo/ashtanga" class="icon-label-group">
+                        <img src="/yogaenbaires/images/lotus-ashtanga.png" alt="Ashtanga" class="legend-icon">
+                        <span class="legend-label">Ashtanga</span>
+                    </a>
+                </div>
+                
+                <div class="legend-item">    <!-- Yin -->
+                    <a href="/yogaenbaires/estilo/yin" class="icon-label-group">
+                        <img src="/yogaenbaires/images/lotus-otros.png" alt="Yin" class="legend-icon">
+                        <span class="legend-label">Yin</span>
+                    </a>
+                </div>
+
+                <div class="legend-item">    <!-- Otros -->
+                    <a href="/yogaenbaires/estilo/otros" class="icon-label-group">
+                        <img src="/yogaenbaires/images/lotus-yin.png" alt="Otros Estilos" class="legend-icon">
+                        <span class="legend-label">Otros</span>
+                    </a>
+                </div>
+            </div>
+    
     </div>
 </div>
 
@@ -16,10 +56,51 @@
     </iframe>
     <div class="map-overlay" onclick="enableMapInteractivity(this)">
         <div class="map-instruction-box">
-            <div class="map-instruction-title"># Camino del Yogui</div>
+            
             <div class="map-instruction-text">
-                Explora el mapa y haz clic en los iconos para conocer los estudios de yoga reseñados. Cada estudio incluye una descripción y un identificador # para facilitar la búsqueda de su reseña. Los colores de los iconos indican el estilo de yoga principal que ofrecen.
+                Usá el mapa para encontrar tu próximo estudio de yoga. Hacé clic en los íconos para ver descripciones y el # para leer la reseña completa. Los colores te ayudarán a identificar rápidamente el estilo de yoga que más te interesa.                
+                <div class="legend-spacer"></div>
+
+                    <div class="legend-items-container">
+
+                        <div class="legend-item">     <!-- Hatha -->
+                            <a href="/yogaenbaires/estilo/hatha" class="icon-label-group">
+                                <img src="/yogaenbaires/images/lotus-varios.png" alt="Hatha" class="legend-icon">
+                                <span class="legend-label">Hatha</span>
+                            </a>
+                        </div>
+
+                        <div class="legend-item">    <!-- Vinyasa -->
+                            <a href="/yogaenbaires/estilo/vinyasa" class="icon-label-group">
+                                <img src="/yogaenbaires/images/lotus-vinyasa.png" alt="Vinyasa" class="legend-icon">
+                                <span class="legend-label">Vinyasa</span>
+                            </a>
+                        </div>
+
+                        <div class="legend-item">    <!-- Ashtanga -->
+                            <a href="/yogaenbaires/estilo/ashtanga" class="icon-label-group">
+                                <img src="/yogaenbaires/images/lotus-ashtanga.png" alt="Ashtanga" class="legend-icon">
+                                <span class="legend-label">Ashtanga</span>
+                            </a>
+                        </div>
+                        
+                        <div class="legend-item">    <!-- Yin -->
+                            <a href="/yogaenbaires/estilo/yin" class="icon-label-group">
+                                <img src="/yogaenbaires/images/lotus-otros.png" alt="Yin" class="legend-icon">
+                                <span class="legend-label">Yin</span>
+                            </a>
+                        </div>
+
+                        <div class="legend-item">    <!-- Otros -->
+                            <a href="/yogaenbaires/estilo/otros" class="icon-label-group">
+                                <img src="/yogaenbaires/images/lotus-yin.png" alt="Otros Estilos" class="legend-icon">
+                                <span class="legend-label">Otros</span>
+                            </a>
+                        </div>
+                    </div>
+            
             </div>
+
         </div>
     </div>
 </div>
@@ -54,7 +135,7 @@
     bottom: 20px;
     background: white;
     padding: 20px;
-    max-width: 400px;
+    max-width: 600px;
     margin: 0;
 }
 
@@ -111,7 +192,7 @@
 }
 
 /* Responsive adjustments */
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1500px) {
     /* Hide the overlay box on mobile */
     .map-overlay {
         background: rgba(42,28,2,0.3)
@@ -126,7 +207,9 @@
         right: 0;
         bottom: 0;
         max-width: none;
+        width: 100%;
         padding: 15px;
+        border-radius: 0;
     }
     
     /* Ensure map has proper height on mobile */
