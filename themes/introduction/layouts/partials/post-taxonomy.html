@@ -81,42 +81,42 @@
 <div class="post-taxonomy">
     {{ with .Params.barrio}}
         {{ range . }}
-        <a href="/yogaenbaires/barrio/{{ . | urlize }}" 
+        <a href="/barrio/{{ . | urlize }}" 
             class="taxonomy-item taxonomy-barrio">{{ . }}</a>
         {{ end }}
     {{ end }}
 
     {{ with .Params.estilo }}
         {{ range . }}
-        <a href="/yogaenbaires/estilo/{{ . | urlize }}" 
+        <a href="/estilo/{{ . | urlize }}" 
            class="taxonomy-item taxonomy-estilo">{{ . }}</a>
         {{ end }}
     {{ end }}
     
     {{ with .Params.duracion }}
         {{ range . }}
-        <a href="/yogaenbaires/duracion/{{ . | urlize }}" 
+        <a href="/duracion/{{ . | urlize }}" 
            class="taxonomy-item taxonomy-duracion">{{ . }}</a>
         {{ end }}
     {{ end }}
     
     {{ with .Params.intensidad }}
         {{ range . }}
-        <a href="/yogaenbaires/intensidad/{{ . | urlize }}" 
+        <a href="/intensidad/{{ . | urlize }}" 
            class="taxonomy-item taxonomy-intensidad">{{ . }}</a>
         {{ end }}
     {{ end }}
     
     {{ with .Params.niveles }}
         {{ range . }}
-        <a href="/yogaenbaires/nivel/{{ . | urlize }}" 
+        <a href="/nivel/{{ . | urlize }}" 
            class="taxonomy-item taxonomy-niveles">{{ . }}</a>
         {{ end }}
     {{ end }}
     
     {{ with .Params.otros }}
         {{ range . }}
-        <a href="/yogaenbaires/otros/{{ . | urlize }}" 
+        <a href="/otros/{{ . | urlize }}" 
            class="taxonomy-item taxonomy-otros">{{ . }}</a>
         {{ end }}
     {{ end }}

@@ -1,5 +1,6 @@
 # Hugo default ignores
 /public/
+/public-ar/
 /resources/_gen/
 /assets/jsconfig.json
 .hugo_build.lock

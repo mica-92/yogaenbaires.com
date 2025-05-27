@@ -2,11 +2,11 @@
     <div class="nav-content">
         <div class="left-items">
             <div class="menu-toggle" id="menuToggle">
-                <img src="/yogaenbaires/images/IG-prof.png" alt="Menu" class="burger-icon" width="30" height="30">
+                <img src="/images/IG-prof.png" alt="Menu" class="burger-icon" width="30" height="30">
             </div>
             
-            <a href="/yogaenbaires/" class="logo-link">
-                <img src="/yogaenbaires/images/logoderecho.png" alt="Logo" class="right-logo">
+            <a href="/" class="logo-link">
+                <img src="/images/logoderecho.png" alt="Logo" class="right-logo">
             </a>
             
             <div class="slogan">
@@ -52,29 +52,29 @@
             </div>
 
             <nav class="menu-links">
-                <a href="/yogaenbaires/">home: <i>el sendero del yogui</i></a>
-                <a href="/yogaenbaires/blog/sobre-mi/">sobre mi & <i>yogaenbaires</i></a>
-                <a href="/yogaenbaires/blog/">el semillero</a>
+                <a href="/">home: <i>el sendero del yogui</i></a>
+                <a href="/blog/sobre-mi/">sobre mi & <i>yogaenbaires</i></a>
+                <a href="/blog/">el semillero</a>
                 
                 <div class="taxonomy-section">
                     <h3 class="categorias-title">Barrios</h3>
                     <div class="taxonomy-list">
                         {{ range $name, $taxonomy := .Site.Taxonomies.barrio }}
-                            <a href="/yogaenbaires/barrio/{{ $name | urlize }}" class="taxonomy-item">{{ $name | title }}</a>
+                            <a href="/barrio/{{ $name | urlize }}" class="taxonomy-item">{{ $name | title }}</a>
                         {{ end }}
                     </div>
                     
                     <h3 class="categorias-title">Estilos</h3>
                     <div class="taxonomy-list">
                         {{ range $name, $taxonomy := .Site.Taxonomies.estilo }}
-                            <a href="/yogaenbaires/estilo/{{ $name | urlize }}" class="taxonomy-item">{{ $name | title }}</a>
+                            <a href="/estilo/{{ $name | urlize }}" class="taxonomy-item">{{ $name | title }}</a>
                         {{ end }}
                     </div>
                     
                     <h3 class="categorias-title">Intensidad</h3>
                     <div class="taxonomy-list">
                         {{ range $name, $taxonomy := .Site.Taxonomies.intensidad }}
-                            <a href="/yogaenbaires/intensidad/{{ $name | urlize }}" class="taxonomy-item">{{ $name | title }}</a>
+                            <a href="/intensidad/{{ $name | urlize }}" class="taxonomy-item">{{ $name | title }}</a>
                         {{ end }}
                     </div>
                 </div>
