@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Otros on Yoga en Baires</title>
+    <link>https://www.yogaenbaires.com.ar/otros/</link>
+    <description>Recent content in Otros on Yoga en Baires</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Fri, 09 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.yogaenbaires.com.ar/otros/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kundalini</title>
+      <link>https://www.yogaenbaires.com.ar/otros/kundalini/</link>
+      <pubDate>Fri, 09 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.yogaenbaires.com.ar/otros/kundalini/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

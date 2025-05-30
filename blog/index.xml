@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>el-semillero on Yoga en Baires</title>
+    <link>https://www.yogaenbaires.com.ar/blog/</link>
+    <description>Recent content in el-semillero on Yoga en Baires</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Wed, 30 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.yogaenbaires.com.ar/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Primera Clase</title>
+      <link>https://www.yogaenbaires.com.ar/blog/primera-clase/</link>
+      <pubDate>Wed, 30 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.yogaenbaires.com.ar/blog/primera-clase/</guid>
+      <description>¿Primera vez? En este blog te contamos todo lo que necesitas saber para disfrutar de tu primera clase de yoga.&#xD;Ir a tu primera clase de yoga puede generar algo de ansiedad. A veces es difícil saber qué esperar solo con ver un perfil de Instagram o la descripción de una clase. Además, los códigos de conducta pueden variar según el estudio y el estilo. Pero ... ¡Que no cunda el pánico!</description>
+    </item>
+    <item>
+      <title>Estilos de Yoga</title>
+      <link>https://www.yogaenbaires.com.ar/blog/estilos-de-yoga/</link>
+      <pubDate>Fri, 03 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.yogaenbaires.com.ar/blog/estilos-de-yoga/</guid>
+      <description>Guía Rápida de Estilos&#xD;Con miles de años de antigüedad y sus raíces en la India, el yoga ha experimentado una notable evolución. Si bien la esencia de la práctica —la unión entre el cuerpo, la mente y el espíritu— permanece inmutable, los estilos modernos de yoga que conocemos hoy son, en gran parte, un desarrollo de los siglos XX y XXI. Originalmente, el yoga se transmitía de forma oral, de maestro a alumno, poniendo un fuerte énfasis en la meditación, los pranayamas (técnicas de respiración) y las asanas (posturas físicas) como pasos preparatorios para alcanzar estados meditativos más profundos.</description>
+    </item>
+    <item>
+      <title>Newsletter</title>
+      <link>https://www.yogaenbaires.com.ar/blog/subscripcion/</link>
+      <pubDate>Fri, 03 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.yogaenbaires.com.ar/blog/subscripcion/</guid>
+      <description>&#xD;Mantenete al día e informado de las últimas reseñas, estudios destacados, novedades y noticias sobre el recorrido de esta yogini en la city porteña, uniendote a nuestro newsletter mensual.&#xD;Loading…</description>
+    </item>
+    <item>
+      <title>Sobre Mi &amp; Yoga en Baires</title>
+      <link>https://www.yogaenbaires.com.ar/blog/sobre-mi/</link>
+      <pubDate>Fri, 03 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.yogaenbaires.com.ar/blog/sobre-mi/</guid>
+      <description>Bienvenidos a Yoga en Baires.&#xD;Mi nombre es Mica. Profe, practicante, estudiante y amante del yoga.&#xD;El Yoga y yo cruzamos caminos de manera fortuita durante 2018, mientras vivía en México. Playa del Carmen vibraba con una onda hippie acercandome a un espacio que no conocía pero necesitaba. Todos los días decenas de clases de yoga se ofrecian a lo largo y ancho del pueblo muchas de ellas ad honorem.</description>
+    </item>
+  </channel>
+</rss>

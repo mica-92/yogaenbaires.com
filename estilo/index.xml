@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Estilo on Yoga en Baires</title>
+    <link>https://www.yogaenbaires.com.ar/estilo/</link>
+    <description>Recent content in Estilo on Yoga en Baires</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Mon, 12 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.yogaenbaires.com.ar/estilo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ashtanga</title>
+      <link>https://www.yogaenbaires.com.ar/estilo/ashtanga/</link>
+      <pubDate>Mon, 12 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.yogaenbaires.com.ar/estilo/ashtanga/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Otros</title>
+      <link>https://www.yogaenbaires.com.ar/estilo/otros/</link>
+      <pubDate>Fri, 09 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.yogaenbaires.com.ar/estilo/otros/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hatha</title>
+      <link>https://www.yogaenbaires.com.ar/estilo/hatha/</link>
+      <pubDate>Thu, 08 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.yogaenbaires.com.ar/estilo/hatha/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Yin</title>
+      <link>https://www.yogaenbaires.com.ar/estilo/yin/</link>
+      <pubDate>Thu, 08 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.yogaenbaires.com.ar/estilo/yin/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vinyasa</title>
+      <link>https://www.yogaenbaires.com.ar/estilo/vinyasa/</link>
+      <pubDate>Wed, 07 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.yogaenbaires.com.ar/estilo/vinyasa/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

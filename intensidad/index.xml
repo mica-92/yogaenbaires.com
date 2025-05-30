@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Intensidad on Yoga en Baires</title>
+    <link>https://www.yogaenbaires.com.ar/intensidad/</link>
+    <description>Recent content in Intensidad on Yoga en Baires</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Mon, 12 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.yogaenbaires.com.ar/intensidad/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Intensa</title>
+      <link>https://www.yogaenbaires.com.ar/intensidad/intensa/</link>
+      <pubDate>Mon, 12 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.yogaenbaires.com.ar/intensidad/intensa/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Variable</title>
+      <link>https://www.yogaenbaires.com.ar/intensidad/variable/</link>
+      <pubDate>Mon, 12 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.yogaenbaires.com.ar/intensidad/variable/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Media</title>
+      <link>https://www.yogaenbaires.com.ar/intensidad/media/</link>
+      <pubDate>Fri, 09 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.yogaenbaires.com.ar/intensidad/media/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Baja</title>
+      <link>https://www.yogaenbaires.com.ar/intensidad/baja/</link>
+      <pubDate>Thu, 08 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.yogaenbaires.com.ar/intensidad/baja/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Alta</title>
+      <link>https://www.yogaenbaires.com.ar/intensidad/alta/</link>
+      <pubDate>Wed, 07 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.yogaenbaires.com.ar/intensidad/alta/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
