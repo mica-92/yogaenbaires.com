@@ -63,7 +63,7 @@ Estudio De Ashtanga Yoga Tradicional Con Clases Mysore De Lunes a Viernes. Ernes
     <div class="nav-content">
         <div class="left-items">
             <div class="menu-toggle" id="menuToggle">
-                <img src="/images/logo-original.png" alt="Menu" class="burger-icon" width="30" height="30">
+                <img src="/images/lotus-original.png" alt="Menu" class="burger-icon" width="30" height="30">
             </div>
             
             <a href="/" class="logo-link">
@@ -138,7 +138,7 @@ Estudio De Ashtanga Yoga Tradicional Con Clases Mysore De Lunes a Viernes. Ernes
                   estilo: "[\"Vinyasa\"]",
                   id: "\"2\"",
                   content: "\"En plena Recoleta, cerca de la icónica Biblioteca Nacional, Vinyasa Flow Recoleta atrae a yoguis que buscan dinamismo y creatividad en su práctica. Dirigido por Martín López, ex bailarín y profesor certificado en Power Yoga, el estudio fusiona secuencias fluidas con música en vivo (en clases especiales los viernes). Con capacidad para 20 personas, el espacio—iluminado por velas y luces tenues—tiene un ambiente moderno pero cálido. Lo que lo hace único: ofrecen \\u0026ldquo;Yoga con Pesas\\u0026rdquo; los martes, una combinación innovadora de fuerza y movilidad. Perfecto para quienes quieren sudar y desafiar sus límites, pero siempre con ajustes personalizados.\\n\""
-                },
+                }
                 
               ];
             </script>
@@ -153,8 +153,6 @@ Estudio De Ashtanga Yoga Tradicional Con Clases Mysore De Lunes a Viernes. Ernes
                 <a href="/">home: <i>el sendero del yogui</i></a>
                 <a href="/blog/sobre-mi/">sobre <i>yogaenbaires</i></a>
                 <a href="/blog/"><i>el semillero</i> - blog & newsletter</a>
-                
-
                 
                 <div class="taxonomy-section">
                     <h3 class="categorias-title">Barrios</h3>
@@ -210,60 +208,36 @@ Estudio De Ashtanga Yoga Tradicional Con Clases Mysore De Lunes a Viernes. Ernes
     text-decoration: none !important;
 }
 
-
 .categorias-title {
     font-size: 1.6rem !important;
     font-weight: 600 !important;
     text-align: left !important;
     color: #555;
 }
+
  
 .menu-toggle {
     height: 30px;  
     width: 30px;  
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
 }
-
 
 .burger-icon {
     width: 30px !important;
     height: 30px !important;
-    transition: none !important;  
+    transition: opacity 0.3s ease;
 }
 
  
-.menu-toggle {
-    overflow: hidden;  
-}
-
- 
-.right-logo, 
-.burger-icon, 
-.burger-icon-hover {
+.right-logo {
     height: 100%;
-    width: auto;  
-    max-height: 30px;  
-    object-fit: contain;  
-}
-
- 
-@media (max-width: 768px) {
-    .logo-link {
-        height: 25px;  
-    }
-    
-    .right-logo {
-        max-height: 25px;
-    }
-    
-    .menu-toggle {
-        height: 25px;
-        width: 25px;
-    }
-    
-    .burger-icon, 
-    .burger-icon-hover {
-        max-height: 25px;
-    }
+    width: auto;
+    max-height: 30px;
+    object-fit: contain;
 }
 
  
@@ -273,21 +247,13 @@ img {
     object-fit: contain;
 }
 
-
  
 .logo-link {
     display: flex;
     align-items: center;
-    height: 30px;  
+    height: 30px;
     margin-right: 1rem;
 }
-
-.right-logo {
-    height: 100%;
-    width: auto;
-    max-height: 30px;
-}
-
 
  
 .nav-bar {
@@ -323,11 +289,10 @@ img {
     color: #2c2900;
 }
 
-   
-  .fa, .fab, .fas {
+ 
+.fa, .fab, .fas {
     font-size: 36px !important;
-
-  }
+}
 
 .social-icons {
     display: flex;
@@ -344,39 +309,6 @@ img {
 .social-icon:hover {
     color: #CD5C5C;
     transform: scale(1.1);
-}
-
-.menu-toggle {
-    cursor: pointer;
-    height: 40px;
-    width: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 1rem;
-    position: relative;
-}
-
-.menu-toggle img {
-    height: 30px;
-    width: auto;
-    transition: all 0.3s ease;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.burger-icon-hover {
-    opacity: 0;
-}
-
-.menu-toggle:hover .burger-icon {
-    opacity: 0;
-}
-
-.menu-toggle:hover .burger-icon-hover {
-    opacity: 1;
 }
 
 .right-logo {
@@ -560,7 +492,7 @@ img {
     .slogan {
         display: none;
     }
-
+}
 
  
 @media (max-width: 768px) {
@@ -577,20 +509,17 @@ img {
         font-size: 0.85rem;
     }
 
-       
-  .fa, .fab, .fas {
-    font-size: 14px !important;
+    .fa, .fab, .fas {
+        font-size: 14px !important;
+    }
 
-  }
-
-.social-icon {
-    margin-left: 0.5rem !important;
-    margin-right: 0.5rem !important;
-    font-size: 28px;
-    color: #6c6464;
-    transition: all 0.3s ease;
-}
-
+    .social-icon {
+        margin-left: 0.5rem !important;
+        margin-right: 0.5rem !important;
+        font-size: 28px;
+        color: #6c6464;
+        transition: all 0.3s ease;
+    }
 }
 </style>
 
@@ -601,20 +530,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuClose = document.getElementById('menuClose');
     const fullscreenMenu = document.getElementById('fullscreenMenu');
     const burgerIcon = document.querySelector('.burger-icon');
-    const burgerIconHover = document.querySelector('.burger-icon-hover');
     const navBar = document.querySelector('.nav-bar');
 
     function toggleMenu(isOpen) {
         if (isOpen) {
             fullscreenMenu.style.display = 'none';
-            burgerIcon.style.display = 'block';
-            burgerIconHover.style.display = 'none';
-            navBar.classList.remove('menu-open');
+            document.body.style.overflow = 'auto';
         } else {
             fullscreenMenu.style.display = 'flex';
-            burgerIcon.style.display = 'none';
-            burgerIconHover.style.display = 'block';
-            navBar.classList.add('menu-open');
+            document.body.style.overflow = 'hidden';
         }
     }
 
