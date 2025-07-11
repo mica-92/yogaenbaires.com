@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Restaurativo on Yoga en Baires</title>
+    <link>https://www.yogaenbaires.com.ar/estilo/restaurativo/</link>
+    <description>Recent content in Restaurativo on Yoga en Baires</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Tue, 08 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.yogaenbaires.com.ar/estilo/restaurativo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ahimsa</title>
+      <link>https://www.yogaenbaires.com.ar/estudios/3-ahimsa/</link>
+      <pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.yogaenbaires.com.ar/estudios/3-ahimsa/</guid>
+      <description>Ahimsa Yoga es un estudio especializado en yoga terapéutico y bienestar integral, donde se fusiona la sabiduría del yoga con un enfoque científico para acompañar a quienes buscan aliviar patologías, recuperar movilidad o simplemente encontrar equilibrio.&#xA;Con grupos reducidos y un equipo docente que incluye profesionales de la salud, se garantiza una práctica segura y adaptada a cada necesidad, en un ambiente cálido donde prima la atención personalizada. Cada clase integra posturas (asanas), respiración (pranayama) y meditación, cultivando calma interior y herramientas para llevar ese bienestar más allá del mat.</description>
+    </item>
+    <item>
+      <title>Hono Studio</title>
+      <link>https://www.yogaenbaires.com.ar/estudios/2-hono-studio/</link>
+      <pubDate>Mon, 07 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.yogaenbaires.com.ar/estudios/2-hono-studio/</guid>
+      <description>Hono Studio es un moderno estudio de Yoga y Pilates que acaba de abrir sus puertas en el corazón de Núñez. Cuenta con dos salones: el principal, equipado con 7 camillas de Pilates Reformer, y un salón trasero dedicado a las prácticas de yoga, que ofrece un ambiente tranquilo y relajado donde el ruido de la Avenida Cabildo es imperceptible. El estudio irradia una energía fitness y amigable, complementada por una grilla de horarios muy completa, con clases de Pilates continuas y una gran variedad de estilos de yoga.</description>
+    </item>
+  </channel>
+</rss>

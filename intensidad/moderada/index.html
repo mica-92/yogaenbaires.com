@@ -98,6 +98,24 @@ Moderada - Yoga en Baires
               window.estudiosData = [
                 
                 {
+                  title: "\"Ahimsa\"",
+                  permalink: "\"https://www.yogaenbaires.com.ar/estudios/3-ahimsa/\"",
+                  barrio: "[\"Caballito\"]",
+                  estilo: "[\"Terapéutico\",\"Hatha\",\"Restaurativo\"]",
+                  id: "\"3\"",
+                  content: "\"Ahimsa Yoga es un estudio especializado en yoga terapéutico y bienestar integral, donde se fusiona la sabiduría del yoga con un enfoque científico para acompañar a quienes buscan aliviar patologías, recuperar movilidad o simplemente encontrar equilibrio.\\nCon grupos reducidos y un equipo docente que incluye profesionales de la salud, se garantiza una práctica segura y adaptada a cada necesidad, en un ambiente cálido donde prima la atención personalizada. Cada clase integra posturas (asanas), respiración (pranayama) y meditación, cultivando calma interior y herramientas para llevar ese bienestar más allá del mat.\\nUn espacio donde el yoga se vive con profundidad, cuidado y comunidad ideal para alumnos que busquen un yoga tranquilo y de conexión profunda con sus cuerpos.\\n\""
+                },
+                
+                {
+                  title: "\"Hono Studio\"",
+                  permalink: "\"https://www.yogaenbaires.com.ar/estudios/2-hono-studio/\"",
+                  barrio: "[\"Nuñez\"]",
+                  estilo: "[\"Ashtanga\",\"Hatha\",\"Restaurativo\",\"Vinyasa\"]",
+                  id: "\"2\"",
+                  content: "\"Hono Studio es un moderno estudio de Yoga y Pilates que acaba de abrir sus puertas en el corazón de Núñez. Cuenta con dos salones: el principal, equipado con 7 camillas de Pilates Reformer, y un salón trasero dedicado a las prácticas de yoga, que ofrece un ambiente tranquilo y relajado donde el ruido de la Avenida Cabildo es imperceptible. El estudio irradia una energía fitness y amigable, complementada por una grilla de horarios muy completa, con clases de Pilates continuas y una gran variedad de estilos de yoga. Las clases de Ashtanga, a cargo de Lu, son dinámicas pero aptas para principiantes, gracias a un trabajo guiado y adaptaciones que permiten una práctica intensa pero accesible para todos los niveles.\\n\""
+                },
+                
+                {
                   title: "\"Ashtanga Yoga Caballito\"",
                   permalink: "\"https://www.yogaenbaires.com.ar/estudios/1-ashtanga-yoga-caballito/\"",
                   barrio: "[\"Caballito\"]",
@@ -128,12 +146,22 @@ Moderada - Yoga en Baires
                         
                             <a href="/barrio/caballito" class="taxonomy-item">Caballito</a>
                         
+                            <a href="/barrio/nu%C3%B1ez" class="taxonomy-item">Nuñez</a>
+                        
                     </div>
                     
                     <h3 class="categorias-title">Estilos</h3>
                     <div class="taxonomy-list">
                         
                             <a href="/estilo/ashtanga" class="taxonomy-item">Ashtanga</a>
+                        
+                            <a href="/estilo/hatha" class="taxonomy-item">Hatha</a>
+                        
+                            <a href="/estilo/restaurativo" class="taxonomy-item">Restaurativo</a>
+                        
+                            <a href="/estilo/terap%C3%A9utico" class="taxonomy-item">Terapéutico</a>
+                        
+                            <a href="/estilo/vinyasa" class="taxonomy-item">Vinyasa</a>
                         
                     </div>
                     
@@ -145,6 +173,10 @@ Moderada - Yoga en Baires
                             <a href="/intensidad/moderada" class="taxonomy-item">Moderada</a>
                         
                             <a href="/intensidad/personalizada" class="taxonomy-item">Personalizada</a>
+                        
+                            <a href="/intensidad/personalizda" class="taxonomy-item">Personalizda</a>
+                        
+                            <a href="/intensidad/suave" class="taxonomy-item">Suave</a>
                         
                     </div>
                 </div>
@@ -887,6 +919,146 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         
         <div class="estudios-posts-container">
+            
+            <div class="estudios-post-item">
+                <h4 class="estudios-post-title">
+                <a href="https://www.yogaenbaires.com.ar/estudios/2-hono-studio/">#2 - Hono Studio</a>
+                </h4>
+                <style>
+ 
+ 
+.post-taxonomy {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 12px;  
+    margin: 8px 0;  
+}
+
+.taxonomy-item {
+    font-family: 'Menlo', 'Consolas', monospace;
+    font-size: 0.8rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+    color: #555;  
+}
+
+ 
+.taxonomy-estilo {
+    background-color: #e8f5e9;   
+    border-color: #c8e6c9;
+}
+.taxonomy-estilo:hover {
+    background-color: #c8e6c9;
+}
+
+.taxonomy-duracion {
+    background-color: #e3f2fd;   
+    border-color: #bbdefb;
+}
+.taxonomy-duracion:hover {
+    background-color: #bbdefb;
+}
+
+.taxonomy-intensidad {
+    background-color: #fce4ec;   
+    border-color: #f8bbd0;
+}
+.taxonomy-intensidad:hover {
+    background-color: #f8bbd0;
+}
+
+.taxonomy-niveles {
+    background-color: #fff8e1;   
+    border-color: #ffe0b2;
+}
+.taxonomy-niveles:hover {
+    background-color: #ffe0b2;
+}
+
+.taxonomy-otros {
+    background-color: #f3e5f5;   
+    border-color: #e1bee7;
+}
+.taxonomy-otros:hover {
+    background-color: #e1bee7;
+}
+
+.taxonomy-barrio {
+    background-color: #fff3e0;   
+    border-color: #ffcc80;
+}
+.taxonomy-barrio:hover {
+    background-color: #ffcc80;
+}
+
+ 
+.taxonomy-item:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    color: #555 !important;  
+}
+</style>
+
+
+<div class="post-taxonomy">
+    
+        
+        <a href="/barrio/nu%C3%B1ez" 
+            class="taxonomy-item taxonomy-barrio">Nuñez</a>
+        
+    
+
+    
+        
+        <a href="/estilo/ashtanga" 
+           class="taxonomy-item taxonomy-estilo">Ashtanga</a>
+        
+        <a href="/estilo/hatha" 
+           class="taxonomy-item taxonomy-estilo">Hatha</a>
+        
+        <a href="/estilo/restaurativo" 
+           class="taxonomy-item taxonomy-estilo">Restaurativo</a>
+        
+        <a href="/estilo/vinyasa" 
+           class="taxonomy-item taxonomy-estilo">Vinyasa</a>
+        
+    
+    
+    
+        
+        <a href="/duracion/60-min" 
+           class="taxonomy-item taxonomy-duracion">60 min</a>
+        
+        <a href="/duracion/90-min" 
+           class="taxonomy-item taxonomy-duracion">90 min</a>
+        
+    
+    
+    
+        
+        <a href="/intensidad/suave" 
+           class="taxonomy-item taxonomy-intensidad">Suave</a>
+        
+        <a href="/intensidad/moderada" 
+           class="taxonomy-item taxonomy-intensidad">Moderada</a>
+        
+    
+    
+    
+    
+    
+</div>
+                
+                <div class="estudios-post-description">
+                    Hono Studio es un espacio de conexión, movimiento y equilibrio en el corazón de Núñez.
+                </div>
+                
+                <hr class="estudios-post-divider">
+            </div>
             
             <div class="estudios-post-item">
                 <h4 class="estudios-post-title">
